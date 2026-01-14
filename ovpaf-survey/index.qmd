@@ -1,0 +1,47 @@
+---
+title: "Visayas State University: Campus Safety and Resilience Survey"
+author: "ViSERDAC"
+date: last-modified
+format: 
+  html:
+    css: custom.scss
+    self-contained: true
+    mainfont: arial
+    fontsize: 1em
+    linestretch: 1.5
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    number-sections: true
+    code-fold: true
+    theme:
+      light: cosmo
+      dark: darkly
+execute:
+  message: false
+  warning: false
+  fig-align: center
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+## setting working directory
+setwd(here::here("ovpaf-survey"))
+
+
+## libraries
+library(tidyverse)
+library(readxl)
+library(gtsummary)
+library(kableExtra)
+library(patchwork)
+library(ggthemes)
+library(ggbeeswarm)
+
+## data management source
+source("data-management.R")
+```
