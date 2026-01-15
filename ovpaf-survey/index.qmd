@@ -44,4 +44,174 @@ library(ggbeeswarm)
 
 ## data management source
 source("data-management.R")
+
+# custom theme
+custom_theme <- 
+  theme_set(theme_minimal()) +
+  theme(plot.title = element_text(hjust = 0.5, size = 16, margin = margin(b=20), face = "bold"),
+        plot.margin = margin(t = 20, r = 20, b = 20, l = 20),
+        panel.grid = element_blank(),
+        axis.text = element_text(size = 12),
+        legend.position = "bottom",
+        strip.text = element_text(size = 14))
+
+
+```
+
+## Sociodemographic
+
+```{r}
+data_raw |> 
+  select(position, age:resident, participation, traffic_light) |> 
+  select(-work_year) |> 
+  mutate(
+    resident = if_else(resident == 1, "In-campus", "Off-campus"),
+    participation = case_when(
+      participation %in% c(0, "0", "No") ~ "No",
+      participation %in% c(1, "1", "Yes") ~ "Yes",
+      TRUE ~ as.character(participation)),
+    traffic_light = case_when(
+      traffic_light == 0 ~ "No",
+      traffic_light == 1 ~ "Yes",
+      traffic_light == 2 ~ "Maybe",
+      TRUE ~ as.character(traffic_light))
+      ) |> 
+  tbl_summary(
+    by = position,
+    type = list(sex ~ "categorical",
+                participation = "categorical"),
+    missing_text = "Missing observation(s)"
+  ) |> 
+  bold_labels() %>% 
+  as_kable_extra(linesep = "") %>% 
+  kable_minimal() %>% 
+  kable_styling(full_width = F, fixed_thead = T,
+                bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+
+```
+
+
+
+## Physical safety and security
+
+
+```{r}
+## plotting statement
+pss_plt <- 
+  item_statement_dta |> 
+  filter(str_detect(categories, "Physical")) |>
+  ggplot(aes(x = perc, y = description, fill = response_fct)) +
+  geom_col(position = "fill", width = 0.7) +
+  geom_text(aes(label = scales::percent(perc, accuracy = 1)),
+            position = position_fill(vjust = 0.5),
+            color = "gray90",
+            size = 4, 
+            fontface = "bold") +
+  scale_x_continuous(labels = scales::percent_format()) +
+  scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffd166", "#e63946")) +  
+  coord_cartesian(clip = "off", expand = TRUE) +
+  facet_wrap(~position) +
+  labs(title = "Physical safety and security",
+       x = element_blank(),
+       y = element_blank(),
+       fill = "Response") +
+  custom_theme
+  
+## saving plot
+ggsave(
+  plot = pss_plt,
+  filename = "plot/physical_saftey.jpeg",
+  dpi = 400,
+  height = 6,
+  width = 10,
+  unit = "in"
+)
+
+## show plot
+knitr::include_graphics("plot/physical_saftey.jpeg")
+
+```
+
+
+## Emotional and professional safety
+
+
+```{r}
+## plotting statement
+eps_plt <- 
+  item_statement_dta |> 
+  filter(str_detect(categories, "Emotional")) |>
+  ggplot(aes(x = perc, y = description, fill = response_fct)) +
+  geom_col(position = "fill", width = 0.7) +
+  geom_text(aes(label = scales::percent(perc, accuracy = 1)),
+            position = position_fill(vjust = 0.5),
+            color = "gray90",
+            size = 4, 
+            fontface = "bold") +
+  scale_x_continuous(labels = scales::percent_format()) +
+  scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffd166", "#e63946")) +
+  coord_cartesian(clip = "off", expand = TRUE) +
+  facet_wrap(~position) +
+  labs(title = "Emotional and professional safety",
+       x = element_blank(),
+       y = element_blank(),
+       fill = "Response") +
+  custom_theme
+
+
+## saving plot
+ggsave(
+  plot = eps_plt,
+  filename = "plot/emotional_saftey.jpeg",
+  dpi = 400,
+  height = 6,
+  width = 10,
+  unit = "in"
+)
+
+## show plot
+knitr::include_graphics("plot/emotional_saftey.jpeg")
+
+```
+
+
+## Social and community safety
+
+
+```{r}
+## plotting statement
+scf_plt <- 
+  item_statement_dta |> 
+  filter(str_detect(categories, "Social")) |>
+  ggplot(aes(x = perc, y = description, fill = response_fct)) +
+  geom_col(position = "fill", width = 0.7) +
+  geom_text(aes(label = scales::percent(perc, accuracy = 1)),
+            position = position_fill(vjust = 0.5),
+            color = "gray90",
+            size = 4, 
+            fontface = "bold") +
+  scale_x_continuous(labels = scales::percent_format()) +
+  scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffd166", "#e63946")) +
+  coord_cartesian(clip = "off", expand = TRUE) +
+  facet_wrap(~position) +
+  labs(title = "Social and community safety",
+       x = element_blank(),
+       y = element_blank(),
+       fill = "Response") +
+  custom_theme
+
+
+## saving plot
+ggsave(
+  plot = scf_plt,
+  filename = "plot/social_saftey.jpeg",
+  dpi = 400,
+  height = 6,
+  width = 10,
+  unit = "in"
+)
+
+## show plot
+knitr::include_graphics("plot/social_saftey.jpeg")
+
 ```
