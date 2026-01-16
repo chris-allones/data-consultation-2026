@@ -41,3 +41,42 @@ item_statement_dta <-
   mutate(response_fct = fct_rev(response_fct))
 
 
+
+## student data
+### load data
+student_raw_dta <- 
+  read_excel("data/vsu-safety-resilience.xlsx", 3) |> 
+  clean_names() |> 
+  remove_empty()
+
+
+## likert data and statement
+student_likert_statement_dta <- 
+  read_excel("data/vsu-safety-resilience.xlsx", sheet = 4) |> 
+  clean_names()
+
+student_item_statement_dta <- 
+  student_raw_dta |> 
+  select(si1:si23) |> 
+  pivot_longer(cols = everything(),
+               names_to = "statement",
+               values_to = "response") |> 
+  left_join(student_likert_statement_dta,
+            by = c("statement" = "item")) |> 
+  rename("description" = statement.y) |> 
+  na.omit() |> 
+  count(category, description, response) |> 
+  group_by(category, description) |>
+  mutate(total = sum(n),
+         perc = n/total) |> 
+  ungroup() |>
+  mutate(description = str_wrap(description, width = 40)) |> 
+  mutate(response_fct = factor(response, 
+                               levels = c(1, 2, 3, 4, 5),
+                               labels = c("Strongly Disagree", 
+                                          "Disagree", 
+                                          "Neutral", 
+                                          "Agree", 
+                                          "Strongly Agree"))) |> 
+  mutate(response_fct = fct_rev(response_fct))
+
