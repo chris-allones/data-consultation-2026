@@ -80,3 +80,5 @@ student_item_statement_dta <-
                                           "Strongly Agree"))) |> 
   mutate(response_fct = fct_rev(response_fct))
 
+
+## guests and visitors

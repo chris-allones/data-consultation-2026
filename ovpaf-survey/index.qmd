@@ -477,3 +477,7 @@ ggsave(
 ## show plot
 knitr::include_graphics("plot/student_digital_emergency_safety.jpeg")
 ```
+
+
+# Guests and visitors
+
