@@ -109,3 +109,70 @@ guest_item_statement_dta <-
                         labels = c("Very poor", "Poor", "Good", "Very good"))) |> 
   mutate(response_fct = fct_rev(response_fct))
 
+
+## data combine
+
+data_raw |> 
+  select(position, recommend:resident) |> 
+  glimpse()
+
+student_raw_dta |> 
+  select(feedback:traffic_light) |> 
+  glimpse()
+
+guest_raw_dta |> 
+  select(suggestion:other_spec) |> 
+  glimpse()
+
+######################################################
+
+library(dplyr)
+
+# Prepare each dataset with a common structure
+faculty_staff <- data_raw |> 
+  select(position, recommend, participation, participation_specify, feedback, traffic_light, age, sex, work_year, resident) |> 
+  mutate(group = "Faculty & Staff")
+
+student <- student_raw_dta |> 
+  select(feedback, age, sex, year, location, safe_travel, safety_exper, traffic_light) |> 
+  rename("resident" = location) |> 
+  mutate(
+    position = NA,
+    recommend = NA,
+    participation = NA,
+    participation_specify = NA,
+    work_year = NA,
+    suggestion = NA,
+    stakeholders = NA,
+    other_spec = NA,
+    group = "Student"
+  )
+
+guest <- guest_raw_dta |> 
+  select(suggestion, feedback, traffic_light, age, sex, stakeholders, other_spec) |> 
+  mutate(
+    position = NA,
+    recommend = NA,
+    participation = NA,
+    participation_specify = NA,
+    work_year = NA,
+    resident = NA,
+    year = NA,
+    location = NA,
+    safe_travel = NA,
+    safety_exper = NA,
+    group = "Guest"
+  )
+
+# Combine all datasets
+combined_data <- bind_rows(faculty_staff, student, guest)
+
+# View structure
+glimpse(combined_data)
+
+
+combined_data |> 
+  select(-recommend, -position, -participation, -participation_specify, -feedback, -work_year, -year, -safe_travel, -safety_exper, -suggestion, -stakeholders, -other_spec, -location) |> 
+  tbl_summary(
+    by = group
+  )
