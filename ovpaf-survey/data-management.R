@@ -82,3 +82,30 @@ student_item_statement_dta <-
 
 
 ## guests and visitors
+### load data
+guest_raw_dta <- 
+  read_excel("data/vsu-safety-resilience.xlsx", sheet = 5) |> 
+  clean_names()
+
+### student items statements
+
+guest_items_dta <- 
+  read_excel("data/vsu-safety-resilience.xlsx", sheet = 6) |> 
+  clean_names()
+
+guest_item_statement_dta <- 
+  guest_raw_dta |> 
+  select(s1:s5) |> 
+  pivot_longer(cols = everything(),
+               names_to = "statement",
+              values_to = "response") |> 
+  left_join(guest_items_dta, by = join_by("statement" == "item")) |> 
+  rename("description" = statement.y) |> 
+  count(description, response) |> 
+  group_by(description) |> 
+  mutate(pct = n/sum(n)) |> 
+  ungroup() |> 
+  mutate(response_fct = factor(response, levels = 1:4,
+                        labels = c("Very poor", "Poor", "Good", "Very good"))) |> 
+  mutate(response_fct = fct_rev(response_fct))
+

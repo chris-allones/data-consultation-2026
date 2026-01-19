@@ -92,10 +92,7 @@ data_raw |>
 
 ```
 
-
-
 ## Physical safety and security
-
 
 ```{r}
 ## plotting statement
@@ -134,9 +131,7 @@ knitr::include_graphics("plot/physical_saftey.jpeg")
 
 ```
 
-
 ## Emotional and professional safety
-
 
 ```{r}
 ## plotting statement
@@ -176,9 +171,7 @@ knitr::include_graphics("plot/emotional_saftey.jpeg")
 
 ```
 
-
 ## Social and community safety
-
 
 ```{r}
 ## plotting statement
@@ -218,7 +211,6 @@ knitr::include_graphics("plot/social_saftey.jpeg")
 
 ```
 
-
 # Student
 
 ## Sociodemographic profile
@@ -241,9 +233,7 @@ student_raw_dta |>
                 bootstrap_options = c("striped", "hover", "condensed", "responsive"))
 ```
 
-
 ### Travel safety
-
 
 ```{r}
 safe_travel_plt <- 
@@ -280,9 +270,7 @@ ggsave(
 knitr::include_graphics("plot/safe_travel.jpeg")
 ```
 
-
 ### Traffic light
-
 
 ```{r}
 st_traffic_light <- 
@@ -319,9 +307,8 @@ ggsave(
 )
 
 ## show plot
-knitr::include_graphics("plot/student_pyhiscal_safety.jpeg")
+knitr::include_graphics("plot/student_traffic_light.jpeg")
 ```
-
 
 ## Physical safety and security
 
@@ -361,7 +348,6 @@ ggsave(
 knitr::include_graphics("plot/student_pyhiscal_safety.jpeg")
 ```
 
-
 ## Emotional and psychological safety
 
 ```{r}
@@ -399,7 +385,6 @@ ggsave(
 ## show plot
 knitr::include_graphics("plot/student_emotional_safety.jpeg")
 ```
-
 
 ## Social and community safety
 
@@ -439,7 +424,6 @@ ggsave(
 knitr::include_graphics("plot/student_social_safety.jpeg")
 ```
 
-
 ## Digital safety and emergency preparedness
 
 ```{r}
@@ -478,6 +462,41 @@ ggsave(
 knitr::include_graphics("plot/student_digital_emergency_safety.jpeg")
 ```
 
-
 # Guests and visitors
 
+
+```{r}
+
+## plotting guest experience
+plt_experience_guest <- 
+  guest_item_statement_dta |> 
+  mutate(description = str_wrap(description, 40)) |> 
+  ggplot(aes(x = pct, y = description, fill = response_fct)) +
+  geom_col(position = "fill", width = 0.7) +
+  geom_text(aes(label = scales::percent(pct, accuracy = 1)),
+            position = position_fill(vjust = 0.5),
+            color = "gray90",
+            size = 4, 
+            fontface = "bold") +
+  scale_x_continuous(labels = scales::percent_format()) +
+  scale_fill_manual(values = c("#073b4c", "#118ab2", "#ffd166", "#e63946")) +
+  coord_cartesian(clip = "off", expand = TRUE) +
+  labs(title = str_wrap("How was your experience during your visit to VSU?", 40),
+       x = element_blank(),
+       y = element_blank(),
+       fill = "Response") +
+  custom_theme
+
+## saving plot
+ggsave(
+  plot = plt_experience_guest,
+  filename = "plot/guest_visit_experience.jpeg",
+  dpi = 400,
+  height = 6,
+  width = 10,
+  unit = "in"
+)
+
+## show plot
+knitr::include_graphics("plot/guest_visit_experience.jpeg")
+```
