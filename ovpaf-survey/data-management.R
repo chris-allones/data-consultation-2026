@@ -172,7 +172,7 @@ glimpse(combined_data)
 
 
 combined_data |> 
-  select(-recommend, -position, -participation, -participation_specify, -feedback, -work_year, -year, -safe_travel, -safety_exper, -suggestion, -stakeholders, -other_spec, -location) |> 
+  select(-traffic_light, -recommend, -position, -participation, -participation_specify, -feedback, -work_year, -year, -safe_travel, -safety_exper, -suggestion, -stakeholders, -other_spec, -location) |> 
   tbl_summary(
     by = group
   )
