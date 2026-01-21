@@ -5,6 +5,7 @@ setwd(here::here("ovpaf-survey"))
 library(tidyverse)
 library(readxl)
 library(janitor)
+library(gtsummary)
 
 
 ## load data
@@ -32,10 +33,9 @@ item_statement_dta <-
   ungroup() |>
   mutate(description = str_wrap(description, width = 40)) |> 
   mutate(response_fct = factor(response, 
-                               levels = c(1, 2, 3, 4, 5),
+                               levels = c(1, 2, 3, 4),
                                labels = c("Strongly Disagree", 
                                           "Disagree", 
-                                          "Neutral", 
                                           "Agree", 
                                           "Strongly Agree"))) |> 
   mutate(response_fct = fct_rev(response_fct))
@@ -72,10 +72,9 @@ student_item_statement_dta <-
   ungroup() |>
   mutate(description = str_wrap(description, width = 40)) |> 
   mutate(response_fct = factor(response, 
-                               levels = c(1, 2, 3, 4, 5),
+                               levels = c(1, 2, 3, 4),
                                labels = c("Strongly Disagree", 
                                           "Disagree", 
-                                          "Neutral", 
                                           "Agree", 
                                           "Strongly Agree"))) |> 
   mutate(response_fct = fct_rev(response_fct))
