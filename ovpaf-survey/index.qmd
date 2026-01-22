@@ -511,6 +511,28 @@ knitr::include_graphics("plot/guest_visit_experience.jpeg")
 
 # Combined data
 
+## Sociodemo
+
+```{r}
+combined_data |> 
+  select(group, age, sex, resident) |> 
+  mutate(
+    resident = if_else(resident == 1, "In-campus", "Off-campus"),
+    sex = if_else(sex == 1, 'Female', "Mae")
+      ) |>
+  tbl_summary(
+    by = group,
+    type = list(sex ~ "categorical",
+                participation = "categorical"),
+    missing_text = "Missing observation(s)"
+  ) |> 
+  bold_labels() %>% 
+  as_kable_extra(linesep = "") %>% 
+  kable_minimal() %>% 
+  kable_styling(full_width = F, fixed_thead = T,
+                bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+
 ## Traffic light
 
 ```{r}
