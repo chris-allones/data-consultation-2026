@@ -437,7 +437,7 @@ knitr::include_graphics("plot/student_social_safety.jpeg")
 # plotting statement
 st_digi_plt <- 
   student_item_statement_dta |> 
-  filter(str_detect(category, "Social")) |>
+  filter(str_detect(category, "Digital")) |>
   ggplot(aes(x = perc, y = description, fill = response_fct)) +
   geom_col(position = "fill", width = 0.7) +
   geom_text(aes(label = scales::percent(perc, accuracy = 1)),
@@ -460,7 +460,7 @@ ggsave(
   plot = st_digi_plt,
   filename = "plot/student_digital_emergency_safety.jpeg",
   dpi = 400,
-  height = 6,
+  height = 5,
   width = 10,
   unit = "in"
 )
