@@ -24,4 +24,27 @@ soc_med_dta <-
   mutate(social_media = str_trim(social_media, "both")) 
 
 
+## category for soc med
+soc_med_category_sub_dta <- 
+  soc_med_dta |> 
+  mutate(social_media_content = str_remove_all(social_media_content, "\\s*\\([^)]*\\)")) |> 
+  separate_longer_delim(cols = social_media_content, delim = ",") |> 
+  mutate(social_media_content = str_trim(social_media_content, "both")) |> 
+  count(social_media_content, sort = T) |> 
+  filter(n > 10)
+
+## soc med category
+soc_med_category <-
+  soc_med_dta |> 
+  mutate(social_media_content = str_remove_all(social_media_content, "\\s*\\([^)]*\\)")) |> 
+  separate_longer_delim(cols = social_media_content, delim = ",") |> 
+  mutate(social_media_content = str_trim(social_media_content, "both"))
+
+## combining soc med categories
+soc_med_content_dta <- 
+  soc_med_category_sub_dta |> 
+  left_join(soc_med_category) |> 
+  select(-n)
+  
+
 
