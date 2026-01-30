@@ -1,0 +1,8 @@
+{
+    "positron.assistant.followups.enable": true,
+    "positron.assistant.notebookMode.enable": true,
+    "positron.assistant.showTokenUsage.enable": true,
+    "positron.assistant.toolDetails.enable": true,
+    "positron.assistant.alwaysEnableApplyInEditorAction": true,
+    "positron.assistant.enable": true
+}
