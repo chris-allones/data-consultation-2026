@@ -469,8 +469,6 @@ ggsave(
 knitr::include_graphics("plot/student_digital_emergency_safety.jpeg")
 ```
 
-
-
 # Guests and visitors
 
 ```{r}
@@ -578,7 +576,6 @@ ggsave(
 # show plot
 knitr::include_graphics("plot/student_traffic_light.jpeg")
 ```
-
 
 ## Recommendation and feedback
 

@@ -1,0 +1,138 @@
+---
+title: "Rage Bait Content on Facebook: Mapping the Perceived Impacts and Engagement Behavior of Students at Visayas State University"
+author: "ViSERDAC"
+date: last-modified
+format: 
+  html:
+    css: custom.scss
+    self-contained: true
+    mainfont: arial
+    fontsize: 1em
+    linestretch: 1.5
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    number-sections: true
+    code-fold: true
+    theme:
+      light: cosmo
+      dark: darkly
+execute:
+  message: false
+  warning: false
+  fig-align: center
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+# setting working directory
+setwd(here::here("devcom-rage-bait"))
+
+
+# libraries
+library(tidyverse)
+library(readxl)
+library(gtsummary)
+library(kableExtra)
+library(patchwork)
+library(ggthemes)
+library(ggbeeswarm)
+library(tidytext)
+library(widyr)
+library(igraph)
+library(ggraph)
+library(janitor)
+library(tidygraph)
+
+
+# data management source
+source("data-management.R")
+
+# custom theme
+custom_theme <- 
+  theme_set(theme_minimal()) +
+  theme(plot.title = element_text(hjust = 0.5, size = 16, margin = margin(b=20), face = "bold"),
+        plot.margin = margin(t = 20, r = 20, b = 20, l = 20),
+        panel.grid = element_blank(),
+        axis.text = element_text(size = 12),
+        legend.position = "bottom",
+        strip.text = element_text(size = 14))
+
+
+```
+
+
+# Descriptive
+
+## Degree
+```{r}
+## need cleaning
+socio_demo_dta |> 
+  mutate(degree = str_remove_all(degree, "[0-9]|-")) |>
+  mutate(degree = str_trim(degree, side = "both")) |> 
+  count(degree, sort = T) |> 
+  View()
+```
+
+
+## Social Media
+
+### Platform
+
+```{r}
+soc_med_dta |> 
+  count(sex, social_media) |> 
+  group_by(social_media) |> 
+  mutate(pct = n / sum(n)) |> 
+  mutate(pct_lab = str_c("n=", n, "()")) |> 
+  mutate(social_media = reorder_within(social_media, n, sex)) |> 
+  ggplot(aes(n, social_media)) + 
+  geom_col() +
+  scale_y_reordered() +
+  facet_wrap(~ sex, scales = "free") +
+  custom_theme
+```
+
+
+```{r}
+## subtitle
+plt_subtitle <- str_wrap("Female students reported higher usage across most platforms, with Facebook, TikTok, and Instagram as the top three; male students also favored Facebook but showed comparatively lower engagement overall.", 100)
+
+## plotting
+plt_soc_med <- 
+  soc_med_dta |>
+  count(sex, social_media) |>
+  group_by(sex) |>
+  mutate(
+    pct = n / sum(n),
+    pct_lab = str_c("n=", n),
+    social_media = reorder_within(social_media, n, sex)
+  ) |>
+  ggplot(aes(n, social_media, fill = sex)) +
+  geom_col(width = 0.7) +
+  geom_text(aes(label = pct_lab), hjust = -0.1) +
+  scale_y_reordered() +
+  scale_x_continuous(limits = c(0, 80)) +
+  facet_wrap(~ sex, scales = "free_y") +
+  custom_theme +
+  labs(
+    title = "Which social media platforms do you use most often?",
+    subtitle = plt_subtitle,
+    fill = element_blank(),
+    y = element_blank()
+  )
+
+## saving data
+ggsave(
+  plot = plt_soc_med,
+  filename = "plot/soc_med_gender.jpg",
+  unit = "in",
+  width = 10,
+  height = 7
+)
+
+```
