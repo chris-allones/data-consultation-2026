@@ -55,8 +55,10 @@ source("data-management.R")
 # custom theme
 custom_theme <- 
   theme_set(theme_minimal()) +
-  theme(plot.title = element_text(hjust = 0.5, size = 16, margin = margin(b=20), face = "bold"),
-        plot.subtitle = element_text(color = "gray40"),
+  theme(plot.title = element_text(hjust = 0, size = 16, margin = margin(b=15), face = "bold"),
+        plot.title.position = "plot",
+        plot.subtitle = element_text(color = "gray40", margin = margin(b=15), 
+         size = 12),
         plot.margin = margin(t = 20, r = 20, b = 20, l = 20),
         panel.grid = element_blank(),
         axis.text = element_text(size = 12),
@@ -66,10 +68,10 @@ custom_theme <-
 
 ```
 
-
 # Descriptive
 
 ## Degree
+
 ```{r}
 ## need cleaning
 socio_demo_dta |> 
@@ -79,14 +81,19 @@ socio_demo_dta |>
   View()
 ```
 
-
 ## Social Media
 
 ### Platform
 
+- Female students are more active across diverse platforms, while male students concentrate usage on fewer platforms.
+
+- Females reported higher usage across nearly all platforms, with Facebook, TikTok, and Instagram as their top three.
+
+- Males also favored Facebook, but their engagement was lower overall, with Instagram and TikTok following.
+
 ```{r}
 ## subtitle
-plt_subtitle <- str_wrap("Female students reported higher usage across most platforms, with Facebook, TikTok, and Instagram as the top three; male students also favored Facebook but showed comparatively lower engagement overall.", 100)
+plt_subtitle <- str_wrap("Female students reported higher usage across most platforms, with Facebook, TikTok, and Instagram as the top three; male students also favored Facebook but showed comparatively lower engagement overall.", 120)
 
 ## plotting
 plt_soc_med <- 
@@ -126,14 +133,17 @@ knitr::include_graphics("plot/soc_med_gender.jpg")
 
 ```
 
+### Social media content engagement by gender
 
-## Social media content
+- Gender differences highlight that females lean toward lifestyle and advocacy, while males gravitate more toward gaming and politics.
 
-### by Gender
+- Females engaged most with entertainment, music, and lifestyle content, followed by news and educational posts.
+
+- Males showed similar interest in entertainment and music but had stronger engagement with gaming content compared to females.
 
 ```{r}
 ## plot subtitle
-plt_subtitle <- str_wrap("Entertainment, music, and lifestyle content were the most engaged categories among female students, while males showed stronger engagement with entertainment, music, and gaming; overall, females reported higher engagement across most content types.", 120)
+plt_subtitle <- str_wrap("Entertainment, music, and lifestyle content were the most engaged categories among female students, while males showed stronger engagement with entertainment, music, and gaming; overall, females reported higher engagement across most content types.", 140)
 
 plt_soc_med_content_gender <- 
   soc_med_content_dta |> 
@@ -173,8 +183,15 @@ knitr::include_graphics("plot/soc_med_content_gender.jpg")
 ```
 
 
+### Social media content engagement by platform
 
-### by social media
+- Regardless of platform, students prioritize light, entertaining, and lifestyle-driven content, with serious topics less dominant.
+
+- Across platforms (Facebook, Instagram, TikTok, YouTube), entertainment, music, and lifestyle consistently ranked highest.
+
+- Educational and news content also attracted significant engagement, while politics and gaming were lower overall.
+
+
 ```{r}
 
 ## subtitle
@@ -217,12 +234,25 @@ knitr::include_graphics("plot/soc_med_content.jpg")
 ```
 
 
-## Social media hours
+### Daily time spent on social media by platform
+
+- Heavy usage patterns suggest social media is deeply embedded in daily routines, with some platforms fostering extended engagement.
+
+- Majority of students spend 3–6 hours daily on Facebook, Instagram, TikTok, and YouTube.
+
+- A notable proportion also reported more than 6 hours, especially on platforms like Reddit, X (Twitter), and Tumblr.
+
 
 
 ```{r}
-soc_med_category |> 
-  filter(!str_detect( social_media, "All of it")) |> 
+
+# plot subtitle
+plt_subtitle <- str_wrap("Most students reported spending 3–6 hours daily on social media, with Facebook, Instagram, TikTok, and YouTube showing the highest sustained use; a notable share of users also exceeded 6 hours, highlighting heavy engagement across platforms.", 120)
+
+## plottign socila media hours use
+plt_soc_med_hours <- 
+  soc_med_category |> 
+  filter(!str_detect( social_media, "All of|Tele")) |> 
   count(social_media, social_media_hours) |> 
   group_by(social_media) |> 
   mutate(pct = n / sum(n)) |> 
@@ -236,9 +266,77 @@ soc_med_category |>
   facet_wrap(~ social_media, scales = "free", ncol = 2) +
   custom_theme +
   labs(
-    title = "What kinds of content do you usually engage with on social media?",
-    x = element_blank(),
-    y = element_blank()
+    title = "On average, how many hours per day do you spend on social media?",
+    x = NULL,
+    y = NULL,
+    subtitle = plt_subtitle
   )
+
+
+## saving plot
+ggsave(
+  plot = plt_soc_med_hours,
+  filename = "plot/soc_med_hours.jpg",
+  unit = "in",
+  height = 10,
+  width = 10,
+  dpi = 400
+  )
+
+## display plot
+knitr::include_graphics("plot/soc_med_hours.jpg")
+
+```
+
+
+### Daily time spent on social media by platform
+
+- Male students demonstrate more extreme usage, while female students cluster around moderate-to-high daily engagement
+
+- Females most often reported 3–6 hours daily, with fewer exceeding 6 hours.
+
+- Males were more likely to report over 6 hours of use, showing heavier overall consumption.
+
+```{r}
+# plot subtitle
+plt_subtitle <- str_wrap("Female students most often reported spending 3–6 hours daily on social media, while males were more likely to exceed 6 hours; overall, both groups showed heavy usage concentrated in the mid-to-high ranges.", 100)
+
+## plottign socila media hours use
+plt_soc_med_hours_gender <- 
+  soc_med_category |> 
+  count(sex, social_media_hours) |> 
+  group_by(sex) |> 
+  mutate(pct = n / sum(n)) |> 
+  mutate(social_media_hours = reorder_within(social_media_hours, pct, sex)) |> 
+  mutate(pct_label = str_c("n=", n, " (", round(pct*100, ), "%)")) |> 
+  ggplot(aes(pct, social_media_hours, fill = sex)) + 
+  geom_col(width = 0.6, position = position_dodge2(preserve = "single")) +
+  geom_text(aes(label = pct_label), hjust = -0.1) +
+  scale_x_continuous(limits = c(0, 1), labels = scales::percent_format()) +
+  scale_y_reordered() +
+  facet_wrap(~ sex, scales = "free", ncol = 2) +
+  custom_theme +
+  labs(
+    title = str_wrap("On average, how many hours per day do you spend on social media?", 60),
+    x = NULL,
+    y = NULL,
+    fill = NULL,
+    subtitle = plt_subtitle
+  )
+
+
+## saving plot
+ggsave(
+  plot = plt_soc_med_hours_gender,
+  filename = "plot/soc_med_hours_gender.jpg",
+  unit = "in",
+  height = 6,
+  width = 8,
+  dpi = 400
+  )
+
+## display plot
+knitr::include_graphics("plot/soc_med_hours_gender.jpg")
+
 
 ```
