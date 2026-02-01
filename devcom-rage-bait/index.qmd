@@ -32,7 +32,6 @@ editor: visual
 # setting working directory
 setwd(here::here("devcom-rage-bait"))
 
-
 # libraries
 library(tidyverse)
 library(readxl)
@@ -40,31 +39,14 @@ library(gtsummary)
 library(kableExtra)
 library(patchwork)
 library(ggthemes)
-library(ggbeeswarm)
 library(tidytext)
-library(widyr)
-library(igraph)
 library(ggraph)
 library(janitor)
-library(tidygraph)
+library(scales)
 
 
 # data management source
 source("data-management.R")
-
-# custom theme
-custom_theme <- 
-  theme_set(theme_minimal()) +
-  theme(plot.title = element_text(hjust = 0, size = 16, margin = margin(b=15), face = "bold"),
-        plot.title.position = "plot",
-        plot.subtitle = element_text(color = "gray40", margin = margin(b=15), 
-         size = 12),
-        plot.margin = margin(t = 20, r = 20, b = 20, l = 20),
-        panel.grid = element_blank(),
-        axis.text = element_text(size = 12),
-        legend.position = "bottom",
-        strip.text = element_text(size = 14))
-
 
 ```
 
@@ -158,7 +140,7 @@ plt_soc_med_content_gender <-
   geom_text(aes(label = pct_label), hjust = -0.1) +
   scale_x_continuous(limits = c(0, 0.3), labels = scales::percent_format()) +
   scale_y_reordered() +
-  facet_wrap(~ sex, scales = "free", ncol = 2) +
+  facet_wrap(~ sex, scales = "free_y", ncol = 2) +
   custom_theme +
   labs(
     title = "What kinds of content do you usually engage with on social media?",
@@ -173,7 +155,7 @@ plt_soc_med_content_gender <-
     plot = plt_soc_med_content_gender,
     filename = "plot/soc_med_content_gender.jpg",
     unit = "in",
-    height = 6,
+    height = 7,
     width = 12,
     dpi = 400
   )
@@ -210,7 +192,7 @@ plt_soc_med_content <-
   geom_text(aes(label = pct_label), hjust = -0.1) +
   scale_x_continuous(limits = c(0, 0.3), labels = scales::percent_format()) +
   scale_y_reordered() +
-  facet_wrap(~ social_media, scales = "free", ncol = 2) +
+  facet_wrap(~ social_media, scales = "free_y", ncol = 2) +
   custom_theme +
   labs(
     title = "What kinds of content do you usually engage with on social media?",
@@ -263,7 +245,7 @@ plt_soc_med_hours <-
   geom_text(aes(label = pct_label), hjust = -0.1) +
   scale_x_continuous(limits = c(0, 1), labels = scales::percent_format()) +
   scale_y_reordered() +
-  facet_wrap(~ social_media, scales = "free", ncol = 2) +
+  facet_wrap(~ social_media, scales = "free_y", ncol = 2) +
   custom_theme +
   labs(
     title = "On average, how many hours per day do you spend on social media?",
@@ -339,4 +321,140 @@ ggsave(
 knitr::include_graphics("plot/soc_med_hours_gender.jpg")
 
 
+```
+
+
+## Rage bait factors
+
+### Affective Susceptability
+
+```{r}
+plt_affective_fct <- plt_rage_fct("Affective")
+
+## saving plot
+ggsave(
+  plot = plt_affective_fct,
+  filename = "plot/fct_affective.jpg",
+  unit = "in",
+  width = 11,
+  height = 6,
+  dpi = 400
+)
+
+## diplay plot
+knitr::include_graphics("plot/fct_affective.jpg")
+```
+
+### Critical Evaluation
+
+```{r}
+plt_critical_eval_fct <- plt_rage_fct("Critical")
+
+## saving plot
+ggsave(
+  plot = plt_critical_eval_fct,
+  filename = "plot/fct_critical_eval.jpg",
+  unit = "in",
+  width = 11,
+  height = 5,
+  dpi = 400
+)
+
+## diplay plot
+knitr::include_graphics("plot/fct_critical_eval.jpg")
+```
+
+### Perceived Risks
+
+```{r}
+plt_perceived_risk_fct <- plt_rage_fct("Perceived Risk")
+
+## saving plot
+ggsave(
+  plot = plt_perceived_risk_fct,
+  filename = "plot/fct_perceived_risk.jpg",
+  unit = "in",
+  width = 11,
+  height = 7,
+  dpi = 400
+)
+
+## diplay plot
+knitr::include_graphics("plot/fct_perceived_risk.jpg")
+```
+
+### Rage Bait Amplication
+
+```{r}
+plt_rb_amplication_fct <- plt_rage_fct("Bait Amplication")
+
+## saving plot
+ggsave(
+  plot = plt_rb_amplication_fct,
+  filename = "plot/fct_rb_amplication.jpg",
+  unit = "in",
+  width = 11,
+  height = 5,
+  dpi = 400
+)
+
+## diplay plot
+knitr::include_graphics("plot/fct_rb_amplication.jpg")
+```
+
+### Rage Bait Cue Recognition
+
+```{r}
+plt_rb_cue_recognition_fct <- plt_rage_fct("Cue Recognition")
+
+## saving plot
+ggsave(
+  plot = plt_rb_cue_recognition_fct,
+  filename = "plot/fct_rb_cue_recognition.jpg",
+  unit = "in",
+  width = 11,
+  height = 6,
+  dpi = 400
+)
+
+## diplay plot
+knitr::include_graphics("plot/fct_rb_cue_recognition.jpg")
+```
+
+### Rage Bait Engagement
+
+```{r}
+plt_rb_engagement_fct <- plt_rage_fct("Engagement")
+
+## saving plot
+ggsave(
+  plot = plt_rb_engagement_fct,
+  filename = "plot/fct_rb_engagement.jpg",
+  unit = "in",
+  width = 11,
+  height = 6,
+  dpi = 400
+)
+
+## diplay plot
+knitr::include_graphics("plot/fct_rb_engagement.jpg")
+```
+
+### Self-Regulation/Rage Bait Avoidance
+
+```{r}
+plt_rb_avoidance_fct <- plt_rage_fct("Avoidance")
+
+## saving plot
+ggsave(
+  plot = plt_rb_avoidance_fct,
+  filename = "plot/fct_rb_avoidance.jpg",
+  unit = "in",
+  width = 11,
+  height = 4,
+  dpi = 400
+)
+
+## diplay plot
+knitr::include_graphics("plot/fct_rb_avoidance.jpg")
 ```
