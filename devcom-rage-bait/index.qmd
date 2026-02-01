@@ -332,6 +332,16 @@ knitr::include_graphics("plot/soc_med_hours_gender.jpg")
 
 ### Affective Susceptability
 
+- Respondents see rage-bait as emotionally powerful and stress-inducing, especially when severe, but many also claim resilience or neutrality, reflecting a tension between vulnerability and critical resistance.
+
+- The strongest consensus was on the statement “It is easy for users to become angry without knowing the full story” — over 80% agreed, showing that respondents recognize how manipulative and emotionally triggering rage-bait can be.
+
+- About two-thirds agreed that emotions rise depending on the gravity of rage-bait posts, highlighting that the severity of content directly influences emotional impact.
+
+- Just over half agreed that rage-bait makes social media stressful, while a large neutral group (32%) suggests variability in how strongly stress is felt.
+
+- Around 40% disagreed with “I believe posts that are emotional rather than factual”, showing that many respondents are critical of emotionally manipulative content, though neutrality (32%) indicates some ambivalence.
+
 ```{r}
 plt_affective_fct <- plt_rage_fct("Affective")
 
@@ -349,7 +359,18 @@ ggsave(
 knitr::include_graphics("plot/fct_affective.jpg")
 ```
 
+
 ### Critical Evaluation
+
+- Critical Evaluation is characterized by strong consensus on fact-checking and contextual reading, clear recognition of manipulation, but mixed attitudes toward judging credibility by author background. This shows respondents value rational evaluation but remain divided on how to apply it in practice.
+
+- An overwhelming majority (93% Agree/Strongly Agree) believe provocative posts should be fact-checked rather than reacted to emotionally, showing a strong preference for rational evaluation over impulsive responses.
+
+- Similarly, 95% Agree/Strongly Agree that users should be reminded to read more context before reacting, highlighting a widespread recognition of the importance of contextual understanding in digital literacy.
+
+- A large majority (93% Agree/Strongly Agree) acknowledge that others often fail to recognize emotional manipulation online, suggesting strong awareness of how rage-bait exploits emotional triggers.
+
+- Responses were more divided on judging provocative posts based on author's background — 32% Agree/Strongly Agree, 43% Neutral, and 26% Disagree/Strongly Disagree. This indicates uncertainty or ambivalence about whether credibility should be judged based on the author’s identity rather than content itself.
 
 ```{r}
 plt_critical_eval_fct <- plt_rage_fct("Critical")
@@ -370,6 +391,16 @@ knitr::include_graphics("plot/fct_critical_eval.jpg")
 
 ### Perceived Risks
 
+- Respondents see rage-bait as highly damaging across multiple dimensions — reputational, emotional, mental health, social cohesion, and community toxicity. The strongest consensus lies in its destructive and divisive nature.
+
+- Over 90% of respondents agreed that rage-baiting can intentionally ruin or destroy reputations, showing strong consensus that reputational harm is a major risk.
+
+- Around 91% agreed that rage-bait emotionally harms people, and another 91% agreed it can take a toll on mental health. This highlights the dual psychological risks of rage-bait content.
+
+- Roughly 88% agreed rage-bait posts divide rather than foster shared understanding, and 90% agreed people disrespect others when engaged in rage-bait discussions. This highlights its polarizing and hostile effects on online communities.
+
+- About 91% agreed that online spaces have become more toxic due to rage-bait, pointing to its broader societal impact beyond individual harm.
+
 ```{r}
 plt_perceived_risk_fct <- plt_rage_fct("Perceived Risk")
 
@@ -387,7 +418,19 @@ ggsave(
 knitr::include_graphics("plot/fct_perceived_risk.jpg")
 ```
 
+
 ### Rage Bait Amplication
+
+- Respondents clearly see rage-bait amplification as algorithmically driven and engagement-fueled, with controversial content outperforming positive posts. While vloggers are seen as contributors, the strongest consensus lies in the role of user engagement and platform visibility metrics.
+
+- Nearly 80% agreed that rage-bait spreads through users’ active engagement, showing strong awareness that clicks, shares, and comments fuel its visibility.
+
+- Over 80% agreed that controversial posts become more visible in engagement metrics, highlighting how platform algorithms reward divisive content.
+
+- About 71% agreed that rage-bait receives more engagement than positive posts, reinforcing the perception that negativity drives interaction more than constructive content.
+
+- Around 63% agreed vloggers help spread rage-bait, but 31% remained neutral. This suggests recognition of influencer involvement, though respondents are less certain compared to other amplification mechanisms.
+
 
 ```{r}
 plt_rb_amplication_fct <- plt_rage_fct("Bait Amplication")
@@ -406,7 +449,18 @@ ggsave(
 knitr::include_graphics("plot/fct_rb_amplication.jpg")
 ```
 
+
 ### Rage Bait Cue Recognition
+
+- Respondents are highly confident in recognizing personality attacks and provocative intent as rage-bait cues, and moderately confident about aggressive imagery. However, stylistic signals like red text or bold/caps are not reliable markers in the eyes of users, with most respondents remaining neutral or divided.
+
+- 83% (Agree + Strongly Agree) identified attacks on others’ personalities as rage-bait. This is the most confidently recognized signal, showing that respondents clearly associate personal attacks with manipulative content.
+
+- 68% (Agree + Strongly Agree) saw aggressive images as intended to trigger, while 30% were neutral and only 2% disagreed. This indicates strong recognition, though a sizable neutral group suggests some uncertainty about visual cues.
+
+- 88% (Agree + Strongly Agree) said they can easily recognize posts meant to provoke anger, with only 11% neutral and 1% disagreeing. This shows high confidence in spotting provocation cues, making it one of the most strongly endorsed indicators.
+
+- For bold/caps, 35% agreed, but 44% were neutral and 21% disagreed. For red text/graphics, only 26% agreed, while 53% were neutral and 21% disagreed. These stylistic features are not consistently perceived as rage-bait cues, reflecting low recognition compared to content-based signals.
 
 ```{r}
 plt_rb_cue_recognition_fct <- plt_rage_fct("Cue Recognition")
@@ -425,7 +479,23 @@ ggsave(
 knitr::include_graphics("plot/fct_rb_cue_recognition.jpg")
 ```
 
+
 ### Rage Bait Engagement
+
+- Respondents show high awareness of rage-bait as attention-seeking and mostly avoid actively amplifying it. However, passive engagement is widespread — reading comments, observing heated arguments, or occasionally reacting when personally invested. The data reveals a tension: low active contribution but high passive consumption, which still sustains rage-bait’s visibility and impact.
+
+- While many avoid aggressive defense, a notable minority still engage in heated exchanges when provoked. 23% (Strongly Disagree) + 34% (Disagree) avoid defending opinions aggressively. Yet 13% (Agree + Strongly Agree) admitted to doing so, with 32% neutral.
+
+- Respondents clearly recognize rage-bait as a deliberate tactic for visibility.90% (Agree + Strongly Agree) believe others use rage-bait to gain attention online.
+
+- Engagement is situational — some share when personally affected, but many resist. About 33% (Agree + Strongly Agree) admitted to reacting/sharing rage-bait when they relate to the issue. Meanwhile, 41% (Disagree + Strongly Disagree) resisted, and 27% were neutral.
+
+-  Passive consumption (comment reading) is a dominant form of engagement, even among those who don’t actively post. A strong majority (72% Agree + Strongly Agree) said they read comments when curious about rage posts. Only 5% disagreed, while 22% were neutral.
+
+- 40% (Agree + Strongly Agree) enjoy reading heated arguments, while 30% disagreed and 31% were neutral. A significant portion finds entertainment in conflict, though others remain disengaged or indifferent.
+
+- Most respondents avoid being direct amplifiers of rage-bait. Only 9% (Agree + Strongly Agree) admitted to contributing by sharing rage-bait posts. In contrast, 77% (Disagree + Strongly Disagree) rejected this behavior, with 14% neutral.
+
 
 ```{r}
 plt_rb_engagement_fct <- plt_rage_fct("Engagement")
@@ -444,7 +514,17 @@ ggsave(
 knitr::include_graphics("plot/fct_rb_engagement.jpg")
 ```
 
+
 ### Self-Regulation/Rage Bait Avoidance
+
+- Respondents demonstrate high levels of self‑regulation when faced with rage‑bait. They scroll past and ignore content to minimize its impact. Most importantly, they avoid replying to prevent conflict, which is the most strongly endorsed behavior. This indicates that while rage‑bait is recognized as harmful, users actively employ avoidance strategies to maintain control and reduce emotional or social fallout.
+
+- Most respondents practice passive avoidance, choosing not to engage directly. 75% (Agree + Strongly Agree) said they usually scroll past rage‑bait posts without reacting. Only 8% disagreed, while 18% were neutral.
+
+- Ignoring is a deliberate self‑regulation strategy to protect emotional well‑being. 72% (Agree + Strongly Agree) reported ignoring rage‑bait content to avoid being influenced. Again, only 8% disagreed, with 21% neutral.
+
+- Conflict avoidance is the most consistently endorsed form of self‑regulation, showing strong consensus. 88% (Agree + Strongly Agree) avoid replying to provocative posts to prevent conflict. Just 12% were neutral, and none disagreed.
+
 
 ```{r}
 plt_rb_avoidance_fct <- plt_rage_fct("Avoidance")
@@ -515,7 +595,8 @@ print(fa_rage_bait$loadings, sort = TRUE, cutoff = 0.36)
 - MR1: Risk Awareness 
 - MR3: Rage bait recognition
 - MR2: Avoidance behavior
-- MR4: Affective susceptabiltiy
+- MR4: Affective susceptabilty
+
 ```{r}
 # 4 factors
 ## elinating items
@@ -586,28 +667,19 @@ summary_boot_results <- summary(boot_results)
 ```
 
 
-### Reliability
-
-```{r}
-summary_pls_model$reliability
-```
-
-
-### Validity
-
-#### Fornell-Larcker Criterion
-
-```{r}
-summary_pls_model$validity$fl_criteria
-```
-
-#### Heterotrait-Monotrait Criterion
-
-```{r}
-summary_pls_model$validity$htmt
-```
-
 ### Path estimates
+
+- **Rage bait recognition → Risk awareness:** Students who are better at recognizing rage bait cues and understanding how it spreads are also more likely to critically evaluate and perceive the risks of such content. 
+
+- **Rage bait recognition → Affective susceptibility:** Recognition of rage bait does not directly increase emotional vulnerability. In other words, just being able to spot rage bait doesn’t necessarily make students more emotionally reactive or stressed. Emotional susceptibility seems to be shaped more by risk awareness than recognition alone.
+
+- **Rage bait recognition → Avoidance behavior:** Recognition of rage bait does not directly lead to avoidance. Students may recognize rage bait but still engage with it, ignore it, or react differently. Avoidance behavior is influenced more strongly by other factors (risk awareness and emotional susceptibility).
+
+- **Risk awareness → Affective susceptibility:** Students who perceive higher risks (toxicity, harm, reputational damage) are also more emotionally susceptible. Awareness of risks seems to heighten emotional stress and vulnerability, suggesting that critical awareness can have a double edge: it informs but also sensitizes.
+
+- **Risk awareness → Avoidance behavior:** Greater risk awareness encourages avoidance strategies. Students who understand the dangers of rage bait are more likely to scroll past, ignore, or disengage to protect themselves.
+
+- **Affective susceptibility → Avoidance behavior:** Emotional vulnerability also drives avoidance. When students feel stressed or manipulated, they are more likely to regulate themselves by disengaging. This shows that avoidance is partly a coping mechanism for emotional strain.
 
 ```{r}
 summary_boot_results$bootstrapped_paths |> 
@@ -618,7 +690,15 @@ summary_boot_results$bootstrapped_paths |>
   DT::datatable()
 ```
 
+
 ### Indirect path estimates
+
+- **Rage bait recognition → Risk awareness → affective susceptibility:** This pathway shows that when students recognize rage bait cues, they become more aware of its risks, and this heightened awareness can make them more emotionally susceptible. In other words, recognition doesn’t directly trigger emotions, but it indirectly increases vulnerability by first raising awareness of harm. The relationship suggests that critical awareness can sensitize students emotionally.
+
+- **Rage bait recognition → Risk awareness → Avoidance behavior:** Recognition of rage bait leads to greater risk awareness, which then encourages avoidance behaviors (scrolling past, ignoring, disengaging). The relationship here is that recognition fosters awareness, and awareness motivates protective action. Even though recognition alone doesn’t drive avoidance, it indirectly does so through the mediating role of risk awareness.
+
+- **Risk Awareness → Affective Susceptibility → Avoidance Behavior:** Students who perceive risks may become more emotionally susceptible, and this emotional strain can then push them toward avoidance. The relationship here is that risk awareness heightens emotional vulnerability, which in turn encourages avoidance as a coping mechanism. This pathway highlights how awareness can indirectly lead to avoidance by first increasing susceptibility.
+
 ```{r}
 summary_boot_results$bootstrapped_total_indirect_paths |> 
   as.data.frame() |> 
@@ -629,13 +709,68 @@ summary_boot_results$bootstrapped_total_indirect_paths |>
 ```
 
 
-### Total path estimates
+### Reliability
+
+- Rage bait recognition construct shows acceptable reliability. Cronbach’s alpha and composite reliability (rhoC) are both above the 0.70 threshold, indicating consistent measurement. The AVE (0.502) is just above 0.50, meaning the indicators explain more than half of the variance in the latent construct. Overall, this factor is reliable.
+
+- Risk awareness construct demonstrates strong reliability. Both alpha and rhoC are well above 0.80, showing high internal consistency. The AVE (0.55) exceeds the 0.50 benchmark, confirming good convergent validity. 
+
+- Affective susceptibility construct is weak in reliability. Cronbach’s alpha and rhoC fall below the recommended 0.70 threshold, and AVE (0.447) is below 0.50, suggesting the items do not capture the construct consistently. This factor may need further refinement.
+
+-  Avoidance behavior construct shows good reliability. Alpha and rhoC are above 0.70, and AVE (0.664) is well above 0.50, meaning the items strongly represent the latent variable. This is a stable and well-measured construct.
 
 ```{r}
-summary_boot_results$bootstrapped_total_paths |> 
+summary_pls_model$reliability |> 
   as.data.frame() |> 
-  rownames_to_column("Path") |> 
-  tibble() |> 
-  mutate(across(.cols = is.numeric, ~ round(.x, 3))) |> 
+  rownames_to_column("Factors") |> 
+  mutate(across(is.numeric, ~ round(.x, 3))) |> 
+  as.tibble() |> 
+  DT::datatable()
+```
+
+
+### Validity
+
+#### Fornell-Larcker Criterion
+
+- The diagonal values (0.708, 0.742, 0.668, 0.815) are the square roots of AVE for each construct. The off‑diagonal values are the correlations between constructs. Discriminant validity is established when each diagonal value is greater than the correlations in its row/column.
+
+- All four constructs meet the Fornell–Larcker criterion: each shares more variance with its own indicators than with other constructs.
+
+- Risk Awareness and Affective Susceptibility show the highest correlation (0.314), which is expected since awareness of risks can heighten emotional vulnerability.
+
+- Avoidance Behavior is the most distinct construct, with the highest √AVE (0.815) and the lowest correlations.
+
+- This confirms the measurement model has good discriminant validity — the constructs are related but not redundant.
+
+```{r}
+summary_pls_model$validity$fl_criteria |> 
+  as.data.frame() |> 
+  rownames_to_column("Factors") |> 
+  mutate(across(is.numeric, ~ round(.x, 3))) |> 
+  as.tibble() |> 
+  DT::datatable()
+```
+
+#### Heterotrait-Monotrait Criterion
+
+- HTMT assesses discriminant validity by examining the ratio of between-construct correlations to within-construct correlations.
+
+- Rule of thumb: HTMT values should be below 0.85 (conservative) or below 0.90 (liberal). Values above these thresholds suggest constructs may not be distinct.
+
+- All HTMT values are well below 0.85, confirming strong discriminant validity across your four constructs.
+
+- The highest relationship is between Recognition and Awareness (0.512), which makes theoretical sense — spotting rage bait often leads to perceiving risks.
+
+- Avoidance Behavior is the most distinct construct, with very low HTMT values relative to the others.
+
+- Together with the Fornell–Larcker results, this shows the measurement model has robust discriminant validity. The constructs are related but not overlapping excessively.
+
+```{r}
+summary_pls_model$validity$htmt |> 
+  as.data.frame() |> 
+  rownames_to_column("Factors") |> 
+  mutate(across(is.numeric, ~ round(.x, 3))) |> 
+  as.tibble() |> 
   DT::datatable()
 ```
