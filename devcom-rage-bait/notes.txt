@@ -1,0 +1,8 @@
+
+## factor analysis
+
+* parallel analysis suggests 4 factors instead of 7.
+* suggestions
+- combine several factors
+- raige bait recognition and critival evaluation are similar in concept - both identifying rage bait signals and evaluating credibilty context
+- or exclude one of them - critical evaluation excluded

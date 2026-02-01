@@ -43,6 +43,10 @@ library(tidytext)
 library(ggraph)
 library(janitor)
 library(scales)
+library(lavaan)
+library(psych)
+library(MVN)
+library(seminr)
 
 
 # data management source
@@ -457,4 +461,181 @@ ggsave(
 
 ## diplay plot
 knitr::include_graphics("plot/fct_rb_avoidance.jpg")
+```
+
+# Exploratory Factor Analysis
+
+## Parallel analysis
+
+```{r}
+## parallel analysis
+fa.parallel(fct_likert_dta, fa = "fa")
+```
+
+
+## Factor extraction
+
+### 7 factors extracted
+```{r}
+# 7 factors
+## elinating items
+fa_rage_bait <- 
+  fac(
+  r = fct_likert_dta,
+  nfactors = 7,
+  rotate = "varimax"
+)
+
+## printing factor loadings
+print(fa_rage_bait$loadings, sort = TRUE, cutoff = 0.36)
+```
+
+### 5 factors extracted
+
+```{r}
+# 5 factors
+## elinating items
+fct_likert_rm_dta <- 
+  fct_likert_dta |>
+  select(-starts_with("ce"), -pr6, -pr7, -as1, -as4, -as5, -rcr3, -rba1, -are5)
+
+fa_rage_bait <- 
+  fac(
+  r = fct_likert_rm_dta,
+  nfactors = 5,
+  rotate = "varimax"
+)
+
+## printing factor loadings
+print(fa_rage_bait$loadings, sort = TRUE, cutoff = 0.36)
+```
+
+### 4 factors extracted
+
+- MR1: Risk Awareness 
+- MR3: Rage bait recognition
+- MR2: Avoidance behavior
+- MR4: Affective susceptabiltiy
+```{r}
+# 4 factors
+## elinating items
+fct_likert_rm_dta <- 
+  fct_likert_dta |> 
+  select(-as5, -are1, -are2, -are3, -are4, -are5, -are6, -rcr1, -rcr2, -rcr3, -rcr4, -pr6, -pr7, -rba1, -as1, -pr1, -pr3)
+
+fa_rage_bait <- 
+  fac(
+  r = fct_likert_rm_dta,
+  nfactors = 4,
+  rotate = "varimax"
+)
+
+## printing factor loadings
+print(fa_rage_bait$loadings, sort = TRUE, cutoff = 0.46)
+```
+
+# PLS-SEM
+
+## Measurement and structural model
+
+```{r}
+# Define measurement model (outer model)
+measurement_model <- constructs(
+  composite("Risk Awareness",        
+            multi_items(c(rep("ce", 3), rep("pr", 3)), c(2:4, c(2, 4, 5)))),              
+  composite("Rage Bait Recognition",
+            multi_items(c("rcr", rep("rba", 3), "ce"), c(5, 2:4, 1))),  
+  composite("Avoidance Behavior", multi_items("sr", 1:3)),         
+
+  composite("Affective Susceptibility", multi_items("as", 2:4))          
+)
+
+# Define structural model (inner model)
+# Hypothesized paths based on your SEM framework
+structural_model <- relationships(
+  paths(from = "Rage Bait Recognition", to = c("Risk Awareness", "Affective Susceptibility", "Avoidance Behavior")),
+  paths(from = "Risk Awareness", to = c("Avoidance Behavior", "Affective Susceptibility")),
+  paths(from = "Affective Susceptibility", to = "Avoidance Behavior")
+)
+
+# Estimate the PLS model
+pls_model <- estimate_pls(data = fct_likert_rm_dta,
+                          measurement_model = measurement_model,
+                          structural_model = structural_model)
+
+# Summarize results
+summary_pls_model <- summary(pls_model)
+
+# plot the path diagram
+plot(pls_model)
+
+```
+
+
+## Bootstrapped PLS-SEM
+
+```{r}
+# Run bootstrapping with 1000 resamples 
+
+boot_results <- bootstrap_model(pls_model, nboot = 10000, seed = 2026) 
+plot(boot_results)
+
+# Summarize bootstrap results 
+summary_boot_results <- summary(boot_results)
+
+```
+
+
+### Reliability
+
+```{r}
+summary_pls_model$reliability
+```
+
+
+### Validity
+
+#### Fornell-Larcker Criterion
+
+```{r}
+summary_pls_model$validity$fl_criteria
+```
+
+#### Heterotrait-Monotrait Criterion
+
+```{r}
+summary_pls_model$validity$htmt
+```
+
+### Path estimates
+
+```{r}
+summary_boot_results$bootstrapped_paths |> 
+  as.data.frame() |> 
+  rownames_to_column("Path") |> 
+  tibble() |> 
+  mutate(across(.cols = is.numeric, ~ round(.x, 3))) |> 
+  DT::datatable()
+```
+
+### Indirect path estimates
+```{r}
+summary_boot_results$bootstrapped_total_indirect_paths |> 
+  as.data.frame() |> 
+  rownames_to_column("Path") |> 
+  tibble() |> 
+  mutate(across(.cols = is.numeric, ~ round(.x, 3))) |> 
+  DT::datatable()
+```
+
+
+### Total path estimates
+
+```{r}
+summary_boot_results$bootstrapped_total_paths |> 
+  as.data.frame() |> 
+  rownames_to_column("Path") |> 
+  tibble() |> 
+  mutate(across(.cols = is.numeric, ~ round(.x, 3))) |> 
+  DT::datatable()
 ```

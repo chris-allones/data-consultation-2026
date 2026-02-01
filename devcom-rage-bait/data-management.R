@@ -22,7 +22,22 @@ custom_theme <-
 
 likert_res_dta <- 
   read_excel("data/rage-bait-data.xlsx") |> 
-  clean_names()
+  clean_names() |> 
+  mutate(are5 = if_else(are5 == "Dsiagree", "Disagree", are5))
+
+fct_likert_dta <- 
+  likert_res_dta |> 
+  select(-respondents, -sex) |> 
+  mutate(across(.cols = everything(), 
+.fns = ~ case_when(.x == "Strongly Agree" ~ 5,
+                   .x == "Agree" ~ 4,
+                   .x == "Neutral" ~ 3,
+                   .x == "Disagree" ~ 2,
+                   .x == "Strongly Disagree" ~ 1,
+                   TRUE ~ as.numeric(.x)
+                  )
+                )
+        )
 
 socio_demo_dta <- 
   read_excel("data/rage-bait-data.xlsx", sheet = 2) |> 
