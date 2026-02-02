@@ -54,6 +54,22 @@ source("data-management.R")
 
 ```
 
+::: callout-important
+Copies of the Tables and Figures presented in this report are available using the links below.
+:::
+
+<ol>
+
+<li><a href="https://docs.google.com/spreadsheets/d/1pAOp4eKFY0QcAsY8W4LecK1U9M7V-9NIK3BbEuCksP8/edit?usp=sharing" target="_blank" style="text-decoration: none">Table</a></li>
+
+<li><a href="https://drive.google.com/drive/folders/13jA3020wpa2mb4zj4vk_yN750etwtqC4?usp=sharing" target="_blank" style="text-decoration: none">Plots</a></li>
+
+<li><a href="https://drive.google.com/drive/folders/175mFKLYBMw2ZY_U-otuGEeRbPxpi5JrH?usp=sharing" target="_blank" style="text-decoration: none">Google Drive</a></li>
+
+</ol>
+
+<break>
+
 # Descriptive
 
 ## Degree

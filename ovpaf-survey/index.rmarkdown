@@ -1,0 +1,613 @@
+---
+title: "Visayas State University: Campus Safety and Resilience Survey"
+author: "ViSERDAC"
+date: last-modified
+format: 
+  html:
+    css: custom.scss
+    self-contained: true
+    mainfont: arial
+    fontsize: 1em
+    linestretch: 1.5
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    number-sections: true
+    code-fold: true
+    theme:
+      light: cosmo
+      dark: darkly
+execute:
+  message: false
+  warning: false
+  fig-align: center
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+# setting working directory
+setwd(here::here("ovpaf-survey"))
+
+
+# libraries
+library(tidyverse)
+library(readxl)
+library(gtsummary)
+library(kableExtra)
+library(patchwork)
+library(ggthemes)
+library(ggbeeswarm)
+library(tidytext)
+library(widyr)
+library(igraph)
+library(ggraph)
+library(janitor)
+library(tidygraph)
+
+
+# data management source
+source("data-management.R")
+
+# custom theme
+custom_theme <- 
+  theme_set(theme_minimal()) +
+  theme(plot.title = element_text(hjust = 0.5, size = 16, margin = margin(b=20), face = "bold"),
+        plot.margin = margin(t = 20, r = 20, b = 20, l = 20),
+        panel.grid = element_blank(),
+        axis.text = element_text(size = 12),
+        legend.position = "bottom",
+        strip.text = element_text(size = 14))
+
+
+```
+
+# Faculty and staff
+
+## Sociodemographic
+
+```{r}
+data_raw |> 
+  select(position, age:resident, participation, traffic_light) |> 
+  select(-work_year) |> 
+  mutate(
+    resident = if_else(resident == 1, "In-campus", "Off-campus"),
+    participation = case_when(
+      participation %in% c(0, "0", "No") ~ "No",
+      participation %in% c(1, "1", "Yes") ~ "Yes",
+      TRUE ~ as.character(participation)),
+    traffic_light = case_when(
+      traffic_light == 0 ~ "No",
+      traffic_light == 1 ~ "Yes",
+      traffic_light == 2 ~ "Maybe",
+      TRUE ~ as.character(traffic_light))
+      ) |> 
+  tbl_summary(
+    by = position,
+    type = list(sex ~ "categorical",
+                participation = "categorical"),
+    missing_text = "Missing observation(s)"
+  ) |> 
+  bold_labels() %>% 
+  as_kable_extra(linesep = "") %>% 
+  kable_minimal() %>% 
+  kable_styling(full_width = F, fixed_thead = T,
+                bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+
+```
+
+## Physical safety and security
+
+```{r}
+# plotting statement
+pss_plt <- 
+  item_statement_dta |> 
+  filter(str_detect(categories, "Physical")) |>
+  ggplot(aes(x = perc, y = description, fill = response_fct)) +
+  geom_col(position = "fill", width = 0.7) +
+  geom_text(aes(label = scales::percent(perc, accuracy = 1)),
+            position = position_fill(vjust = 0.5),
+            color = "gray90",
+            size = 4, 
+            fontface = "bold") +
+  scale_x_continuous(labels = scales::percent_format()) +
+  scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffd166", "#e63946")) +  
+  coord_cartesian(clip = "off", expand = TRUE) +
+  facet_wrap(~position) +
+  labs(title = "Physical safety and security",
+       x = element_blank(),
+       y = element_blank(),
+       fill = "Response") +
+  custom_theme
+  
+# saving plot
+ggsave(
+  plot = pss_plt,
+  filename = "plot/physical_saftey.jpeg",
+  dpi = 400,
+  height = 6,
+  width = 10,
+  unit = "in"
+)
+
+# show plot
+knitr::include_graphics("plot/physical_saftey.jpeg")
+
+```
+
+## Emotional and professional safety
+
+```{r}
+# plotting statement
+eps_plt <- 
+  item_statement_dta |> 
+  filter(str_detect(categories, "Emotional")) |>
+  ggplot(aes(x = perc, y = description, fill = response_fct)) +
+  geom_col(position = "fill", width = 0.7) +
+  geom_text(aes(label = scales::percent(perc, accuracy = 1)),
+            position = position_fill(vjust = 0.5),
+            color = "gray90",
+            size = 4, 
+            fontface = "bold") +
+  scale_x_continuous(labels = scales::percent_format()) +
+  scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffd166", "#e63946")) +
+  coord_cartesian(clip = "off", expand = TRUE) +
+  facet_wrap(~position) +
+  labs(title = "Emotional and professional safety",
+       x = element_blank(),
+       y = element_blank(),
+       fill = "Response") +
+  custom_theme
+
+
+# saving plot
+ggsave(
+  plot = eps_plt,
+  filename = "plot/emotional_saftey.jpeg",
+  dpi = 400,
+  height = 6,
+  width = 10,
+  unit = "in"
+)
+
+# show plot
+knitr::include_graphics("plot/emotional_saftey.jpeg")
+
+```
+
+## Social and community safety
+
+```{r}
+# plotting statement
+scf_plt <- 
+  item_statement_dta |> 
+  filter(str_detect(categories, "Social")) |>
+  ggplot(aes(x = perc, y = description, fill = response_fct)) +
+  geom_col(position = "fill", width = 0.7) +
+  geom_text(aes(label = scales::percent(perc, accuracy = 1)),
+            position = position_fill(vjust = 0.5),
+            color = "gray90",
+            size = 4, 
+            fontface = "bold") +
+  scale_x_continuous(labels = scales::percent_format()) +
+  scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffd166", "#e63946")) +
+  coord_cartesian(clip = "off", expand = TRUE) +
+  facet_wrap(~position) +
+  labs(title = "Social and community safety",
+       x = element_blank(),
+       y = element_blank(),
+       fill = "Response") +
+  custom_theme
+
+
+# saving plot
+ggsave(
+  plot = scf_plt,
+  filename = "plot/social_saftey.jpeg",
+  dpi = 400,
+  height = 6,
+  width = 10,
+  unit = "in"
+)
+
+# show plot
+knitr::include_graphics("plot/social_saftey.jpeg")
+
+```
+
+# Student
+
+## Sociodemographic profile
+
+```{r}
+student_raw_dta |> 
+  select(age:location) |>
+  mutate(
+    location = if_else(location == 1, "In-campus", "Off-campus"),
+    sex = if_else(sex == 0, "Male", 'Female')
+      ) |> 
+  tbl_summary(
+    type = list(sex ~ "categorical", age ~ "continuous"),
+    missing_text = "Missing observation(s)"
+  ) |> 
+  bold_labels() %>% 
+  as_kable_extra(linesep = "") %>% 
+  kable_minimal() %>% 
+  kable_styling(full_width = F, fixed_thead = T,
+                bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+
+## Travel safety
+
+```{r}
+safe_travel_plt <- 
+  tibble(
+  safe_travel = c("Very unsafe", "Unsafe", "Safe", 'Very safe'),
+  n_count = c(0, 0, 23, 1)
+) |> 
+  mutate(fct_safe_travel = factor(safe_travel, levels = c("Very unsafe", "Unsafe", "Safe", 'Very safe'))) |> 
+  mutate(n_percent = n_count / sum(n_count)) |> 
+  ggplot(aes(y = fct_safe_travel, x = n_percent)) +
+  geom_col(width = 0.7, fill = "#073b4c") +
+  geom_text(aes(label = scales::percent(n_percent, accuracy = 1)), 
+            hjust = 0,
+            color = "gray20",
+            size = 5, 
+            fontface = "bold") +
+  scale_x_continuous(labels = scales::percent_format()) +
+  labs(y = element_blank(),
+       x = element_blank(),
+       title = "How safe do you feel traveling to and from VSU campus?") +
+  custom_theme
+
+# saving plot
+ggsave(
+  plot = safe_travel_plt,
+  filename = "plot/safe_travel.jpeg",
+  dpi = 400,
+  height = 5,
+  width = 10,
+  unit = "in"
+)
+
+# show plot
+knitr::include_graphics("plot/safe_travel.jpeg")
+```
+
+## Traffic light
+
+```{r}
+st_traffic_light <- 
+  student_raw_dta |> 
+  select(traffic_light) |> 
+  mutate(traffic_light = case_when(traffic_light == 0 ~ 'No',
+                                   traffic_light == 1 ~ 'Yes',
+                                   traffic_light == 2 ~ 'Maybe'
+  )) |> 
+  count(traffic_light) |> 
+  na.omit() |> 
+  mutate(n_percent = n / sum(n)) |> 
+  ggplot(aes(y = traffic_light, x = n_percent)) +
+  geom_col(width = 0.5, fill = "#073b4c") +
+  geom_text(aes(label = scales::percent(n_percent, accuracy = 1)), 
+            hjust = 0,
+            color = "gray20",
+            size = 5, 
+            fontface = "bold") +
+  scale_x_continuous(labels = scales::percent_format(), limits = c(0, 1)) +
+  labs(y = element_blank(),
+       x = element_blank(),
+       title = "Do you prefer to have traffic lights road in VSU?") +
+  custom_theme
+
+# saving plot
+ggsave(
+  plot = st_traffic_light,
+  filename = "plot/student_traffic_light.jpeg",
+  dpi = 400,
+  height = 8,
+  width = 10,
+  unit = "in"
+)
+
+# show plot
+knitr::include_graphics("plot/student_traffic_light.jpeg")
+```
+
+## Physical safety and security
+
+```{r}
+# plotting statement
+st_pss_plt <- 
+  student_item_statement_dta |> 
+  filter(str_detect(category, "Physical")) |>
+  ggplot(aes(x = perc, y = description, fill = response_fct)) +
+  geom_col(position = "fill", width = 0.7) +
+  geom_text(aes(label = scales::percent(perc, accuracy = 1)),
+            position = position_fill(vjust = 0.5),
+            color = "gray90",
+            size = 4, 
+            fontface = "bold") +
+  scale_x_continuous(labels = scales::percent_format()) +
+  scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffd166", "#e63946")) +
+  coord_cartesian(clip = "off", expand = TRUE) +
+  labs(title = "Physical safety and security",
+       x = element_blank(),
+       y = element_blank(),
+       fill = "Response") +
+  custom_theme
+
+
+# saving plot
+ggsave(
+  plot = st_pss_plt,
+  filename = "plot/student_pyhiscal_safety.jpeg",
+  dpi = 400,
+  height = 8,
+  width = 10,
+  unit = "in"
+)
+
+# show plot
+knitr::include_graphics("plot/student_pyhiscal_safety.jpeg")
+```
+
+## Emotional and psychological safety
+
+```{r}
+# plotting statement
+st_eps_plt <- 
+  student_item_statement_dta |> 
+  filter(str_detect(category, "Emotional")) |>
+  ggplot(aes(x = perc, y = description, fill = response_fct)) +
+  geom_col(position = "fill", width = 0.7) +
+  geom_text(aes(label = scales::percent(perc, accuracy = 1)),
+            position = position_fill(vjust = 0.5),
+            color = "gray90",
+            size = 4, 
+            fontface = "bold") +
+  scale_x_continuous(labels = scales::percent_format()) +
+  scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffd166", "#e63946")) +
+  coord_cartesian(clip = "off", expand = TRUE) +
+  labs(title = "Emotional and psychological safety",
+       x = element_blank(),
+       y = element_blank(),
+       fill = "Response") +
+  custom_theme
+
+
+# saving plot
+ggsave(
+  plot = st_eps_plt,
+  filename = "plot/student_emotional_safety.jpeg",
+  dpi = 400,
+  height = 8,
+  width = 10,
+  unit = "in"
+)
+
+# show plot
+knitr::include_graphics("plot/student_emotional_safety.jpeg")
+```
+
+## Social and community safety
+
+```{r}
+# plotting statement
+st_scs_plt <- 
+  student_item_statement_dta |> 
+  filter(str_detect(category, "Social")) |>
+  ggplot(aes(x = perc, y = description, fill = response_fct)) +
+  geom_col(position = "fill", width = 0.7) +
+  geom_text(aes(label = scales::percent(perc, accuracy = 1)),
+            position = position_fill(vjust = 0.5),
+            color = "gray90",
+            size = 4, 
+            fontface = "bold") +
+  scale_x_continuous(labels = scales::percent_format()) +
+  scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffd166", "#e63946")) +
+  coord_cartesian(clip = "off", expand = TRUE) +
+  labs(title = "Social and community safety",
+       x = element_blank(),
+       y = element_blank(),
+       fill = "Response") +
+  custom_theme
+
+
+# saving plot
+ggsave(
+  plot = st_scs_plt,
+  filename = "plot/student_social_safety.jpeg",
+  dpi = 400,
+  height = 6,
+  width = 10,
+  unit = "in"
+)
+
+# show plot
+knitr::include_graphics("plot/student_social_safety.jpeg")
+```
+
+## Digital safety and emergency preparedness
+
+```{r}
+# plotting statement
+st_digi_plt <- 
+  student_item_statement_dta |> 
+  filter(str_detect(category, "Digital")) |>
+  ggplot(aes(x = perc, y = description, fill = response_fct)) +
+  geom_col(position = "fill", width = 0.7) +
+  geom_text(aes(label = scales::percent(perc, accuracy = 1)),
+            position = position_fill(vjust = 0.5),
+            color = "gray90",
+            size = 4, 
+            fontface = "bold") +
+  scale_x_continuous(labels = scales::percent_format()) +
+  scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffd166", "#e63946")) +
+  coord_cartesian(clip = "off", expand = TRUE) +
+  labs(title = "Digital safety and emergency preparedness",
+       x = element_blank(),
+       y = element_blank(),
+       fill = "Response") +
+  custom_theme
+
+
+# saving plot
+ggsave(
+  plot = st_digi_plt,
+  filename = "plot/student_digital_emergency_safety.jpeg",
+  dpi = 400,
+  height = 5,
+  width = 10,
+  unit = "in"
+)
+
+# show plot
+knitr::include_graphics("plot/student_digital_emergency_safety.jpeg")
+```
+
+# Guests and visitors
+
+```{r}
+
+# plotting guest experience
+plt_experience_guest <- 
+  guest_item_statement_dta |> 
+  mutate(description = str_wrap(description, 40)) |> 
+  ggplot(aes(x = pct, y = description, fill = response_fct)) +
+  geom_col(position = "fill", width = 0.7) +
+  geom_text(aes(label = scales::percent(pct, accuracy = 1)),
+            position = position_fill(vjust = 0.5),
+            color = "gray90",
+            size = 4, 
+            fontface = "bold") +
+  scale_x_continuous(labels = scales::percent_format()) +
+  scale_fill_manual(values = c("#073b4c", "#118ab2", "#ffd166", "#e63946")) +
+  coord_cartesian(clip = "off", expand = TRUE) +
+  labs(title = str_wrap("How was your experience during your visit to VSU?", 40),
+       x = element_blank(),
+       y = element_blank(),
+       fill = "Response") +
+  custom_theme
+
+# saving plot
+ggsave(
+  plot = plt_experience_guest,
+  filename = "plot/guest_visit_experience.jpeg",
+  dpi = 400,
+  height = 6,
+  width = 10,
+  unit = "in"
+)
+
+# show plot
+knitr::include_graphics("plot/guest_visit_experience.jpeg")
+```
+
+# Combined data
+
+## Sociodemo
+
+```{r}
+combined_data |> 
+  select(group, age, sex, resident) |> 
+  mutate(
+    resident = if_else(resident == 1, "In-campus", "Off-campus"),
+    sex = if_else(sex == 1, 'Female', "Mae")
+      ) |>
+  tbl_summary(
+    by = group,
+    type = list(sex ~ "categorical",
+                participation = "categorical"),
+    missing_text = "Missing observation(s)"
+  ) |> 
+  bold_labels() %>% 
+  as_kable_extra(linesep = "") %>% 
+  kable_minimal() %>% 
+  kable_styling(full_width = F, fixed_thead = T,
+                bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+
+## Traffic light
+
+```{r}
+plt_combined_traffic_light <- 
+  combined_data |> 
+  select(group, traffic_light) |> 
+  mutate(traffic_light = case_when(traffic_light == 0 ~ 'No',
+                                   traffic_light == 1 ~ 'Yes',
+                                   traffic_light == 2 ~ 'Maybe'
+  )) |> 
+  count(group, traffic_light) |> 
+  na.omit() |> 
+  group_by(group) |> 
+  mutate(n_percent = n / sum(n)) |> 
+  ungroup() |> 
+  mutate(group = factor(group, levels = c("Faculty & Staff", "Student", "Guest"))) |> 
+  ggplot(aes(y = traffic_light, x = n_percent)) +
+  geom_col(width = 0.4, fill = "#073b4c") +
+  geom_text(aes(label = scales::percent(n_percent, accuracy = 1)), 
+            hjust = -0.1,
+            color = "gray20",
+            size = 5, 
+            fontface = "bold") +
+  scale_x_continuous(labels = scales::percent_format(), limits = c(0, 1)) +
+  coord_cartesian(clip = "off") +
+  facet_wrap(~group) +
+  labs(y = element_blank(),
+       x = element_blank(),
+       title = "Do you prefer to have traffic lights road in VSU?") +
+  custom_theme + 
+  theme(strip.text = element_text(face = "bold"))
+
+# saving plot
+ggsave(
+  plot = plt_combined_traffic_light,
+  filename = "plot/combined_traffic_light.jpeg",
+  dpi = 400,
+  height = 5,
+  width = 10,
+  unit = "in"
+)
+
+# show plot
+knitr::include_graphics("plot/student_traffic_light.jpeg")
+```
+
+## Recommendation and feedback
+
+```{r}
+# calculating word correlation from 'recommend' responses
+word_cors <- 
+  combined_data |> 
+  select(recommend) |> 
+  mutate(q_id = row_number()) |> 
+  unnest_tokens(word, recommend) |> 
+  anti_join(get_stopwords()) |> 
+  pairwise_cor(word, q_id, sort = TRUE)
+
+# plotting word correlation
+set.seed(20251)
+
+plt_recommend_bigram <- 
+  word_cors %>%
+   filter(correlation > .2) %>%
+   as_tbl_graph() %>%
+   ggraph(layout = "fr") +
+   geom_edge_link(aes(edge_alpha = correlation), show.legend = FALSE) +
+   geom_node_point(color = "lightblue", size = 2) +
+   geom_node_text(aes(label = name), repel = TRUE) +
+   theme_void()
+
+ # saving word correlation
+ ggsave(plot = plt_recommend_bigram,
+ filename = "plot/recommend_word_correlation.jpeg", width = 8, height = 6, dpi = 300)
+
+
+# displaying word correlation
+knitr::include_graphics("plot/recommend_word_correlation.jpeg")
+
+```
