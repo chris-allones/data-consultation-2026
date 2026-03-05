@@ -1,12 +1,3 @@
-# set working directory
-setwd(here::here("laurente-baybay-local-foods"))
-
-# libraries
-library(tidyverse)
-library(readxl)
-library(janitor)
-library(scales)
-
 # custom theme
 custom_theme <- 
   theme_minimal() +
@@ -27,11 +18,12 @@ local_food_dta <-
   clean_names() |> 
   select(-timestamp, -do_you_consent_to_take_part_in_this_survey)
 
+ 
+# data management
 
-local_food_dta |> glimpse()
+## awareness on local delicacies
 
-# awareness on local delicacies
-## rice-based delicacies awareness
+### rice-based delicacies awareness
 aware_rice_based_dta <- 
   local_food_dta |> 
   select(moron:maja_blanca) |> 
@@ -51,18 +43,62 @@ aware_rice_based_dta <-
          )) |> 
   mutate(rate_lab = factor(rate_lab, levels = c("Highly aware", "Aware", "Neutral", "Not aware", "Strongly not aware"))) |> 
   mutate(delicacy = str_replace_all(delicacy, "_", " ")) |> 
+  mutate(pct_lab = round(pct * 100, 0)) |> 
+  mutate(delicacy = case_when(str_detect(delicacy, "budbod") ~ "budbod (suman latik)",
+                              str_detect(delicacy, "lidgid") ~ "lidgid (suman tumini)",
+                              TRUE ~ delicacy))
+
+
+
+### snacks and processed products
+aware_snacks_process_dta <- 
+  local_food_dta |> 
+  select(buko_pie:peanut_triangle) |> 
+  pivot_longer(cols = buko_pie:peanut_triangle,
+               names_to = "delicacy",
+               values_to = "rating") |> 
+  count(delicacy, rating) |> 
+  na.omit() |> 
+  group_by(delicacy) |> 
+  mutate(pct = n / sum(n)) |> 
+  mutate(rate_lab = case_when(
+         rating == 5 ~ "Highly aware",
+         rating == 4 ~ "Aware",
+         rating == 3 ~ "Neutral",
+         rating == 2 ~ "Not aware",
+         rating == 1 ~ "Strongly not aware",
+         )) |> 
+  mutate(rate_lab = factor(rate_lab, levels = c("Highly aware", "Aware", "Neutral", "Not aware", "Strongly not aware"))) |> 
+  mutate(delicacy = str_replace_all(delicacy, "_", " ")) |> 
   mutate(pct_lab = round(pct * 100, 0))
 
-aware_rice_based_dta |> 
-  ggplot(aes(pct, delicacy, fill = rate_lab)) +
-  geom_col() +
-  geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
-  scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffba66ff", "#e63946")) +
-  scale_x_continuous(labels = percent_format()) +
-  custom_theme +
-  labs(
-    title = "Rice-based delicacies level of awareness",
-    fill =  NULL,
-    y = NULL,
-    x = NULL
-  )
+
+### dairy and specialty products
+aware_beverage_dairy_dta <- 
+  local_food_dta |>
+  select(kamote_ice_cream:sikwate) |> 
+  pivot_longer(cols = kamote_ice_cream:sikwate,
+               names_to = "delicacy",
+               values_to = "rating") |> 
+  count(delicacy, rating) |> 
+  na.omit() |> 
+  group_by(delicacy) |> 
+  mutate(pct = n / sum(n)) |> 
+  mutate(rate_lab = case_when(
+         rating == 5 ~ "Highly aware",
+         rating == 4 ~ "Aware",
+         rating == 3 ~ "Neutral",
+         rating == 2 ~ "Not aware",
+         rating == 1 ~ "Strongly not aware",
+         )) |> 
+  mutate(rate_lab = factor(rate_lab, levels = c("Highly aware", "Aware", "Neutral", "Not aware", "Strongly not aware"))) |> 
+  mutate(delicacy = str_replace_all(delicacy, "_", " ")) |> 
+  mutate(pct_lab = round(pct * 100, 0))
+
+
+
+## tastes
+
+local_food_dta |> glimpse()
+local_food_dta |> 
+  select(snacksprocessproductstastebukokopie)

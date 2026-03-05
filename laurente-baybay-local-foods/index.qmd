@@ -1,0 +1,175 @@
+---
+title: "Perception of Baybaynons on local food industry in Baybay City: an input to gastronomic tourism"
+author: "ViSERDAC"
+date: last-modified
+format: 
+  html:
+    css: custom.scss
+    self-contained: true
+    mainfont: arial
+    fontsize: 1em
+    linestretch: 1.5
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    number-sections: true
+    code-fold: true
+    theme:
+      light: cosmo
+      dark: darkly
+execute:
+  message: false
+  warning: false
+  fig-align: center
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+# set working directory
+setwd(here::here("laurente-baybay-local-foods"))
+
+# libraries
+library(tidyverse)
+library(readxl)
+library(janitor)
+library(scales)
+
+
+# data management source
+source("data-management.R")
+
+# custom theme
+custom_theme <- 
+  theme_set(theme_minimal()) +
+  theme(plot.title = element_text(hjust = 0.5, size = 16, margin = margin(b=20), face = "bold"),
+        plot.margin = margin(t = 20, r = 20, b = 20, l = 20),
+        panel.grid = element_blank(),
+        axis.text = element_text(size = 12),
+        legend.position = "bottom",
+        strip.text = element_text(size = 14))
+
+
+```
+
+# Attachment
+
+# Objective 1: To describe the socio-demogprahic profile of the respondents
+
+# Objective 2: To measure the level of awareness of the Baybayanons.
+
+## Rice-based delicacies
+
+```{r}
+p_aware_rice <- 
+    aware_rice_based_dta |> 
+    ggplot(aes(pct, delicacy, fill = rate_lab)) +
+    geom_col() +
+    geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
+    scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffba66ff", "#e63946")) +
+    scale_x_continuous(labels = percent_format()) +
+    custom_theme +
+    labs(
+    title = "Rice-based delicacies level of awareness",
+    fill =  NULL,
+    y = NULL,
+    x = NULL
+    )
+
+ggsave(
+    plot = p_aware_rice,
+    filename = "plot/aware_rice.jpg",
+    dpi = 400,
+    unit = "in",
+    width = 8,
+    height = 6
+)
+
+```
+
+## Snacks and processed products
+
+```{r}
+## plotting awareness for snacks and processed foods
+p_snack_processed <- 
+    aware_snacks_process_dta |> 
+    ggplot(aes(pct, delicacy, fill = rate_lab)) +
+    geom_col() +
+    geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
+    scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffba66ff", "#e63946")) +
+    scale_x_continuous(labels = percent_format()) +
+    custom_theme +
+    labs(
+    title = "Snacks and processed products level of awareness",
+    fill =  NULL,
+    y = NULL,
+    x = NULL
+    )
+
+ggsave(
+    plot = p_snack_processed,
+    filename = "plot/aware_snacks_processed.jpg",
+    dpi = 400,
+    unit = "in",
+    width = 8,
+    height = 6
+)
+```
+
+
+## Beverage, dairy and specialty products
+
+```{r}
+## plotting beverage, dairy and specialty products
+p_aware_beverage_dairy <- 
+    aware_beverage_dairy_dta |> 
+    ggplot(aes(pct, delicacy, fill = rate_lab)) +
+    geom_col() +
+    geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
+    scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffba66ff", "#e63946")) +
+    scale_x_continuous(labels = percent_format()) +
+    custom_theme +
+    labs(
+    title = "Beverage, dairy, and specialty products level of awareness",
+    fill =  NULL,
+    y = NULL,
+    x = NULL
+    )
+
+ggsave(
+    plot = p_aware_beverage_dairy,
+    filename = "plot/aware_beverage_dairy.jpg",
+    dpi = 400,
+    unit = "in",
+    width = 8,
+    height = 5
+)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Objective 3: To measure the resident's perception of local delicacies in terms of product marketability, cuisine prepservation.
+
+# Objective 4: To assess the residents' willingness to support towards gastronomic tourism.
+
+# Objective 5: To support for gastronomic tourism thorugh policy recommendation.
+
+
