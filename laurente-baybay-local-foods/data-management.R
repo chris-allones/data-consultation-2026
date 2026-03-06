@@ -178,10 +178,39 @@ taste_beverage_dairy_dta <-
 
 
 ## Appearance
-
-local_food_dta |> 
-  glimpse()
-
-local_food_dta |> 
+### rice-based delicacies
+appearance_rice_based_dta <- 
+  local_food_dta |> 
   select(contains("_appearance_")) |> 
-  glimpse()
+  select(starts_with("rice_based")) |> 
+  pivot_longer(everything(), 
+               names_to = "delicacy",
+               values_to = "rating") |> 
+  mutate(delicacy = str_remove_all(delicacy, "^.*appearance_")) |> 
+  mutate(delicacy = str_replace_all(delicacy, "_", " ")) |> 
+  count(delicacy, rating) |> 
+  na.omit() |> 
+  group_by(delicacy) |> 
+  mutate(pct = n / sum(n)) |> 
+  mutate(rate_lab = case_when(
+         rating == 5 ~ "Highly aware",
+         rating == 4 ~ "Aware",
+         rating == 3 ~ "Neutral",
+         rating == 2 ~ "Not aware",
+         rating == 1 ~ "Strongly not aware",
+         )) |> 
+  mutate(rate_lab = factor(rate_lab, levels = c("Highly aware", "Aware", "Neutral", "Not aware", "Strongly not aware"))) |> 
+  mutate(delicacy = str_replace_all(delicacy, "_", " ")) |> 
+  mutate(delicacy = str_remove_all(delicacy, "taste ")) |> 
+  mutate(pct_lab = round(pct * 100, 0)) |> 
+  mutate(delicacy = case_when(str_detect(delicacy, "budbod") ~ "budbod (suman latik)",
+                              str_detect(delicacy, "lidgid") ~ "lidgid (suman tumini)",
+                              TRUE ~ delicacy))
+
+
+### snacks and processed products
+
+
+
+
+### dairy and specialty products
