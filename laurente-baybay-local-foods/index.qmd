@@ -41,18 +41,6 @@ library(scales)
 
 # data management source
 source("data-management.R")
-
-# custom theme
-custom_theme <- 
-  theme_set(theme_minimal()) +
-  theme(plot.title = element_text(hjust = 0.5, size = 16, margin = margin(b=20), face = "bold"),
-        plot.margin = margin(t = 20, r = 20, b = 20, l = 20),
-        panel.grid = element_blank(),
-        axis.text = element_text(size = 12),
-        legend.position = "bottom",
-        strip.text = element_text(size = 14))
-
-
 ```
 
 # Attachment
@@ -61,7 +49,9 @@ custom_theme <-
 
 # Objective 2: To measure the level of awareness of the Baybayanons.
 
-## Rice-based delicacies
+## Awareness
+
+### Rice-based delicacies
 
 ```{r}
 p_aware_rice <- 
@@ -90,7 +80,7 @@ ggsave(
 
 ```
 
-## Snacks and processed products
+### Snacks and processed products
 
 ```{r}
 ## plotting awareness for snacks and processed foods
@@ -120,7 +110,7 @@ ggsave(
 ```
 
 
-## Beverage, dairy and specialty products
+### Beverage, dairy and specialty products
 
 ```{r}
 ## plotting beverage, dairy and specialty products
@@ -150,9 +140,92 @@ ggsave(
 ```
 
 
+## Taste
+
+### Rice-based delicacies
+
+```{r}
+p_taste_rice <- 
+    taste_rice_based_dta |> 
+    ggplot(aes(pct, delicacy, fill = rate_lab)) +
+    geom_col() +
+    geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
+    scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffba66ff", "#e63946")) +
+    scale_x_continuous(labels = percent_format()) +
+    custom_theme +
+    labs(
+    title = "Beverage, dairy, and specialty products level of awareness",
+    fill =  NULL,
+    y = NULL,
+    x = NULL
+    )
+
+ggsave(
+    plot = p_taste_rice,
+    filename = "plot/taste_rice.jpg",
+    dpi = 400,
+    unit = "in",
+    width = 8,
+    height = 6
+)
+```
+
+### Snacks and processed  products
+
+```{r}
+p_taste_snacks_process<- 
+    taste_snacks_process_data |> 
+    ggplot(aes(pct, delicacy, fill = rate_lab)) +
+    geom_col() +
+    geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
+    scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffba66ff", "#e63946")) +
+    scale_x_continuous(labels = percent_format()) +
+    custom_theme +
+    labs(
+    title = "Beverage, dairy, and specialty products level of awareness",
+    fill =  NULL,
+    y = NULL,
+    x = NULL
+    )
+
+ggsave(
+    plot = p_taste_rice,
+    filename = "plot/taste_snacks_process.jpg",
+    dpi = 400,
+    unit = "in",
+    width = 8,
+    height = 6
+)
+```
+
+### Beverage, dairy and specialty products
 
 
+```{r}
+p_taste_beverage_dairy <- 
+    taste_beverage_dairy_dta |> 
+    ggplot(aes(pct, delicacy, fill = rate_lab)) +
+    geom_col() +
+    geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
+    scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffba66ff", "#e63946")) +
+    scale_x_continuous(labels = percent_format()) +
+    custom_theme +
+    labs(
+    title = "Beverage, dairy, and specialty products level of awareness",
+    fill =  NULL,
+    y = NULL,
+    x = NULL
+    )
 
+ggsave(
+    plot = p_taste_beverage_dairy,
+    filename = "plot/taste_beverage_dairy.jpg",
+    dpi = 400,
+    unit = "in",
+    width = 8,
+    height = 5
+)
+```
 
 
 
