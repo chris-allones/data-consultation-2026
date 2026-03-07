@@ -291,3 +291,12 @@ reco_local_delicacy_dta <-
   na.omit() |> 
   mutate(pct = n / sum(n)) |> 
   mutate(pct_lab = str_c(round(pct * 100, 2), "%", "(n=", n, ")"))
+
+
+
+## likert perceptions
+read_excel("data/baybay-local-foods-data.xlsx", 2) |> 
+  mutate(description = str_extract(desciption, "\\[.*?\\]")) |> 
+  mutate(description = str_remove_all(description, "\\[|\\]")) |> 
+  View()
+
