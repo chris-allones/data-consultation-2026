@@ -210,7 +210,84 @@ appearance_rice_based_dta <-
 
 ### snacks and processed products
 
-
+appearance_snacks_process_dta <- 
+  local_food_dta |> 
+  select(contains("_appearance_")) |> 
+  select(starts_with("snacks_processed")) |> 
+  pivot_longer(everything(),
+               names_to = "delicacy",
+               values_to = "rating") |> 
+  mutate(delicacy = str_remove_all(delicacy, "^.*appearance_")) |> 
+  mutate(delicacy = str_replace_all(delicacy, "_", " ")) |> 
+  count(delicacy, rating) |> 
+  na.omit() |> 
+  group_by(delicacy) |> 
+  mutate(pct = n / sum(n)) |> 
+  mutate(rate_lab = case_when(
+         rating == 5 ~ "Highly aware",
+         rating == 4 ~ "Aware",
+         rating == 3 ~ "Neutral",
+         rating == 2 ~ "Not aware",
+         rating == 1 ~ "Strongly not aware",
+         )) |> 
+  mutate(rate_lab = factor(rate_lab, levels = c("Highly aware", "Aware", "Neutral", "Not aware", "Strongly not aware"))) |> 
+  mutate(delicacy = str_replace_all(delicacy, "_", " ")) |> 
+  mutate(delicacy = str_remove_all(delicacy, "taste ")) |> 
+  mutate(pct_lab = round(pct * 100, 0)) |> 
+  ungroup()
 
 
 ### dairy and specialty products
+
+appearance_beverage_dairy_dta <- 
+  local_food_dta |> 
+  select(contains("_appearance_")) |> 
+  select(starts_with("dairy"), starts_with("beverage")) |> 
+  pivot_longer(everything(),
+               names_to = "delicacy",
+               values_to = "rating") |> 
+  mutate(delicacy = str_remove_all(delicacy, "^.*appearance_")) |> 
+  mutate(delicacy = str_replace_all(delicacy, "_", " ")) |> 
+  count(delicacy, rating) |> 
+  na.omit() |> 
+  group_by(delicacy) |> 
+  mutate(pct = n / sum(n)) |> 
+  mutate(rate_lab = case_when(
+         rating == 5 ~ "Highly aware",
+         rating == 4 ~ "Aware",
+         rating == 3 ~ "Neutral",
+         rating == 2 ~ "Not aware",
+         rating == 1 ~ "Strongly not aware",
+         )) |> 
+  mutate(rate_lab = factor(rate_lab, levels = c("Highly aware", "Aware", "Neutral", "Not aware", "Strongly not aware"))) |> 
+  mutate(delicacy = str_replace_all(delicacy, "_", " ")) |> 
+  mutate(delicacy = str_remove_all(delicacy, "taste ")) |> 
+  mutate(pct_lab = round(pct * 100, 0)) |> 
+  ungroup()
+
+
+
+## willingness to support gastronomic tourism
+### activity participation
+activity_part_dta <- 
+  local_food_dta |> 
+  select(food_festivals_promoting_baybay_local_food:none) |>
+  pivot_longer(everything(),
+               names_to = "activity",
+               values_to = "count") |> 
+  mutate(activity = str_replace_all(activity, "_", " ")) |> 
+  group_by(activity) |> 
+  summarise(n = sum(count, na.rm = TRUE)) |> 
+  mutate(pct = n / nrow(local_food_dta)) |> 
+  mutate(pct_lab = str_c(round(pct * 100, 2), "%", "(n=", n, ")"))
+  
+### recommendation local delicacies
+reco_local_delicacy_dta <- 
+  local_food_dta |> 
+  select(x2_would_you_like_to_recommend_baybay_s_local_food_to_tourists) |> 
+  rename("recommend" = x2_would_you_like_to_recommend_baybay_s_local_food_to_tourists) |> 
+  mutate(recommend = if_else(recommend == "Defnitely", "Definitely", recommend)) |> 
+  count(recommend) |> 
+  na.omit() |> 
+  mutate(pct = n / sum(n)) |> 
+  mutate(pct_lab = str_c(round(pct * 100, 2), "%", "(n=", n, ")"))

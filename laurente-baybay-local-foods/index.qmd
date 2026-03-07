@@ -63,7 +63,7 @@ p_aware_rice <-
     scale_x_continuous(labels = percent_format()) +
     custom_theme +
     labs(
-    title = "Rice-based delicacies level of awareness",
+    title = str_wrap("Perceived level of awareness on rice-based delicacies.", 40),
     fill =  NULL,
     y = NULL,
     x = NULL
@@ -77,6 +77,8 @@ ggsave(
     width = 8,
     height = 6
 )
+
+knitr::include_graphics("plot/aware_rice.jpg")
 
 ```
 
@@ -93,7 +95,7 @@ p_snack_processed <-
     scale_x_continuous(labels = percent_format()) +
     custom_theme +
     labs(
-    title = "Snacks and processed products level of awareness",
+    title = str_wrap("Perceived level of awareness on snacks and processed products.", 40),
     fill =  NULL,
     y = NULL,
     x = NULL
@@ -107,6 +109,8 @@ ggsave(
     width = 8,
     height = 6
 )
+
+knitr::include_graphics("plot/aware_snacks_processed.jpg")
 ```
 
 
@@ -123,7 +127,7 @@ p_aware_beverage_dairy <-
     scale_x_continuous(labels = percent_format()) +
     custom_theme +
     labs(
-    title = "Beverage, dairy, and specialty products level of awareness",
+    title = str_wrap("Perceived level of awareness on beverage, dairy, and specialty products.", 40),
     fill =  NULL,
     y = NULL,
     x = NULL
@@ -137,6 +141,8 @@ ggsave(
     width = 8,
     height = 5
 )
+
+knitr::include_graphics("plot/aware_beverage_dairy.jpg")
 ```
 
 
@@ -154,7 +160,7 @@ p_taste_rice <-
     scale_x_continuous(labels = percent_format()) +
     custom_theme +
     labs(
-    title = "Beverage, dairy, and specialty products level of awareness",
+    title = str_wrap("Perceived level of awareness on rice-based delicacies' taste", 40),
     fill =  NULL,
     y = NULL,
     x = NULL
@@ -168,6 +174,10 @@ ggsave(
     width = 8,
     height = 6
 )
+
+
+knitr::include_graphics("plot/taste_rice.jpg")
+
 ```
 
 ### Snacks and processed  products
@@ -182,7 +192,7 @@ p_taste_snacks_process<-
     scale_x_continuous(labels = percent_format()) +
     custom_theme +
     labs(
-    title = "Beverage, dairy, and specialty products level of awareness",
+    title = str_wrap("Perceived level of awareness on snacks and processed products' taste", 40),
     fill =  NULL,
     y = NULL,
     x = NULL
@@ -196,6 +206,8 @@ ggsave(
     width = 8,
     height = 6
 )
+
+knitr::include_graphics("plot/taste_snacks_process.jpg")
 ```
 
 ### Beverage, dairy and specialty products
@@ -211,7 +223,7 @@ p_taste_beverage_dairy <-
     scale_x_continuous(labels = percent_format()) +
     custom_theme +
     labs(
-    title = "Beverage, dairy, and specialty products level of awareness",
+    title = str_wrap("Perceived level of awareness on beverage, dairy, and specialty products' taste", 40),
     fill =  NULL,
     y = NULL,
     x = NULL
@@ -225,24 +237,171 @@ ggsave(
     width = 8,
     height = 5
 )
+
+
+knitr::include_graphics("plot/taste_beverage_dairy.jpg")
 ```
 
 
+## Appearance
+
+### Rice-based delicacies
+
+ ```{r}
+ p_appearance_rice <- 
+    appearance_rice_based_dta |> 
+    ggplot(aes(pct, delicacy, fill = rate_lab)) +
+    geom_col() +
+    geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
+    scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffba66ff", "#e63946")) +
+    scale_x_continuous(labels = percent_format()) +
+    custom_theme +
+    labs(
+    title = str_wrap("Perceived level of awareness on rice-based products' appearance", 40),
+    fill =  NULL,
+    y = NULL,
+    x = NULL
+    )
+
+ggsave(
+    plot = p_appearance_rice,
+    filename = "plot/appearance_rice.jpg",
+    dpi = 400,
+    unit = "in",
+    width = 8,
+    height = 6
+)
+
+knitr::include_graphics("plot/appearance_rice.jpg")
+ ```
+
+### Snacks and processed products
+
+```{r}
+p_appearance_snacks_process <- 
+    appearance_snacks_process_dta |> 
+    ggplot(aes(pct, delicacy, fill = rate_lab)) +
+    geom_col() +
+    geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
+    scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffba66ff", "#e63946")) +
+    scale_x_continuous(labels = percent_format()) +
+    custom_theme +
+    labs(
+    title = str_wrap("Perceived level of awareness on snacks and processed products' appearance", 40),
+    fill =  NULL,
+    y = NULL,
+    x = NULL
+    )
+
+ggsave(
+    plot = p_appearance_snacks_process,
+    filename = "plot/appearance_snacks_process.jpg",
+    dpi = 400,
+    unit = "in",
+    width = 8,
+    height = 6
+)
+
+knitr::include_graphics("plot/appearance_snacks_process.jpg")
+```
 
 
+### Beverage, dairy and specialty products
 
+```{r}
+p_appearance_beverage_dairy <- 
+    appearance_beverage_dairy_dta |> 
+    ggplot(aes(pct, delicacy, fill = rate_lab)) +
+    geom_col() +
+    geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
+    scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffba66ff", "#e63946")) +
+    scale_x_continuous(labels = percent_format()) +
+    custom_theme +
+    labs(
+    title = str_wrap("Perceived level of awareness on beverage, dairy, and specialty products' appearance", 40),
+    fill =  NULL,
+    y = NULL,
+    x = NULL
+    )
 
+ggsave(
+    plot = p_appearance_beverage_dairy,
+    filename = "plot/appearance_beverage_dairy.jpg",
+    dpi = 400,
+    unit = "in",
+    width = 8,
+    height = 5
+)
 
-
-
-
-
+knitr::include_graphics("plot/appearance_beverage_dairy.jpg")
+```
 
 
 # Objective 3: To measure the resident's perception of local delicacies in terms of product marketability, cuisine prepservation.
 
 # Objective 4: To assess the residents' willingness to support towards gastronomic tourism.
 
-# Objective 5: To support for gastronomic tourism thorugh policy recommendation.
+## Proportion of resident willing to participate
+
+```{r}
+p_activity_part <- 
+    activity_part_dta |> 
+    mutate(activity = str_wrap(activity, 30)) |> 
+    mutate(activity = fct_reorder(activity, pct)) |> 
+    ggplot(aes(pct, activity, fill = activity)) +
+    geom_col(width = 0.7, show.legend = F) +
+    geom_text(aes(label = pct_lab), hjust = -0.1) +
+    scale_x_continuous(limits = c(0, 1), breaks = seq(0, 1, 0.20), labels = percent_format()) +
+    scale_fill_manual(values = c("#e0e1dd", "#778da9", "#415a77", "#1b263b", "#0d1b2a")) +
+    labs(
+        title = str_wrap("Proportion of residents who are willing to participate on gastronomic tourism activities", 50),
+        x = NULL,
+        y = NULL
+    ) +
+    custom_theme
+
+
+ggsave(
+    plot = p_activity_part,
+    filename = "plot/activity_participate.jpg",
+    dpi = 400,
+    unit = "in",
+    width = 8,
+    height = 5
+)
+
+knitr::include_graphics("plot/activity_participate.jpg")
+```
+
+
+## Recommend Baybay local delicacies
+
+```{r}
+p_reco_local_delicacy <- 
+    reco_local_delicacy_dta |> 
+    mutate(recommend = fct_reorder(recommend, pct)) |> 
+    ggplot(aes(pct, recommend, fill = recommend)) +
+    geom_col(width = 0.7, show.legend = F) +
+    geom_text(aes(label = pct_lab), hjust = -0.1) +
+    scale_x_continuous(limits = c(0, 1), breaks = seq(0, 1, 0.20), labels = percent_format()) +
+    scale_fill_manual(values = c( "#415a77", "#1b263b", "#0d1b2a")) +
+    labs(
+        title = str_wrap("Would you like to recommend Baybay's local food to tourists?", 50),
+        x = NULL,
+        y = NULL
+    ) +
+    custom_theme
+
+ggsave(
+    plot = p_reco_local_delicacy,
+    filename = "plot/reco_local_delicacy.jpg",
+    dpi = 400,
+    unit = "in",
+    width = 8,
+    height = 5
+)
+
+knitr::include_graphics("plot/reco_local_delicacy.jpg")
+```
 
 
