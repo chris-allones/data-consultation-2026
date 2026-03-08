@@ -295,8 +295,52 @@ reco_local_delicacy_dta <-
 
 
 ## likert perceptions
-read_excel("data/baybay-local-foods-data.xlsx", 2) |> 
+### likert perception data
+likert_desc_dta <- 
+  read_excel("data/baybay-local-foods-data.xlsx", 2) |> 
   mutate(description = str_extract(desciption, "\\[.*?\\]")) |> 
-  mutate(description = str_remove_all(description, "\\[|\\]")) |> 
-  View()
+  mutate(description = str_remove_all(description, "\\[|\\]"))
 
+likert_dta <- 
+  local_food_dta |> 
+  select(pm1:ab5) |> 
+  pivot_longer(everything(),
+               names_to = "indicator",
+               values_to = "rating") |> 
+  mutate(indicator = str_to_upper(indicator)) |> 
+  left_join(likert_desc_dta, by = "indicator") |> 
+  select(-desciption) |> 
+  filter(rating < 6) |> 
+  na.omit() |> 
+  count(factor, indicator, rating) |> 
+  group_by(indicator) |> 
+  mutate(pct = n / sum(n)) |> 
+  mutate(pct_lab = round(pct * 100, 0)) |> 
+  ungroup() |> 
+  left_join(likert_desc_dta |> select(indicator, description)) |> 
+  mutate(rating = factor(rating, levels = 1:5, labels = c("Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"))) |> 
+  mutate(rating = fct_rev(rating)) |> 
+  mutate(description = str_wrap(description, 40))
+
+
+## plot factor
+plot_factor <- 
+  function(factor_name){
+  likert_dta |> 
+  filter(str_detect(factor, factor_name)) |> 
+  ggplot(aes(pct, description, fill = rating)) +
+  geom_col(width = 0.7) +
+  geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
+  scale_x_continuous(labels = percent_format()) +
+  scale_fill_manual(values = c("#081c15", "#333d29", "#b6ad90", "#a68a64", "#7f4f24")) +
+  guides(fill = guide_legend(nrow = 1, label.position = "top", reverse = TRUE)) +
+  facet_wrap(~ factor) +
+  labs(
+    fill = NULL,
+    x = NULL,
+    y = NULL
+  ) +
+  custom_theme
+}
+
+plot_factor(factor_name = "behavioral control")

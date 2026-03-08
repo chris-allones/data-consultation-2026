@@ -339,6 +339,52 @@ knitr::include_graphics("plot/appearance_beverage_dairy.jpg")
 
 # Objective 3: To measure the resident's perception of local delicacies in terms of product marketability, cuisine prepservation.
 
+## Product marketability
+
+```{r}
+plot_factor(factor_name = "Product marketability")
+```
+
+## Cuisine preservation
+
+```{r}
+plot_factor(factor_name = "Cuisine preservation")
+```
+
+## Attitude toward local food
+
+```{r}
+plot_factor(factor_name = "Attitude")
+```
+
+## Subjective norm
+
+```{r}
+plot_factor(factor_name = "Subjective")
+```
+
+## Perceived behavioral control
+
+```{r}
+plot_factor(factor_name = "behavioral control")
+```
+
+## Behavioral intention
+
+```{r}
+plot_factor(factor_name = "intention")
+```
+
+## Actual behavior
+
+```{r}
+plot_factor(factor_name = "intention")
+```
+
+
+
+
+
 # Objective 4: To assess the residents' willingness to support towards gastronomic tourism.
 
 ## Proportion of resident willing to participate
