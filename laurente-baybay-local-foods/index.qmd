@@ -46,8 +46,6 @@ library(seminr)
 source("data-management.R")
 ```
 
-# Attachment
-
 # Attachments
 
 ::: callout-note
