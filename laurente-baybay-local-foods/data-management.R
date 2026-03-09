@@ -349,8 +349,6 @@ plot_factor <-
 likert_items <- 
   local_food_dta |> 
   select(at1:ab5)
-  
-fa.parallel(likert_items, fa = "fa")
 
 likert_items_clean <- 
   likert_items |> 
