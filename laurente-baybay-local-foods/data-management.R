@@ -343,4 +343,45 @@ plot_factor <-
   custom_theme
 }
 
-plot_factor(factor_name = "behavioral control")
+
+
+## Exploratory factor analysis
+likert_items <- 
+  local_food_dta |> 
+  select(at1:ab5)
+  
+fa.parallel(likert_items, fa = "fa")
+
+likert_items_clean <- 
+  likert_items |> 
+  select(-pbc4, -pbc5, -ab1, -ab2, -at1)
+
+local_deli_fa <- 
+  fa(
+  r = likert_items_clean,
+  nfactors = 5,
+  rotate = "varimax"
+)
+
+print(local_deli_fa$loadings, sort = TRUE, cutoff = 0.4)
+
+
+
+# Define constructs and their indicators
+measurement_model <- constructs(
+  composite("Subjective Norm", multi_items("sn", 1:4)),
+  composite("Perceived Behavioral Control", multi_items("pbc", 1:3)),
+  composite("Attitude", multi_items("at", c(2, 3, 5))),
+  composite("Behavioral Intention", multi_items("bi", c(1, 3, 5))),
+  composite("Actual Behavior", multi_items("ab", 3:5))
+)
+
+
+structural_model <- relationships(
+  paths(from = c("Attitude", "Subjective Norm", "Perceived Behavioral Control"),
+        to   = "Behavioral Intention"),
+  paths(from = "Behavioral Intention", to = "Actual Behavior")
+)
+
+plot(structural_model)
+

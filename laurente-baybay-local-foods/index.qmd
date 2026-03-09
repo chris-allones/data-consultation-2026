@@ -37,6 +37,9 @@ library(tidyverse)
 library(readxl)
 library(janitor)
 library(scales)
+library(EFAtools)
+library(psych)
+library(seminr)
 
 
 # data management source
@@ -61,6 +64,7 @@ p_aware_rice <-
     geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
     scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffba66ff", "#e63946")) +
     scale_x_continuous(labels = percent_format()) +
+    guides(fill = guide_legend(nrow = 1, reverse = TRUE)) +
     custom_theme +
     labs(
     title = str_wrap("Perceived level of awareness on rice-based delicacies.", 40),
@@ -93,6 +97,7 @@ p_snack_processed <-
     geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
     scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffba66ff", "#e63946")) +
     scale_x_continuous(labels = percent_format()) +
+    guides(fill = guide_legend(nrow = 1, reverse = TRUE)) +
     custom_theme +
     labs(
     title = str_wrap("Perceived level of awareness on snacks and processed products.", 40),
@@ -125,6 +130,7 @@ p_aware_beverage_dairy <-
     geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
     scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffba66ff", "#e63946")) +
     scale_x_continuous(labels = percent_format()) +
+    guides(fill = guide_legend(nrow = 1, reverse = TRUE)) +
     custom_theme +
     labs(
     title = str_wrap("Perceived level of awareness on beverage, dairy, and specialty products.", 40),
@@ -158,6 +164,7 @@ p_taste_rice <-
     geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
     scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffba66ff", "#e63946")) +
     scale_x_continuous(labels = percent_format()) +
+    guides(fill = guide_legend(nrow = 1, reverse = TRUE)) +
     custom_theme +
     labs(
     title = str_wrap("Perceived level of awareness on rice-based delicacies' taste", 40),
@@ -190,6 +197,7 @@ p_taste_snacks_process<-
     geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
     scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffba66ff", "#e63946")) +
     scale_x_continuous(labels = percent_format()) +
+    guides(fill = guide_legend(nrow = 1, reverse = TRUE)) +
     custom_theme +
     labs(
     title = str_wrap("Perceived level of awareness on snacks and processed products' taste", 40),
@@ -221,6 +229,7 @@ p_taste_beverage_dairy <-
     geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
     scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffba66ff", "#e63946")) +
     scale_x_continuous(labels = percent_format()) +
+    guides(fill = guide_legend(nrow = 1, reverse = TRUE)) +
     custom_theme +
     labs(
     title = str_wrap("Perceived level of awareness on beverage, dairy, and specialty products' taste", 40),
@@ -255,6 +264,7 @@ knitr::include_graphics("plot/taste_beverage_dairy.jpg")
     geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
     scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffba66ff", "#e63946")) +
     scale_x_continuous(labels = percent_format()) +
+    guides(fill = guide_legend(nrow = 1, reverse = TRUE)) +
     custom_theme +
     labs(
     title = str_wrap("Perceived level of awareness on rice-based products' appearance", 40),
@@ -285,6 +295,7 @@ p_appearance_snacks_process <-
     geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
     scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffba66ff", "#e63946")) +
     scale_x_continuous(labels = percent_format()) +
+    guides(fill = guide_legend(nrow = 1, reverse = TRUE)) +
     custom_theme +
     labs(
     title = str_wrap("Perceived level of awareness on snacks and processed products' appearance", 40),
@@ -316,6 +327,7 @@ p_appearance_beverage_dairy <-
     geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
     scale_fill_manual(values = c("#073b4c", "#118ab2", "#06d6a0", "#ffba66ff", "#e63946")) +
     scale_x_continuous(labels = percent_format()) +
+    guides(fill = guide_legend(nrow = 1, reverse = TRUE)) +
     custom_theme +
     labs(
     title = str_wrap("Perceived level of awareness on beverage, dairy, and specialty products' appearance", 40),
@@ -342,43 +354,132 @@ knitr::include_graphics("plot/appearance_beverage_dairy.jpg")
 ## Product marketability
 
 ```{r}
-plot_factor(factor_name = "Product marketability")
+p_fct_prod_marketability <- 
+    plot_factor(factor_name = "Product marketability")
+
+ggsave(
+    plot = p_fct_prod_marketability,
+    filename = "plot/fct_prod_marketability.jpeg",
+    dpi = 300,
+    height = 7,
+    width = 9,
+    unit = "in"
+)
+
+knitr::include_graphics("plot/fct_prod_marketability.jpeg")
+
 ```
 
 ## Cuisine preservation
 
 ```{r}
-plot_factor(factor_name = "Cuisine preservation")
+p_fct_cuisine_conserv <- 
+    plot_factor(factor_name = "Cuisine preservation")
+
+ggsave(
+    plot = p_fct_cuisine_conserv,
+    filename = "plot/fct_cuisine_conserv.jpeg",
+    dpi = 300,
+    height = 7,
+    width = 9,
+    unit = "in"
+)
+
+knitr::include_graphics("plot/fct_cuisine_conserv.jpeg")
+
 ```
 
 ## Attitude toward local food
 
 ```{r}
-plot_factor(factor_name = "Attitude")
+p_fct_attitude <- plot_factor(factor_name = "Attitude")
+
+ggsave(
+    plot = p_fct_attitude,
+    filename = "plot/fct_attitude.jpeg",
+    dpi = 300,
+    height = 5,
+    width = 9,
+    unit = "in"
+)
+
+knitr::include_graphics("plot/fct_attitude.jpeg")
 ```
 
 ## Subjective norm
 
 ```{r}
-plot_factor(factor_name = "Subjective")
+p_fct_subjective_norm <- 
+    plot_factor(factor_name = "Subjective")
+
+ggsave(
+    plot = p_fct_subjective_norm,
+    filename = "plot/fct_subjective_norm.jpeg",
+    dpi = 300,
+    height = 5,
+    width = 9,
+    unit = "in"
+)
+
+knitr::include_graphics("plot/fct_subjective_norm.jpeg")
+
 ```
 
 ## Perceived behavioral control
 
 ```{r}
-plot_factor(factor_name = "behavioral control")
+p_fct_behavioral_control <- 
+    plot_factor(factor_name = "behavioral control")
+
+ggsave(
+    plot = p_fct_behavioral_control,
+    filename = "plot/fct_behavioral_control.jpeg",
+    dpi = 300,
+    height = 5,
+    width = 9,
+    unit = "in"
+)
+
+knitr::include_graphics("plot/fct_behavioral_control.jpeg")
+
 ```
 
 ## Behavioral intention
 
 ```{r}
-plot_factor(factor_name = "intention")
+p_fct_behavioral_intention <- 
+    plot_factor(factor_name = "intention")
+
+ggsave(
+    plot = p_fct_behavioral_intention,
+    filename = "plot/fct_behavioral_intention.jpeg",
+    dpi = 300,
+    height = 5,
+    width = 9,
+    unit = "in"
+)
+
+knitr::include_graphics("plot/fct_behavioral_intention.jpeg")
+
 ```
 
 ## Actual behavior
 
 ```{r}
-plot_factor(factor_name = "intention")
+p_fct_actual_behavior <- 
+    plot_factor(factor_name = "intention")
+
+ggsave(
+    plot = p_fct_actual_behavior,
+    filename = "plot/fct_actual_behavior.jpeg",
+    dpi = 300,
+    height = 5,
+    width = 9,
+    unit = "in"
+)
+
+knitr::include_graphics("plot/fct_actual_behavior.jpeg")
+
 ```
 
 
