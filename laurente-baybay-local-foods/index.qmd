@@ -731,6 +731,25 @@ knitr::include_graphics("plot/reco_local_delicacy.jpg")
 
 ## Measurement and structural model
 
+- **Attitude → Behavioral Intention**
+
+    - Estimate: 0.365, significant (T = 4.296, CI [0.208, 0.542])
+    - Interpretation: Residents’ positive attitudes toward local food (pride, enjoyment, identity) strongly and significantly increase their intention to support gastronomic tourism. This confirms that cultural pride and appreciation are major drivers of willingness to act.
+
+- **Subjective Norm → Behavioral Intention**
+    - Estimate: -0.056, not significant (T = -0.396, CI [-0.337, 0.215])
+    - Interpretation: Social expectations (community, family, peers, leaders) do not significantly influence residents’ behavioral intention. In fact, the negative coefficient suggests that external pressure may slightly reduce intention, though the effect is statistically insignificant. This means residents’ willingness is more internally motivated (attitude and control) than externally pressured.
+
+
+- **Perceived Behavioral Control → Behavioral Intention**
+    - Estimate: 0.348, significant (T = 2.478, CI [0.071, 0.618])
+    - Interpretation: Confidence in resources, knowledge, and ability to participate significantly increases intention. Residents who feel capable (e.g., can recommend food, distinguish authentic dishes, or access events) are more likely to intend to support gastronomic tourism.
+
+
+- **Behavioral Intention → Actual Behavior**
+    - Estimate: 0.495, highly significant (T = 8.452, CI [0.385, 0.613])
+    - Interpretation: Behavioral intention strongly predicts actual behavior. Residents who intend to promote, preserve, and participate in food-related activities are very likely to follow through in practice. This validates the Theory of Planned Behavior in the Baybay context.
+
 ```{r}
 # Define constructs and their indicators
 measurement_model <- constructs(
