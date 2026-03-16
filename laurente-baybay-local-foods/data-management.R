@@ -362,3 +362,50 @@ local_deli_fa <-
 )
 
 
+
+## socio-demographic profile
+### age
+age_socio_dta <- 
+  local_food_dta |> 
+  select(sex, age) |> 
+  na.omit() |> 
+  mutate(age = case_when(
+    str_detect(age, "30") ~ "30 years old & above",
+    str_detect(age, "26") ~ "26 - 29 years old",
+    str_detect(age, "18") ~ "18 - 21 years old",
+    str_detect(age, "22") ~ "22 - 25 years old",
+    TRUE ~ age
+  )) |> 
+  count(sex,age) |>
+  group_by(sex) |> 
+  mutate(pct = n / sum(n)) |> 
+  mutate(pct_lab = round(pct * 100, 0)) |> 
+  mutate(pct_lab = str_c(pct_lab, "% (n=", n, ")")) |> 
+  ungroup()
+
+
+### educ
+educ_socio_dta <- 
+  local_food_dta |> 
+  select(sex, educ) |> 
+  na.omit() |> 
+  count(sex,educ) |>
+  group_by(sex) |> 
+  mutate(pct = n / sum(n)) |> 
+  mutate(pct_lab = round(pct * 100, 0)) |> 
+  mutate(pct_lab = str_c(pct_lab, "% (n=", n, ")")) |> 
+  ungroup()
+
+
+### residency
+resident_socio_dta <- 
+  local_food_dta |> 
+  select(sex, residency) |> 
+  na.omit() |> 
+  count(sex,residency) |>
+  group_by(sex) |> 
+  mutate(pct = n / sum(n)) |> 
+  mutate(pct_lab = round(pct * 100, 0)) |> 
+  mutate(pct_lab = str_c(pct_lab, "% (n=", n, ")")) |> 
+  ungroup()
+

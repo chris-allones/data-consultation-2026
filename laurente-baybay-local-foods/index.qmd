@@ -1,5 +1,5 @@
 ---
-title: "Perception of Baybaynons on local food industry in Baybay City: an input to gastronomic tourism"
+title: "Perception of Baybayanons on local food industry in Baybay City: an input to gastronomic tourism"
 author: "ViSERDAC"
 date: last-modified
 format: 
@@ -62,6 +62,90 @@ Copies of the Figures presented in this report are available using the links bel
 
 
 # Objective 1: To describe the socio-demogprahic profile of the respondents
+
+## Age
+```{r}
+p_age <- 
+    age_socio_dta |> 
+  ggplot(aes(pct, age, fill = sex)) +
+  geom_col(position = "dodge", width = 0.8) +
+  geom_text(aes(label = pct_lab), position = position_dodge(width = 0.9), hjust = 0) +
+  scale_x_continuous(labels = percent_format(), limits = c(0, 0.8)) +
+  labs(
+    fill = NULL,
+    x = NULL,
+    y = NULL
+  ) +
+  custom_theme
+
+ggsave(
+    plot = p_age,
+    filename = "plot/age.jpg",
+    dpi = 400,
+    unit = "in",
+    width = 8,
+    height = 5
+)
+
+knitr::include_graphics("plot/age.jpg")
+```
+
+## Educational attainment
+
+```{r}
+p_educ <- 
+    educ_socio_dta |> 
+  ggplot(aes(pct, educ, fill = sex)) +
+  geom_col(position = "dodge", width = 0.8) +
+  geom_text(aes(label = pct_lab), position = position_dodge(width = 0.9), hjust = 0) +
+  scale_x_continuous(labels = percent_format(), limits = c(0, 0.8)) +
+  labs(
+    fill = NULL,
+    x = NULL,
+    y = NULL
+  ) +
+  custom_theme
+
+ggsave(
+    plot = p_educ,
+    filename = "plot/educ.jpg",
+    dpi = 400,
+    unit = "in",
+    width = 8,
+    height = 5
+)
+
+knitr::include_graphics("plot/educ.jpg")
+```
+
+## Residency
+
+```{r}
+p_residency <- 
+    resident_socio_dta |> 
+  ggplot(aes(pct, residency, fill = sex)) +
+  geom_col(position = "dodge", width = 0.8) +
+  geom_text(aes(label = pct_lab), position = position_dodge(width = 0.9), hjust = 0) +
+  scale_x_continuous(labels = percent_format(), limits = c(0, 0.8)) +
+  labs(
+    fill = NULL,
+    x = NULL,
+    y = NULL
+  ) +
+  custom_theme
+
+ggsave(
+    plot = p_residency,
+    filename = "plot/residency.jpg",
+    dpi = 400,
+    unit = "in",
+    width = 8,
+    height = 5
+)
+
+knitr::include_graphics("plot/residency.jpg")
+```
+
 
 # Objective 2: To measure the level of awareness of the Baybayanons.
 
