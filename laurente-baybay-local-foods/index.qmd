@@ -92,6 +92,12 @@ knitr::include_graphics("plot/age.jpg")
 
 ## Educational attainment
 
+- Both genders are highly educated, which supports informed perspectives on food heritage, tourism, and innovation. Women slightly lead in higher education, reinforcing their role in cultural transmission and professional engagement.
+
+- Females: Highest proportion are college graduates (42%), followed by college students (24%). A small but notable group has postgraduate education (8%).
+
+- Males: Also dominated by college graduates (37%) and college students (32%), with smaller shares in vocational (8%) and postgraduate (6%).
+
 ```{r}
 p_educ <- 
     educ_socio_dta |> 
@@ -119,6 +125,12 @@ knitr::include_graphics("plot/educ.jpg")
 ```
 
 ## Residency
+
+- Women dominate in long-term experience, reinforcing their role in preserving culinary heritage. Men show more diversity in experience levels, which may align with openness to experimentation and adaptation.
+
+- Females: Majority have more than 20 years of experience (60%), reflecting long-term involvement in household food preparation, community practices, or professional work.
+
+- Males: Also strong in more than 20 years (48%), but with more spread across mid-range experience (16–20 years = 16%; 11–15 years = 10%).
 
 ```{r}
 p_residency <- 
