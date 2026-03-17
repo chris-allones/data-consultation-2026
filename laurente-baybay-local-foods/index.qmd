@@ -64,6 +64,11 @@ Copies of the Figures presented in this report are available using the links bel
 # Objective 1: To describe the socio-demogprahic profile of the respondents
 
 ## Age
+
+- Females: Majority are 30 years old & above (49%), showing stronger representation of older women who are likely custodians of culinary traditions.
+
+- Males: More evenly distributed, with the largest group in 22–25 years old (30%), suggesting younger men may be more open to modernized or innovative food products.
+
 ```{r}
 p_age <- 
     age_socio_dta |> 
