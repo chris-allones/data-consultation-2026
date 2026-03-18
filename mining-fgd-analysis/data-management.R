@@ -123,3 +123,52 @@ q5_fgd <-
   filter(str_detect(question, "Do women want to work"))
 
 
+## data for bigram
+q1_word_corr_fgd <- 
+  fgd_data |> 
+  filter(str_detect(question, "What roles")) |> 
+  mutate(q_id = row_number()) |> 
+  unnest_tokens(word, answer) |> 
+  filter(!word %in% filter_word) |> 
+  anti_join(stop_words) |> 
+  pairwise_cor(word, q_id, sort = TRUE)
+
+q2_word_corr_fgd <- 
+  fgd_data |> 
+  filter(str_detect(question, "What are the biggest challenge")) |> 
+  mutate(q_id = row_number()) |> 
+  unnest_tokens(word, answer) |> 
+  filter(!word %in% filter_word) |> 
+  anti_join(stop_words) |> 
+  pairwise_cor(word, q_id, sort = TRUE)
+
+
+q3_word_corr_fgd <- 
+  fgd_data |> 
+  filter(str_detect(question, "Who in the community")) |> 
+  mutate(q_id = row_number()) |> 
+  unnest_tokens(word, answer) |> 
+  filter(!word %in% filter_word) |> 
+  anti_join(stop_words) |> 
+  pairwise_cor(word, q_id, sort = TRUE)
+
+
+q4_word_corr_fgd <- 
+  fgd_data |> 
+  filter(str_detect(question, "Which household")) |> 
+  mutate(q_id = row_number()) |> 
+  unnest_tokens(word, answer) |> 
+  filter(!word %in% filter_word) |> 
+  anti_join(stop_words) |> 
+  pairwise_cor(word, q_id, sort = TRUE)
+
+
+q5_word_corr_fgd <- 
+  fgd_data |> 
+  filter(str_detect(question, "Do women want to work")) |> 
+  mutate(q_id = row_number()) |> 
+  unnest_tokens(word, answer) |> 
+  filter(!word %in% filter_word) |> 
+  anti_join(stop_words) |> 
+  pairwise_cor(word, q_id, sort = TRUE)
+
