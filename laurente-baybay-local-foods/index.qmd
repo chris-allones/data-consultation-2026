@@ -340,7 +340,7 @@ knitr::include_graphics("plot/taste_rice.jpg")
 -   Tourism implication: Taste familiarity is uneven — traditional items are ready for promotion, while innovative ones need sampling campaigns to build consumer trust.
 
 ```{r}
-p_taste_snacks_process<- 
+p_taste_snacks_process <- 
     taste_snacks_process_data |> 
     ggplot(aes(pct, delicacy, fill = rate_lab)) +
     geom_col() +
@@ -357,7 +357,7 @@ p_taste_snacks_process<-
     )
 
 ggsave(
-    plot = p_taste_rice,
+    plot = p_taste_snacks_process,
     filename = "plot/taste_snacks_process.jpg",
     dpi = 400,
     unit = "in",
@@ -707,14 +707,17 @@ knitr::include_graphics("plot/fct_behavioral_intention.jpeg")
 
 ## Actual behavior
 
--   High levels of agreement in earlier plots (attitude and perceived control) suggest residents actively consume and enjoy local food prepared traditionally.
--   With 63% strongly agreeing they feel capable of recommending local food to visitors, actual behavior likely includes informal advocacy in social and family contexts.
--   While intention is strong, actual participation may be lower due to resource and accessibility issues (time, transport, availability of events).
--   Agreement that producing and selling local food contributes to preservation indicates residents actively buy local delicacies, reinforcing both heritage and livelihood.
+-   54% strongly agree they purchase from or support businesses offering Baybayanon food, with another 35% neutral. Only 12% disagree. Residents actively support local enterprises, but the high neutral response suggests occasional rather than consistent purchasing behavior.
+
+- 40% strongly agree and 20% agree they have joined local food events. However, 25% are neutral and 15% disagree.
+
+- 53% strongly agree and 27% agree they bring visiting friends/relatives to try local specialties. Only 20% are neutral, with negligible disagreement.
+
+- 45% strongly agree and 23% agree they promote local food (social media or conversations). 27% are neutral, while only 6% disagree.
 
 ```{r}
 p_fct_actual_behavior <- 
-    plot_factor(factor_name = "intention")
+    plot_factor(factor_name = "Actual")
 
 ggsave(
     plot = p_fct_actual_behavior,
