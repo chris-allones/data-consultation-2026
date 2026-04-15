@@ -1,0 +1,71 @@
+# loading data
+df <- read_excel("data/digi-fin-data.xlsx") |> 
+  clean_names() |> 
+  select(-x56)
+
+# custom theme
+custom_theme <- 
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5, size = 16, margin = margin(b=15), face = "bold"),
+        plot.title.position = "panel",
+        plot.subtitle = element_text(color = "gray40", margin = margin(b=15), size = 12),
+        plot.margin = margin(t = 20, r = 20, b = 20, l = 20),
+        panel.grid = element_blank(),
+        axis.text = element_text(size = 12),
+        strip.text = element_text(size = 16, face = "bold"),
+        legend.position = "bottom",
+        legend.text = element_text(size = 12)
+      )
+
+
+## likert items data
+### statements
+lkrt_statements <- 
+  read_excel("data/digi-fin-data.xlsx", 2) |> 
+  clean_names() |> 
+  mutate(item = str_to_lower(code)) |> 
+  rename(
+    "statement" = questions
+  ) |> 
+  select(factor, statement, item)
+
+lkrt_dta <- 
+  df |> 
+  select(bks1:fa4) |> 
+  pivot_longer(cols = everything(),
+               names_to = "item",
+               values_to = "response") |>  
+  count(item, response) |> 
+  group_by(item) |>
+  mutate(percent = n/sum(n)) |> 
+  left_join(lkrt_statements, by = "item") |> 
+  relocate(c(factor, statement), .before = item) |> 
+  ungroup() |> 
+  mutate(response = factor(response, levels = c(1, 2, 3, 4, 5), labels = c("Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree")),
+         pct_lab = str_c(round(percent * 100, 0))) |> 
+  mutate(response = fct_rev(response)) |>
+  mutate(statement = str_wrap(statement, width = 60))
+
+
+### plot factor
+plot_factor <- 
+  function(factor_name){
+  lkrt_dta |> 
+  filter(str_detect(factor, factor_name)) |> 
+  ggplot(aes(percent, statement, fill = response)) +
+  geom_col(width = 0.7) +
+  geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
+  scale_x_continuous(labels = percent_format()) +
+  scale_fill_manual(values = c("#081c15", "#333d29", "#b6ad90", "#a68a64", "#7f4f24")) +
+  guides(fill = guide_legend(nrow = 1, label.position = "top", reverse = TRUE)) +
+  facet_wrap(~ factor) +
+  labs(
+    fill = NULL,
+    x = NULL,
+    y = NULL
+  ) +
+  custom_theme
+}
+
+
+

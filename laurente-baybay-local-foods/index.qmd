@@ -709,11 +709,11 @@ knitr::include_graphics("plot/fct_behavioral_intention.jpeg")
 
 -   54% strongly agree they purchase from or support businesses offering Baybayanon food, with another 35% neutral. Only 12% disagree. Residents actively support local enterprises, but the high neutral response suggests occasional rather than consistent purchasing behavior.
 
-- 40% strongly agree and 20% agree they have joined local food events. However, 25% are neutral and 15% disagree.
+-   40% strongly agree and 20% agree they have joined local food events. However, 25% are neutral and 15% disagree.
 
-- 53% strongly agree and 27% agree they bring visiting friends/relatives to try local specialties. Only 20% are neutral, with negligible disagreement.
+-   53% strongly agree and 27% agree they bring visiting friends/relatives to try local specialties. Only 20% are neutral, with negligible disagreement.
 
-- 45% strongly agree and 23% agree they promote local food (social media or conversations). 27% are neutral, while only 6% disagree.
+-   45% strongly agree and 23% agree they promote local food (social media or conversations). 27% are neutral, while only 6% disagree.
 
 ```{r}
 p_fct_actual_behavior <- 
