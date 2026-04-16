@@ -93,9 +93,12 @@ df |>
 ```
 
 
-# Objective 2: Examine whether digital financial literacy is positively associated with financial well-being.
+# Objective 2-4: Examine whether digital financial literacy and self-efficacy is positively associated with financial well-being.
+
+## Correlation table
 
 ```{r}
+#| echo: false
 fct_digi_fin_dta <- 
     df |> 
     select(bks1:fa4) %>% 
@@ -147,35 +150,7 @@ modelsummary::datasummary_correlation(
 ```
 
 
-## correlation table
-
 ```{r}
-correlation::correlation(fct_digi_fin_dta) |>
-  as_tibble() |> 
-  select(Parameter1, Parameter2, r, p) |> 
-  mutate(stars = case_when(
-    p < 0.01 ~ "***",
-    p < 0.05 ~ "**",
-    p < 0.1 ~ "*",
-    TRUE ~ ""
-  )) |> 
-  mutate(p = round(p, 3)) |> 
-  mutate(r = paste0(round(r, 3), stars)) |> 
-  rename("Parameter 1" = Parameter1,
-         "Parameter 2" = Parameter2,
-         "Correlation (r)" = r,
-         "p-value" = p) |> 
-  select(-stars) |>
-  kable() |> 
-  kable_minimal() |> 
-  kable_styling(full_width = F, fixed_thead = T,
-                bootstrap_options = c("striped", "hover", "condensed", "responsive")) |> 
-  add_footnote("Significance level: * p < 0.10, ** p < 0.05, *** p < 0.01", notation = "none")
-```
-
-
-```{r}
-
 cor_mat <- round(cor(fct_digi_fin_dta, method = "pearson"), 3)
 cor_mat[lower.tri(cor_mat)] <- NA
 melted_cormat <- melt(cor_mat)
@@ -244,13 +219,12 @@ p_corr_items <- melted_cormat_heatmap %>%
           x = element_blank(),
           y = element_blank())
 
-# ggsave(plot = p_corr_items, filename = "plot/corr_items.jpeg", dpi = 300, width = 10, height = 6)
-# knitr::include_graphics("plot/corr_items.jpeg")
+ggsave(plot = p_corr_items, filename = "plot/corr_items.jpeg", dpi = 300, width = 10, height = 6)
+knitr::include_graphics("plot/corr_items.jpeg")
 ```
 
-# Objective 3: Examine whether digital financial literacy is positively associated with financial self-efficacy.
 
-# Objective 4: Examine whether financial self-efficacy is positively associated with financial well-being.
+# Objective 5: Determine whether financial self-efficacy mediates the relationship between digital financial literacy and financial well-being.
 
 ## Exploratory factor analysis
 
@@ -282,5 +256,5 @@ efa_extract <- fa(efa_trial_dta, nfactors = 6, rotate = "varimax", fm = "ml")
 print(efa_extract$loadings, cutoff = 0.3, sort = TRUE)
 ```
 
-# Objective 5: Determine whether financial self-efficacy mediates the relationship between digital financial literacy and financial well-being.
+
 
