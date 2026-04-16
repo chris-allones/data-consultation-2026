@@ -92,7 +92,6 @@ df |>
     
 ```
 
-
 # Objective 2-4: Examine whether digital financial literacy and self-efficacy is positively associated with financial well-being.
 
 ## Correlation table
@@ -148,7 +147,6 @@ modelsummary::datasummary_correlation(
   notes = note_pvalue
 )
 ```
-
 
 ```{r}
 cor_mat <- round(cor(fct_digi_fin_dta, method = "pearson"), 3)
@@ -223,7 +221,6 @@ ggsave(plot = p_corr_items, filename = "plot/corr_items.jpeg", dpi = 300, width 
 knitr::include_graphics("plot/corr_items.jpeg")
 ```
 
-
 # Objective 5: Determine whether financial self-efficacy mediates the relationship between digital financial literacy and financial well-being.
 
 ## Exploratory factor analysis
@@ -235,10 +232,10 @@ efa_lkrt_dta <-
 ```
 
 ### Parallel analysis
+
 ```{r}
 fa.parallel(efa_lkrt_dta, fa = "fa")
 ```
-
 
 ### Factor extraction
 
@@ -249,12 +246,8 @@ efa_trial_dta <-
     select(-c(bks1:bks7))
 ```
 
-
 ```{r}
 efa_extract <- fa(efa_trial_dta, nfactors = 6, rotate = "varimax", fm = "ml")
 
 print(efa_extract$loadings, cutoff = 0.3, sort = TRUE)
 ```
-
-
-
