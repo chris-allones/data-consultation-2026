@@ -66,6 +66,8 @@ Copies of the Figures presented in this report are available using the links bel
 
 # Objective 1: Present the socio-demographic profile of the respondents.
 
+## Sociodemographic variables
+
 ```{r}
 ## create a gt summary table
 df |> 
@@ -91,6 +93,186 @@ df |>
 
     
 ```
+
+
+
+## Factors
+
+### Awareness {.unnumbered}
+
+```{r}
+p_awareness <- plot_factor("Awareness")
+
+## saving plot
+ggsave(
+    plot = p_awareness,
+    filename = "plot/fct_awareness.jpeg",
+    width = 10,
+    height = 4,
+    dpi = 400,
+    unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/fct_awareness.jpeg")
+```
+
+
+### Basic Knowledge and Skills {.unnumbered}
+
+```{r}
+p_basic_know_skill <- plot_factor("Basic Knowledge and Skills", stwidth = 70)
+
+## saving plot
+ggsave(
+    plot = p_basic_know_skill,
+    filename = "plot/fct_basic_know_skill.jpeg",
+    width = 10,
+    height = 10,
+    dpi = 400,
+    unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/fct_basic_know_skill.jpeg")
+```
+
+
+### Decision Making {.unnumbered}
+
+```{r}
+p_decision_making <- plot_factor("Decision Making")
+
+## saving plot
+ggsave(
+    plot = p_decision_making,
+    filename = "plot/fct_decision_making.jpeg",
+    width = 10,
+    height = 4,
+    dpi = 400,
+    unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/fct_decision_making.jpeg")
+```
+
+### Financial Anxiety {.unnumbered}
+
+```{r}
+p_finance_anxiety <- plot_factor("Financial Anxiety")
+
+## saving plot
+ggsave(
+    plot = p_finance_anxiety,
+    filename = "plot/fct_finance_anxiety.jpeg",
+    width = 10,
+    height = 5,
+    dpi = 400,
+    unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/fct_finance_anxiety.jpeg")
+```
+
+### Financial Capability {.unnumbered}
+
+```{r}
+p_finance_capability <- plot_factor("Financial Capability")
+
+## saving plot
+ggsave(
+    plot = p_finance_capability,
+    filename = "plot/fct_finance_capability.jpeg",
+    width = 10,
+    height = 5,
+    dpi = 400,
+    unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/fct_finance_capability.jpeg")
+```
+
+### Financial Satisfaction {.unnumbered}
+
+```{r}
+p_finance_sat <- plot_factor("Financial Satisfaction")
+
+## saving plot
+ggsave(
+    plot = p_finance_sat,
+    filename = "plot/fct_finance_sat.jpeg",
+    width = 10,
+    height = 4,
+    dpi = 400,
+    unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/fct_finance_sat.jpeg")
+```
+
+### Financial Self-Efficacy {.unnumbered}
+
+```{r}
+p_fiance_self_efficacy <- plot_factor("Financial Self-Efficacy")
+
+## saving plot
+ggsave(
+    plot = p_fiance_self_efficacy,
+    filename = "plot/fct_fiance_self_efficacy.jpeg",
+    width = 10,
+    height = 5,
+    dpi = 400,
+    unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/fct_fiance_self_efficacy.jpeg")
+```
+
+### Practical Know-How {.unnumbered}
+
+```{r}
+p_practical_know_how <- plot_factor("Practical Know-How")
+
+## saving plot
+ggsave(
+    plot = p_practical_know_how,
+    filename = "plot/fct_practical_know_how.jpeg",
+    width = 10,
+    height = 4,
+    dpi = 400,
+    unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/fct_practical_know_how.jpeg")
+```
+
+### Self-Protection {.unnumbered}
+
+```{r}
+p_self_protection <- plot_factor("Self-Protection")
+
+## saving plot
+ggsave(
+    plot = p_self_protection,
+    filename = "plot/fct_self_protection.jpeg",
+    width = 10,
+    height = 4,
+    dpi = 400,
+    unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/fct_self_protection.jpeg")
+```
+
+
+
 
 # Objective 2-4: Examine whether digital financial literacy and self-efficacy is positively associated with financial well-being.
 

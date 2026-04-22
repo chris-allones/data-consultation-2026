@@ -43,20 +43,21 @@ lkrt_dta <-
   ungroup() |> 
   mutate(response = factor(response, levels = c(1, 2, 3, 4, 5), labels = c("Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree")),
          pct_lab = str_c(round(percent * 100, 0))) |> 
-  mutate(response = fct_rev(response)) |>
-  mutate(statement = str_wrap(statement, width = 60))
+  mutate(response = fct_rev(response))
+  
 
 
 ### plot factor
 plot_factor <- 
-  function(factor_name){
+  function(factor_name, stwidth = 50){
   lkrt_dta |> 
+  mutate(statement = str_wrap(statement, width = stwidth)) |> 
   filter(str_detect(factor, factor_name)) |> 
   ggplot(aes(percent, statement, fill = response)) +
-  geom_col(width = 0.7) +
+  geom_col(width = 0.6) +
   geom_text(aes(label = pct_lab), position = position_fill(vjust = 0.5), color = "white", fontface = "bold") +
   scale_x_continuous(labels = percent_format()) +
-  scale_fill_manual(values = c("#081c15", "#333d29", "#b6ad90", "#a68a64", "#7f4f24")) +
+  scale_fill_manual(values = c("#2c6e49", "#4c956c", "#d6cfcb", "#ffc9b9", "#d68c45")) +
   guides(fill = guide_legend(nrow = 1, label.position = "top", reverse = TRUE)) +
   facet_wrap(~ factor) +
   labs(
