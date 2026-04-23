@@ -28,7 +28,6 @@ editor: visual
 #| echo: false
 #| message: false
 #| warning: false
-
 # set working directory
 setwd(here::here("digi-finance"))
 
@@ -70,28 +69,29 @@ Copies of the Figures presented in this report are available using the links bel
 
 ```{r}
 ## create a gt summary table
-df |> 
-    select(age:residence_type) |> 
-    tbl_summary(
-        statistic = list(all_categorical() ~ "{n} ({p}%)"),
-        missing = "no",
-        label = list(
-            age ~ "Age",
-            sex ~ "Sex",
-            degree_program ~ "Degree Program",
-            year_level ~ "Year level",
-            monthly_income_allowance ~ "Monthly Income/Allowance",
-            primary_source_of_financial_support = "Source of financial support",
-            residence_type = "Type of residence"
-        )
-    ) |> 
-        bold_labels() %>% 
-        as_kable_extra(linesep = "") %>% 
-        kable_minimal() %>% 
-        kable_styling(full_width = F, fixed_thead = T,
-                    bootstrap_options = c("striped", "hover", "condensed", "responsive"))
-
-    
+df |>
+  select(age:residence_type) |>
+  tbl_summary(
+    statistic = list(all_categorical() ~ "{n} ({p}%)"),
+    missing = "no",
+    label = list(
+      age ~ "Age",
+      sex ~ "Sex",
+      degree_program ~ "Degree Program",
+      year_level ~ "Year level",
+      monthly_income_allowance ~ "Monthly Income/Allowance",
+      primary_source_of_financial_support = "Source of financial support",
+      residence_type = "Type of residence"
+    )
+  ) |>
+  bold_labels() %>%
+  as_kable_extra(linesep = "") %>%
+  kable_minimal() %>%
+  kable_styling(
+    full_width = F,
+    fixed_thead = T,
+    bootstrap_options = c("striped", "hover", "condensed", "responsive")
+  )
 ```
 
 ## Factors
@@ -103,12 +103,12 @@ p_awareness <- plot_factor("Awareness")
 
 ## saving plot
 ggsave(
-    plot = p_awareness,
-    filename = "plot/fct_awareness.jpeg",
-    width = 10,
-    height = 4,
-    dpi = 400,
-    unit = "in"
+  plot = p_awareness,
+  filename = "plot/fct_awareness.jpeg",
+  width = 10,
+  height = 4,
+  dpi = 400,
+  unit = "in"
 )
 
 ## display plot
@@ -122,12 +122,12 @@ p_basic_know_skill <- plot_factor("Basic Knowledge and Skills", stwidth = 70)
 
 ## saving plot
 ggsave(
-    plot = p_basic_know_skill,
-    filename = "plot/fct_basic_know_skill.jpeg",
-    width = 10,
-    height = 10,
-    dpi = 400,
-    unit = "in"
+  plot = p_basic_know_skill,
+  filename = "plot/fct_basic_know_skill.jpeg",
+  width = 10,
+  height = 10,
+  dpi = 400,
+  unit = "in"
 )
 
 ## display plot
@@ -141,12 +141,12 @@ p_decision_making <- plot_factor("Decision Making")
 
 ## saving plot
 ggsave(
-    plot = p_decision_making,
-    filename = "plot/fct_decision_making.jpeg",
-    width = 10,
-    height = 4,
-    dpi = 400,
-    unit = "in"
+  plot = p_decision_making,
+  filename = "plot/fct_decision_making.jpeg",
+  width = 10,
+  height = 4,
+  dpi = 400,
+  unit = "in"
 )
 
 ## display plot
@@ -160,12 +160,12 @@ p_finance_anxiety <- plot_factor("Financial Anxiety")
 
 ## saving plot
 ggsave(
-    plot = p_finance_anxiety,
-    filename = "plot/fct_finance_anxiety.jpeg",
-    width = 10,
-    height = 5,
-    dpi = 400,
-    unit = "in"
+  plot = p_finance_anxiety,
+  filename = "plot/fct_finance_anxiety.jpeg",
+  width = 10,
+  height = 5,
+  dpi = 400,
+  unit = "in"
 )
 
 ## display plot
@@ -179,12 +179,12 @@ p_finance_capability <- plot_factor("Financial Capability")
 
 ## saving plot
 ggsave(
-    plot = p_finance_capability,
-    filename = "plot/fct_finance_capability.jpeg",
-    width = 10,
-    height = 5,
-    dpi = 400,
-    unit = "in"
+  plot = p_finance_capability,
+  filename = "plot/fct_finance_capability.jpeg",
+  width = 10,
+  height = 5,
+  dpi = 400,
+  unit = "in"
 )
 
 ## display plot
@@ -198,12 +198,12 @@ p_finance_sat <- plot_factor("Financial Satisfaction")
 
 ## saving plot
 ggsave(
-    plot = p_finance_sat,
-    filename = "plot/fct_finance_sat.jpeg",
-    width = 10,
-    height = 4,
-    dpi = 400,
-    unit = "in"
+  plot = p_finance_sat,
+  filename = "plot/fct_finance_sat.jpeg",
+  width = 10,
+  height = 4,
+  dpi = 400,
+  unit = "in"
 )
 
 ## display plot
@@ -217,12 +217,12 @@ p_fiance_self_efficacy <- plot_factor("Financial Self-Efficacy")
 
 ## saving plot
 ggsave(
-    plot = p_fiance_self_efficacy,
-    filename = "plot/fct_fiance_self_efficacy.jpeg",
-    width = 10,
-    height = 5,
-    dpi = 400,
-    unit = "in"
+  plot = p_fiance_self_efficacy,
+  filename = "plot/fct_fiance_self_efficacy.jpeg",
+  width = 10,
+  height = 5,
+  dpi = 400,
+  unit = "in"
 )
 
 ## display plot
@@ -236,12 +236,12 @@ p_practical_know_how <- plot_factor("Practical Know-How")
 
 ## saving plot
 ggsave(
-    plot = p_practical_know_how,
-    filename = "plot/fct_practical_know_how.jpeg",
-    width = 10,
-    height = 4,
-    dpi = 400,
-    unit = "in"
+  plot = p_practical_know_how,
+  filename = "plot/fct_practical_know_how.jpeg",
+  width = 10,
+  height = 4,
+  dpi = 400,
+  unit = "in"
 )
 
 ## display plot
@@ -255,12 +255,12 @@ p_self_protection <- plot_factor("Self-Protection")
 
 ## saving plot
 ggsave(
-    plot = p_self_protection,
-    filename = "plot/fct_self_protection.jpeg",
-    width = 10,
-    height = 4,
-    dpi = 400,
-    unit = "in"
+  plot = p_self_protection,
+  filename = "plot/fct_self_protection.jpeg",
+  width = 10,
+  height = 4,
+  dpi = 400,
+  unit = "in"
 )
 
 ## display plot
@@ -273,43 +273,43 @@ knitr::include_graphics("plot/fct_self_protection.jpeg")
 
 ```{r}
 #| echo: false
-fct_digi_fin_dta <- 
-    df |> 
-    select(bks1:fa4) %>% 
-    mutate(
-        sum_bks = rowSums(select(., bks1:bks11), na.rm = TRUE),
-        sum_adfs = rowSums(select(., adfs1:adfs3), na.rm = TRUE),
-        sum_pkh = rowSums(select(., pkh1:pkh3), na.rm = TRUE),
-        sum_dm = rowSums(select(., dm1:dm3), na.rm = TRUE),
-        sum_sp = rowSums(select(., sp1:sp3), na.rm = TRUE),
-        sum_fse = rowSums(select(., fse1:fse4), na.rm = TRUE),
-        sum_fs = rowSums(select(., fs1:fs3), na.rm = TRUE),
-        sum_fc = rowSums(select(., fc1:fc4), na.rm = TRUE),
-        sum_fa = rowSums(select(., fa1:fa4), na.rm = TRUE)
-    ) |> 
-    select(starts_with("sum_")) |> 
-    rename(
-        "Basic Knowledge and Skills" = sum_bks,
-        "Awareness" = sum_adfs,
-        "Practical Know-How" = sum_pkh,
-        "Decision-making" = sum_dm,
-        "Self-protection" = sum_sp,
-        "Financial Self-Efficacy" = sum_fse,
-        "Financial Satisfaction" = sum_fs,
-        "Financial Capability" = sum_fc,
-        "Financial Anxiety" = sum_fa
-    )
+fct_digi_fin_dta <-
+  df |>
+  select(bks1:fa4) %>%
+  mutate(
+    sum_bks = rowSums(select(., bks1:bks11), na.rm = TRUE),
+    sum_adfs = rowSums(select(., adfs1:adfs3), na.rm = TRUE),
+    sum_pkh = rowSums(select(., pkh1:pkh3), na.rm = TRUE),
+    sum_dm = rowSums(select(., dm1:dm3), na.rm = TRUE),
+    sum_sp = rowSums(select(., sp1:sp3), na.rm = TRUE),
+    sum_fse = rowSums(select(., fse1:fse4), na.rm = TRUE),
+    sum_fs = rowSums(select(., fs1:fs3), na.rm = TRUE),
+    sum_fc = rowSums(select(., fc1:fc4), na.rm = TRUE),
+    sum_fa = rowSums(select(., fa1:fa4), na.rm = TRUE)
+  ) |>
+  select(starts_with("sum_")) |>
+  rename(
+    "Basic Knowledge and Skills" = sum_bks,
+    "Awareness" = sum_adfs,
+    "Practical Know-How" = sum_pkh,
+    "Decision-making" = sum_dm,
+    "Self-protection" = sum_sp,
+    "Financial Self-Efficacy" = sum_fse,
+    "Financial Satisfaction" = sum_fs,
+    "Financial Capability" = sum_fc,
+    "Financial Anxiety" = sum_fa
+  )
 ```
 
 ```{r}
 ## function for significance
 fun_corr = function(x) {
-    out = correlation(x, method = "pearson")
-    stars = c("*" = .10, "**" = .05, "***" = .01)
-    p = modelsummary:::make_stars(out$p, stars)
-    out$r = sprintf("%.3f%s", out$r, p)
-    out = as.matrix(out)
-    return(out)
+  out = correlation(x, method = "pearson")
+  stars = c("*" = .10, "**" = .05, "***" = .01)
+  p = modelsummary:::make_stars(out$p, stars)
+  out$r = sprintf("%.3f%s", out$r, p)
+  out = as.matrix(out)
+  return(out)
 }
 
 note_pvalue <- "Significance level: * p < 0.10, ** p < 0.05, *** p < 0.01"
@@ -333,66 +333,94 @@ str_wrap_factor <- function(x, ...) {
   x
 }
 
-melted_cormat_heatmap <- 
-     melted_cormat %>% 
-     mutate(Var2 = fct_rev(Var2),
-            Var1 = factor(Var1),
-            Var1 = str_wrap_factor(Var1, width = 32)
-            ) %>% 
-     na.omit()
+melted_cormat_heatmap <-
+  melted_cormat %>%
+  mutate(
+    Var2 = fct_rev(Var2),
+    Var1 = factor(Var1),
+    Var1 = str_wrap_factor(Var1, width = 32)
+  ) %>%
+  na.omit()
 
-label_data <-  
-     melted_cormat_heatmap %>% 
-     count(Var1) %>% 
-     mutate(Var1 = as.character(Var1),
-            Var2 = unique(melted_cormat_heatmap$Var2))%>% 
-     mutate(x_labs = c("BKS", "ADFS", "PKH", "DM", "SP", "FSE", "FS", "FC", "FA") %>% rev())
-     
-p_corr_items <- melted_cormat_heatmap %>%      
-     ggplot(aes(x = Var2, y = Var1, fill = value)) +
-     geom_tile() +
-     geom_text(aes(label = value), color = "white", fontface = "bold") +
-     geom_text(data = label_data, aes(label = Var1, y = Var1, x = -0.1), 
-               inherit.aes = F,
-               size = 4,
-               fontface = "bold",
-               vjust = 0.5,
-               hjust = 1) +
-     geom_text(data = label_data, aes(label = x_labs, y = 0, x = Var2), 
-               inherit.aes = F,
-               vjust = 0,
-               fontface = "bold",
-               color = "grey20") +
-     geom_text(data = label_data, aes(label = x_labs, y = Var1, x = 0.1), 
-               inherit.aes = F,
-               angle = 90,
-               vjust = 1,
-               fontface = "bold",
-               color = "grey20") +
-     scale_fill_gradient(low = "#eaf4f4", high = "#264653", 
-                          limit = c(0, 1), space = "Lab") +
-     scale_x_discrete(position = "top") +
-     guides(fill = guide_colorbar(title.position = "bottom",
-                                  title.hjust = 0.5
-                                  )) +
-     coord_cartesian(clip = "off") +
-     theme_minimal() +
-     theme(plot.margin = margin(20, 20, 20, 180),
-           plot.caption.position = "panel",
-           plot.caption = element_text(hjust = 1, margin = margin(t=20), size = 12, color = "grey20", lineheight = 1.1),
-           panel.grid = element_blank(),
-           axis.text = element_blank(),
-           legend.position = "bottom",
-           legend.key.width = unit(10, "mm"),
-           legend.direction = "horizontal",
-           legend.title = element_text(size = 14),
-           legend.text = element_text(size = 10)
-           ) +
-     labs(fill = "Spearman correlation",
-          x = element_blank(),
-          y = element_blank())
+label_data <-
+  melted_cormat_heatmap %>%
+  count(Var1) %>%
+  mutate(
+    Var1 = as.character(Var1),
+    Var2 = unique(melted_cormat_heatmap$Var2)
+  ) %>%
+  mutate(
+    x_labs = c("BKS", "ADFS", "PKH", "DM", "SP", "FSE", "FS", "FC", "FA") %>%
+      rev()
+  )
 
-ggsave(plot = p_corr_items, filename = "plot/corr_items.jpeg", dpi = 300, width = 10, height = 6)
+p_corr_items <- melted_cormat_heatmap %>%
+  ggplot(aes(x = Var2, y = Var1, fill = value)) +
+  geom_tile() +
+  geom_text(aes(label = value), color = "white", fontface = "bold") +
+  geom_text(
+    data = label_data,
+    aes(label = Var1, y = Var1, x = -0.1),
+    inherit.aes = F,
+    size = 4,
+    fontface = "bold",
+    vjust = 0.5,
+    hjust = 1
+  ) +
+  geom_text(
+    data = label_data,
+    aes(label = x_labs, y = 0, x = Var2),
+    inherit.aes = F,
+    vjust = 0,
+    fontface = "bold",
+    color = "grey20"
+  ) +
+  geom_text(
+    data = label_data,
+    aes(label = x_labs, y = Var1, x = 0.1),
+    inherit.aes = F,
+    angle = 90,
+    vjust = 1,
+    fontface = "bold",
+    color = "grey20"
+  ) +
+  scale_fill_gradient(
+    low = "#eaf4f4",
+    high = "#264653",
+    limit = c(0, 1),
+    space = "Lab"
+  ) +
+  scale_x_discrete(position = "top") +
+  guides(fill = guide_colorbar(title.position = "bottom", title.hjust = 0.5)) +
+  coord_cartesian(clip = "off") +
+  theme_minimal() +
+  theme(
+    plot.margin = margin(20, 20, 20, 180),
+    plot.caption.position = "panel",
+    plot.caption = element_text(
+      hjust = 1,
+      margin = margin(t = 20),
+      size = 12,
+      color = "grey20",
+      lineheight = 1.1
+    ),
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    legend.position = "bottom",
+    legend.key.width = unit(10, "mm"),
+    legend.direction = "horizontal",
+    legend.title = element_text(size = 14),
+    legend.text = element_text(size = 10)
+  ) +
+  labs(fill = "Spearman correlation", x = element_blank(), y = element_blank())
+
+ggsave(
+  plot = p_corr_items,
+  filename = "plot/corr_items.jpeg",
+  dpi = 300,
+  width = 10,
+  height = 6
+)
 knitr::include_graphics("plot/corr_items.jpeg")
 ```
 
@@ -401,9 +429,9 @@ knitr::include_graphics("plot/corr_items.jpeg")
 ## Exploratory factor analysis
 
 ```{r}
-efa_lkrt_dta <- 
-    df |> 
-    select(bks1:fa4)
+efa_lkrt_dta <-
+  df |>
+  select(bks1:fa4)
 ```
 
 ### Parallel analysis
@@ -415,14 +443,14 @@ fa.parallel(efa_lkrt_dta, fa = "fa")
 ### Factor extraction
 
 ```{r}
-efa_trial_dta <- 
-    df |> 
-    select(bks1:fa4) |> 
-    select(-c(bks1:bks7))
+efa_trial_dta <-
+  df |>
+  select(bks1:fa4)
 ```
 
+
 ```{r}
-efa_extract <- fa(efa_trial_dta, nfactors = 6, rotate = "varimax", fm = "ml")
+efa_extract <- fa(efa_trial_dta, nfactors = 3, rotate = "varimax", fm = "ml")
 
 print(efa_extract$loadings, cutoff = 0.3, sort = TRUE)
 ```
