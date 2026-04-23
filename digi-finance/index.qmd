@@ -94,8 +94,6 @@ df |>
     
 ```
 
-
-
 ## Factors
 
 ### Awareness {.unnumbered}
@@ -117,7 +115,6 @@ ggsave(
 knitr::include_graphics("plot/fct_awareness.jpeg")
 ```
 
-
 ### Basic Knowledge and Skills {.unnumbered}
 
 ```{r}
@@ -136,7 +133,6 @@ ggsave(
 ## display plot
 knitr::include_graphics("plot/fct_basic_know_skill.jpeg")
 ```
-
 
 ### Decision Making {.unnumbered}
 
@@ -270,9 +266,6 @@ ggsave(
 ## display plot
 knitr::include_graphics("plot/fct_self_protection.jpeg")
 ```
-
-
-
 
 # Objective 2-4: Examine whether digital financial literacy and self-efficacy is positively associated with financial well-being.
 
