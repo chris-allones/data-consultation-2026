@@ -443,14 +443,96 @@ fa.parallel(efa_lkrt_dta, fa = "fa")
 ### Factor extraction
 
 ```{r}
-efa_trial_dta <-
+sem_digi_finance_dta <-
   df |>
-  select(bks1:fa4)
+  select(bks1:fa4) |> 
+  select(
+    -dm1, -dm2, -sp1, -dm3, -fs1, -fs2, -fs3, -fc1, -fc3,
+    -fa1, -pkh2, -pkh3,
+    -fc2, -bks1, -bks2, -bks3, -bks4, -bks5, -bks6, -bks7,
+    -bks11, -sp2, -fse4, -fc4
+  )
+
 ```
 
 
 ```{r}
-efa_extract <- fa(efa_trial_dta, nfactors = 3, rotate = "varimax", fm = "ml")
+efa_extract <- fa(sem_digi_finance_dta, nfactors = 3, rotate = "varimax", fm = "ml")
 
 print(efa_extract$loadings, cutoff = 0.3, sort = TRUE)
 ```
+
+
+## PLS-SEM
+
+### Bootstrapped PLS-SEM model 
+```{r}
+# Define measurement model
+measurement_model <- constructs(
+  composite("Digital financial literacy",
+            multi_items(c(rep("bks", 3), rep("adfs", 3), "pkh", "sp"), c(8:10, 1:3, 1, 3))),  
+  composite("Financial self-efficacy",
+            multi_items("fse", 1:3)),
+  composite("Financial well-being",
+            multi_items("fa", 2:4))
+)
+
+# Define structural model
+structural_model <- relationships(
+  paths(from = "Digital financial literacy",
+        to   = c("Financial self-efficacy", "Financial well-being")),
+  paths(from = "Financial self-efficacy",
+        to   = "Financial well-being")
+)
+
+# Estimate the PLS model
+pls_model <- estimate_pls(
+  data = sem_digi_finance_dta,
+  measurement_model = measurement_model,
+  structural_model  = structural_model
+)
+
+## summary of pls model
+summ_pls_model <- summary(pls_model)
+
+# Run bootstrapping (e.g., 5000 resamples, 4 cores for speed)
+boot_pls <- bootstrap_model(
+  seminr_model = pls_model,
+  nboot = 5000,
+  seed = 202604,
+  cores = 4
+)
+
+## plot model
+plot(boot_pls)
+
+```
+
+#### Direct effects
+```{r}
+## summary table
+summ_boot_pls_model <- summary(boot_pls)
+
+DT::datatable(summ_boot_pls_model$bootstrapped_paths |> round(3))
+```
+
+#### Indirect effects
+```{r}
+DT::datatable(round(summ_boot_pls_model$bootstrapped_total_indirect_paths, 3))
+```
+
+
+### Reliability test
+
+```{r}
+DT::datatable(round(summ_pls_model$reliability, 3))
+```
+
+
+
+### Validity test
+
+```{r}
+DT::datatable(round(summ_pls_model$validity$fl_criteria, 3))
+```
+
