@@ -98,6 +98,14 @@ df |>
 
 ### Awareness {.unnumbered}
 
+- 61% strongly agree and 26% agree that they are aware of services like e-wallets, mobile banking, and online payment platforms. Only 2% strongly disagree and 2% disagree, showing very few respondents lack awareness.
+
+- 46% strongly agree and 39% agree that they understand the specific purpose and usage of digital financial services However, 12% remain neutral, and about 3% disagree/strongly disagree, suggesting some uncertainty in deeper comprehension.
+
+- 49% strongly agree and 36% agree that they are aware of potential risks. 12% are neutral, and 3% disagree/strongly disagree, indicating that while most recognize risks, a notable minority are unsure.
+
+- Awareness of existence of services (adfs1) is the strongest (nearly 9 in 10 respondents agree/strongly agree). Awareness of purpose/usage (adfs2) is slightly lower, with more respondents neutral.
+
 ```{r}
 p_awareness <- plot_factor("Awareness")
 
@@ -116,6 +124,22 @@ knitr::include_graphics("plot/fct_awareness.jpeg")
 ```
 
 ### Basic Knowledge and Skills {.unnumbered}
+
+- Majority agree/strongly agree (68%) that they prepare a personal budget. However, 28% are neutral, suggesting that while budgeting is common, consistency may be lacking.
+
+- 74% agree/strongly agree they shop online. Only 8% disagree, showing that digital consumption is widely practiced.
+
+- 52% agree/strongly agree, but 34% are neutral and 9% disagree. While mobile banking is used, a significant portion remains hesitant or undecided.
+
+- Nearly half (48%) are neutral about rarely making impulse purchases. Results indicate uncertainty or inconsistency in self-control over spending.
+
+- There is a moderate understanding of financial numeracy concepts among respondents. For loan interest, 43% remained neutral while only 31% agreed or strongly agreed. Similarly, when asked about the future value of money, 39% were neutral and 47% agreed or strongly agreed. 
+
+- In contrast, investment decision-making showed stronger comprehension, with 69% agreeing or strongly agreeing. Highlighting that students feel more capable when evaluating investment choices compared to technical calculations of interest or future value.
+
+- There is a very high level of digital literacy competence among respondents. For online search, 85% agreed or strongly agreed that they can effectively conduct searches using their devices, while only a small minority expressed disagreement or uncertainty.
+
+- Similarly, email use (bks9) showed equally strong results, with 85% agreeing or strongly agreeing that they can send and receive emails independently.
 
 ```{r}
 p_basic_know_skill <- plot_factor("Basic Knowledge and Skills", stwidth = 70)
@@ -467,6 +491,8 @@ print(efa_extract$loadings, cutoff = 0.3, sort = TRUE)
 
 ### Bootstrapped PLS-SEM model 
 ```{r}
+#| eval: false
+
 # Define measurement model
 measurement_model <- constructs(
   composite("Digital financial literacy",
@@ -510,6 +536,8 @@ plot(boot_pls)
 
 #### Direct effects
 ```{r}
+#| eval: false
+
 ## summary table
 summ_boot_pls_model <- summary(boot_pls)
 
@@ -518,6 +546,8 @@ DT::datatable(summ_boot_pls_model$bootstrapped_paths |> round(3))
 
 #### Indirect effects
 ```{r}
+#| eval: false
+
 DT::datatable(round(summ_boot_pls_model$bootstrapped_total_indirect_paths, 3))
 ```
 
@@ -525,6 +555,8 @@ DT::datatable(round(summ_boot_pls_model$bootstrapped_total_indirect_paths, 3))
 ### Reliability test
 
 ```{r}
+#| eval: false
+
 DT::datatable(round(summ_pls_model$reliability, 3))
 ```
 
@@ -533,6 +565,8 @@ DT::datatable(round(summ_pls_model$reliability, 3))
 ### Validity test
 
 ```{r}
+#| eval: false
+
 DT::datatable(round(summ_pls_model$validity$fl_criteria, 3))
 ```
 
