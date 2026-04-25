@@ -2622,6 +2622,7 @@ border: 0;
   <li><a href="#objective-2-4-examine-whether-digital-financial-literacy-and-self-efficacy-is-positively-associated-with-financial-well-being." id="toc-objective-2-4-examine-whether-digital-financial-literacy-and-self-efficacy-is-positively-associated-with-financial-well-being." class="nav-link" data-scroll-target="#objective-2-4-examine-whether-digital-financial-literacy-and-self-efficacy-is-positively-associated-with-financial-well-being."><span class="header-section-number">3</span> Objective 2-4: Examine whether digital financial literacy and self-efficacy is positively associated with financial well-being.</a>
   <ul class="collapse">
   <li><a href="#correlation-table" id="toc-correlation-table" class="nav-link" data-scroll-target="#correlation-table"><span class="header-section-number">3.1</span> Correlation table</a></li>
+  <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation"><span class="header-section-number">3.2</span> Correlation</a></li>
   </ul></li>
   <li><a href="#objective-5-determine-whether-financial-self-efficacy-mediates-the-relationship-between-digital-financial-literacy-and-financial-well-being." id="toc-objective-5-determine-whether-financial-self-efficacy-mediates-the-relationship-between-digital-financial-literacy-and-financial-well-being." class="nav-link" data-scroll-target="#objective-5-determine-whether-financial-self-efficacy-mediates-the-relationship-between-digital-financial-literacy-and-financial-well-being."><span class="header-section-number">4</span> Objective 5: Determine whether financial self-efficacy mediates the relationship between digital financial literacy and financial well-being.</a>
   <ul class="collapse">
@@ -2676,68 +2677,6 @@ border: 0;
 </header>
 
 
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 55 × 7
-   factor                     statement     item  response     n percent pct_lab
-   &lt;chr&gt;                      &lt;chr&gt;         &lt;chr&gt; &lt;fct&gt;    &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;  
- 1 Basic Knowledge and Skills &quot;I prepare a… bks1  Strongl…     3 0.00811 1      
- 2 Basic Knowledge and Skills &quot;I prepare a… bks1  Disagree    11 0.0297  3      
- 3 Basic Knowledge and Skills &quot;I prepare a… bks1  Neutral    104 0.281   28     
- 4 Basic Knowledge and Skills &quot;I prepare a… bks1  Agree      144 0.389   39     
- 5 Basic Knowledge and Skills &quot;I prepare a… bks1  Strongl…   108 0.292   29     
- 6 Basic Knowledge and Skills &quot;I do shoppi… bks10 Strongl…    13 0.0351  4      
- 7 Basic Knowledge and Skills &quot;I do shoppi… bks10 Disagree    14 0.0378  4      
- 8 Basic Knowledge and Skills &quot;I do shoppi… bks10 Neutral     68 0.184   18     
- 9 Basic Knowledge and Skills &quot;I do shoppi… bks10 Agree      105 0.284   28     
-10 Basic Knowledge and Skills &quot;I do shoppi… bks10 Strongl…   170 0.459   46     
-11 Basic Knowledge and Skills &quot;I use mobil… bks11 Strongl…    22 0.0595  6      
-12 Basic Knowledge and Skills &quot;I use mobil… bks11 Disagree    33 0.0892  9      
-13 Basic Knowledge and Skills &quot;I use mobil… bks11 Neutral    124 0.335   34     
-14 Basic Knowledge and Skills &quot;I use mobil… bks11 Agree       84 0.227   23     
-15 Basic Knowledge and Skills &quot;I use mobil… bks11 Strongl…   107 0.289   29     
-16 Basic Knowledge and Skills &quot;I tend to l… bks2  Strongl…    75 0.203   20     
-17 Basic Knowledge and Skills &quot;I tend to l… bks2  Disagree   101 0.273   27     
-18 Basic Knowledge and Skills &quot;I tend to l… bks2  Neutral    125 0.338   34     
-19 Basic Knowledge and Skills &quot;I tend to l… bks2  Agree       44 0.119   12     
-20 Basic Knowledge and Skills &quot;I tend to l… bks2  Strongl…    25 0.0676  7      
-21 Basic Knowledge and Skills &quot;I rarely do… bks3  Strongl…    16 0.0432  4      
-22 Basic Knowledge and Skills &quot;I rarely do… bks3  Disagree    67 0.181   18     
-23 Basic Knowledge and Skills &quot;I rarely do… bks3  Neutral    177 0.478   48     
-24 Basic Knowledge and Skills &quot;I rarely do… bks3  Agree       83 0.224   22     
-25 Basic Knowledge and Skills &quot;I rarely do… bks3  Strongl…    27 0.0730  7      
-26 Basic Knowledge and Skills &quot;I prefer to… bks4  Strongl…    71 0.192   19     
-27 Basic Knowledge and Skills &quot;I prefer to… bks4  Disagree   110 0.297   30     
-28 Basic Knowledge and Skills &quot;I prefer to… bks4  Neutral    132 0.357   36     
-29 Basic Knowledge and Skills &quot;I prefer to… bks4  Agree       40 0.108   11     
-30 Basic Knowledge and Skills &quot;I prefer to… bks4  Strongl…    17 0.0459  5      
-31 Basic Knowledge and Skills &quot;Suppose you… bks5  Strongl…    40 0.108   11     
-32 Basic Knowledge and Skills &quot;Suppose you… bks5  Disagree    60 0.162   16     
-33 Basic Knowledge and Skills &quot;Suppose you… bks5  Neutral    158 0.427   43     
-34 Basic Knowledge and Skills &quot;Suppose you… bks5  Agree       62 0.168   17     
-35 Basic Knowledge and Skills &quot;Suppose you… bks5  Strongl…    50 0.135   14     
-36 Basic Knowledge and Skills &quot;Suppose tha… bks6  Strongl…    17 0.0459  5      
-37 Basic Knowledge and Skills &quot;Suppose tha… bks6  Disagree    37 0.1     10     
-38 Basic Knowledge and Skills &quot;Suppose tha… bks6  Neutral    144 0.389   39     
-39 Basic Knowledge and Skills &quot;Suppose tha… bks6  Agree      125 0.338   34     
-40 Basic Knowledge and Skills &quot;Suppose tha… bks6  Strongl…    47 0.127   13     
-41 Basic Knowledge and Skills &quot;Suppose a p… bks7  Strongl…     8 0.0216  2      
-42 Basic Knowledge and Skills &quot;Suppose a p… bks7  Disagree    17 0.0459  5      
-43 Basic Knowledge and Skills &quot;Suppose a p… bks7  Neutral     90 0.243   24     
-44 Basic Knowledge and Skills &quot;Suppose a p… bks7  Agree      130 0.351   35     
-45 Basic Knowledge and Skills &quot;Suppose a p… bks7  Strongl…   125 0.338   34     
-46 Basic Knowledge and Skills &quot;I can condu… bks8  Strongl…     8 0.0216  2      
-47 Basic Knowledge and Skills &quot;I can condu… bks8  Disagree     6 0.0162  2      
-48 Basic Knowledge and Skills &quot;I can condu… bks8  Neutral     42 0.114   11     
-49 Basic Knowledge and Skills &quot;I can condu… bks8  Agree      114 0.308   31     
-50 Basic Knowledge and Skills &quot;I can condu… bks8  Strongl…   200 0.541   54     
-51 Basic Knowledge and Skills &quot;I can send … bks9  Strongl…    10 0.0270  3      
-52 Basic Knowledge and Skills &quot;I can send … bks9  Disagree    10 0.0270  3      
-53 Basic Knowledge and Skills &quot;I can send … bks9  Neutral     36 0.0973  10     
-54 Basic Knowledge and Skills &quot;I can send … bks9  Agree      106 0.286   29     
-55 Basic Knowledge and Skills &quot;I can send … bks9  Strongl…   208 0.562   56     </code></pre>
-</div>
-</div>
 <section id="attachments" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Attachments</h1>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -2769,30 +2708,30 @@ Note
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a gt summary table</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age<span class="sc">:</span>residence_type) <span class="sc">|&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> <span class="fu">list</span>(<span class="fu">all_categorical</span>() <span class="sc">~</span> <span class="st">&quot;{n} ({p}%)&quot;</span>),</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">missing =</span> <span class="st">&quot;no&quot;</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="fu">list</span>(</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      age <span class="sc">~</span> <span class="st">&quot;Age&quot;</span>,</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      sex <span class="sc">~</span> <span class="st">&quot;Sex&quot;</span>,</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      degree_program <span class="sc">~</span> <span class="st">&quot;Degree Program&quot;</span>,</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      year_level <span class="sc">~</span> <span class="st">&quot;Year level&quot;</span>,</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>      monthly_income_allowance <span class="sc">~</span> <span class="st">&quot;Monthly Income/Allowance&quot;</span>,</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">primary_source_of_financial_support =</span> <span class="st">&quot;Source of financial support&quot;</span>,</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">residence_type =</span> <span class="st">&quot;Type of residence&quot;</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bold_labels</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_kable_extra</span>(<span class="at">linesep =</span> <span class="st">&quot;&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">full_width =</span> F,</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">fixed_thead =</span> T,</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>)</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## create a gt summary table</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(age<span class="sc">:</span>residence_type) <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tbl_summary</span>(</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> <span class="fu">list</span>(<span class="fu">all_categorical</span>() <span class="sc">~</span> <span class="st">&quot;{n} ({p}%)&quot;</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">missing =</span> <span class="st">&quot;no&quot;</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="fu">list</span>(</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      age <span class="sc">~</span> <span class="st">&quot;Age&quot;</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>      sex <span class="sc">~</span> <span class="st">&quot;Sex&quot;</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      degree_program <span class="sc">~</span> <span class="st">&quot;Degree Program&quot;</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>      year_level <span class="sc">~</span> <span class="st">&quot;Year level&quot;</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>      monthly_income_allowance <span class="sc">~</span> <span class="st">&quot;Monthly Income/Allowance&quot;</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">primary_source_of_financial_support =</span> <span class="st">&quot;Source of financial support&quot;</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">residence_type =</span> <span class="st">&quot;Type of residence&quot;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bold_labels</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_kable_extra</span>(<span class="at">linesep =</span> <span class="st">&quot;&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_minimal</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">full_width =</span> F,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">fixed_thead =</span> T,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div class="table-responsive">
@@ -3024,29 +2963,41 @@ Note
 <h2 data-number="2.2" class="anchored" data-anchor-id="factors"><span class="header-section-number">2.2</span> Factors</h2>
 <section id="awareness" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="awareness">Awareness</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Interpretation
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li><p>61% strongly agree and 26% agree that they are aware of services like e-wallets, mobile banking, and online payment platforms. Only 2% strongly disagree and 2% disagree, showing very few respondents lack awareness.</p></li>
 <li><p>46% strongly agree and 39% agree that they understand the specific purpose and usage of digital financial services However, 12% remain neutral, and about 3% disagree/strongly disagree, suggesting some uncertainty in deeper comprehension.</p></li>
 <li><p>49% strongly agree and 36% agree that they are aware of potential risks. 12% are neutral, and 3% disagree/strongly disagree, indicating that while most recognize risks, a notable minority are unsure.</p></li>
 <li><p>Awareness of existence of services (adfs1) is the strongest (nearly 9 in 10 respondents agree/strongly agree). Awareness of purpose/usage (adfs2) is slightly lower, with more respondents neutral.</p></li>
 </ul>
+</div>
+</div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>p_awareness <span class="ot">&lt;-</span> <span class="fu">plot_factor</span>(<span class="st">&quot;Awareness&quot;</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">## saving plot</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_awareness,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/fct_awareness.jpeg&quot;</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">4</span>,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">400</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">unit =</span> <span class="st">&quot;in&quot;</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="do">## display plot</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/fct_awareness.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>p_awareness <span class="ot">&lt;-</span> <span class="fu">plot_factor</span>(<span class="st">&quot;Awareness&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">## saving plot</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_awareness,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/fct_awareness.jpeg&quot;</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">4</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">400</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">unit =</span> <span class="st">&quot;in&quot;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="do">## display plot</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/fct_awareness.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -3059,6 +3010,16 @@ Note
 </section>
 <section id="basic-knowledge-and-skills" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="basic-knowledge-and-skills">Basic Knowledge and Skills</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Interpretation
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li><p>Majority agree/strongly agree (68%) that they prepare a personal budget. However, 28% are neutral, suggesting that while budgeting is common, consistency may be lacking.</p></li>
 <li><p>74% agree/strongly agree they shop online. Only 8% disagree, showing that digital consumption is widely practiced.</p></li>
@@ -3069,23 +3030,25 @@ Note
 <li><p>There is a very high level of digital literacy competence among respondents. For online search, 85% agreed or strongly agreed that they can effectively conduct searches using their devices, while only a small minority expressed disagreement or uncertainty.</p></li>
 <li><p>Similarly, email use (bks9) showed equally strong results, with 85% agreeing or strongly agreeing that they can send and receive emails independently.</p></li>
 </ul>
+</div>
+</div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>p_basic_know_skill <span class="ot">&lt;-</span> <span class="fu">plot_factor</span>(<span class="st">&quot;Basic Knowledge and Skills&quot;</span>, <span class="at">stwidth =</span> <span class="dv">70</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">## saving plot</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_basic_know_skill,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/fct_basic_know_skill.jpeg&quot;</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">10</span>,</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">400</span>,</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">unit =</span> <span class="st">&quot;in&quot;</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="do">## display plot</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/fct_basic_know_skill.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>p_basic_know_skill <span class="ot">&lt;-</span> <span class="fu">plot_factor</span>(<span class="st">&quot;Basic Knowledge and Skills&quot;</span>, <span class="at">stwidth =</span> <span class="dv">70</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">## saving plot</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_basic_know_skill,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/fct_basic_know_skill.jpeg&quot;</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">10</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">400</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">unit =</span> <span class="st">&quot;in&quot;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="do">## display plot</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/fct_basic_know_skill.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -3098,28 +3061,40 @@ Note
 </section>
 <section id="decision-making" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="decision-making">Decision Making</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Interpretation
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li><p>39% agree and 18% strongly agree, showing more than half of respondents actively plan while managing daily finances. However, 37% are neutral and 7% disagree/strongly disagree, indicating that a significant group may not consistently integrate long-term planning into their financial routines.</p></li>
 <li><p>43% agree and 26% strongly agree, meaning nearly 7 in 10 respondents report responsible behaviors like saving and borrowing wisely. Neutral responses (27%) suggest some uncertainty or inconsistency in applying these practices.</p></li>
 <li><p>44% agree and 23% strongly agree, showing that two-thirds of respondents feel confident in selecting reliable providers for remittances, savings, or borrowing. Still, 27% are neutral and 6% disagree/strongly disagree, reflecting that not all students are fully confident in navigating digital financial platforms.</p></li>
 </ul>
+</div>
+</div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>p_decision_making <span class="ot">&lt;-</span> <span class="fu">plot_factor</span>(<span class="st">&quot;Decision Making&quot;</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="do">## saving plot</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_decision_making,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/fct_decision_making.jpeg&quot;</span>,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">4</span>,</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">400</span>,</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">unit =</span> <span class="st">&quot;in&quot;</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="do">## display plot</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/fct_decision_making.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>p_decision_making <span class="ot">&lt;-</span> <span class="fu">plot_factor</span>(<span class="st">&quot;Decision Making&quot;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">## saving plot</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_decision_making,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/fct_decision_making.jpeg&quot;</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">4</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">400</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">unit =</span> <span class="st">&quot;in&quot;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="do">## display plot</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/fct_decision_making.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -3132,29 +3107,41 @@ Note
 </section>
 <section id="financial-anxiety" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="financial-anxiety">Financial Anxiety</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Interpretation
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li><p>37% agree and 15% strongly agree they are comfortable managing transactions with banks and financial institutions using digital payment solutions. However, 41% are neutral and 7% disagree/strongly disagree, showing that while many feel confident, a large group remains uncertain.</p></li>
 <li><p>34% agree and 14% strongly agree that unexpected events disrupt their financial control when using online payment options. 42% are neutral, suggesting that many students experience occasional disruptions but may not perceive them as constant or severe.</p></li>
 <li><p>27% agree and 8% strongly agree they find it difficult to live fully because of extreme concern over monitoring digital transactions. Yet, 43% are neutral and 21% disagree/strongly disagree, indicating that financial anxiety is present but not dominant across the group.</p></li>
 <li><p>23% agree and 7% strongly agree that digital payment methods completely control their financial life. The largest group (42%) is neutral, while 28% disagree/strongly disagree, showing mixed perceptions of control, with many undecided.</p></li>
 </ul>
+</div>
+</div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>p_finance_anxiety <span class="ot">&lt;-</span> <span class="fu">plot_factor</span>(<span class="st">&quot;Financial Anxiety&quot;</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="do">## saving plot</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_finance_anxiety,</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/fct_finance_anxiety.jpeg&quot;</span>,</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">5</span>,</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">400</span>,</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">unit =</span> <span class="st">&quot;in&quot;</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="do">## display plot</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/fct_finance_anxiety.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>p_finance_anxiety <span class="ot">&lt;-</span> <span class="fu">plot_factor</span>(<span class="st">&quot;Financial Anxiety&quot;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="do">## saving plot</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_finance_anxiety,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/fct_finance_anxiety.jpeg&quot;</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">5</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">400</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">unit =</span> <span class="st">&quot;in&quot;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="do">## display plot</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/fct_finance_anxiety.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -3167,23 +3154,41 @@ Note
 </section>
 <section id="financial-capability" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="financial-capability">Financial Capability</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Interpretation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>37% agree and 16% strongly agree they can save time and money using the digital financial landscape. However, 38% are neutral and 9% disagree, showing that while many recognize efficiency, a large group remains undecided.</p></li>
+<li><p>32% agree and 11% strongly agree they are organized when using digital platforms. Yet, nearly half (46%) are neutral and 11% disagree, suggesting that confidence in organization is weaker compared to other capability items.</p></li>
+<li><p>Stronger consensus here: 42% agree and 25% strongly agree they set aside money for emergencies. Only 7% disagree, making this the most consistently positive capability indicator.</p></li>
+<li><p>35% agree and 16% strongly agree they can balance spending and saving with digital tools. Still, 41% are neutral and 9% disagree, indicating mixed confidence in applying digital tools for financial discipline.</p></li>
+</ul>
+</div>
+</div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>p_finance_capability <span class="ot">&lt;-</span> <span class="fu">plot_factor</span>(<span class="st">&quot;Financial Capability&quot;</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">## saving plot</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_finance_capability,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/fct_finance_capability.jpeg&quot;</span>,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">5</span>,</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">400</span>,</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">unit =</span> <span class="st">&quot;in&quot;</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="do">## display plot</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/fct_finance_capability.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>p_finance_capability <span class="ot">&lt;-</span> <span class="fu">plot_factor</span>(<span class="st">&quot;Financial Capability&quot;</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="do">## saving plot</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_finance_capability,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/fct_finance_capability.jpeg&quot;</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">5</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">400</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">unit =</span> <span class="st">&quot;in&quot;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="do">## display plot</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/fct_finance_capability.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -3196,23 +3201,40 @@ Note
 </section>
 <section id="financial-satisfaction" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="financial-satisfaction">Financial Satisfaction</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Interpretation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>27% agree and 7% strongly agree that they rarely run out of money, but 37% are neutral and 29% disagree/strongly disagree. This shows that while some students feel financially stable, a large portion experience uncertainty or frequent shortfalls.</p></li>
+<li><p>Only 24% agree/strongly agree they could obtain a loan if needed, while 38% are neutral and 39% disagree/strongly disagree. Indicates limited confidence in digital borrowing options, reflecting either lack of access or skepticism about eligibility.</p></li>
+<li><p>37% agree and 11% strongly agree they can find products that meet their needs. However, 43% are neutral and 10% disagree/strongly disagree, suggesting that while many recognize available options, a significant group remains undecided about their suitability.</p></li>
+</ul>
+</div>
+</div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>p_finance_sat <span class="ot">&lt;-</span> <span class="fu">plot_factor</span>(<span class="st">&quot;Financial Satisfaction&quot;</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="do">## saving plot</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_finance_sat,</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/fct_finance_sat.jpeg&quot;</span>,</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">4</span>,</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">400</span>,</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">unit =</span> <span class="st">&quot;in&quot;</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="do">## display plot</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/fct_finance_sat.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>p_finance_sat <span class="ot">&lt;-</span> <span class="fu">plot_factor</span>(<span class="st">&quot;Financial Satisfaction&quot;</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">## saving plot</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_finance_sat,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/fct_finance_sat.jpeg&quot;</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">4</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">400</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">unit =</span> <span class="st">&quot;in&quot;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="do">## display plot</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/fct_finance_sat.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -3225,23 +3247,41 @@ Note
 </section>
 <section id="financial-self-efficacy" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="financial-self-efficacy">Financial Self-Efficacy</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Interpretation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>44% agree and 20% strongly agree they are confident in managing their funds. Still, 33% are neutral, showing that while many feel capable, a sizable group remains unsure.</p></li>
+<li><p>40% agree and 22% strongly agree they can keep monthly expenses below income/allowance. About 31% are neutral and 8% disagree, indicating mixed consistency in practicing financial discipline.</p></li>
+<li><p>39% agree and 17% strongly agree they can plan for the future using savings in banks or digital services.Yet, 37% are neutral and 6% disagree, reflecting partial confidence in long-term financial planning.</p></li>
+<li><p>42% agree and 15% strongly agree they use digital financial skills efficiently to manage goals. However, 38% are neutral and 5% disagree, suggesting that while many apply digital skills, others are uncertain about their effectiveness.</p></li>
+</ul>
+</div>
+</div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>p_fiance_self_efficacy <span class="ot">&lt;-</span> <span class="fu">plot_factor</span>(<span class="st">&quot;Financial Self-Efficacy&quot;</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="do">## saving plot</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_fiance_self_efficacy,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/fct_fiance_self_efficacy.jpeg&quot;</span>,</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">5</span>,</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">400</span>,</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">unit =</span> <span class="st">&quot;in&quot;</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="do">## display plot</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/fct_fiance_self_efficacy.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>p_fiance_self_efficacy <span class="ot">&lt;-</span> <span class="fu">plot_factor</span>(<span class="st">&quot;Financial Self-Efficacy&quot;</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="do">## saving plot</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_fiance_self_efficacy,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/fct_fiance_self_efficacy.jpeg&quot;</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">5</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">400</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">unit =</span> <span class="st">&quot;in&quot;</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="do">## display plot</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/fct_fiance_self_efficacy.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -3254,23 +3294,41 @@ Note
 </section>
 <section id="practical-know-how" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="practical-know-how">Practical Know-How</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Interpretation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>35% agree and 39% strongly agree they know how to open accounts on digital financial platforms. Only 4% disagree/strongly disagree, while 23% are neutral.</p></li>
+<li><p>36% agree and 21% strongly agree they can navigate digital financial service applications. 37% are neutral, and 7% disagree/strongly disagree. The result indicates good competence, but neutrality suggests some students may not yet be fully comfortable with platform features.</p></li>
+<li><p>34% agree and 25% strongly agree they can initiate, complete, or correct transactions. 34% are neutral, while 7% disagree/strongly disagree.</p></li>
+<li><p>Confidence is strong, but neutrality again highlights a group that may lack hands-on experience.</p></li>
+</ul>
+</div>
+</div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>p_practical_know_how <span class="ot">&lt;-</span> <span class="fu">plot_factor</span>(<span class="st">&quot;Practical Know-How&quot;</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="do">## saving plot</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_practical_know_how,</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/fct_practical_know_how.jpeg&quot;</span>,</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">4</span>,</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">400</span>,</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">unit =</span> <span class="st">&quot;in&quot;</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="do">## display plot</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/fct_practical_know_how.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>p_practical_know_how <span class="ot">&lt;-</span> <span class="fu">plot_factor</span>(<span class="st">&quot;Practical Know-How&quot;</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="do">## saving plot</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_practical_know_how,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/fct_practical_know_how.jpeg&quot;</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">4</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">400</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">unit =</span> <span class="st">&quot;in&quot;</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="do">## display plot</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/fct_practical_know_how.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -3283,23 +3341,40 @@ Note
 </section>
 <section id="self-protection" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="self-protection">Self-Protection</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Interpretation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>38% agree and 29% strongly agree they read and understand terms to avoid deceptive practices. Still, 24% are neutral and 8% disagree/strongly disagree, showing that while many are cautious, a notable group may overlook or skim important details.</p></li>
+<li><p>40% agree and 32% strongly agree they can recognize scams such as phishing or identity theft. About 25% are neutral, and only 4% disagree/strongly disagree, indicating strong awareness but with some uncertainty among a quarter of respondents.</p></li>
+<li><p>40% agree and 46% strongly agree they actively protect their information when using digital financial services. Only 11% are neutral and 3% disagree/strongly disagree, making this the strongest self-protection behavior reported.</p></li>
+</ul>
+</div>
+</div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>p_self_protection <span class="ot">&lt;-</span> <span class="fu">plot_factor</span>(<span class="st">&quot;Self-Protection&quot;</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="do">## saving plot</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_self_protection,</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/fct_self_protection.jpeg&quot;</span>,</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">4</span>,</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">400</span>,</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">unit =</span> <span class="st">&quot;in&quot;</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="do">## display plot</span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/fct_self_protection.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>p_self_protection <span class="ot">&lt;-</span> <span class="fu">plot_factor</span>(<span class="st">&quot;Self-Protection&quot;</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="do">## saving plot</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_self_protection,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/fct_self_protection.jpeg&quot;</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">4</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">400</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">unit =</span> <span class="st">&quot;in&quot;</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="do">## display plot</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/fct_self_protection.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -3316,28 +3391,138 @@ Note
 <h1 data-number="3"><span class="header-section-number">3</span> Objective 2-4: Examine whether digital financial literacy and self-efficacy is positively associated with financial well-being.</h1>
 <section id="correlation-table" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="correlation-table"><span class="header-section-number">3.1</span> Correlation table</h2>
+</section>
+<section id="correlation" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="correlation"><span class="header-section-number">3.2</span> Correlation</h2>
+<table class="caption-top table">
+<caption>Guide interpretation of the correlation coefficients <span class="citation" data-cites="Akoglu2018">[@Akoglu2018]</span>.</caption>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 16%">
+<col style="width: 32%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Correlation coefficient</th>
+<th style="text-align: center;">Psychology</th>
+<th style="text-align: center;">Politics and economics</th>
+<th style="text-align: center;">Medicine</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">± 1.0</td>
+<td style="text-align: center;">Perfect</td>
+<td style="text-align: center;">Perfect</td>
+<td style="text-align: center;">Perfect</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">± 0.9</td>
+<td style="text-align: center;">Strong</td>
+<td style="text-align: center;">Very strong</td>
+<td style="text-align: center;">Very strong</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">± 0.8</td>
+<td style="text-align: center;">Strong</td>
+<td style="text-align: center;">Very strong</td>
+<td style="text-align: center;">Very strong</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">± 0.7</td>
+<td style="text-align: center;">Strong</td>
+<td style="text-align: center;">Very strong</td>
+<td style="text-align: center;">Moderate</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">± 0.6</td>
+<td style="text-align: center;">Moderate</td>
+<td style="text-align: center;">Strong</td>
+<td style="text-align: center;">Moderate</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">± 0.5</td>
+<td style="text-align: center;">Moderate</td>
+<td style="text-align: center;">Strong</td>
+<td style="text-align: center;">Fair</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">± 0.4</td>
+<td style="text-align: center;">Moderate</td>
+<td style="text-align: center;">Strong</td>
+<td style="text-align: center;">Fair</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">± 0.3</td>
+<td style="text-align: center;">Weak</td>
+<td style="text-align: center;">Moderate</td>
+<td style="text-align: center;">Fair</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">± 0.2</td>
+<td style="text-align: center;">Weak</td>
+<td style="text-align: center;">Weak</td>
+<td style="text-align: center;">Poor</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">± 0.1</td>
+<td style="text-align: center;">Weak</td>
+<td style="text-align: center;">Negligible</td>
+<td style="text-align: center;">Poor</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">± 0.0</td>
+<td style="text-align: center;">Zero</td>
+<td style="text-align: center;">None</td>
+<td style="text-align: center;">None</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Interpretation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Awareness ↔︎ Practical Know-How (0.689) and Awareness ↔︎ Self-Protection (0.660) show that students who are more aware of digital financial services also tend to know how to use them and protect themselves.</p></li>
+<li><p>Decision-Making ↔︎ Financial Self-Efficacy (0.625) indicates that confidence in financial decision-making is closely tied to students’ belief in their ability to manage finances.</p></li>
+<li><p>Basic Knowledge ↔︎ Awareness (0.598) and Basic Knowledge ↔︎ Practical Know-How (0.559) suggest that traditional financial knowledge supports awareness and practical digital skills, but the relationship is not as strong as between awareness and self-protection.</p></li>
+<li><p>Practical Know-How ↔︎ Decision-Making (0.560) shows that being able to use digital tools translates into more confident financial decisions.</p></li>
+<li><p>Self-protection correlates moderately with Decision-Making (0.646) and Financial Self-Efficacy (0.525), meaning that students who actively safeguard their information also feel more capable in making sound financial choices.</p></li>
+<li><p>Financial Self-Efficacy as a mediator has strong correlations with Financial Capability (0.644) and moderate with Financial Satisfaction (0.405), showing that confidence in managing finances is a key driver of both capability and satisfaction. It also links with Financial Anxiety (0.434), suggesting that higher self-efficacy may help reduce anxiety.</p></li>
+<li><p>Whereas financial Capability as a central outcome, it correlates strongly with Financial Self-Efficacy (0.644) and Financial Anxiety (0.542), and moderately with Financial Satisfaction (0.508).</p></li>
+<li><p>Satisfaction shows relatively low correlations with most literacy dimensions (e.g., Awareness 0.131, Basic Knowledge 0.185).</p></li>
+</ul>
+</div>
+</div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## function for significance</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fun_corr <span class="ot">=</span> <span class="cf">function</span>(x) {</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">=</span> <span class="fu">correlation</span>(x, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  stars <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;*&quot;</span> <span class="ot">=</span> .<span class="dv">10</span>, <span class="st">&quot;**&quot;</span> <span class="ot">=</span> .<span class="dv">05</span>, <span class="st">&quot;***&quot;</span> <span class="ot">=</span> .<span class="dv">01</span>)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">=</span> modelsummary<span class="sc">:::</span><span class="fu">make_stars</span>(out<span class="sc">$</span>p, stars)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  out<span class="sc">$</span>r <span class="ot">=</span> <span class="fu">sprintf</span>(<span class="st">&quot;%.3f%s&quot;</span>, out<span class="sc">$</span>r, p)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">=</span> <span class="fu">as.matrix</span>(out)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(out)</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>note_pvalue <span class="ot">&lt;-</span> <span class="st">&quot;Significance level: * p &lt; 0.10, ** p &lt; 0.05, *** p &lt; 0.01&quot;</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="do">## correlation</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>modelsummary<span class="sc">::</span><span class="fu">datasummary_correlation</span>(</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> fct_digi_fin_dta,</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">output =</span> <span class="st">&quot;kableExtra&quot;</span>,</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> fun_corr,</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">notes =</span> note_pvalue</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## function for significance</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>fun_corr <span class="ot">=</span> <span class="cf">function</span>(x) {</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">=</span> <span class="fu">correlation</span>(x, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  stars <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;*&quot;</span> <span class="ot">=</span> .<span class="dv">10</span>, <span class="st">&quot;**&quot;</span> <span class="ot">=</span> .<span class="dv">05</span>, <span class="st">&quot;***&quot;</span> <span class="ot">=</span> .<span class="dv">01</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">=</span> modelsummary<span class="sc">:::</span><span class="fu">make_stars</span>(out<span class="sc">$</span>p, stars)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  out<span class="sc">$</span>r <span class="ot">=</span> <span class="fu">sprintf</span>(<span class="st">&quot;%.3f%s&quot;</span>, out<span class="sc">$</span>r, p)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">=</span> <span class="fu">as.matrix</span>(out)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(out)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>note_pvalue <span class="ot">&lt;-</span> <span class="st">&quot;Significance level: * p &lt; 0.10, ** p &lt; 0.05, *** p &lt; 0.01&quot;</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="do">## correlation</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>modelsummary<span class="sc">::</span><span class="fu">datasummary_correlation</span>(</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> fct_digi_fin_dta,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">output =</span> <span class="st">&quot;kableExtra&quot;</span>,</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">method =</span> fun_corr,</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">notes =</span> note_pvalue</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small">
@@ -3485,104 +3670,104 @@ Note
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">cor</span>(fct_digi_fin_dta, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>), <span class="dv">3</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>cor_mat[<span class="fu">lower.tri</span>(cor_mat)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>melted_cormat <span class="ot">&lt;-</span> <span class="fu">melt</span>(cor_mat)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>str_wrap_factor <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>(x) <span class="ot">&lt;-</span> <span class="fu">str_wrap</span>(<span class="fu">levels</span>(x), ...)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  x</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>melted_cormat_heatmap <span class="ot">&lt;-</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  melted_cormat <span class="sc">%&gt;%</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Var2 =</span> <span class="fu">fct_rev</span>(Var2),</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Var1 =</span> <span class="fu">factor</span>(Var1),</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">Var1 =</span> <span class="fu">str_wrap_factor</span>(Var1, <span class="at">width =</span> <span class="dv">32</span>)</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>label_data <span class="ot">&lt;-</span></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  melted_cormat_heatmap <span class="sc">%&gt;%</span></span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Var1) <span class="sc">%&gt;%</span></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">Var1 =</span> <span class="fu">as.character</span>(Var1),</span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">Var2 =</span> <span class="fu">unique</span>(melted_cormat_heatmap<span class="sc">$</span>Var2)</span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_labs =</span> <span class="fu">c</span>(<span class="st">&quot;BKS&quot;</span>, <span class="st">&quot;ADFS&quot;</span>, <span class="st">&quot;PKH&quot;</span>, <span class="st">&quot;DM&quot;</span>, <span class="st">&quot;SP&quot;</span>, <span class="st">&quot;FSE&quot;</span>, <span class="st">&quot;FS&quot;</span>, <span class="st">&quot;FC&quot;</span>, <span class="st">&quot;FA&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">rev</span>()</span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>p_corr_items <span class="ot">&lt;-</span> melted_cormat_heatmap <span class="sc">%&gt;%</span></span>
-<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Var2, <span class="at">y =</span> Var1, <span class="at">fill =</span> value)) <span class="sc">+</span></span>
-<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
-<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> value), <span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">fontface =</span> <span class="st">&quot;bold&quot;</span>) <span class="sc">+</span></span>
-<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
-<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> label_data,</span>
-<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> Var1, <span class="at">y =</span> Var1, <span class="at">x =</span> <span class="sc">-</span><span class="fl">0.1</span>),</span>
-<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">inherit.aes =</span> F,</span>
-<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">4</span>,</span>
-<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">fontface =</span> <span class="st">&quot;bold&quot;</span>,</span>
-<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="fl">0.5</span>,</span>
-<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">hjust =</span> <span class="dv">1</span></span>
-<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
-<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> label_data,</span>
-<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> x_labs, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">x =</span> Var2),</span>
-<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">inherit.aes =</span> F,</span>
-<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">0</span>,</span>
-<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">fontface =</span> <span class="st">&quot;bold&quot;</span>,</span>
-<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;grey20&quot;</span></span>
-<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
-<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> label_data,</span>
-<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> x_labs, <span class="at">y =</span> Var1, <span class="at">x =</span> <span class="fl">0.1</span>),</span>
-<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">inherit.aes =</span> F,</span>
-<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">90</span>,</span>
-<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">1</span>,</span>
-<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">fontface =</span> <span class="st">&quot;bold&quot;</span>,</span>
-<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;grey20&quot;</span></span>
-<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(</span>
-<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">low =</span> <span class="st">&quot;#eaf4f4&quot;</span>,</span>
-<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">high =</span> <span class="st">&quot;#264653&quot;</span>,</span>
-<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">limit =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
-<span id="cb13-65"><a href="#cb13-65" aria-hidden="true" tabindex="-1"></a>    <span class="at">space =</span> <span class="st">&quot;Lab&quot;</span></span>
-<span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-67"><a href="#cb13-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">position =</span> <span class="st">&quot;top&quot;</span>) <span class="sc">+</span></span>
-<span id="cb13-68"><a href="#cb13-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_colorbar</span>(<span class="at">title.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="at">title.hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb13-69"><a href="#cb13-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">&quot;off&quot;</span>) <span class="sc">+</span></span>
-<span id="cb13-70"><a href="#cb13-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb13-71"><a href="#cb13-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb13-72"><a href="#cb13-72" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">180</span>),</span>
-<span id="cb13-73"><a href="#cb13-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption.position =</span> <span class="st">&quot;panel&quot;</span>,</span>
-<span id="cb13-74"><a href="#cb13-74" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(</span>
-<span id="cb13-75"><a href="#cb13-75" aria-hidden="true" tabindex="-1"></a>      <span class="at">hjust =</span> <span class="dv">1</span>,</span>
-<span id="cb13-76"><a href="#cb13-76" aria-hidden="true" tabindex="-1"></a>      <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">20</span>),</span>
-<span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> <span class="dv">12</span>,</span>
-<span id="cb13-78"><a href="#cb13-78" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="st">&quot;grey20&quot;</span>,</span>
-<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a>      <span class="at">lineheight =</span> <span class="fl">1.1</span></span>
-<span id="cb13-80"><a href="#cb13-80" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb13-81"><a href="#cb13-81" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb13-82"><a href="#cb13-82" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb13-83"><a href="#cb13-83" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
-<span id="cb13-84"><a href="#cb13-84" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.key.width =</span> <span class="fu">unit</span>(<span class="dv">10</span>, <span class="st">&quot;mm&quot;</span>),</span>
-<span id="cb13-85"><a href="#cb13-85" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.direction =</span> <span class="st">&quot;horizontal&quot;</span>,</span>
-<span id="cb13-86"><a href="#cb13-86" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
-<span id="cb13-87"><a href="#cb13-87" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>)</span>
-<span id="cb13-88"><a href="#cb13-88" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb13-89"><a href="#cb13-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;Spearman correlation&quot;</span>, <span class="at">x =</span> <span class="fu">element_blank</span>(), <span class="at">y =</span> <span class="fu">element_blank</span>())</span>
-<span id="cb13-90"><a href="#cb13-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-91"><a href="#cb13-91" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
-<span id="cb13-92"><a href="#cb13-92" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_corr_items,</span>
-<span id="cb13-93"><a href="#cb13-93" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/corr_items.jpeg&quot;</span>,</span>
-<span id="cb13-94"><a href="#cb13-94" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">300</span>,</span>
-<span id="cb13-95"><a href="#cb13-95" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
-<span id="cb13-96"><a href="#cb13-96" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">6</span></span>
-<span id="cb13-97"><a href="#cb13-97" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-98"><a href="#cb13-98" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/corr_items.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">cor</span>(fct_digi_fin_dta, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>), <span class="dv">3</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>cor_mat[<span class="fu">lower.tri</span>(cor_mat)] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>melted_cormat <span class="ot">&lt;-</span> <span class="fu">melt</span>(cor_mat)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>str_wrap_factor <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>(x) <span class="ot">&lt;-</span> <span class="fu">str_wrap</span>(<span class="fu">levels</span>(x), ...)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  x</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>melted_cormat_heatmap <span class="ot">&lt;-</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  melted_cormat <span class="sc">%&gt;%</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Var2 =</span> <span class="fu">fct_rev</span>(Var2),</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Var1 =</span> <span class="fu">factor</span>(Var1),</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">Var1 =</span> <span class="fu">str_wrap_factor</span>(Var1, <span class="at">width =</span> <span class="dv">32</span>)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>label_data <span class="ot">&lt;-</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>  melted_cormat_heatmap <span class="sc">%&gt;%</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Var1) <span class="sc">%&gt;%</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">Var1 =</span> <span class="fu">as.character</span>(Var1),</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">Var2 =</span> <span class="fu">unique</span>(melted_cormat_heatmap<span class="sc">$</span>Var2)</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_labs =</span> <span class="fu">c</span>(<span class="st">&quot;BKS&quot;</span>, <span class="st">&quot;ADFS&quot;</span>, <span class="st">&quot;PKH&quot;</span>, <span class="st">&quot;DM&quot;</span>, <span class="st">&quot;SP&quot;</span>, <span class="st">&quot;FSE&quot;</span>, <span class="st">&quot;FS&quot;</span>, <span class="st">&quot;FC&quot;</span>, <span class="st">&quot;FA&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">rev</span>()</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>p_corr_items <span class="ot">&lt;-</span> melted_cormat_heatmap <span class="sc">%&gt;%</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Var2, <span class="at">y =</span> Var1, <span class="at">fill =</span> value)) <span class="sc">+</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>() <span class="sc">+</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> value), <span class="at">color =</span> <span class="st">&quot;white&quot;</span>, <span class="at">fontface =</span> <span class="st">&quot;bold&quot;</span>) <span class="sc">+</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> label_data,</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> Var1, <span class="at">y =</span> Var1, <span class="at">x =</span> <span class="sc">-</span><span class="fl">0.1</span>),</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">inherit.aes =</span> F,</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">4</span>,</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">fontface =</span> <span class="st">&quot;bold&quot;</span>,</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="fl">0.5</span>,</span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">hjust =</span> <span class="dv">1</span></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> label_data,</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> x_labs, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">x =</span> Var2),</span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">inherit.aes =</span> F,</span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">0</span>,</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">fontface =</span> <span class="st">&quot;bold&quot;</span>,</span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;grey20&quot;</span></span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> label_data,</span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> x_labs, <span class="at">y =</span> Var1, <span class="at">x =</span> <span class="fl">0.1</span>),</span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">inherit.aes =</span> F,</span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">90</span>,</span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">1</span>,</span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">fontface =</span> <span class="st">&quot;bold&quot;</span>,</span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;grey20&quot;</span></span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(</span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">low =</span> <span class="st">&quot;#eaf4f4&quot;</span>,</span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">high =</span> <span class="st">&quot;#264653&quot;</span>,</span>
+<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">limit =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a>    <span class="at">space =</span> <span class="st">&quot;Lab&quot;</span></span>
+<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">position =</span> <span class="st">&quot;top&quot;</span>) <span class="sc">+</span></span>
+<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_colorbar</span>(<span class="at">title.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="at">title.hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">&quot;off&quot;</span>) <span class="sc">+</span></span>
+<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">180</span>),</span>
+<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption.position =</span> <span class="st">&quot;panel&quot;</span>,</span>
+<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(</span>
+<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a>      <span class="at">hjust =</span> <span class="dv">1</span>,</span>
+<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a>      <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">20</span>),</span>
+<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> <span class="dv">12</span>,</span>
+<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="st">&quot;grey20&quot;</span>,</span>
+<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a>      <span class="at">lineheight =</span> <span class="fl">1.1</span></span>
+<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.key.width =</span> <span class="fu">unit</span>(<span class="dv">10</span>, <span class="st">&quot;mm&quot;</span>),</span>
+<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.direction =</span> <span class="st">&quot;horizontal&quot;</span>,</span>
+<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">&quot;Spearman correlation&quot;</span>, <span class="at">x =</span> <span class="fu">element_blank</span>(), <span class="at">y =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> p_corr_items,</span>
+<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">&quot;plot/corr_items.jpeg&quot;</span>,</span>
+<span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">300</span>,</span>
+<span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">10</span>,</span>
+<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">6</span></span>
+<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;plot/corr_items.jpeg&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -3601,9 +3786,9 @@ Note
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>efa_lkrt_dta <span class="ot">&lt;-</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(bks1<span class="sc">:</span>fa4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>efa_lkrt_dta <span class="ot">&lt;-</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(bks1<span class="sc">:</span>fa4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <section id="parallel-analysis" class="level3" data-number="4.1.1">
@@ -3611,12 +3796,12 @@ Note
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fa.parallel</span>(efa_lkrt_dta, <span class="at">fa =</span> <span class="st">&quot;fa&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fa.parallel</span>(efa_lkrt_dta, <span class="at">fa =</span> <span class="st">&quot;fa&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img role="img" src="data:image/png;base64,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" class="img-fluid figure-img" width="672"></p>
+<p><img role="img" src="data:image/png;base64,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" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -3630,23 +3815,23 @@ Note
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sem_digi_finance_dta <span class="ot">&lt;-</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(bks1<span class="sc">:</span>fa4) <span class="sc">|&gt;</span> </span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span>dm1, <span class="sc">-</span>dm2, <span class="sc">-</span>sp1, <span class="sc">-</span>dm3, <span class="sc">-</span>fs1, <span class="sc">-</span>fs2, <span class="sc">-</span>fs3, <span class="sc">-</span>fc1, <span class="sc">-</span>fc3,</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span>fa1, <span class="sc">-</span>pkh2, <span class="sc">-</span>pkh3,</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span>fc2, <span class="sc">-</span>bks1, <span class="sc">-</span>bks2, <span class="sc">-</span>bks3, <span class="sc">-</span>bks4, <span class="sc">-</span>bks5, <span class="sc">-</span>bks6, <span class="sc">-</span>bks7,</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span>bks11, <span class="sc">-</span>sp2, <span class="sc">-</span>fse4, <span class="sc">-</span>fc4</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>sem_digi_finance_dta <span class="ot">&lt;-</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(bks1<span class="sc">:</span>fa4) <span class="sc">|&gt;</span> </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span>dm1, <span class="sc">-</span>dm2, <span class="sc">-</span>sp1, <span class="sc">-</span>dm3, <span class="sc">-</span>fs1, <span class="sc">-</span>fs2, <span class="sc">-</span>fs3, <span class="sc">-</span>fc1, <span class="sc">-</span>fc3,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span>fa1, <span class="sc">-</span>pkh2, <span class="sc">-</span>pkh3,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span>fc2, <span class="sc">-</span>bks1, <span class="sc">-</span>bks2, <span class="sc">-</span>bks3, <span class="sc">-</span>bks4, <span class="sc">-</span>bks5, <span class="sc">-</span>bks6, <span class="sc">-</span>bks7,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span>bks11, <span class="sc">-</span>sp2, <span class="sc">-</span>fse4, <span class="sc">-</span>fc4</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>efa_extract <span class="ot">&lt;-</span> <span class="fu">fa</span>(sem_digi_finance_dta, <span class="at">nfactors =</span> <span class="dv">3</span>, <span class="at">rotate =</span> <span class="st">&quot;varimax&quot;</span>, <span class="at">fm =</span> <span class="st">&quot;ml&quot;</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(efa_extract<span class="sc">$</span>loadings, <span class="at">cutoff =</span> <span class="fl">0.3</span>, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>efa_extract <span class="ot">&lt;-</span> <span class="fu">fa</span>(sem_digi_finance_dta, <span class="at">nfactors =</span> <span class="dv">3</span>, <span class="at">rotate =</span> <span class="st">&quot;varimax&quot;</span>, <span class="at">fm =</span> <span class="st">&quot;ml&quot;</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(efa_extract<span class="sc">$</span>loadings, <span class="at">cutoff =</span> <span class="fl">0.3</span>, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -3682,44 +3867,44 @@ Cumulative Var 0.339 0.476 0.578</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define measurement model</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>measurement_model <span class="ot">&lt;-</span> <span class="fu">constructs</span>(</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">composite</span>(<span class="st">&quot;Digital financial literacy&quot;</span>,</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">multi_items</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;bks&quot;</span>, <span class="dv">3</span>), <span class="fu">rep</span>(<span class="st">&quot;adfs&quot;</span>, <span class="dv">3</span>), <span class="st">&quot;pkh&quot;</span>, <span class="st">&quot;sp&quot;</span>), <span class="fu">c</span>(<span class="dv">8</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">3</span>))),  </span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">composite</span>(<span class="st">&quot;Financial self-efficacy&quot;</span>,</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>            <span class="fu">multi_items</span>(<span class="st">&quot;fse&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)),</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">composite</span>(<span class="st">&quot;Financial well-being&quot;</span>,</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>            <span class="fu">multi_items</span>(<span class="st">&quot;fa&quot;</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>))</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Define structural model</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>structural_model <span class="ot">&lt;-</span> <span class="fu">relationships</span>(</span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paths</span>(<span class="at">from =</span> <span class="st">&quot;Digital financial literacy&quot;</span>,</span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">to   =</span> <span class="fu">c</span>(<span class="st">&quot;Financial self-efficacy&quot;</span>, <span class="st">&quot;Financial well-being&quot;</span>)),</span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paths</span>(<span class="at">from =</span> <span class="st">&quot;Financial self-efficacy&quot;</span>,</span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">to   =</span> <span class="st">&quot;Financial well-being&quot;</span>)</span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate the PLS model</span></span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>pls_model <span class="ot">&lt;-</span> <span class="fu">estimate_pls</span>(</span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> sem_digi_finance_dta,</span>
-<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">measurement_model =</span> measurement_model,</span>
-<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">structural_model  =</span> structural_model</span>
-<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a><span class="do">## summary of pls model</span></span>
-<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>summ_pls_model <span class="ot">&lt;-</span> <span class="fu">summary</span>(pls_model)</span>
-<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Run bootstrapping (e.g., 5000 resamples, 4 cores for speed)</span></span>
-<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>boot_pls <span class="ot">&lt;-</span> <span class="fu">bootstrap_model</span>(</span>
-<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">seminr_model =</span> pls_model,</span>
-<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>  <span class="at">nboot =</span> <span class="dv">5000</span>,</span>
-<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">seed =</span> <span class="dv">202604</span>,</span>
-<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>  <span class="at">cores =</span> <span class="dv">4</span></span>
-<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a><span class="do">## plot model</span></span>
-<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(boot_pls)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define measurement model</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>measurement_model <span class="ot">&lt;-</span> <span class="fu">constructs</span>(</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">composite</span>(<span class="st">&quot;Digital financial literacy&quot;</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">multi_items</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;bks&quot;</span>, <span class="dv">3</span>), <span class="fu">rep</span>(<span class="st">&quot;adfs&quot;</span>, <span class="dv">3</span>), <span class="st">&quot;pkh&quot;</span>, <span class="st">&quot;sp&quot;</span>), <span class="fu">c</span>(<span class="dv">8</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">3</span>))),  </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">composite</span>(<span class="st">&quot;Financial self-efficacy&quot;</span>,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>            <span class="fu">multi_items</span>(<span class="st">&quot;fse&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)),</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">composite</span>(<span class="st">&quot;Financial well-being&quot;</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>            <span class="fu">multi_items</span>(<span class="st">&quot;fa&quot;</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>))</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Define structural model</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>structural_model <span class="ot">&lt;-</span> <span class="fu">relationships</span>(</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paths</span>(<span class="at">from =</span> <span class="st">&quot;Digital financial literacy&quot;</span>,</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">to   =</span> <span class="fu">c</span>(<span class="st">&quot;Financial self-efficacy&quot;</span>, <span class="st">&quot;Financial well-being&quot;</span>)),</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paths</span>(<span class="at">from =</span> <span class="st">&quot;Financial self-efficacy&quot;</span>,</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">to   =</span> <span class="st">&quot;Financial well-being&quot;</span>)</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate the PLS model</span></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>pls_model <span class="ot">&lt;-</span> <span class="fu">estimate_pls</span>(</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> sem_digi_finance_dta,</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">measurement_model =</span> measurement_model,</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">structural_model  =</span> structural_model</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a><span class="do">## summary of pls model</span></span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>summ_pls_model <span class="ot">&lt;-</span> <span class="fu">summary</span>(pls_model)</span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Run bootstrapping (e.g., 5000 resamples, 4 cores for speed)</span></span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>boot_pls <span class="ot">&lt;-</span> <span class="fu">bootstrap_model</span>(</span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">seminr_model =</span> pls_model,</span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>  <span class="at">nboot =</span> <span class="dv">5000</span>,</span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">seed =</span> <span class="dv">202604</span>,</span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>  <span class="at">cores =</span> <span class="dv">4</span></span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a><span class="do">## plot model</span></span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(boot_pls)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <section id="direct-effects" class="level4" data-number="4.2.1.1">
@@ -3727,10 +3912,10 @@ Cumulative Var 0.339 0.476 0.578</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">## summary table</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>summ_boot_pls_model <span class="ot">&lt;-</span> <span class="fu">summary</span>(boot_pls)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(summ_boot_pls_model<span class="sc">$</span>bootstrapped_paths <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">## summary table</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>summ_boot_pls_model <span class="ot">&lt;-</span> <span class="fu">summary</span>(boot_pls)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(summ_boot_pls_model<span class="sc">$</span>bootstrapped_paths <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -3739,7 +3924,7 @@ Cumulative Var 0.339 0.476 0.578</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="fu">round</span>(summ_boot_pls_model<span class="sc">$</span>bootstrapped_total_indirect_paths, <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="fu">round</span>(summ_boot_pls_model<span class="sc">$</span>bootstrapped_total_indirect_paths, <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -3749,7 +3934,7 @@ Cumulative Var 0.339 0.476 0.578</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="fu">round</span>(summ_pls_model<span class="sc">$</span>reliability, <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="fu">round</span>(summ_pls_model<span class="sc">$</span>reliability, <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -3758,7 +3943,7 @@ Cumulative Var 0.339 0.476 0.578</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="fu">round</span>(summ_pls_model<span class="sc">$</span>validity<span class="sc">$</span>fl_criteria, <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(<span class="fu">round</span>(summ_pls_model<span class="sc">$</span>validity<span class="sc">$</span>fl_criteria, <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>

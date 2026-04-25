@@ -98,6 +98,8 @@ df |>
 
 ### Awareness {.unnumbered}
 
+::: {.callout-tip}
+## Interpretation
 - 61% strongly agree and 26% agree that they are aware of services like e-wallets, mobile banking, and online payment platforms. Only 2% strongly disagree and 2% disagree, showing very few respondents lack awareness.
 
 - 46% strongly agree and 39% agree that they understand the specific purpose and usage of digital financial services However, 12% remain neutral, and about 3% disagree/strongly disagree, suggesting some uncertainty in deeper comprehension.
@@ -105,6 +107,8 @@ df |>
 - 49% strongly agree and 36% agree that they are aware of potential risks. 12% are neutral, and 3% disagree/strongly disagree, indicating that while most recognize risks, a notable minority are unsure.
 
 - Awareness of existence of services (adfs1) is the strongest (nearly 9 in 10 respondents agree/strongly agree). Awareness of purpose/usage (adfs2) is slightly lower, with more respondents neutral.
+
+:::
 
 ```{r}
 p_awareness <- plot_factor("Awareness")
@@ -125,6 +129,9 @@ knitr::include_graphics("plot/fct_awareness.jpeg")
 
 ### Basic Knowledge and Skills {.unnumbered}
 
+::: {.callout-tip}
+## Interpretation
+
 - Majority agree/strongly agree (68%) that they prepare a personal budget. However, 28% are neutral, suggesting that while budgeting is common, consistency may be lacking.
 
 - 74% agree/strongly agree they shop online. Only 8% disagree, showing that digital consumption is widely practiced.
@@ -140,6 +147,8 @@ knitr::include_graphics("plot/fct_awareness.jpeg")
 - There is a very high level of digital literacy competence among respondents. For online search, 85% agreed or strongly agreed that they can effectively conduct searches using their devices, while only a small minority expressed disagreement or uncertainty.
 
 - Similarly, email use (bks9) showed equally strong results, with 85% agreeing or strongly agreeing that they can send and receive emails independently.
+
+:::
 
 ```{r}
 p_basic_know_skill <- plot_factor("Basic Knowledge and Skills", stwidth = 70)
@@ -161,11 +170,16 @@ knitr::include_graphics("plot/fct_basic_know_skill.jpeg")
 
 ### Decision Making {.unnumbered}
 
+::: {.callout-tip}
+## Interpretation
+
 - 39% agree and 18% strongly agree, showing more than half of respondents actively plan while managing daily finances. However, 37% are neutral and 7% disagree/strongly disagree, indicating that a significant group may not consistently integrate long-term planning into their financial routines.
 
 - 43% agree and 26% strongly agree, meaning nearly 7 in 10 respondents report responsible behaviors like saving and borrowing wisely. Neutral responses (27%) suggest some uncertainty or inconsistency in applying these practices.
 
 - 44% agree and 23% strongly agree, showing that two-thirds of respondents feel confident in selecting reliable providers for remittances, savings, or borrowing. Still, 27% are neutral and 6% disagree/strongly disagree, reflecting that not all students are fully confident in navigating digital financial platforms.
+
+:::
 
 ```{r}
 p_decision_making <- plot_factor("Decision Making")
@@ -188,6 +202,9 @@ knitr::include_graphics("plot/fct_decision_making.jpeg")
 
 ### Financial Anxiety {.unnumbered}
 
+::: {.callout-tip}
+## Interpretation
+
 - 37% agree and 15% strongly agree they are comfortable managing transactions with banks and financial institutions using digital payment solutions. However, 41% are neutral and 7% disagree/strongly disagree, showing that while many feel confident, a large group remains uncertain.
 
 - 34% agree and 14% strongly agree that unexpected events disrupt their financial control when using online payment options. 42% are neutral, suggesting that many students experience occasional disruptions but may not perceive them as constant or severe.
@@ -195,6 +212,8 @@ knitr::include_graphics("plot/fct_decision_making.jpeg")
 - 27% agree and 8% strongly agree they find it difficult to live fully because of extreme concern over monitoring digital transactions. Yet, 43% are neutral and 21% disagree/strongly disagree, indicating that financial anxiety is present but not dominant across the group.
 
 - 23% agree and 7% strongly agree that digital payment methods completely control their financial life. The largest group (42%) is neutral, while 28% disagree/strongly disagree, showing mixed perceptions of control, with many undecided.
+
+:::
 
 ```{r}
 p_finance_anxiety <- plot_factor("Financial Anxiety")
@@ -216,6 +235,9 @@ knitr::include_graphics("plot/fct_finance_anxiety.jpeg")
 
 ### Financial Capability {.unnumbered}
 
+::: {.callout-tip}
+## Interpretation
+
 - 37% agree and 16% strongly agree they can save time and money using the digital financial landscape. However, 38% are neutral and 9% disagree, showing that while many recognize efficiency, a large group remains undecided.
 
 - 32% agree and 11% strongly agree they are organized when using digital platforms. Yet, nearly half (46%) are neutral and 11% disagree, suggesting that confidence in organization is weaker compared to other capability items.
@@ -223,6 +245,8 @@ knitr::include_graphics("plot/fct_finance_anxiety.jpeg")
 - Stronger consensus here: 42% agree and 25% strongly agree they set aside money for emergencies. Only 7% disagree, making this the most consistently positive capability indicator.
 
 - 35% agree and 16% strongly agree they can balance spending and saving with digital tools. Still, 41% are neutral and 9% disagree, indicating mixed confidence in applying digital tools for financial discipline.
+
+:::
 
 ```{r}
 p_finance_capability <- plot_factor("Financial Capability")
@@ -243,6 +267,9 @@ knitr::include_graphics("plot/fct_finance_capability.jpeg")
 
 ### Financial Satisfaction {.unnumbered}
 
+::: {.callout-tip}
+## Interpretation
+
 - 27% agree and 7% strongly agree that they rarely run out of money, but 37% are neutral and 29% disagree/strongly disagree. This shows that while some students feel financially stable, a large portion experience uncertainty or frequent shortfalls.
 
 
@@ -250,6 +277,8 @@ knitr::include_graphics("plot/fct_finance_capability.jpeg")
 
 
 - 37% agree and 11% strongly agree they can find products that meet their needs. However, 43% are neutral and 10% disagree/strongly disagree, suggesting that while many recognize available options, a significant group remains undecided about their suitability.
+
+:::
 
 ```{r}
 p_finance_sat <- plot_factor("Financial Satisfaction")
@@ -268,7 +297,21 @@ ggsave(
 knitr::include_graphics("plot/fct_finance_sat.jpeg")
 ```
 
+
 ### Financial Self-Efficacy {.unnumbered}
+
+::: {.callout-tip}
+## Interpretation
+
+- 44% agree and 20% strongly agree they are confident in managing their funds. Still, 33% are neutral, showing that while many feel capable, a sizable group remains unsure.
+
+- 40% agree and 22% strongly agree they can keep monthly expenses below income/allowance. About 31% are neutral and 8% disagree, indicating mixed consistency in practicing financial discipline.
+
+- 39% agree and 17% strongly agree they can plan for the future using savings in banks or digital services.Yet, 37% are neutral and 6% disagree, reflecting partial confidence in long-term financial planning.
+
+- 42% agree and 15% strongly agree they use digital financial skills efficiently to manage goals. However, 38% are neutral and 5% disagree, suggesting that while many apply digital skills, others are uncertain about their effectiveness.
+
+:::
 
 ```{r}
 p_fiance_self_efficacy <- plot_factor("Financial Self-Efficacy")
@@ -289,6 +332,19 @@ knitr::include_graphics("plot/fct_fiance_self_efficacy.jpeg")
 
 ### Practical Know-How {.unnumbered}
 
+::: {.callout-tip}
+## Interpretation
+
+- 35% agree and 39% strongly agree they know how to open accounts on digital financial platforms. Only 4% disagree/strongly disagree, while 23% are neutral.
+
+- 36% agree and 21% strongly agree they can navigate digital financial service applications. 37% are neutral, and 7% disagree/strongly disagree. The result indicates good competence, but neutrality suggests some students may not yet be fully comfortable with platform features.
+
+- 34% agree and 25% strongly agree they can initiate, complete, or correct transactions. 34% are neutral, while 7% disagree/strongly disagree.
+
+- Confidence is strong, but neutrality again highlights a group that may lack hands-on experience.
+
+:::
+
 ```{r}
 p_practical_know_how <- plot_factor("Practical Know-How")
 
@@ -307,6 +363,17 @@ knitr::include_graphics("plot/fct_practical_know_how.jpeg")
 ```
 
 ### Self-Protection {.unnumbered}
+
+::: {.callout-tip}
+## Interpretation
+
+- 38% agree and 29% strongly agree they read and understand terms to avoid deceptive practices. Still, 24% are neutral and 8% disagree/strongly disagree, showing that while many are cautious, a notable group may overlook or skim important details.
+
+- 40% agree and 32% strongly agree they can recognize scams such as phishing or identity theft. About 25% are neutral, and only 4% disagree/strongly disagree, indicating strong awareness but with some uncertainty among a quarter of respondents.
+
+- 40% agree and 46% strongly agree they actively protect their information when using digital financial services. Only 11% are neutral and 3% disagree/strongly disagree, making this the strongest self-protection behavior reported.
+
+:::
 
 ```{r}
 p_self_protection <- plot_factor("Self-Protection")
@@ -328,6 +395,48 @@ knitr::include_graphics("plot/fct_self_protection.jpeg")
 # Objective 2-4: Examine whether digital financial literacy and self-efficacy is positively associated with financial well-being.
 
 ## Correlation table
+
+## Correlation
+
+| Correlation coefficient | Psychology | Politics and economics |  Medicine   |
+|:-----------------------:|:----------:|:----------------------:|:-----------:|
+|          ± 1.0          |  Perfect   |        Perfect         |   Perfect   |
+|          ± 0.9          |   Strong   |      Very strong       | Very strong |
+|          ± 0.8          |   Strong   |      Very strong       | Very strong |
+|          ± 0.7          |   Strong   |      Very strong       |  Moderate   |
+|          ± 0.6          |  Moderate  |         Strong         |  Moderate   |
+|          ± 0.5          |  Moderate  |         Strong         |    Fair     |
+|          ± 0.4          |  Moderate  |         Strong         |    Fair     |
+|          ± 0.3          |    Weak    |        Moderate        |    Fair     |
+|          ± 0.2          |    Weak    |          Weak          |    Poor     |
+|          ± 0.1          |    Weak    |       Negligible       |    Poor     |
+|          ± 0.0          |    Zero    |          None          |    None     |
+
+: Guide interpretation of the correlation coefficients [@Akoglu2018].
+
+
+
+::: {.callout-tip}
+
+## Interpretation
+- Awareness ↔ Practical Know-How (0.689) and Awareness ↔ Self-Protection (0.660) show that students who are more aware of digital financial services also tend to know how to use them and protect themselves.
+
+- Decision-Making ↔ Financial Self-Efficacy (0.625) indicates that confidence in financial decision-making is closely tied to students’ belief in their ability to manage finances.
+
+- Basic Knowledge ↔ Awareness (0.598) and Basic Knowledge ↔ Practical Know-How (0.559) suggest that traditional financial knowledge supports awareness and practical digital skills, but the relationship is not as strong as between awareness and self-protection.
+
+- Practical Know-How ↔ Decision-Making (0.560) shows that being able to use digital tools translates into more confident financial decisions.
+
+- Self-protection correlates moderately with Decision-Making (0.646) and Financial Self-Efficacy (0.525), meaning that students who actively safeguard their information also feel more capable in making sound financial choices.
+
+- Financial Self-Efficacy as a mediator has strong correlations with Financial Capability (0.644) and moderate with Financial Satisfaction (0.405), showing that confidence in managing finances is a key driver of both capability and satisfaction. It also links with Financial Anxiety (0.434), suggesting that higher self-efficacy may help reduce anxiety.
+
+- Whereas financial Capability as a central outcome, it correlates strongly with Financial Self-Efficacy (0.644) and Financial Anxiety (0.542), and moderately with Financial Satisfaction (0.508).
+
+- Satisfaction shows relatively low correlations with most literacy dimensions (e.g., Awareness 0.131, Basic Knowledge 0.185).
+
+:::
+
 
 ```{r}
 #| echo: false

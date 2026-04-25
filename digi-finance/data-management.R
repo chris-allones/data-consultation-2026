@@ -68,10 +68,3 @@ plot_factor <-
   custom_theme
 }
 
-
-
-
-lkrt_dta |> 
-  mutate(statement = str_wrap(statement,  50)) |> 
-  filter(str_detect(factor, "Financial Satisfaction")) |> 
-  print(n = 60)
