@@ -73,5 +73,5 @@ plot_factor <-
 
 lkrt_dta |> 
   mutate(statement = str_wrap(statement,  50)) |> 
-  filter(str_detect(factor, "Basic Knowledge and Skills")) |> 
+  filter(str_detect(factor, "Financial Satisfaction")) |> 
   print(n = 60)

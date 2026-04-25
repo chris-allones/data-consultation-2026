@@ -158,7 +158,14 @@ ggsave(
 knitr::include_graphics("plot/fct_basic_know_skill.jpeg")
 ```
 
+
 ### Decision Making {.unnumbered}
+
+- 39% agree and 18% strongly agree, showing more than half of respondents actively plan while managing daily finances. However, 37% are neutral and 7% disagree/strongly disagree, indicating that a significant group may not consistently integrate long-term planning into their financial routines.
+
+- 43% agree and 26% strongly agree, meaning nearly 7 in 10 respondents report responsible behaviors like saving and borrowing wisely. Neutral responses (27%) suggest some uncertainty or inconsistency in applying these practices.
+
+- 44% agree and 23% strongly agree, showing that two-thirds of respondents feel confident in selecting reliable providers for remittances, savings, or borrowing. Still, 27% are neutral and 6% disagree/strongly disagree, reflecting that not all students are fully confident in navigating digital financial platforms.
 
 ```{r}
 p_decision_making <- plot_factor("Decision Making")
@@ -177,7 +184,17 @@ ggsave(
 knitr::include_graphics("plot/fct_decision_making.jpeg")
 ```
 
+
+
 ### Financial Anxiety {.unnumbered}
+
+- 37% agree and 15% strongly agree they are comfortable managing transactions with banks and financial institutions using digital payment solutions. However, 41% are neutral and 7% disagree/strongly disagree, showing that while many feel confident, a large group remains uncertain.
+
+- 34% agree and 14% strongly agree that unexpected events disrupt their financial control when using online payment options. 42% are neutral, suggesting that many students experience occasional disruptions but may not perceive them as constant or severe.
+
+- 27% agree and 8% strongly agree they find it difficult to live fully because of extreme concern over monitoring digital transactions. Yet, 43% are neutral and 21% disagree/strongly disagree, indicating that financial anxiety is present but not dominant across the group.
+
+- 23% agree and 7% strongly agree that digital payment methods completely control their financial life. The largest group (42%) is neutral, while 28% disagree/strongly disagree, showing mixed perceptions of control, with many undecided.
 
 ```{r}
 p_finance_anxiety <- plot_factor("Financial Anxiety")
@@ -196,7 +213,16 @@ ggsave(
 knitr::include_graphics("plot/fct_finance_anxiety.jpeg")
 ```
 
+
 ### Financial Capability {.unnumbered}
+
+- 37% agree and 16% strongly agree they can save time and money using the digital financial landscape. However, 38% are neutral and 9% disagree, showing that while many recognize efficiency, a large group remains undecided.
+
+- 32% agree and 11% strongly agree they are organized when using digital platforms. Yet, nearly half (46%) are neutral and 11% disagree, suggesting that confidence in organization is weaker compared to other capability items.
+
+- Stronger consensus here: 42% agree and 25% strongly agree they set aside money for emergencies. Only 7% disagree, making this the most consistently positive capability indicator.
+
+- 35% agree and 16% strongly agree they can balance spending and saving with digital tools. Still, 41% are neutral and 9% disagree, indicating mixed confidence in applying digital tools for financial discipline.
 
 ```{r}
 p_finance_capability <- plot_factor("Financial Capability")
@@ -216,6 +242,14 @@ knitr::include_graphics("plot/fct_finance_capability.jpeg")
 ```
 
 ### Financial Satisfaction {.unnumbered}
+
+- 27% agree and 7% strongly agree that they rarely run out of money, but 37% are neutral and 29% disagree/strongly disagree. This shows that while some students feel financially stable, a large portion experience uncertainty or frequent shortfalls.
+
+
+- Only 24% agree/strongly agree they could obtain a loan if needed, while 38% are neutral and 39% disagree/strongly disagree. Indicates limited confidence in digital borrowing options, reflecting either lack of access or skepticism about eligibility.
+
+
+- 37% agree and 11% strongly agree they can find products that meet their needs. However, 43% are neutral and 10% disagree/strongly disagree, suggesting that while many recognize available options, a significant group remains undecided about their suitability.
 
 ```{r}
 p_finance_sat <- plot_factor("Financial Satisfaction")
