@@ -57,9 +57,9 @@ Copies of the Figures presented in this report are available using the links bel
 
 <ol>
 
-<li><a href="https://drive.google.com/drive/folders/1WZS7e1pDCnrR8M5w-Y0TEFc1NCixgWcn?usp=sharing" target="_blank" style="text-decoration: none">Plots</a></li>
+<li><a href="https://drive.google.com/drive/folders/19CCug3KhxbFnaAqMjwSfKMinFN9ZMHWd?usp=sharing" target="_blank" style="text-decoration: none">Plots</a></li>
 
-<li><a href="https://drive.google.com/drive/folders/1K3PC9n8ARzyiKILLZ-RH-c0-6GcO5IkV?usp=sharing" target="_blank" style="text-decoration: none">Google Drive</a></li>
+<li><a href="https://drive.google.com/drive/folders/11C7ZeBVGgxZ_KQs1v6cQBP6qDIi4_toc?usp=sharing" target="_blank" style="text-decoration: none">Google Drive</a></li>
 
 </ol>
 
