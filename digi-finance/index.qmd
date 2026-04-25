@@ -394,9 +394,7 @@ knitr::include_graphics("plot/fct_self_protection.jpeg")
 
 # Objective 2-4: Examine whether digital financial literacy and self-efficacy is positively associated with financial well-being.
 
-## Correlation table
-
-## Correlation
+## Correlation analysis
 
 | Correlation coefficient | Psychology | Politics and economics |  Medicine   |
 |:-----------------------:|:----------:|:----------------------:|:-----------:|
