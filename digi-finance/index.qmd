@@ -67,6 +67,39 @@ Copies of the Figures presented in this report are available using the links bel
 
 ## Sociodemographic variables
 
+
+::: {.callout-tip}
+## Interpretations
+
+- **Age**
+  - Median age is 20 years (IQR: 19–22), showing that most respondents are young adults, typical of undergraduate populations.
+
+- **Sex**
+
+  - Majority are female (65%), with males making up 35%. This gender distribution suggests a female-dominated sample, which may influence perspectives on financial literacy and well-being.
+
+- **Degree Program**
+
+  - Respondents come from diverse programs, but the largest groups are BS in Agribusiness (36%) and BS in Agriculture (23%), followed by Bachelor of Secondary Education (15%). There is a strong representation from agriculture-related disciplines, aligning with the institutional context.
+
+- **Year Level**
+
+  - Distribution is fairly balanced: 28% first year, 24% second year, 22% third year, and 26% fourth year and above.
+
+- **Monthly Income/Allowance**
+
+  - Majority (55%) receive ₱1,001–₱5,000, while 35% live on less than ₱1,000. Only 10% receive more than ₱5,000. This highlights financial constraints among students, with most operating on modest allowances.
+
+- **Source of Financial Support**
+
+  - Predominantly from parents/family (94%), with small proportions from scholarships (3.2%) and part-time jobs (2.7%). The result shows high dependence on family support, with limited self-generated income.
+
+- **Type of Residence**
+
+  - Nearly half (45%) live with parents/relatives, while 34% stay in boarding houses and 19% in dormitories. Result reflects a mix of home-based and independent living arrangements, which may affect financial management practices.
+:::
+
+
 ```{r}
 ## create a gt summary table
 df |>
@@ -593,6 +626,27 @@ knitr::include_graphics("plot/corr_items.jpeg")
 
 ## Exploratory factor analysis
 
+Exploratory Factor Analysis (EFA) is an essential preliminary step before moving into Partial Least Squares Structural Equation Modeling (PLS-SEM). The reason is that PLS-SEM assumes that the measurement model is already well-defined. EFA helps establish and validate this foundation.
+
+1. Identify underlying constructs
+  - EFA reveals how survey items naturally cluster together, showing whether they measure the intended latent variables (e.g., digital financial literacy, self-efficacy, well-being).
+  - Without this step, there’s a risk of forcing items into constructs that don’t truly fit.
+
+2. Determine the number of factors
+
+  - Through techniques like parallel analysis and scree plots, EFA helps decide how many latent constructs should be retained.
+  - This ensures that the PLS-SEM model is built on a structure that reflects the actual data rather than assumptions.
+
+3. Check item loadings and validity
+
+  - EFA highlights which items load strongly on a factor and which may cross-load or fail to contribute meaningfully.
+  - This step improves the reliability and validity of constructs before they are tested in SEM.
+  
+4. Reduce measurement error
+
+  - By refining constructs through EFA, the subsequent PLS-SEM analysis produces more accurate path estimates and stronger conclusions.
+  - In short, EFA cleans and organizes the measurement model so SEM can focus on testing relationships among constructs.
+
 ```{r}
 efa_lkrt_dta <-
   df |>
@@ -610,19 +664,43 @@ fa.parallel(efa_lkrt_dta, fa = "fa")
 ```{r}
 sem_digi_finance_dta <-
   df |>
-  select(bks1:fa4) |> 
+  select(bks1:fa4) |>
   select(
-    -dm1, -dm2, -sp1, -dm3, -fs1, -fs2, -fs3, -fc1, -fc3,
-    -fa1, -pkh2, -pkh3,
-    -fc2, -bks1, -bks2, -bks3, -bks4, -bks5, -bks6, -bks7,
-    -bks11, -sp2, -fse4, -fc4
+    -dm1,
+    -dm2,
+    -sp1,
+    -dm3,
+    -fs1,
+    -fs2,
+    -fs3,
+    -fc1,
+    -fc3,
+    -fa1,
+    -pkh2,
+    -pkh3,
+    -fc2,
+    -bks1,
+    -bks2,
+    -bks3,
+    -bks4,
+    -bks5,
+    -bks6,
+    -bks7,
+    -bks11,
+    -sp2,
+    -fse4,
+    -fc4
   )
-
 ```
 
 
 ```{r}
-efa_extract <- fa(sem_digi_finance_dta, nfactors = 3, rotate = "varimax", fm = "ml")
+efa_extract <- fa(
+  sem_digi_finance_dta,
+  nfactors = 3,
+  rotate = "varimax",
+  fm = "ml"
+)
 
 print(efa_extract$loadings, cutoff = 0.3, sort = TRUE)
 ```
@@ -630,33 +708,80 @@ print(efa_extract$loadings, cutoff = 0.3, sort = TRUE)
 
 ## PLS-SEM
 
+
+::: {.callout-tip}
+## Digital financial literacy → Financial self-efficacy (β = 0.419, p < 0.001)
+
+- This path is strong and highly significant.
+- Students with higher digital financial literacy are more confident in their ability to manage finances.
+- The effect size is substantial, with a tight confidence interval [0.307, 0.529], confirming robustness.
+- Digital skills and awareness directly build financial confidence
+
+:::
+
+
+::: {.callout-tip}
+## Digital financial literacy → Financial well-being (β = 0.064, p = 0.372)
+
+- This path is weak and not significant.
+- The coefficient is small and the confidence interval [-0.086, 0.206] crosses zero, meaning no reliable direct effect.
+- Result shows digital financial literacy alone does not directly improve financial well-being. Instead, its influence is likely indirect, mediated through self-efficacy.
+:::
+
+
+
+::: {.callout-tip}
+## Financial self-efficacy → Financial well-being (β = 0.296, p < 0.001)
+
+- This path is moderate and significant.
+- Students who feel confident in managing their finances report higher financial well-being.
+- The confidence interval [0.162, 0.424] confirms stability of the effect.
+- Result shows self-efficacy is a key driver of financial well-being, acting as the bridge between literacy and outcomes.
+:::
+
+
+
+::: {.callout-tip}
+## Indirect Effect: Digital Financial Literacy → Financial Well-Being (via Financial Self-Efficacy)
+
+- Coefficient (β = 0.124, p < 0.001) .The indirect path is positive and statistically significant.
+- This means that digital financial literacy contributes to financial well-being through the mediating role of financial self-efficacy.
+- Students with stronger digital financial literacy skills tend to develop higher financial self-efficacy (confidence in managing finances).
+- This increased self-efficacy, in turn, leads to better financial well-being outcomes. In other words, literacy alone does not directly improve well-being (as seen in the weak direct path), but when it builds confidence, the benefits become clear and significant.
+
+:::
+
+
+
 ### Bootstrapped PLS-SEM model 
 ```{r}
-#| eval: false
-
 # Define measurement model
 measurement_model <- constructs(
-  composite("Digital financial literacy",
-            multi_items(c(rep("bks", 3), rep("adfs", 3), "pkh", "sp"), c(8:10, 1:3, 1, 3))),  
-  composite("Financial self-efficacy",
-            multi_items("fse", 1:3)),
-  composite("Financial well-being",
-            multi_items("fa", 2:4))
+  composite(
+    "Digital financial literacy",
+    multi_items(
+      c(rep("bks", 3), rep("adfs", 3), "pkh", "sp"),
+      c(8:10, 1:3, 1, 3)
+    )
+  ),
+  composite("Financial self-efficacy", multi_items("fse", 1:3)),
+  composite("Financial well-being", multi_items("fa", 2:4))
 )
 
 # Define structural model
 structural_model <- relationships(
-  paths(from = "Digital financial literacy",
-        to   = c("Financial self-efficacy", "Financial well-being")),
-  paths(from = "Financial self-efficacy",
-        to   = "Financial well-being")
+  paths(
+    from = "Digital financial literacy",
+    to = c("Financial self-efficacy", "Financial well-being")
+  ),
+  paths(from = "Financial self-efficacy", to = "Financial well-being")
 )
 
 # Estimate the PLS model
 pls_model <- estimate_pls(
   data = sem_digi_finance_dta,
   measurement_model = measurement_model,
-  structural_model  = structural_model
+  structural_model = structural_model
 )
 
 ## summary of pls model
@@ -672,13 +797,10 @@ boot_pls <- bootstrap_model(
 
 ## plot model
 plot(boot_pls)
-
 ```
 
 #### Direct effects
 ```{r}
-#| eval: false
-
 ## summary table
 summ_boot_pls_model <- summary(boot_pls)
 
@@ -687,27 +809,57 @@ DT::datatable(summ_boot_pls_model$bootstrapped_paths |> round(3))
 
 #### Indirect effects
 ```{r}
-#| eval: false
-
 DT::datatable(round(summ_boot_pls_model$bootstrapped_total_indirect_paths, 3))
 ```
 
 
 ### Reliability test
 
-```{r}
-#| eval: false
+::: {.callout-tip}
+## Reliabilty indicators
+- **Digital Financial Literacy** 
+  - All values exceed the thresholds (α, rhoA, rhoC > 0.7; AVE > 0.5).
+  - Excellent reliability and convergent validity. The items consistently measure the construct and capture sufficient variance.
 
+- **Financial Self-Efficacy**
+  - All values exceed thresholds, with AVE well above 0.5.
+  - Strong reliability and validity. The construct is measured consistently and explains a large portion of variance in its indicators.
+
+- **Financial Well-Being**
+  - Cronbach’s Alpha and rhoA are slightly below 0.7, but Composite Reliability and AVE meet the criteria.
+  - Acceptable reliability. While internal consistency is marginally lower, the construct still demonstrates adequate composite reliability and convergent validity. This suggests the items capture the concept but may be somewhat heterogeneous.
+:::
+
+
+```{r}
 DT::datatable(round(summ_pls_model$reliability, 3))
 ```
 
 
-
 ### Validity test
 
-```{r}
-#| eval: false
 
+::: {.callout-tip}
+## Fornell-Larcker Criterion
+
+- **Diagonal values (√AVE)**
+
+  - Digital financial literacy = 0.805
+  - Financial self-efficacy = 0.852
+  - Financial well-being = 0.779
+  - These represent the square root of AVE for each construct. They should be greater than the correlations with other constructs to confirm discriminant validity.
+
+- **Comparisons with correlations**
+
+  - **Digital financial literacy (0.805)** is higher than its correlations with financial self-efficacy (0.419) and financial well-being (0.188). DFL is distinct from the other constructs.
+
+  - **Financial self-efficacy (0.852)** is higher than its correlations with digital financial literacy (0.419) and financial well-being (0.323). FSE is also distinct and well-separated.
+
+  - **Financial well-being (0.779)** is higher than its correlations with digital financial literacy (0.188) and financial self-efficacy (0.323). FWB is distinct, though its correlation with FSE is moderately strong, which makes sense given the mediation role.
+
+:::
+
+```{r}
 DT::datatable(round(summ_pls_model$validity$fl_criteria, 3))
 ```
 
