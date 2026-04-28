@@ -67,11 +67,11 @@ Copies of the Figures presented in this report are available using the links bel
 
 ## Sociodemographic variables
 
-
-::: {.callout-tip}
+::: callout-tip
 ## Interpretations
 
 - **Age**
+
   - Median age is 20 years (IQR: 19–22), showing that most respondents are young adults, typical of undergraduate populations.
 
 - **Sex**
@@ -98,7 +98,6 @@ Copies of the Figures presented in this report are available using the links bel
 
   - Nearly half (45%) live with parents/relatives, while 34% stay in boarding houses and 19% in dormitories. Result reflects a mix of home-based and independent living arrangements, which may affect financial management practices.
 :::
-
 
 ```{r}
 ## create a gt summary table
@@ -131,8 +130,9 @@ df |>
 
 ### Awareness {.unnumbered}
 
-::: {.callout-tip}
+::: callout-tip
 ## Interpretation
+
 - 61% strongly agree and 26% agree that they are aware of services like e-wallets, mobile banking, and online payment platforms. Only 2% strongly disagree and 2% disagree, showing very few respondents lack awareness.
 
 - 46% strongly agree and 39% agree that they understand the specific purpose and usage of digital financial services However, 12% remain neutral, and about 3% disagree/strongly disagree, suggesting some uncertainty in deeper comprehension.
@@ -140,7 +140,6 @@ df |>
 - 49% strongly agree and 36% agree that they are aware of potential risks. 12% are neutral, and 3% disagree/strongly disagree, indicating that while most recognize risks, a notable minority are unsure.
 
 - Awareness of existence of services (adfs1) is the strongest (nearly 9 in 10 respondents agree/strongly agree). Awareness of purpose/usage (adfs2) is slightly lower, with more respondents neutral.
-
 :::
 
 ```{r}
@@ -162,7 +161,7 @@ knitr::include_graphics("plot/fct_awareness.jpeg")
 
 ### Basic Knowledge and Skills {.unnumbered}
 
-::: {.callout-tip}
+::: callout-tip
 ## Interpretation
 
 - Majority agree/strongly agree (68%) that they prepare a personal budget. However, 28% are neutral, suggesting that while budgeting is common, consistency may be lacking.
@@ -173,14 +172,13 @@ knitr::include_graphics("plot/fct_awareness.jpeg")
 
 - Nearly half (48%) are neutral about rarely making impulse purchases. Results indicate uncertainty or inconsistency in self-control over spending.
 
-- There is a moderate understanding of financial numeracy concepts among respondents. For loan interest, 43% remained neutral while only 31% agreed or strongly agreed. Similarly, when asked about the future value of money, 39% were neutral and 47% agreed or strongly agreed. 
+- There is a moderate understanding of financial numeracy concepts among respondents. For loan interest, 43% remained neutral while only 31% agreed or strongly agreed. Similarly, when asked about the future value of money, 39% were neutral and 47% agreed or strongly agreed.
 
 - In contrast, investment decision-making showed stronger comprehension, with 69% agreeing or strongly agreeing. Highlighting that students feel more capable when evaluating investment choices compared to technical calculations of interest or future value.
 
 - There is a very high level of digital literacy competence among respondents. For online search, 85% agreed or strongly agreed that they can effectively conduct searches using their devices, while only a small minority expressed disagreement or uncertainty.
 
 - Similarly, email use (bks9) showed equally strong results, with 85% agreeing or strongly agreeing that they can send and receive emails independently.
-
 :::
 
 ```{r}
@@ -200,10 +198,9 @@ ggsave(
 knitr::include_graphics("plot/fct_basic_know_skill.jpeg")
 ```
 
-
 ### Decision Making {.unnumbered}
 
-::: {.callout-tip}
+::: callout-tip
 ## Interpretation
 
 - 39% agree and 18% strongly agree, showing more than half of respondents actively plan while managing daily finances. However, 37% are neutral and 7% disagree/strongly disagree, indicating that a significant group may not consistently integrate long-term planning into their financial routines.
@@ -211,7 +208,6 @@ knitr::include_graphics("plot/fct_basic_know_skill.jpeg")
 - 43% agree and 26% strongly agree, meaning nearly 7 in 10 respondents report responsible behaviors like saving and borrowing wisely. Neutral responses (27%) suggest some uncertainty or inconsistency in applying these practices.
 
 - 44% agree and 23% strongly agree, showing that two-thirds of respondents feel confident in selecting reliable providers for remittances, savings, or borrowing. Still, 27% are neutral and 6% disagree/strongly disagree, reflecting that not all students are fully confident in navigating digital financial platforms.
-
 :::
 
 ```{r}
@@ -231,11 +227,9 @@ ggsave(
 knitr::include_graphics("plot/fct_decision_making.jpeg")
 ```
 
-
-
 ### Financial Anxiety {.unnumbered}
 
-::: {.callout-tip}
+::: callout-tip
 ## Interpretation
 
 - 37% agree and 15% strongly agree they are comfortable managing transactions with banks and financial institutions using digital payment solutions. However, 41% are neutral and 7% disagree/strongly disagree, showing that while many feel confident, a large group remains uncertain.
@@ -245,7 +239,6 @@ knitr::include_graphics("plot/fct_decision_making.jpeg")
 - 27% agree and 8% strongly agree they find it difficult to live fully because of extreme concern over monitoring digital transactions. Yet, 43% are neutral and 21% disagree/strongly disagree, indicating that financial anxiety is present but not dominant across the group.
 
 - 23% agree and 7% strongly agree that digital payment methods completely control their financial life. The largest group (42%) is neutral, while 28% disagree/strongly disagree, showing mixed perceptions of control, with many undecided.
-
 :::
 
 ```{r}
@@ -265,10 +258,9 @@ ggsave(
 knitr::include_graphics("plot/fct_finance_anxiety.jpeg")
 ```
 
-
 ### Financial Capability {.unnumbered}
 
-::: {.callout-tip}
+::: callout-tip
 ## Interpretation
 
 - 37% agree and 16% strongly agree they can save time and money using the digital financial landscape. However, 38% are neutral and 9% disagree, showing that while many recognize efficiency, a large group remains undecided.
@@ -278,7 +270,6 @@ knitr::include_graphics("plot/fct_finance_anxiety.jpeg")
 - Stronger consensus here: 42% agree and 25% strongly agree they set aside money for emergencies. Only 7% disagree, making this the most consistently positive capability indicator.
 
 - 35% agree and 16% strongly agree they can balance spending and saving with digital tools. Still, 41% are neutral and 9% disagree, indicating mixed confidence in applying digital tools for financial discipline.
-
 :::
 
 ```{r}
@@ -300,17 +291,14 @@ knitr::include_graphics("plot/fct_finance_capability.jpeg")
 
 ### Financial Satisfaction {.unnumbered}
 
-::: {.callout-tip}
+::: callout-tip
 ## Interpretation
 
 - 27% agree and 7% strongly agree that they rarely run out of money, but 37% are neutral and 29% disagree/strongly disagree. This shows that while some students feel financially stable, a large portion experience uncertainty or frequent shortfalls.
 
-
 - Only 24% agree/strongly agree they could obtain a loan if needed, while 38% are neutral and 39% disagree/strongly disagree. Indicates limited confidence in digital borrowing options, reflecting either lack of access or skepticism about eligibility.
 
-
 - 37% agree and 11% strongly agree they can find products that meet their needs. However, 43% are neutral and 10% disagree/strongly disagree, suggesting that while many recognize available options, a significant group remains undecided about their suitability.
-
 :::
 
 ```{r}
@@ -330,10 +318,9 @@ ggsave(
 knitr::include_graphics("plot/fct_finance_sat.jpeg")
 ```
 
-
 ### Financial Self-Efficacy {.unnumbered}
 
-::: {.callout-tip}
+::: callout-tip
 ## Interpretation
 
 - 44% agree and 20% strongly agree they are confident in managing their funds. Still, 33% are neutral, showing that while many feel capable, a sizable group remains unsure.
@@ -343,7 +330,6 @@ knitr::include_graphics("plot/fct_finance_sat.jpeg")
 - 39% agree and 17% strongly agree they can plan for the future using savings in banks or digital services.Yet, 37% are neutral and 6% disagree, reflecting partial confidence in long-term financial planning.
 
 - 42% agree and 15% strongly agree they use digital financial skills efficiently to manage goals. However, 38% are neutral and 5% disagree, suggesting that while many apply digital skills, others are uncertain about their effectiveness.
-
 :::
 
 ```{r}
@@ -365,7 +351,7 @@ knitr::include_graphics("plot/fct_fiance_self_efficacy.jpeg")
 
 ### Practical Know-How {.unnumbered}
 
-::: {.callout-tip}
+::: callout-tip
 ## Interpretation
 
 - 35% agree and 39% strongly agree they know how to open accounts on digital financial platforms. Only 4% disagree/strongly disagree, while 23% are neutral.
@@ -375,7 +361,6 @@ knitr::include_graphics("plot/fct_fiance_self_efficacy.jpeg")
 - 34% agree and 25% strongly agree they can initiate, complete, or correct transactions. 34% are neutral, while 7% disagree/strongly disagree.
 
 - Confidence is strong, but neutrality again highlights a group that may lack hands-on experience.
-
 :::
 
 ```{r}
@@ -397,7 +382,7 @@ knitr::include_graphics("plot/fct_practical_know_how.jpeg")
 
 ### Self-Protection {.unnumbered}
 
-::: {.callout-tip}
+::: callout-tip
 ## Interpretation
 
 - 38% agree and 29% strongly agree they read and understand terms to avoid deceptive practices. Still, 24% are neutral and 8% disagree/strongly disagree, showing that while many are cautious, a notable group may overlook or skim important details.
@@ -405,7 +390,6 @@ knitr::include_graphics("plot/fct_practical_know_how.jpeg")
 - 40% agree and 32% strongly agree they can recognize scams such as phishing or identity theft. About 25% are neutral, and only 4% disagree/strongly disagree, indicating strong awareness but with some uncertainty among a quarter of respondents.
 
 - 40% agree and 46% strongly agree they actively protect their information when using digital financial services. Only 11% are neutral and 3% disagree/strongly disagree, making this the strongest self-protection behavior reported.
-
 :::
 
 ```{r}
@@ -445,11 +429,9 @@ knitr::include_graphics("plot/fct_self_protection.jpeg")
 
 : Guide interpretation of the correlation coefficients [@Akoglu2018].
 
-
-
-::: {.callout-tip}
-
+::: callout-tip
 ## Interpretation
+
 - Awareness ↔ Practical Know-How (0.689) and Awareness ↔ Self-Protection (0.660) show that students who are more aware of digital financial services also tend to know how to use them and protect themselves.
 
 - Decision-Making ↔ Financial Self-Efficacy (0.625) indicates that confidence in financial decision-making is closely tied to students’ belief in their ability to manage finances.
@@ -465,9 +447,7 @@ knitr::include_graphics("plot/fct_self_protection.jpeg")
 - Whereas financial Capability as a central outcome, it correlates strongly with Financial Self-Efficacy (0.644) and Financial Anxiety (0.542), and moderately with Financial Satisfaction (0.508).
 
 - Satisfaction shows relatively low correlations with most literacy dimensions (e.g., Awareness 0.131, Basic Knowledge 0.185).
-
 :::
-
 
 ```{r}
 #| echo: false
@@ -628,24 +608,25 @@ knitr::include_graphics("plot/corr_items.jpeg")
 
 Exploratory Factor Analysis (EFA) is an essential preliminary step before moving into Partial Least Squares Structural Equation Modeling (PLS-SEM). The reason is that PLS-SEM assumes that the measurement model is already well-defined. EFA helps establish and validate this foundation.
 
-1. Identify underlying constructs
-  - EFA reveals how survey items naturally cluster together, showing whether they measure the intended latent variables (e.g., digital financial literacy, self-efficacy, well-being).
-  - Without this step, there’s a risk of forcing items into constructs that don’t truly fit.
+1.  Identify underlying constructs
 
-2. Determine the number of factors
+- EFA reveals how survey items naturally cluster together, showing whether they measure the intended latent variables (e.g., digital financial literacy, self-efficacy, well-being).
+- Without this step, there’s a risk of forcing items into constructs that don’t truly fit.
 
-  - Through techniques like parallel analysis and scree plots, EFA helps decide how many latent constructs should be retained.
-  - This ensures that the PLS-SEM model is built on a structure that reflects the actual data rather than assumptions.
+2.  Determine the number of factors
 
-3. Check item loadings and validity
+- Through techniques like parallel analysis and scree plots, EFA helps decide how many latent constructs should be retained.
+- This ensures that the PLS-SEM model is built on a structure that reflects the actual data rather than assumptions.
 
-  - EFA highlights which items load strongly on a factor and which may cross-load or fail to contribute meaningfully.
-  - This step improves the reliability and validity of constructs before they are tested in SEM.
-  
-4. Reduce measurement error
+3.  Check item loadings and validity
 
-  - By refining constructs through EFA, the subsequent PLS-SEM analysis produces more accurate path estimates and stronger conclusions.
-  - In short, EFA cleans and organizes the measurement model so SEM can focus on testing relationships among constructs.
+- EFA highlights which items load strongly on a factor and which may cross-load or fail to contribute meaningfully.
+- This step improves the reliability and validity of constructs before they are tested in SEM.
+
+4.  Reduce measurement error
+
+- By refining constructs through EFA, the subsequent PLS-SEM analysis produces more accurate path estimates and stronger conclusions.
+- In short, EFA cleans and organizes the measurement model so SEM can focus on testing relationships among constructs.
 
 ```{r}
 efa_lkrt_dta <-
@@ -693,7 +674,6 @@ sem_digi_finance_dta <-
   )
 ```
 
-
 ```{r}
 efa_extract <- fa(
   sem_digi_finance_dta,
@@ -705,55 +685,45 @@ efa_extract <- fa(
 print(efa_extract$loadings, cutoff = 0.3, sort = TRUE)
 ```
 
-
 ## PLS-SEM
 
-
-::: {.callout-tip}
-## Digital financial literacy → Financial self-efficacy (β = 0.419, p < 0.001)
+::: callout-tip
+## Digital financial literacy → Financial self-efficacy (β = 0.419, p \< 0.001)
 
 - This path is strong and highly significant.
 - Students with higher digital financial literacy are more confident in their ability to manage finances.
-- The effect size is substantial, with a tight confidence interval [0.307, 0.529], confirming robustness.
+- The effect size is substantial, with a tight confidence interval \[0.307, 0.529\], confirming robustness.
 - Digital skills and awareness directly build financial confidence
-
 :::
 
-
-::: {.callout-tip}
+::: callout-tip
 ## Digital financial literacy → Financial well-being (β = 0.064, p = 0.372)
 
 - This path is weak and not significant.
-- The coefficient is small and the confidence interval [-0.086, 0.206] crosses zero, meaning no reliable direct effect.
+- The coefficient is small and the confidence interval \[-0.086, 0.206\] crosses zero, meaning no reliable direct effect.
 - Result shows digital financial literacy alone does not directly improve financial well-being. Instead, its influence is likely indirect, mediated through self-efficacy.
 :::
 
-
-
-::: {.callout-tip}
-## Financial self-efficacy → Financial well-being (β = 0.296, p < 0.001)
+::: callout-tip
+## Financial self-efficacy → Financial well-being (β = 0.296, p \< 0.001)
 
 - This path is moderate and significant.
 - Students who feel confident in managing their finances report higher financial well-being.
-- The confidence interval [0.162, 0.424] confirms stability of the effect.
+- The confidence interval \[0.162, 0.424\] confirms stability of the effect.
 - Result shows self-efficacy is a key driver of financial well-being, acting as the bridge between literacy and outcomes.
 :::
 
-
-
-::: {.callout-tip}
+::: callout-tip
 ## Indirect Effect: Digital Financial Literacy → Financial Well-Being (via Financial Self-Efficacy)
 
-- Coefficient (β = 0.124, p < 0.001) .The indirect path is positive and statistically significant.
+- Coefficient (β = 0.124, p \< 0.001) .The indirect path is positive and statistically significant.
 - This means that digital financial literacy contributes to financial well-being through the mediating role of financial self-efficacy.
 - Students with stronger digital financial literacy skills tend to develop higher financial self-efficacy (confidence in managing finances).
 - This increased self-efficacy, in turn, leads to better financial well-being outcomes. In other words, literacy alone does not directly improve well-being (as seen in the weak direct path), but when it builds confidence, the benefits become clear and significant.
-
 :::
 
+### Bootstrapped PLS-SEM model
 
-
-### Bootstrapped PLS-SEM model 
 ```{r}
 # Define measurement model
 measurement_model <- constructs(
@@ -800,6 +770,7 @@ plot(boot_pls)
 ```
 
 #### Direct effects
+
 ```{r}
 ## summary table
 summ_boot_pls_model <- summary(boot_pls)
@@ -808,38 +779,34 @@ DT::datatable(summ_boot_pls_model$bootstrapped_paths |> round(3))
 ```
 
 #### Indirect effects
+
 ```{r}
 DT::datatable(round(summ_boot_pls_model$bootstrapped_total_indirect_paths, 3))
 ```
 
-
 ### Reliability test
 
-::: {.callout-tip}
+::: callout-tip
 ## Reliabilty indicators
-- **Digital Financial Literacy** 
-  - All values exceed the thresholds (α, rhoA, rhoC > 0.7; AVE > 0.5).
-  - Excellent reliability and convergent validity. The items consistently measure the construct and capture sufficient variance.
 
+- **Digital Financial Literacy**
+  - All values exceed the thresholds (α, rhoA, rhoC \> 0.7; AVE \> 0.5).
+  - Excellent reliability and convergent validity. The items consistently measure the construct and capture sufficient variance.
 - **Financial Self-Efficacy**
   - All values exceed thresholds, with AVE well above 0.5.
   - Strong reliability and validity. The construct is measured consistently and explains a large portion of variance in its indicators.
-
 - **Financial Well-Being**
   - Cronbach’s Alpha and rhoA are slightly below 0.7, but Composite Reliability and AVE meet the criteria.
   - Acceptable reliability. While internal consistency is marginally lower, the construct still demonstrates adequate composite reliability and convergent validity. This suggests the items capture the concept but may be somewhat heterogeneous.
 :::
 
-
 ```{r}
 DT::datatable(round(summ_pls_model$reliability, 3))
 ```
 
-
 ### Validity test
 
-
-::: {.callout-tip}
+::: callout-tip
 ## Fornell-Larcker Criterion
 
 - **Diagonal values (√AVE)**
@@ -856,10 +823,8 @@ DT::datatable(round(summ_pls_model$reliability, 3))
   - **Financial self-efficacy (0.852)** is higher than its correlations with digital financial literacy (0.419) and financial well-being (0.323). FSE is also distinct and well-separated.
 
   - **Financial well-being (0.779)** is higher than its correlations with digital financial literacy (0.188) and financial self-efficacy (0.323). FWB is distinct, though its correlation with FSE is moderately strong, which makes sense given the mediation role.
-
 :::
 
 ```{r}
 DT::datatable(round(summ_pls_model$validity$fl_criteria, 3))
 ```
-

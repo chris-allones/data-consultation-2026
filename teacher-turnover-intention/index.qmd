@@ -1,0 +1,64 @@
+---
+title: "Factors Influencing Turn-over Intentions of Online ESL Teachers in the Philippines: Insights from HRM"
+author: "ViSERDAC"
+date: last-modified
+format: 
+  html:
+    css: custom.scss
+    self-contained: true
+    mainfont: arial
+    fontsize: 1em
+    linestretch: 1.5
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    number-sections: true
+    code-fold: true
+    theme:
+      light: cosmo
+      dark: darkly
+execute:
+  message: false
+  warning: false
+  fig-align: center
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+# set working directory
+setwd(here::here("teacher-turnover-intention"))
+
+# libraries
+library(tidyverse)
+library(readxl)
+library(janitor)
+library(scales)
+library(EFAtools)
+library(psych)
+library(seminr)
+library(gtsummary)
+library(kableExtra)
+library(correlation)
+library(reshape2)
+
+
+# data management source
+source("data-management.R")
+```
+
+# Attachments
+
+::: callout-note
+Copies of the Figures presented in this report are available using the links below. All the files can be accessed in the Google drive folder.
+:::
+
+<ol>
+
+<li><a href="https://drive.google.com/drive/folders/19CCug3KhxbFnaAqMjwSfKMinFN9ZMHWd?usp=sharing" target="_blank" style="text-decoration: none">Plots</a></li>
+
+<li><a href="https://drive.google.com/drive/folders/11C7ZeBVGgxZ_KQs1v6cQBP6qDIi4_toc?usp=sharing" target="_blank" style="text-decoration: none">Google Drive</a></li>
+
+</ol>
