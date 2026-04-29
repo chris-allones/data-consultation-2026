@@ -94,17 +94,15 @@ dfdf_els_platform <- df |>
 ## likert items data
 ### statements
 lkrt_statements <-
-  read_excel("data/digi-fin-data.xlsx", 2) |>
+  read_excel("data/turnover-data.xlsx", 2) |>
   clean_names() |>
-  mutate(item = str_to_lower(code)) |>
-  rename(
-    "statement" = questions
-  ) |>
-  select(factor, statement, item)
+  mutate(item = str_to_lower(items)) |>
+  select(factor, statement, item) |> 
+  mutate(factor = if_else(str_detect(factor, "Workpla"), "Workplace perception", factor))
 
 lkrt_dta <-
   df |>
-  select(bks1:fa4) |>
+  select(ta1:ti4) |>
   pivot_longer(
     cols = everything(),
     names_to = "item",
@@ -135,7 +133,7 @@ lkrt_dta <-
 
 ### plot factor
 plot_factor <-
-  function(factor_name, stwidth = 50) {
+  function(factor_name, stwidth = 40) {
     lkrt_dta |>
       mutate(statement = str_wrap(statement, width = stwidth)) |>
       filter(str_detect(factor, factor_name)) |>
