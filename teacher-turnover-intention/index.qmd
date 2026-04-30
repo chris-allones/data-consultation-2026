@@ -71,17 +71,17 @@ Copies of the Figures presented in this report are available using the links bel
 ::: {.callout-caution}
 ## Interpretation
 
-- **Age**: Median age is 29 years (IQR: 26–32), this indicates a relatively young workforce, mostly in their late 20s to early 30s, suggesting early-career professionals are associated with jobs related to online ESL.
+- **Age**: Median age is 29 years (IQR: 26–32), the result indicates a relatively young workforce among respondents, mostly in their late 20s to early 30s, suggesting early-career professionals are associated with jobs related to online ESL.
 
-- **Gender**: The ESL teaching workforce is female-dominated, which may influence workplace dynamics, perceptions of job satisfaction, and turnover intentions.
+- **Gender**: The ESL teaching workforce is female-dominated. The gender distribution which may influence workplace dynamics, perceptions of job satisfaction, and turnover intentions.
 
-- **Employment status**: Only 2 respondents (1.8%) reported mixed status. The resut shows a balanced split between full-time and part-time teachers, which could affect workload, income stability, and turnover risk.
+- **Employment status**: Only 2 respondents (1.8%) reported mixed status. Overall, the employement status distribution shows a balanced split between full-time and part-time teachers.
 
-- **Weekly Teaching Hours**: Median teaching hours is 37 hours (IQR: 20–40), this suggests that many teachers are working near full-time hours, even among part-timers, which may contribute to stress or job satisfaction issues.
+- **Weekly Teaching Hours**: Median teaching hours is 37 (IQR: 20–40), this suggests that many teachers are working near full-time hours, even among part-timers.
 
-- **Years of Experience**: In terms of years of experience, the exeperience is 2 years (IQR: 1–3.5). This points to a relatively new workforce, with limited long-term tenure. High turnover risk is common in early-career stages.
+- **Years of Experience**: In terms of years of experience, the median exeperience is 2 (IQR: 1–3.5). The result shows a relatively new workforce, with limited long-term tenure.
 
-- **Monthly Income**: The median monthly income among respondent is ₱17,000 (IQR: ₱12,000–₱25,000). This income range is modest compared to professional teaching roles, which may influence job satisfaction and turnover intentions.
+- **Monthly Income**: The median monthly income among respondent is ₱17,000 (IQR: ₱12,000–₱25,000). This income range appears to be modest compared to professional teaching roles, which may influence job satisfaction and turnover intentions.
 :::
 
 
@@ -117,9 +117,9 @@ df |>
 ::: {.callout-caution}
 ## Interpretation
 
-- Teams dominates the ESL teaching landscape, suggesting strong institutional adoption.
+- Teams dominates the ESL teaching platform. 
 
-- The variety of platforms may suggest that teachers often adapt to employer requirements rather than choosing platforms themselves. The long tail of niche platforms reflects regional diversity and company-specific preferences.
+- However, the variety of platforms may suggest that teachers often adapt to employer requirements rather than choosing platforms among ESL teachers.
 :::
 
 
@@ -206,8 +206,7 @@ knitr::include_graphics("plot/fct_job_attributes.jpeg")
 
 - Satisfaction with working conditions is slightly lower compared to other indicators, with 53% strongly agreeing and 27% agreeing. Neutral responses (17%) and disagreement (4%) are more pronounced here. 
 
-- Overall happiness is very strong, with 57% strongly agreeing and 31% agreeing that they are happy with their current ESL teaching job. Only 3% expressed dissatisfaction, while 10% were neutral. This reinforces the finding that teachers generally feel positive about their work, with happiness levels aligning closely with satisfaction and motivation indicators.
-
+- Overall happiness is very strong, with 57% strongly agreeing and 31% agreeing that they are happy with their current ESL teaching job. Only 3% expressed dissatisfaction, while 10% were neutral.
 :::
 
 
@@ -234,7 +233,7 @@ knitr::include_graphics("plot/fct_job_satisfaction.jpeg")
 ::: {.callout-caution}
 ## Interpretation
 
-- A strong majority of teachers report possessing strong English communication skills, with 61% strongly agreeing and 30% agreeing. Only 3% expressed disagreement, while 7% remained neutral. This indicates that English proficiency is a clear strength among ESL teachers.
+- A strong majority of teachers report possessing strong English communication skills, with 61% strongly agreeing and 30% agreeing. Only 3% expressed disagreement, while 7% remained neutral.
 
 - Confidence in managing online classes is also high, with 68% strongly agreeing and 24% agreeing. Neutral responses accounted for 4%, while 4% expressed disagreement. This suggests that most teachers feel capable of handling the demands of online instruction, though a small minority may require additional support or training to strengthen classroom management skills.
 
@@ -243,7 +242,6 @@ knitr::include_graphics("plot/fct_job_satisfaction.jpeg")
 - Comfort with online teaching platforms and digital tools is another area of strength, with 67% strongly agreeing and 25% agreeing. Neutral responses were minimal (6%), and only 3% disagreed. This indicates that teachers are generally confident in using technology.
 
 - Comfort with online teaching platforms and digital tools is another area of strength, with 67% strongly agreeing and 25% agreeing. Neutral responses were minimal (6%), and only 3% disagreed. The result implies that teachers are generally confident in using technology.
-
 :::
 
 
@@ -269,11 +267,11 @@ knitr::include_graphics("plot/fct_teacher_att.jpeg")
 ::: {.callout-caution}
 ## Interpretation
 
-- In terms of thinking about quitting, responses are mixed, with 24% strongly disagreeing and 16% disagreeing, while 35% remain neutral. At the same time, 25% agree or strongly agree that they often think about quitting. The result suggests that while a significant portion of teachers are not actively considering leaving, a notable minority do entertain such thoughts, and the large neutral group indicates uncertainty or ambivalence about their long-term commitment.
+- In terms of thinking about quitting, responses are mixed, with 24% strongly disagreeing and 16% disagreeing, while 35% remain neutral. At the same time, 25% agree or strongly agree that they often think about quitting. The result suggests that while a significant portion of teachers are not actively considering leaving, a notable minority do entertain such thoughts, and the large neutral group indicates uncertainty about their long-term commitment.
 
 - Intentions to seek another job are relatively balanced, with 20% strongly disagreeing and 21% disagreeing, while 27% remain neutral. About 27% agree or strongly agree that they will look for another job within the next year.
 
-- Regarding the decision to leave their current ESL platform, responses are evenly distributed, with 23% strongly disagreeing and 23% disagreeing, while 32% are neutral. Meanwhile, 23% agree or strongly agree that they intend to leave their current platform soon. This balance highlights a divided sentiment: while nearly half reject immediate departure, a quarter are already leaning toward leaving, and a third remain undecided, suggesting instability in platform loyalty.
+- Regarding the decision to leave their current ESL platform, responses are evenly distributed, with 23% strongly disagreeing and 23% disagreeing, while 32% are neutral. Meanwhile, 23% agree or strongly agree that they intend to leave their current platform soon. This balance highlights a divided sentiment. While nearly half reject immediate departure, a quarter are already leaning toward leaving, and a third remain undecided.
 
 - Whereas, leaving if a better opportunity arises, the result shows conditional turnover intention, with 20% strongly disagreeing and 11% disagreeing, but 40% agreeing or strongly agreeing that they would leave if a better opportunity came along. About 28% remain neutral. 
 
@@ -340,11 +338,11 @@ knitr::include_graphics("plot/fct_workplace_perception.jpeg")
 
 ## Exploratory factor anaysis
 
-Before running Partial Least Squares Structural Equation Modeling (PLS-SEM), it is essential to know which survey items belong to which latent constructs. PLS-SEM assumes that the measurement model—the way items form factors—is already well-defined. If we assign items incorrectly, the SEM results may be misleading.
+Before running Partial Least Squares Structural Equation Modeling (PLS-SEM), it is important to know which survey items (i.e., questions items) belong to which latent constructs (i.e., factors). PLS-SEM assumes that the measurement model or the way items form factors is already well-defined. If we assign items incorrectly, the SEM results may be misleading.
 
 Exploratory Factor Analysis (EFA) is the step that clarifies this structure. It examines how items naturally group together based on correlations, revealing the underlying factors. In other words, EFA helps us discover the “building blocks” of the model by showing which items should serve as indicators for each construct.
 
-A scree plot with parallel analysis (Figure below) is a tool used in Exploratory Factor Analysis (EFA) to decide how many factors to keep. The result shows that there are potential 3-4 factors that can be extracted instead of five factors as expected.
+A scree plot with parallel analysis (Figure below) is a tool used in Exploratory Factor Analysis (EFA) to check if how many possible factors we can extract. The result shows that there are potential 3-4 factors that can be extracted instead of five factors as expected.
 
 ```{r}
 fa.parallel(df |> select(ta1:ti4), fa = "fa")
@@ -355,9 +353,7 @@ fa.parallel(df |> select(ta1:ti4), fa = "fa")
 ::: {.callout-warning}
 ## Note
 
-Using the EFA, resukt shows that items from Job attributes and Workplace perceptions loaded strongly on the same factor. This means that, statistically, respondents did not distinguish between these two categories—they saw them as part of a single underlying dimension.
-
-For example, perceptions of fair salary, manageable workload, and supportive workplace policies all clustered together. This suggests that teachers view their job conditions and workplace environment as one combined construct, rather than two separate ones.
+Using the EFA, result shows that items from Job attributes and Workplace perceptions loaded strongly on the same factor. This means that, statistically, respondents did not distinguish between these two categories, it appears that these factors are part of a single underlying dimension or construct.
 :::
 
 
@@ -373,7 +369,7 @@ efa_extract <- fa(
   fm = "ml"
 )
 
-print(efa_extract$loadings, cutoff = 0.4, sort = TRUE)
+print(efa_extract$loadings, cutoff = 0.51, sort = TRUE)
 ```
 
 
@@ -426,13 +422,13 @@ plot(boot_pls)
 
 ::: {.callout-caution}
 ## Teacher attributes → Job satisfaction (β = 0.322, p = 0.001)
-This path is positive and significant. Teachers who report stronger skills, confidence, and adaptability tend to have higher job satisfaction. The effect size is moderate, and the confidence interval [0.118, 0.526] confirms robustness. This means teacher qualities directly enhance satisfaction with their work.
+This path is positive and significant. Teachers who report stronger skills, confidence, and adaptability tend to have higher job satisfaction. The effect size is moderate, and the confidence interval [0.118, 0.526] confirms robustness of the estimates. The result shows teacher qualities directly enhance satisfaction with their work.
 :::
 
 
 ::: {.callout-caution}
 ## Teacher attributes → Turnover intention (β = 0.238, p = 0.048)
-This path is positive and significant, though weaker. Interestingly, stronger teacher attributes are associated with a higher likelihood of turnover intention. One possible explanation is that more capable teachers feel confident in their skills and may be more willing to explore better opportunities elsewhere. The effect is modest but statistically meaningful.
+This path is positive and significant, though weaker. Interestingly, stronger teacher attributes are associated with a higher likelihood of turnover intention. More capable teachers feel confident in their skills and may be more willing to explore better opportunities elsewhere. The effect is modest but statistically meaningful.
 :::
 
 
@@ -450,7 +446,7 @@ This path is positive but not significant. Workplace conditions do not directly 
 
 ::: {.callout-caution}
 ## Job satisfaction → Turnover intention (β = -0.537, p < 0.001)
-This path is negative and highly significant. Higher job satisfaction strongly reduces turnover intention. The effect size is large, and the confidence interval [-0.747, -0.327] confirms stability. This is the most important protective factor against turnover: satisfied teachers are much less likely to plan leaving.
+This path is negative and highly significant. Higher job satisfaction strongly reduces turnover intention. The effect size is large, and the confidence interval [-0.747, -0.327] confirms stability. Satisfied teachers are much less likely to plan leaving.
 :::
 
 
