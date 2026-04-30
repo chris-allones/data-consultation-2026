@@ -72,7 +72,7 @@ df <- read_excel("data/turnover-data.xlsx") |>
   relocate(income_value, .after = esl_platform)
 
 ## data for ESL platform used
-dfdf_els_platform <- df |>
+df_els_platform <- df |>
   separate_rows(esl_platform, sep = ",|&|and|/") |>
   mutate(esl_platform = str_trim(esl_platform)) |>
   mutate(esl_platform = str_to_lower(esl_platform)) |>
