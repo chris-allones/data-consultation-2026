@@ -160,9 +160,3 @@ plot_factor <-
       ) +
       custom_theme
   }
-
-
-lkrt_dta |>
-      mutate(statement = str_wrap(statement, width = 40)) |>
-      filter(str_detect(factor, "Workplace perception")) |>
-  print(n = 100)
