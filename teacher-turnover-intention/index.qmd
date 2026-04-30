@@ -1,6 +1,6 @@
 ---
 title: "Factors Influencing Turn-over Intentions of Online ESL Teachers in the Philippines: Insights from HRM"
-author: "ViSERDAC"
+subtitle: "Client: Mary Grace Araño"
 date: last-modified
 format: 
   html:
