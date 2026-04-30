@@ -147,7 +147,7 @@ plot_factor <-
       ) +
       scale_x_continuous(labels = percent_format()) +
       scale_fill_manual(
-        values = c("#2c6e49", "#4c956c", "#d6cfcb", "#ffc9b9", "#d68c45")
+        values = c("#dc2f02", "#fe7f2d", "#dda15e", "#e43f6e", "#990033")
       ) +
       guides(
         fill = guide_legend(nrow = 1, label.position = "top", reverse = TRUE)
@@ -160,3 +160,9 @@ plot_factor <-
       ) +
       custom_theme
   }
+
+
+lkrt_dta |>
+      mutate(statement = str_wrap(statement, width = 40)) |>
+      filter(str_detect(factor, "Workplace perception")) |>
+  print(n = 100)

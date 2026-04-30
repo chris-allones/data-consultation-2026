@@ -182,7 +182,7 @@ p_job_att <- plot_factor("Job attributes")
 ## saving plot
 ggsave(
   plot = p_job_att,
-  filename = "plot/fct_job_atttributes.jpeg",
+  filename = "plot/fct_job_attributes.jpeg",
   width = 10,
   height = 4,
   dpi = 400,
@@ -190,7 +190,7 @@ ggsave(
 )
 
 ## display plot
-knitr::include_graphics("plot/fct_job_atttributes.jpeg")
+knitr::include_graphics("plot/fct_job_attributes.jpeg")
 ```
 
 
