@@ -63,7 +63,84 @@ Copies of the Figures presented in this report are available using the links bel
 
 </ol>
 
-# Objective 1: 
+
+
+# Objective 1: Describe the organizational, socio-economic, and digital characteristics of DASAAD Phase 2 community-based enterprises in Eastern Visayas.
+
+### Sociodemographic variables {.unnumbered}
+
+```{r}
+df |>
+  select(role:attended_training) |> 
+  select(-market, -commodity, -value_adding_processed_products_specify, -organization_name) |>
+  tbl_summary(
+    statistic = list(all_categorical() ~ "{p}% (n = {n})"),
+    type = list(everything() ~ "categorical"),
+    missing = "no",,
+    label = list(
+      role = "Roles",
+      age_range ~ "Age",
+      sex ~ "Sex",
+      education ~ "Education",
+      years_managing = "Years managing",
+      years_established = "Years established",
+      membership_size = "Membership size",
+      farm_size = "Farm size",
+      income_level = "Income level",
+      has_device = "Device availability",
+      internet_type = "Internet size",
+      attended_training = "Attended training")
+  ) |>
+  bold_labels() %>%
+  as_kable_extra(linesep = "") %>%
+  kable_minimal() %>%
+  kable_styling(
+    full_width = F,
+    fixed_thead = T,
+    bootstrap_options = c("striped", "hover", "condensed", "responsive")
+  )
+```
+
+
+### Commodity {.unnumbered}
+
+```{r}
+p_commodity <- 
+  commodity_dta |> 
+  count(commodity) |> 
+  mutate(
+    pct = n / sum(n),
+    pct_lab = str_c(" ", round(pct * 100, 0), "% (n=", n, ")")
+  ) |> 
+  mutate(commodity = fct_reorder(commodity, pct)) |> 
+  ggplot(aes(pct, commodity)) +
+  geom_col(width = 0.7) +
+  geom_text(aes(label = pct_lab), hjust = 0) +
+  scale_x_continuous(labels = percent_format(), limits = c(0, 0.5), expand = c(0,0)) +
+  labs(
+    title = "Primary commodity/products produced by the enterprise",
+    x = NULL,
+    y = NULL
+  ) +
+  custom_theme
+
+## saving plot
+ggsave(
+  plot = p_commodity,
+  filename = "plot/commodity.jpeg",
+  width = 8,
+  height = 5,
+  dpi = 400,
+  unit = "in"
+)
+```
+
+
+
+# Objective 2: Assess the level of digital marketing adoption among DA-SAAD Phase 2 community-based enterprises in Eastern Visayas.  
+
+
+# Objective 3-5: Assess the technological, organizational, and environmental barriers affecting digital marketing adoption among DA-SAAD Phase 2 community-based enterprises in Eastern Visayas.  
 
 ```{r}
 
