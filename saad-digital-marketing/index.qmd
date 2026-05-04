@@ -203,7 +203,6 @@ ggsave(
 ```
 
 
-
 # Objective 2: Assess the level of digital marketing adoption among DA-SAAD Phase 2 community-based enterprises in Eastern Visayas.  
 
 
