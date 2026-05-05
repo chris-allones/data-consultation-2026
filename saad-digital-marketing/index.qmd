@@ -63,20 +63,24 @@ Copies of the Figures presented in this report are available using the links bel
 
 </ol>
 
-
-
 # Objective 1: Describe the organizational, socio-economic, and digital characteristics of DASAAD Phase 2 community-based enterprises in Eastern Visayas.
 
 ### Sociodemographic variables {.unnumbered}
 
 ```{r}
 df |>
-  select(role:attended_training) |> 
-  select(-market, -commodity, -value_adding_processed_products_specify, -organization_name) |>
+  select(role:attended_training) |>
+  select(
+    -market,
+    -commodity,
+    -value_adding_processed_products_specify,
+    -organization_name
+  ) |>
   tbl_summary(
     statistic = list(all_categorical() ~ "{p}% (n = {n})"),
     type = list(everything() ~ "categorical"),
-    missing = "no",,
+    missing = "no",
+    ,
     label = list(
       role = "Roles",
       age_range ~ "Age",
@@ -89,7 +93,8 @@ df |>
       income_level = "Income level",
       has_device = "Device availability",
       internet_type = "Internet size",
-      attended_training = "Attended training")
+      attended_training = "Attended training"
+    )
   ) |>
   bold_labels() %>%
   as_kable_extra(linesep = "") %>%
@@ -101,22 +106,25 @@ df |>
   )
 ```
 
-
 ### Commodity {.unnumbered}
 
 ```{r}
-p_commodity <- 
-  commodity_dta |> 
-  count(commodity) |> 
+p_commodity <-
+  commodity_dta |>
+  count(commodity) |>
   mutate(
     pct = n / sum(n),
     pct_lab = str_c(" ", round(pct * 100, 0), "% (n=", n, ")")
-  ) |> 
-  mutate(commodity = fct_reorder(commodity, pct)) |> 
+  ) |>
+  mutate(commodity = fct_reorder(commodity, pct)) |>
   ggplot(aes(pct, commodity)) +
   geom_col(width = 0.7) +
   geom_text(aes(label = pct_lab), hjust = 0) +
-  scale_x_continuous(labels = percent_format(), limits = c(0, 0.5), expand = c(0,0)) +
+  scale_x_continuous(
+    labels = percent_format(),
+    limits = c(0, 0.5),
+    expand = c(0, 0)
+  ) +
   labs(
     title = "Primary commodity/products produced by the enterprise",
     x = NULL,
@@ -135,21 +143,24 @@ ggsave(
 )
 ```
 
-
 ### Market {.unnumbered}
 
 ```{r}
-p_market <- 
-  market_dta |> 
+p_market <-
+  market_dta |>
   mutate(
     pct = n / sum(n),
     pct_lab = str_c(" ", round(pct * 100, 0), "% (n=", n, ")")
-  ) |> 
-  mutate(market = fct_reorder(market, pct)) |> 
+  ) |>
+  mutate(market = fct_reorder(market, pct)) |>
   ggplot(aes(pct, market)) +
   geom_col(width = 0.7) +
   geom_text(aes(label = pct_lab), hjust = 0) +
-  scale_x_continuous(labels = percent_format(), limits = c(0, 0.5), expand = c(0,0)) +
+  scale_x_continuous(
+    labels = percent_format(),
+    limits = c(0, 0.5),
+    expand = c(0, 0)
+  ) +
   labs(
     title = "Primary marketing channels used by the enterprise",
     x = NULL,
@@ -168,22 +179,25 @@ ggsave(
 )
 ```
 
-
 ### Value-adding
 
 ```{r}
-p_value_adding <- 
-  value_adding_spec_dta |> 
-  count(value_adding_spec) |> 
+p_value_adding <-
+  value_adding_spec_dta |>
+  count(value_adding_spec) |>
   mutate(
     pct = n / sum(n),
     pct_lab = str_c(" ", round(pct * 100, 0), "% (n=", n, ")")
-  ) |> 
-  mutate(value_adding_spec = fct_reorder(value_adding_spec, pct)) |> 
+  ) |>
+  mutate(value_adding_spec = fct_reorder(value_adding_spec, pct)) |>
   ggplot(aes(pct, value_adding_spec)) +
   geom_col(width = 0.7) +
   geom_text(aes(label = pct_lab), hjust = 0) +
-  scale_x_continuous(labels = percent_format(), limits = c(0, 0.5), expand = c(0,0)) +
+  scale_x_continuous(
+    labels = percent_format(),
+    limits = c(0, 0.5),
+    expand = c(0, 0)
+  ) +
   labs(
     title = "Value-adding products of the enterprise",
     x = NULL,
@@ -202,11 +216,52 @@ ggsave(
 )
 ```
 
+# Objective 2: Assess the level of digital marketing adoption among DA-SAAD Phase 2 community-based enterprises in Eastern Visayas.
 
-# Objective 2: Assess the level of digital marketing adoption among DA-SAAD Phase 2 community-based enterprises in Eastern Visayas.  
+## Tecnological barriers
+
+### Limited digital infrastructure {.unnumbered}
+
+```{r}
+plot_factor(factor_name = "Limited digital infra")
+```
+
+### Technological complexity {.unnumbered}
 
 
-# Objective 3-5: Assess the technological, organizational, and environmental barriers affecting digital marketing adoption among DA-SAAD Phase 2 community-based enterprises in Eastern Visayas.  
+
+## Organizational barriers
+
+### Limited digital skills {.unnumbered}
+
+### lack of managerial support {.unnumbered}
+
+
+
+## Environmental barriers
+### Limited government support {.unnumbered}
+
+
+## Digital marketing adoption
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Objective 3-5: Assess the technological, organizational, and environmental barriers affecting digital marketing adoption among DA-SAAD Phase 2 community-based enterprises in Eastern Visayas.
 
 ```{r}
 
