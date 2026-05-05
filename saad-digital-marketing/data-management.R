@@ -24,6 +24,7 @@ custom_theme <-
   )
 
 
+
 # loading data
 df <- read_excel("data/saad-digi-marketing-dta.xlsx") |>
   clean_names() |>
@@ -72,7 +73,6 @@ value_adding_spec_dta <-
   df |>
   select(value_adding_processed_products_specify) |>
   mutate(
-<<<<<<< HEAD
     value_adding_spec = str_replace_all(value_adding_processed_products_specify, ";", ",")
   ) |> 
   separate_longer_delim(value_adding_spec, delim = ",") |> 
@@ -127,28 +127,6 @@ custom_theme <-
       )
 
 
-=======
-    value_adding_spec = str_replace_all(
-      value_adding_processed_products_specify,
-      ";",
-      ","
-    )
-  ) |>
-  separate_longer_delim(value_adding_spec, delim = ",") |>
-  mutate(value_adding_spec = str_trim(value_adding_spec)) |>
-  filter(!value_adding_spec %in% c("No", "Yes"))
-
-
-### market
-market_dta <-
-  df |>
-  select(market) |>
-  separate_longer_delim(market, delim = ",") |>
-  mutate(market = str_trim(market)) |>
-  count(market, sort = TRUE)
-
-
->>>>>>> 90bb8f27eecfc6d3045a9b5ada4cfb1d28080a9c
 ## likert items data
 ### statements
 lkrt_statements <-
