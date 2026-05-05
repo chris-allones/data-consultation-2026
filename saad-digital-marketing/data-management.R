@@ -38,7 +38,8 @@ value_adding_spec_dta <-
   ) |> 
   separate_longer_delim(value_adding_spec, delim = ",") |> 
   mutate(value_adding_spec = str_trim(value_adding_spec)) |>  
-  filter(!value_adding_spec %in% c("No", "Yes"))
+  filter(!value_adding_spec %in% c("No", "Yes")) |> 
+  mutate(value_adding_spec = str_to_lower(value_adding_spec))
 
 
 ### market
@@ -47,6 +48,12 @@ market_dta <-
   select(market) |> 
   separate_longer_delim(market, delim = ",") |> 
   mutate(market = str_trim(market)) |> 
+  mutate(market = str_to_lower(market)) |> 
+  mutate(
+    market = if_else(str_detect(market, "insti"), "institutional buyer", market),
+    market = if_else(market == "direct", "direct selling", market),
+    market  = if_else(str_detect(market, "kadiwa"), "kadiwa", market)
+  ) |> 
   count(market, sort = TRUE)
 
 
@@ -67,13 +74,14 @@ market_dta <-
 
 # custom theme
 custom_theme <- 
-  theme_minimal() +
+  theme_gray() +
   theme(plot.title = element_text(hjust = 0.5, size = 16, margin = margin(b=15), face = "bold"),
         plot.title.position = "panel",
         plot.subtitle = element_text(color = "gray40", margin = margin(b=15), size = 12),
         plot.margin = margin(t = 20, r = 20, b = 20, l = 20),
-        panel.grid = element_blank(),
+        panel.grid.minor = element_blank(),
         axis.text = element_text(size = 12),
+        axis.ticks = element_blank(),
         strip.text = element_text(size = 16, face = "bold"),
         legend.position = "bottom",
         legend.text = element_text(size = 12)
