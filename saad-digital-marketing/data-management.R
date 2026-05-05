@@ -95,22 +95,6 @@ market_dta <-
   ) |> 
   count(market, sort = TRUE)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # custom theme
 custom_theme <- 
   theme_gray() +
