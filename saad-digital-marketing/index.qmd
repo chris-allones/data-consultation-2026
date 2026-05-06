@@ -357,6 +357,36 @@ knitr::include_graphics("plot/fct_digital_marketing_adoptino.jpeg")
 
 # Objective 3-5: Assess the technological, organizational, and environmental barriers affecting digital marketing adoption among DA-SAAD Phase 2 community-based enterprises in Eastern Visayas.
 
-```{r}
+## Exploratory Factor Analysis
 
+### Parallel analysis {.unnumbered}
+```{r}
+fct_lkrt_dta <- 
+  df |> 
+  select(tb1:dma19) |> 
+  select(-dma17)
+
+fct_lkrt_dta |> glimpse()
+
+fa.parallel(fct_lkrt_dta, fa = "fa")
+
+efa_extract <- fa(
+  r = fct_lkrt_dta,
+  nfactors = 6,
+  rotat = "varimax",
+  fm = "ml"
+)
+
+print(efa_extract$loadings, cutoff = 0.3, sort = TRUE)
 ```
+
+
+
+### Factor extraction {.unnumbered}
+
+
+## PLS-SEM
+
+### Boostrapped PLS-SEM {.unnumbered}
+### Reliability test {.unnumbered}
+### Validity test {.unnumbered}
