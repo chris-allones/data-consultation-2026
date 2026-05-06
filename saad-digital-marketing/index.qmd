@@ -141,6 +141,9 @@ ggsave(
   dpi = 400,
   unit = "in"
 )
+
+## display plot
+knitr::include_graphics("plot/commodity.jpeg")
 ```
 
 ### Market {.unnumbered}
@@ -177,9 +180,12 @@ ggsave(
   dpi = 400,
   unit = "in"
 )
+
+## display plot
+knitr::include_graphics("plot/market.jpeg")
 ```
 
-### Value-adding
+### Value-adding {.unnumbered}
 
 ```{r}
 p_value_adding <-
@@ -214,6 +220,9 @@ ggsave(
   dpi = 400,
   unit = "in"
 )
+
+## display plot
+knitr::include_graphics("plot/value_adding.jpeg")
 ```
 
 # Objective 2: Assess the level of digital marketing adoption among DA-SAAD Phase 2 community-based enterprises in Eastern Visayas.
@@ -223,43 +232,128 @@ ggsave(
 ### Limited digital infrastructure {.unnumbered}
 
 ```{r}
-plot_factor(factor_name = "Limited digital infra")
+p_limited_digital_infra <- plot_factor(factor_name = "Limited digital infra")
+
+## saving plot
+ggsave(
+  plot = p_limited_digital_infra,
+  filename = "plot/fct_limited_digital_infra.jpeg",
+  width = 10,
+  height = 4,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/fct_limited_digital_infra.jpeg")
 ```
 
 ### Technological complexity {.unnumbered}
 
+```{r}
+p_technological_complexity <- plot_factor(
+  factor_name = "Technological complexity"
+)
 
+## saving plot
+ggsave(
+  plot = p_technological_complexity,
+  filename = "plot/fct_technological_complexity.jpeg",
+  width = 10,
+  height = 4,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/fct_technological_complexity.jpeg")
+```
 
 ## Organizational barriers
 
 ### Limited digital skills {.unnumbered}
 
-### lack of managerial support {.unnumbered}
+```{r}
+p_limited_digi_skill <- plot_factor(factor_name = "Limited digital skills")
 
+## saving plot
+ggsave(
+  plot = p_limited_digi_skill,
+  filename = "plot/fct_limited_digi_skill.jpeg",
+  width = 10,
+  height = 4,
+  dpi = 400,
+  unit = "in"
+)
 
+## display plot
+knitr::include_graphics("plot/fct_limited_digi_skill.jpeg")
+```
+
+### Lack of managerial support {.unnumbered}
+
+```{r}
+p_lack_managerial_support <- plot_factor(
+  factor_name = "Lack of managerial support"
+)
+
+## saving plot
+ggsave(
+  plot = p_lack_managerial_support,
+  filename = "plot/fct_lack_managerial_support.jpeg",
+  width = 10,
+  height = 4,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/fct_lack_managerial_support.jpeg")
+```
 
 ## Environmental barriers
+
 ### Limited government support {.unnumbered}
 
+```{r}
+p_limited_gov_suppoprt <- plot_factor(
+  factor_name = "Limited government support"
+)
+
+## saving plot
+ggsave(
+  plot = p_limited_gov_suppoprt,
+  filename = "plot/fct_limited_gov_suppoprt.jpeg",
+  width = 10,
+  height = 4,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/fct_limited_gov_suppoprt.jpeg")
+```
 
 ## Digital marketing adoption
 
+```{r}
+p_digital_marketing_adoptino <- plot_factor(
+  factor_name = "Digital marketing adoption"
+)
 
+## saving plot
+ggsave(
+  plot = p_digital_marketing_adoptino,
+  filename = "plot/fct_digital_marketing_adoptino.jpeg",
+  width = 10,
+  height = 5,
+  dpi = 400,
+  unit = "in"
+)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## display plot
+knitr::include_graphics("plot/fct_digital_marketing_adoptino.jpeg")
+```
 
 # Objective 3-5: Assess the technological, organizational, and environmental barriers affecting digital marketing adoption among DA-SAAD Phase 2 community-based enterprises in Eastern Visayas.
 
