@@ -115,6 +115,7 @@ Copies of the Figures presented in this report are available using the links bel
   - The profile shows female-led, middle-aged, modestly educated, smallholder enterprises with strong income but weak training exposure.  
   - Enterprises are young and small in scale, with limited farm sizes but relatively good device access.  
   - The biggest gap is in training and capacity-building, which explains why barriers like skills, complexity, and managerial support strongly affect adoption.
+  
 :::
 
 
@@ -557,12 +558,11 @@ knitr::include_graphics("plot/fct_digital_marketing_adoptino.jpeg")
 
 ### Parallel analysis {.unnumbered}
 ```{r}
-fct_lkrt_dta <- 
-  df |> 
+fct_lkrt_dta <-
+  df |>
   select(tb1:dma19)
 
 fa.parallel(fct_lkrt_dta, fa = "fa")
-
 ```
 
 
@@ -633,47 +633,45 @@ print(efa_extract$loadings, cutoff = 0.3, sort = TRUE)
 ```{r}
 # defining measurment model
 measurement_model <- constructs(
-  composite("Limited digital infrastructure",
-            multi_items("tb", 1:3)),
-  
-  composite("Technological complexity",
-            multi_items("tb", 4:6)),
-  
-  composite("Limited digital skills",
-            multi_items("ob", 7:9)),
-  
-  composite("Lack managerial support",
-            multi_items("ob", 10:12)),
-  
-  composite("Limited government support",
-            multi_items("eb", 13:15)),
-  
-  composite("Digital marketing adoption",
-            multi_items("dma", 16:19))
+  composite("Limited digital infrastructure", multi_items("tb", 1:3)),
+
+  composite("Technological complexity", multi_items("tb", 4:6)),
+
+  composite("Limited digital skills", multi_items("ob", 7:9)),
+
+  composite("Lack managerial support", multi_items("ob", 10:12)),
+
+  composite("Limited government support", multi_items("eb", 13:15)),
+
+  composite("Digital marketing adoption", multi_items("dma", 16:19))
 )
 
 # defining structural model
 structural_model <- relationships(
-  paths(from = c("Limited digital infrastructure",
-                 "Technological complexity",
-                 "Limited digital skills",
-                 "Lack managerial support",
-                 "Limited government support"),
-        to   = "Digital marketing adoption")
+  paths(
+    from = c(
+      "Limited digital infrastructure",
+      "Technological complexity",
+      "Limited digital skills",
+      "Lack managerial support",
+      "Limited government support"
+    ),
+    to = "Digital marketing adoption"
+  )
 )
 
 # estimate model
 pls_model <- estimate_pls(
   data = fct_lkrt_dta,
   measurement_model = measurement_model,
-  structural_model  = structural_model
+  structural_model = structural_model
 )
 
 # run bootstrapped model
 boot_pls <- bootstrap_model(
   seminr_model = pls_model,
-  nboot = 5000,   # number of bootstrap samples
-  cores = 4       # use multiple cores for speed
+  nboot = 5000, # number of bootstrap samples
+  cores = 4 # use multiple cores for speed
 )
 
 
