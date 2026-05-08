@@ -1,0 +1,67 @@
+---
+title: "Gender barriers in farm technology adoption among small-holder vegetable farmers in Ormoc City, Leyte"
+author: "ViSERDAC"
+date: last-modified
+format: 
+  html:
+    css: custom.scss
+    self-contained: true
+    mainfont: arial
+    fontsize: 1em
+    linestretch: 1.5
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    number-sections: true
+    code-fold: true
+    theme:
+      light: cosmo
+      dark: darkly
+execute:
+  message: false
+  warning: false
+  fig-align: center
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+# set working directory
+setwd(here::here("gender-farm-tech"))
+
+# libraries
+library(tidyverse)
+library(readxl)
+library(janitor)
+library(scales)
+library(EFAtools)
+library(gtsummary)
+library(kableExtra)
+library(correlation)
+library(reshape2)
+library(tidyr)
+
+# data management source
+source("data-management.R")
+```
+
+# Attachments
+
+::: callout-note
+Copies of the Figures presented in this report are available using the links below. All the files can be accessed in the Google drive folder.
+:::
+
+<ol>
+
+<li><a href="https://drive.google.com/drive/folders/1jgLLY6bpOs-AI5XP6KoYoz9a4_61FH1i?usp=sharing" target="_blank" style="text-decoration: none">Plots</a></li>
+
+<li><a href="https://drive.google.com/drive/folders/11PzdvQqy8D5A6Ld7rBuzuL8dmG0ykxzI?usp=sharing" target="_blank" style="text-decoration: none">Google Drive</a></li>
+
+</ol>
+
+# Objective 1: Identify and describe the farm technologies currently used by smallholder vegetable farmers in Ormoc City over the past ten years from 2014 to 2024
+# Objective 2: Analyze the socioeconomic determinants influencing technology adoption among smallholder vegetable farmers 
+# Objective 3: Investigate the barriers hindering the adoption of farm technologies.
+# Objective 4: Evaluate the differences in adoption ease of farm technologies between female and male farmers.
