@@ -42,6 +42,7 @@ library(kableExtra)
 library(correlation)
 library(reshape2)
 library(tidyr)
+library(tidytext)
 
 # data management source
 source("data-management.R")
@@ -62,6 +63,134 @@ Copies of the Figures presented in this report are available using the links bel
 </ol>
 
 # Objective 1: Identify and describe the farm technologies currently used by smallholder vegetable farmers in Ormoc City over the past ten years from 2014 to 2024
-# Objective 2: Analyze the socioeconomic determinants influencing technology adoption among smallholder vegetable farmers 
+
+### Sociodemographic profile {.unnumbered}
+
+```{r}
+df |>
+  select(
+    sex:hh_head,
+    hh_size,
+    nonfarm_income,
+    onfarm_income_yr,
+    offfarm_income_yr,
+    area_ha,
+    land_type,
+    -status
+  ) |>
+  tbl_summary(
+    by = sex,
+    statistic = list(all_categorical() ~ "{p}% (n = {n})"),
+    type = list(hh_head ~ "categorical"),
+    missing = "no",
+    label = list(
+      age ~ "Age",
+      civil_status ~ "Civil status",
+      ethnicity ~ "Ethnicity",
+      educ_attainment ~ "Educational attainment",
+      hh_head ~ "Household head",
+      hh_size ~ "Household size",
+      nonfarm_income ~ "Non-farm income",
+      onfarm_income_yr ~ "On-farm income",
+      offfarm_income_yr ~ "Off-farm income",
+      area_ha = "Land area (ha)",
+      land_type = "Land type"
+    )
+  ) |>
+  bold_labels() |>
+  as_kable_extra(linesep = "") |>
+  kable_minimal() |>
+  kable_styling(
+    full_width = F,
+    fixed_thead = T,
+    bootstrap_options = c("striped", "hover", "condensed", "responsive")
+  )
+```
+
+
+### Crops planted {.unnumbered}
+
+```{r}
+crops_planted_dta <-
+  df |>
+  select(sex, crops_planted) |>
+  str_separate(var_name = crops_planted) |>
+  mutate(
+    crops_planted = case_when(
+      str_detect(crops_planted, "chinese") ~ "chinese cabbage",
+      str_detect(crops_planted, "chili pepper") ~ "chilli pepper",
+      str_detect(crops_planted, "sweet pepper") ~ "sweet pepper",
+      str_detect(crops_planted, "pepper") ~ "chilli pepper",
+      str_detect(crops_planted, "coconut") ~ "coconut",
+      TRUE ~ crops_planted
+    )
+  )
+
+p_crops_planted <-
+  plot_pct_by_sex(
+    df = crops_planted_dta,
+    category_var = crops_planted,
+    ncol = 2,
+    x_max = 0.6
+  )
+
+## saving plot
+ggsave(
+  plot = p_crops_planted,
+  filename = "plot/p_crops_planted.jpeg",
+  width = 10,
+  height = 6,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/p_crops_planted.jpeg")
+```
+
+### Farm practices {.unnumbered}
+
+```{r}
+p_farm_practice <- plot_pct_by_sex(df = df, category_var = category1)
+
+## saving plot
+ggsave(
+  plot = p_farm_practice,
+  filename = "plot/p_farm_practice.jpeg",
+  width = 10,
+  height = 6,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/p_farm_practice.jpeg")
+```
+
+
+### Farm technologies {.unnumbered}
+
+```{r}
+p_farm_tech <- plot_pct_by_sex(df = df, category_var = category2)
+
+
+## saving plot
+ggsave(
+  plot = p_farm_tech,
+  filename = "plot/p_farm_tech.jpeg",
+  width = 10,
+  height = 7,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/p_farm_tech.jpeg")
+```
+
+
+# Objective 2: Analyze the socioeconomic determinants influencing technology adoption among smallholder vegetable farmers.
+
 # Objective 3: Investigate the barriers hindering the adoption of farm technologies.
+
 # Objective 4: Evaluate the differences in adoption ease of farm technologies between female and male farmers.
