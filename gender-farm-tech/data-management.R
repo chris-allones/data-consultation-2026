@@ -128,8 +128,14 @@ barrier_df <-
     -no_need
   )
 
+# ======================================================
+## data from previous analysis
+hh_mgmt_dta <- read_excel("data/gender-ktp-data.xlsx")
+hh_fam_child_care_dta <- read_excel("data/gender-ktp-data.xlsx", 2)
+hh_family_needs_dta <- read_excel("data/gender-ktp-data.xlsx", 3)
+hh_farming_tasks <- read_excel("data/gender-ktp-data.xlsx", 4)
 
-barrier_df |> glimpse()
+
 #=======================================================
 
 ## setup
