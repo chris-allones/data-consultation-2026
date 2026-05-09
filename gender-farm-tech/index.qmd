@@ -422,7 +422,7 @@ modelsummary(
   models_adopt,
   exponentiate = c(FALSE, TRUE, FALSE),
   stars = TRUE,
-  title = "Socio-demographic factors affecting technology adoption",
+  title = "Logistic regression results showing the influence of socio-demographic factors, training, awareness, perceptions, knowledge, and practices on farm technology adoption among smallholder vegetable farmers in Ormoc City, Leyte.",
   fmt = 3,
   estimate = "{estimate} {stars}<br>({std.error})",
   statistic = NULL,
