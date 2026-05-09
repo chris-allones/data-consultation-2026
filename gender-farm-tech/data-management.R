@@ -81,6 +81,55 @@ reg_df <-
   )
 
 
+## data for barriers model
+barrier_df <-
+  df |>
+  select(
+    postlearn_action,
+    sex,
+    age,
+    civil_status,
+    educ_attainment,
+    hh_head,
+    hh_size,
+    nonfarm_income,
+    onfarm_income_yr,
+    offfarm_income_yr,
+    water_sufficient,
+    hh_org_member,
+    org_status,
+    attend_training5yr,
+    aware_newtech,
+    seminar_notavail:no_need
+  ) |>
+  mutate(
+    adopt = if_else(str_detect(postlearn_action, "Adopt|Attend|Seek"), 1, 0),
+    adopt = if_else(is.na(adopt), 0, adopt),
+    educ_attainment = if_else(
+      educ_attainment == "Elementary",
+      "Elementary",
+      "High school and higher"
+    ),
+    civil_status = if_else(civil_status == "single", "single", "married"),
+    across(seminar_notavail:no_need, ~ if_else(is.na(.x), 0, 1)),
+    across(seminar_notavail:no_need, ~ if_else(.x == 0, "No", "Yes"))
+  ) |>
+  relocate(adopt, .before = sex) |>
+  select(
+    -postlearn_action,
+    -offfarm_income_yr,
+    -water_sufficient,
+    -nonfarm_income,
+    -onfarm_income_yr,
+    -org_status,
+    -hh_head,
+    -seminar_notavail,
+    -house_far,
+    -no_need
+  )
+
+
+barrier_df |> glimpse()
 #=======================================================
 
 ## setup

@@ -295,87 +295,60 @@ modelsummary(
 ```
 
 
-```{r}
-library(margins)
-library(modelsummary)
-
-## formula
-adop_socio_fxn <- as.formula(adopt ~ .)
-
-## split dataset
-reg_df_male <- reg_df |> filter(sex == "Male") |> select(-sex)
-reg_df_female <- reg_df |> filter(sex == "Female") |> select(-sex)
-
-## logistic regression for males
-model_adopt_male <- glm(
-  formula = adop_socio_fxn,
-  data = reg_df_male,
-  family = binomial,
-  weights = ifelse(reg_df_male$adopt == 1, 77 / 23, 1),
-  na.action = na.omit
-)
-
-## logistic regression for females
-model_adopt_female <- glm(
-  formula = adop_socio_fxn,
-  data = reg_df_female,
-  family = binomial,
-  weights = ifelse(reg_df_female$adopt == 1, 77 / 23, 1),
-  na.action = na.omit
-)
-
-## marginal effects
-model_adopt_male_marginal <- margins(model_adopt_male)
-model_adopt_female_marginal <- margins(model_adopt_female)
-
-## summary tables
-models_adopt_male <- list(
-  "Logit (Male)" = model_adopt_male,
-  "Odds Ratio (Male)" = model_adopt_male,
-  "Marginal effects (Male)" = model_adopt_male_marginal
-)
-
-models_adopt_female <- list(
-  "Logit (Female)" = model_adopt_female,
-  "Odds Ratio (Female)" = model_adopt_female,
-  "Marginal effects (Female)" = model_adopt_female_marginal
-)
-
-## regression tables
-modelsummary(
-  models_adopt_male,
-  exponentiate = c(FALSE, TRUE, FALSE),
-  stars = TRUE,
-  title = "Socio-demographic factors affecting technology adoption (Male)",
-  fmt = 3,
-  estimate = "{estimate}{stars}\n({std.error})",
-  statistic = NULL,
-  gof_ma = c("nobs", "aic", "bic", "r2.tjur", "rmse", "F", "logLik"),
-  notes = list("Significance levels: * p < 0.05, ** p < 0.01, *** p < 0.001")
-)
-
-modelsummary(
-  models_adopt_female,
-  exponentiate = c(FALSE, TRUE, FALSE),
-  stars = TRUE,
-  title = "Socio-demographic factors affecting technology adoption (Female)",
-  fmt = 3,
-  estimate = "{estimate}{stars}\n({std.error})",
-  statistic = NULL,
-  gof_ma = c("nobs", "aic", "bic", "r2.tjur", "rmse", "F", "logLik"),
-  notes = list("Significance levels: * p < 0.05, ** p < 0.01, *** p < 0.001")
-)
-```
-
 
 # Objective 3: Investigate the barriers hindering the adoption of farm technologies.
+
+Still need to find variables as barriers to adoption
+
 
 ```{r}
 df |>
   select(no_time_busy:no_need) |>
-  summarise(across(everything(), ~ sum(is.na(.))))
+  View()
+summarise(across(everything(), ~ sum(is.na(.))))
 ```
 
+```{r}
+## formula: adopt explained by barriers
+adop_barriers_fxn <- as.formula(
+  adopt ~ .
+)
 
+## logistic regression
+model_adopt_barriers <- glm(
+  formula = adop_barriers_fxn,
+  data = barrier_df,
+  family = binomial,
+  weights = ifelse(adopt == 1, 77 / 23, 1),
+  na.action = na.omit
+)
+
+model_adopt_barriers |> summary()
+
+## marginal effects
+model_adopt_barriers_marginal <- margins(model_adopt_barriers)
+
+## model summary list
+models_adopt_barriers <- list(
+  "Logit" = model_adopt_barriers,
+  "Odds Ratio" = model_adopt_barriers,
+  "Marginal effects" = model_adopt_barriers_marginal
+)
+
+## regression table
+modelsummary(
+  models_adopt_barriers,
+  exponentiate = c(FALSE, TRUE, FALSE),
+  stars = TRUE,
+  title = "Barriers to technology adoption",
+  fmt = 3,
+  estimate = "{estimate}{stars}\n({std.error})",
+  statistic = NULL,
+  gof_ma = c("nobs", "aic", "bic", "r2.tjur", "rmse", "F", "logLik"),
+  notes = list(
+    "Significance levels: * p < 0.05, ** p < 0.01, *** p < 0.001"
+  )
+)
+```
 
 # Objective 4: Evaluate the differences in adoption ease of farm technologies between female and male farmers.
