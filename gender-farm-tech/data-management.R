@@ -17,6 +17,70 @@ df <- read_excel("data/ama-raw-data-with var.xlsx") |>
   )
 
 
+## data for regression on socioecon
+reg_df <-
+  df |>
+  select(
+    postlearn_action,
+    sex,
+    age,
+    civil_status,
+    educ_attainment,
+    hh_head,
+    hh_size,
+    nonfarm_income,
+    onfarm_income_yr,
+    offfarm_income_yr,
+    water_sufficient,
+    hh_org_member,
+    org_status,
+    attend_training5yr,
+    aware_newtech,
+    percep2:percep11,
+    know2:know14,
+    practice1:practice16,
+    attitude1:attitude8
+  ) |>
+  mutate(across(
+    percep2:attitude8,
+    .fns = ~ case_when(
+      .x == "Strongly agree" ~ 5,
+      .x == "Agree" ~ 4,
+      .x == "No opinion" ~ 3,
+      .x == "Disagree" ~ 2,
+      .x == "Strongly disagree" ~ 1,
+    )
+  )) |>
+  mutate(
+    adopt = if_else(str_detect(postlearn_action, "Adopt|Attend|Seek"), 1, 0),
+    adopt = if_else(is.na(adopt), 0, adopt),
+    summ_percep = rowSums(across(starts_with("percep")), na.rm = TRUE),
+    summ_know = rowSums(across(starts_with("know")), na.rm = TRUE),
+    summ_practice = rowSums(across(starts_with("practice")), na.rm = TRUE),
+    summ_attitude = rowSums(across(starts_with("percep")), na.rm = TRUE),
+    total_income = rowSums(across(contains("income")), na.rm = TRUE),
+    educ_attainment = if_else(
+      educ_attainment == "Elementary",
+      "Elementary",
+      "High school and higher"
+    ),
+    civil_status = if_else(civil_status == "single", "single", "married"),
+    summ_practice = summ_practice * -1
+  ) |>
+  select(
+    -postlearn_action,
+    -c(percep2:attitude8),
+    -offfarm_income_yr,
+    -org_status,
+    -water_sufficient,
+    -nonfarm_income,
+    -onfarm_income_yr,
+    -summ_attitude,
+    -hh_head,
+    -total_income
+  )
+
+
 #=======================================================
 
 ## setup

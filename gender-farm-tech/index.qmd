@@ -238,12 +238,143 @@ knitr::include_graphics("plot/p_info_source.jpeg")
 
 # Objective 2: Analyze the socioeconomic determinants influencing technology adoption among smallholder vegetable farmers.
 
+```{r}
+library(margins)
+library(modelsummary)
+
+## formula
+adop_socio_fxn <- as.formula(adopt ~ .)
+
+## logistic regression with weights
+model_adopt <- glm(
+  formula = adop_socio_fxn,
+  data = reg_df,
+  family = binomial,
+  weights = ifelse(adopt == 1, 77 / 23, 1),
+  na.action = na.omit
+)
+
+## marginal effects
+model_adopt_marginal_eff <- margins(model_adopt)
+
+## model summary list
+models_adopt <- list(
+  "Logit" = model_adopt,
+  "Odds Ratio" = model_adopt,
+  "Marginal effects" = model_adopt_marginal_eff
+)
+
+## regression table
+modelsummary(
+  models_adopt,
+  exponentiate = c(FALSE, TRUE, FALSE),
+  stars = TRUE,
+  title = "Socio-demographic factors affecting technology adoption",
+  fmt = 3,
+  estimate = "{estimate} {stars}<br>({std.error})",
+  statistic = NULL,
+  gof_ma = c("nobs", "aic", "bic", "r2.tjur", "rmse", "F", "logLik"),
+  notes = list(
+    "Significance levels: + p < 0.10, * p < 0.05, ** p < 0.01, *** p < 0.001"
+  ),
+  coef_map = c(
+    "(Intercept)" = "Constant",
+    "sexMale" = "Sex (Male)",
+    "age" = "Age",
+    "civil_statussingle" = "Civil Status: Single",
+    "educ_attainmentHigh school and higher" = "Education: High school",
+    "hh_size" = "Household Size",
+    "hh_org_memberYes" = "Org Membership",
+    "attend_training5yrYes" = "Attended training",
+    "aware_newtechYes" = "New tech awareness",
+    "summ_percep" = "Perception Score",
+    "summ_know" = "Knowledge Score",
+    "summ_practice" = "Practice Score"
+  )
+)
+```
 
 
+```{r}
+library(margins)
+library(modelsummary)
 
+## formula
+adop_socio_fxn <- as.formula(adopt ~ .)
+
+## split dataset
+reg_df_male <- reg_df |> filter(sex == "Male") |> select(-sex)
+reg_df_female <- reg_df |> filter(sex == "Female") |> select(-sex)
+
+## logistic regression for males
+model_adopt_male <- glm(
+  formula = adop_socio_fxn,
+  data = reg_df_male,
+  family = binomial,
+  weights = ifelse(reg_df_male$adopt == 1, 77 / 23, 1),
+  na.action = na.omit
+)
+
+## logistic regression for females
+model_adopt_female <- glm(
+  formula = adop_socio_fxn,
+  data = reg_df_female,
+  family = binomial,
+  weights = ifelse(reg_df_female$adopt == 1, 77 / 23, 1),
+  na.action = na.omit
+)
+
+## marginal effects
+model_adopt_male_marginal <- margins(model_adopt_male)
+model_adopt_female_marginal <- margins(model_adopt_female)
+
+## summary tables
+models_adopt_male <- list(
+  "Logit (Male)" = model_adopt_male,
+  "Odds Ratio (Male)" = model_adopt_male,
+  "Marginal effects (Male)" = model_adopt_male_marginal
+)
+
+models_adopt_female <- list(
+  "Logit (Female)" = model_adopt_female,
+  "Odds Ratio (Female)" = model_adopt_female,
+  "Marginal effects (Female)" = model_adopt_female_marginal
+)
+
+## regression tables
+modelsummary(
+  models_adopt_male,
+  exponentiate = c(FALSE, TRUE, FALSE),
+  stars = TRUE,
+  title = "Socio-demographic factors affecting technology adoption (Male)",
+  fmt = 3,
+  estimate = "{estimate}{stars}\n({std.error})",
+  statistic = NULL,
+  gof_ma = c("nobs", "aic", "bic", "r2.tjur", "rmse", "F", "logLik"),
+  notes = list("Significance levels: * p < 0.05, ** p < 0.01, *** p < 0.001")
+)
+
+modelsummary(
+  models_adopt_female,
+  exponentiate = c(FALSE, TRUE, FALSE),
+  stars = TRUE,
+  title = "Socio-demographic factors affecting technology adoption (Female)",
+  fmt = 3,
+  estimate = "{estimate}{stars}\n({std.error})",
+  statistic = NULL,
+  gof_ma = c("nobs", "aic", "bic", "r2.tjur", "rmse", "F", "logLik"),
+  notes = list("Significance levels: * p < 0.05, ** p < 0.01, *** p < 0.001")
+)
+```
 
 
 # Objective 3: Investigate the barriers hindering the adoption of farm technologies.
+
+```{r}
+df |>
+  select(no_time_busy:no_need) |>
+  summarise(across(everything(), ~ sum(is.na(.))))
+```
 
 
 
