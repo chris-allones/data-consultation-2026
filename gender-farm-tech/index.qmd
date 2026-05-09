@@ -189,8 +189,62 @@ knitr::include_graphics("plot/p_farm_tech.jpeg")
 ```
 
 
+### Source of information {.unnumbered}
+
+```{r}
+info_source_dta <-
+  df |>
+  select(sex, starts_with("src_")) |>
+  pivot_longer(
+    cols = src_lgu_cao:src_other,
+    names_to = "info_source"
+  ) |>
+  filter(value > 0) |>
+  mutate(
+    info_source = str_remove_all(info_source, "src_"),
+    info_source = str_replace_all(info_source, "_", " ")
+  ) |>
+  group_by(sex, info_source) |>
+  summarise(n = sum(value, na.rm = T)) |>
+  ungroup() |>
+  group_by(sex) |>
+  pct_label(n) |>
+  ungroup()
+
+p_info_source <- plot_bar_by_sex(
+  df = info_source_dta,
+  category_var = info_source,
+  x_max = 0.4
+)
+
+
+## saving plot
+ggsave(
+  plot = p_info_source,
+  filename = "plot/p_info_source.jpeg",
+  width = 10,
+  height = 7,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/p_info_source.jpeg")
+```
+
+
+
+
+
 # Objective 2: Analyze the socioeconomic determinants influencing technology adoption among smallholder vegetable farmers.
 
+
+
+
+
+
 # Objective 3: Investigate the barriers hindering the adoption of farm technologies.
+
+
 
 # Objective 4: Evaluate the differences in adoption ease of farm technologies between female and male farmers.

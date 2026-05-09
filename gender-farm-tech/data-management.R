@@ -81,7 +81,7 @@ pct_label <- function(df, count_var) {
 
 
 ## functions specific
-
+### bar plot by gender
 plot_pct_by_sex <- function(df, category_var, ncol = 1, x_max = 1) {
   df |>
     select(sex, {{ category_var }}) |>
@@ -90,6 +90,31 @@ plot_pct_by_sex <- function(df, category_var, ncol = 1, x_max = 1) {
     group_by(sex) |>
     pct_label(n) |>
     ungroup() |>
+    mutate(
+      {{ category_var }} := reorder_within({{ category_var }}, pct, sex)
+    ) |>
+    ggplot(aes(pct, {{ category_var }}, fill = sex)) +
+    geom_col(width = 0.7) +
+    geom_text(aes(label = pct_lab), hjust = 0) +
+    scale_y_reordered() +
+    scale_x_continuous(
+      limits = c(0, x_max),
+      labels = scales::percent_format()
+    ) +
+    facet_wrap(~sex, scales = "free_y", ncol = ncol) +
+    labs(
+      x = NULL,
+      y = NULL,
+      fill = NULL
+    ) +
+    custom_theme
+}
+
+
+## bar plot simplified
+
+plot_bar_by_sex <- function(df, category_var, ncol = 1, x_max = 1) {
+  df |>
     mutate(
       {{ category_var }} := reorder_within({{ category_var }}, pct, sex)
     ) |>
