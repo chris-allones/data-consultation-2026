@@ -923,10 +923,27 @@ knitr::include_graphics("plot/practices_male.jpeg")
 
 ## Attitude
 
+| Theme / Statement                          | Female Responses                          | Male Responses                             | Key Insight |
+|--------------------------------------------|-------------------------------------------|--------------------------------------------|-------------|
+| Confidence in challenges                   | Very high agreement (~90%)                | Very high agreement (~85–90%)              | Both genders confident |
+| Persistence despite obstacles              | Very high agreement (~95%)                | Very high agreement (~85–90%)              | Shared persistence |
+| Asking for help                            | Strong agreement (~90% + 8% strongly agree)| Strong agreement (~85% + more strongly agree)| Men slightly more emphatic |
+| Safety measures reduce risks               | Near unanimous (~95–97%)                  | High agreement (~88–93%)                   | Women more emphatic |
+| Pesticide drift & misuse harmful           | Strong agreement (~92–97%)                | High agreement (~85–90%), more variation   | Women more consistent |
+| Studying new techniques is waste of time   | Majority disagree (~72%), 18% agree       | Majority disagree (~61%), 30% agree        | Men more skeptical of innovation |
+
+
 ### Attitude among female farmers {.unnumbered}
 
 ::: {.callout-note}
 ## Attitude: female
+
+- Very high agreement (≈90–95%) that they can succeed in challenges and keep trying despite obstacles.
+- Strong openness to asking for help (≈90% agree, 8% strongly agree).
+- Nearly unanimous agreement (95–97%) that proper safety and protective measures reduce health risks.
+- Strong recognition of pesticide drift and misuse as harmful (≈92–97% agree).
+- Majority disagree (≈72%) that studying new techniques is a waste of time, showing positive attitudes toward innovation.
+
 
 :::
 
@@ -951,6 +968,12 @@ knitr::include_graphics("plot/attitude_female.jpeg")
 
 ::: {.callout-note}
 ## Attitude: male
+
+- Similarly high agreement (≈85–90%) on succeeding in challenges and persisting despite obstacles.
+- Strong agreement (≈85%), with slightly more “strongly agree” responses than women.
+- High agreement (≈88–93%) on protective measures, though slightly less emphatic than women.
+- Agreement that pesticide drift and misuse are harmful, but with more variation (some “no opinion” and small disagreement).
+- Majority disagree that studying new techniques is a waste of time, but men show slightly higher agreement (≈30%) compared to women (≈18%) — suggesting more skepticism about innovation.
 
 :::
 
