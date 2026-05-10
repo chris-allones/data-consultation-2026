@@ -695,7 +695,29 @@ knitr::include_graphics("plot/farming-tasks.jpeg")
 # Objective 4: Evaluate the differences in adoption ease of farm technologies between female and male farmers.
 
 ## Perception
+
+| Theme                          | Female Perception                          | Male Perception                          | Key Insight |
+|--------------------------------|--------------------------------------------|------------------------------------------|-------------|
+| **Empowerment & leadership**   | Very high agreement (≈90–95%)               | High agreement, fewer strong agreements   | Women more emphatic about empowerment |
+| **Policy awareness**           | Strong belief in equal participation policy | Agreement but more “no opinion” responses | Men less certain about policy implementation |
+| **Fairness in resource access**| Mixed: ~49% agree, ~46% disagree            | More disagreement than agreement          | Women perceive discrimination more strongly |
+| **Technology & machinery**     | Strong agreement (≈90%)                     | Agreement but less strong                 | Both supportive, women more enthusiastic |
+| **Information & education**    | Very high agreement (≈95–97%)               | High agreement, some variation            | Women more consistent in valuing representation |
+
+
 ### Perception among female farmers {.unnumbered}
+
+
+::: {.callout-note}
+## Perception: female
+- Most women consistently agree or strongly agree with statements about empowerment, equal access, and gender equality in vegetable farming.
+- High agreement that women should be empowered, lead organizations, and be included in agricultural services.
+- Women show strong belief that policies for equal participation already exist in the municipality.
+- Nearly half agree it is unfair that women have limited access to land and resources, but a sizable portion also disagrees — showing mixed perceptions of discrimination.
+- Overall, women’s responses reflect optimism and support for gender equality, but with recognition of persistent barriers.
+
+:::
+
 ```{r}
 perception_female <- plot_factor(factor_name = "Perception", stwidth = 70)
 
@@ -714,6 +736,17 @@ knitr::include_graphics("plot/perception_female.jpeg")
 ```
 
 ### Perception among male farmers {.unnumbered}
+
+::: {.callout-note}
+## Perception: male
+
+- Agreement is also strong, but slightly more varied than women’s. Men agree that women should be empowered, lead organizations, and access agricultural services — but their levels of strong agreement are lower compared to women.
+- Men also acknowledge equal participation policies, but with more “no opinion” responses, suggesting less awareness or confidence in implementation.
+- Men are less likely than women to agree that women face unfair resource limitations, with more disagreement here.
+- Overall, men’s responses reflect support for equality in principle, but with less intensity and more skepticism about discrimination.
+
+:::
+
 ```{r}
 perception_male <- plot_factor(
   factor_name = "Perception",
@@ -737,7 +770,30 @@ knitr::include_graphics("plot/perception_male.jpeg")
 
 
 ## Knowledge
+
+| Theme / Statement                          | Female Responses                          | Male Responses                             | Key Insight |
+|--------------------------------------------|-------------------------------------------|--------------------------------------------|-------------|
+| Disease-resistant varieties                | High agreement (~72%)                     | High agreement (~75%)                      | Both genders aware of resistant varieties |
+| Raised beds better                         | Strong agreement (~87%)                   | Strong agreement (~85–90%)                 | Shared recognition of raised bed benefits |
+| Organic fertilizers needed                 | Very high agreement (~85%)                | Very high agreement (~85–90%)              | Consensus across genders |
+| Irrigation is expensive                    | Majority agree (~85%)                     | Majority agree (~78%)                      | Both see irrigation as costly |
+| Confidence in farming skills               | High agreement (~74% + 13% strongly agree)| High agreement (~85–90%)                   | Men slightly more confident |
+| Hybrid vs recycled seeds                   | Majority disagree (~74%)                  | Majority disagree (~70%)                   | Both reject equivalence, men more “no opinion” |
+| Skip watering is okay                      | Majority agree (~85%)                     | Majority agree (~78%), more variation       | Men slightly more tolerant of skipping watering |
+| Higher-density planting always yields more | Mixed: ~69% agree, ~10% disagree          | Higher agreement, fewer disagreements       | Men more inclined to believe density = yield |
+
+
 ### Knowledge among female farmers {.unnumbered}
+
+::: {.callout-note}
+## Knowledge: female
+
+- High agreement on statements about disease‑resistant varieties, raised beds, organic fertilizers, and irrigation being expensive. Majority agree they have the necessary knowledge in vegetable farming.
+- Many disagree that hybrid seeds yield the same as recycled seeds, and they recognize risks of skipping watering or overusing fertilizers.
+- On plowing/harrowing reducing pests and on planting materials other than seeds being difficult to manage, responses are more divided.
+
+:::
+
 ```{r}
 knowledge_female <- plot_factor(factor_name = "Knowledge")
 
@@ -755,7 +811,18 @@ ggsave(
 knitr::include_graphics("plot/knowledge_female.jpeg")
 ```
 
+
 ### Knowledge among male farmers {.unnumbered}
+
+::: {.callout-note}
+## Knowledge: male
+
+- Similar high agreement on disease‑resistant varieties, raised beds, organic fertilizers, and irrigation costs. Men also report strong agreement that they have the necessary farming knowledge.
+- Men show slightly higher agreement than women on “it’s okay to skip watering” and “higher‑density planting always gives higher yields.”
+- Men, like women, largely disagree that hybrid seeds yield the same as recycled seeds, but with slightly more “no opinion” responses.
+
+:::
+
 ```{r}
 knowledge_male <- plot_factor(factor_name = "Knowledge", gender = "Male")
 
@@ -774,7 +841,33 @@ knitr::include_graphics("plot/knowledge_male.jpeg")
 ```
 
 ## Practices
+
+| Theme / Practice Statement                  | Female Responses                          | Male Responses                             | Key Insight |
+|---------------------------------------------|-------------------------------------------|--------------------------------------------|-------------|
+| Pesticide spraying harms health             | Very high agreement (~90%)                | High agreement (~85%), less emphatic        | Women more cautious |
+| Chemicals for disease management not harmful| Majority disagree (~80%)                  | More mixed, some agreement                  | Men less cautious |
+| Recycling bottles safe                      | Majority disagree (~82%)                  | More variation, some agreement              | Women reject, men more tolerant |
+| Trying new techniques improves harvest      | High agreement (~82%)                     | High agreement (~80–85%)                    | Shared openness to innovation |
+| Risk-taking in farming                      | Majority disagree (~63%)                  | More agreement (~40%)                       | Men more willing to take risks |
+| Doubling fertilizer to skip next week       | Majority disagree (~64%)                  | More agreement (~30–35%)                    | Men more tolerant of shortcut practices |
+| Packaging material affects quality          | Majority disagree (~85%)                  | More agreement (~40%)                       | Men underestimate packaging effects |
+| Organic fertilizer basal only               | Strong agreement (~77%)                   | Moderate agreement (~70%)                   | Women stricter on organic fertilizer use |
+| Post-harvest contamination possible         | Strong agreement (~87%)                   | High agreement (~80%)                       | Both recognize contamination risks |
+
+
 ### Practices among female farmers {.unnumbered}
+
+::: {.callout-note}
+## Practices: female
+
+- Strong agreement that pesticide spraying can harm health (≈90%) and that contamination can occur even after harvest.
+- Majority disagree with statements like “using chemicals will not harm health” and “recycling bottles is safe.”
+- High agreement (≈82%) that trying new techniques improves harvest.
+- More cautious — majority disagree with “I do risky things” and “doubling fertilizer is okay.”
+- Strong support for basal application only.
+
+:::
+
 ```{r}
 practices_female <- plot_factor(factor_name = "Practices", stwidth = 60)
 
@@ -792,7 +885,20 @@ ggsave(
 knitr::include_graphics("plot/practices_female.jpeg")
 ```
 
+
 ### Practices among male farmers {.unnumbered}
+
+::: {.callout-note}
+## Practices: male
+
+- Also agree pesticides can harm health, but slightly less emphatic than women.
+- More variation — some men agree chemicals are not harmful, showing weaker caution compared to women.
+- High agreement (≈80–85%), similar to women.
+- Men show higher tolerance for risky practices (more agreement with doubling fertilizer or risky behaviors).
+- Men more likely than women to agree that packaging material does not affect quality.
+
+:::
+
 ```{r}
 practices_male <- plot_factor(
   factor_name = "Practices",
@@ -816,7 +922,14 @@ knitr::include_graphics("plot/practices_male.jpeg")
 
 
 ## Attitude
+
 ### Attitude among female farmers {.unnumbered}
+
+::: {.callout-note}
+## Attitude: female
+
+:::
+
 ```{r}
 attitude_female <- plot_factor(factor_name = "Attitude")
 
@@ -835,6 +948,12 @@ knitr::include_graphics("plot/attitude_female.jpeg")
 ```
 
 ### Attitude among male farmers {.unnumbered}
+
+::: {.callout-note}
+## Attitude: male
+
+:::
+
 ```{r}
 attitude_male <- plot_factor(factor_name = "Attitude", gender = "Male")
 
