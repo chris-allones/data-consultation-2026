@@ -516,13 +516,12 @@ modelsummary(
 - Overall, women carry the bulk of household labor, especially repetitive and time‑intensive tasks. Men handle physically demanding and external tasks, such as fetching water and collecting firewood. Financial decisions are increasingly shared, showing evolving household dynamics.
 :::
 
-| Household Domain            | Men’s Role                  | Women’s Role                          | Shared Role |
-|-----------------------------|-----------------------------|---------------------------------------|-------------|
-| **Financial management**    | Moderate (e.g., 13% men mostly in overseeing finances; 19% men only in securing loans) | Strong (43% women only in overseeing finances; 28% women only in allocating income) | High (62% both equally in income allocation; 67% both equally in securing loans) |
-| **Food decisions**          | Limited (7–8% men only in shopping/choosing food) | Strong (47% women only in shopping; 39% women only in choosing food) | Moderate (37–49% both equally in shopping/choosing food) |
+| Household Domain | Men’s Role | Women’s Role | Shared Role |
+|-----------------|-----------------|---------------------|-----------------|
+| **Financial management** | Moderate (e.g., 13% men mostly in overseeing finances; 19% men only in securing loans) | Strong (43% women only in overseeing finances; 28% women only in allocating income) | High (62% both equally in income allocation; 67% both equally in securing loans) |
+| **Food decisions** | Limited (7–8% men only in shopping/choosing food) | Strong (47% women only in shopping; 39% women only in choosing food) | Moderate (37–49% both equally in shopping/choosing food) |
 | **Meal preparation & chores** | Minimal (5–7% men only in preparing meals, cleaning dishes, laundry) | Dominant (60–70% women only in cooking, cleaning, laundry, tidying) | Low (20–30% shared in some chores) |
-| **Resource collection**     | Dominant (51% men only in firewood; 28–31% men only/mostly in fetching water) | Moderate (19% women only in fetching water; 13% women only in firewood) | Low (11–17% shared) |
-
+| **Resource collection** | Dominant (51% men only in firewood; 28–31% men only/mostly in fetching water) | Moderate (19% women only in fetching water; 13% women only in firewood) | Low (11–17% shared) |
 
 ```{r}
 p_hh_mgmt <-
@@ -590,9 +589,7 @@ knitr::include_graphics("plot/household_management.jpeg")
 
 ### Farm decision-making
 
-
-::: {.callout-note}
-
+::: callout-note
 ## Intepretation
 
 - Men’s Dominance in Production Decisions. Men are the primary decision‑makers and performers in most production activities: Plowing (68–74%), applying fertilizer (63–67%), planting/transplanting (55–57%), and constructing trellises (49–51%) are largely male‑led. Men also dominate seedling production (63%), watering (36%), and weeding (58–61%). These tasks are physically demanding and often require control over equipment or land, reflecting men’s greater access to farm resources and decision authority.
@@ -600,12 +597,10 @@ knitr::include_graphics("plot/household_management.jpeg")
 - Women are active in financial and record‑keeping tasks: Keeping farm records (43–47%) and managing farm finances (30%) show strong female involvement. Women also contribute to feeding and caring for animals (17–18%), and teaching children how to farm (14%). In decision‑making, women’s participation is visible but limited — often secondary or shared rather than exclusive. Women’s roles lean toward supportive and management functions, consistent with their household and organizational responsibilities.
 
 - Several activities show joint decision‑making between men and women: Types of crop to plant (30%), harvesting (27–34%), post‑harvest (29%), and teaching children how to farm (26%). These shared areas suggest collaboration in planning and family‑based farming decisions, especially where outcomes affect household welfare.
-
 :::
 
-
 | Category | Men’s Role (Decision & Tasks) | Women’s Role (Decision & Tasks) | Shared Role |
-|-----------------|-------------------|---------------------|----------------|
+|------------------|------------------|--------------------|------------------|
 | **Production (plowing, planting, fertilizer, trellises)** | Dominant (60–70% lead in decisions & tasks) | Limited (10–15%) | Low (10–30%) |
 | **Farm Management (records, finances)** | Moderate (30–40%) | Strong (30–45%) | Moderate (20–25%) |
 | **Animal Care & Teaching** | Active (40–50%) | Active (15–20%) | Moderate (20–25%) |
@@ -698,3 +693,161 @@ knitr::include_graphics("plot/farming-tasks.jpeg")
 ```
 
 # Objective 4: Evaluate the differences in adoption ease of farm technologies between female and male farmers.
+
+## Perception
+### Perception among female farmers {.unnumbered}
+```{r}
+perception_female <- plot_factor(factor_name = "Perception", stwidth = 70)
+
+## saving plot
+ggsave(
+  plot = perception_female,
+  filename = "plot/perception_female.jpeg",
+  width = 12,
+  height = 10,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/perception_female.jpeg")
+```
+
+### Perception among male farmers {.unnumbered}
+```{r}
+perception_male <- plot_factor(
+  factor_name = "Perception",
+  gender = "Male",
+  stwidth = 70
+)
+
+## saving plot
+ggsave(
+  plot = perception_male,
+  filename = "plot/perception_male.jpeg",
+  width = 12,
+  height = 10,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/perception_male.jpeg")
+```
+
+
+## Knowledge
+### Knowledge among female farmers {.unnumbered}
+```{r}
+knowledge_female <- plot_factor(factor_name = "Knowledge")
+
+## saving plot
+ggsave(
+  plot = knowledge_female,
+  filename = "plot/knowledge_female.jpeg",
+  width = 10,
+  height = 8,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/knowledge_female.jpeg")
+```
+
+### Knowledge among male farmers {.unnumbered}
+```{r}
+knowledge_male <- plot_factor(factor_name = "Knowledge", gender = "Male")
+
+## saving plot
+ggsave(
+  plot = knowledge_male,
+  filename = "plot/knowledge_male.jpeg",
+  width = 10,
+  height = 8,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/knowledge_male.jpeg")
+```
+
+## Practices
+### Practices among female farmers {.unnumbered}
+```{r}
+practices_female <- plot_factor(factor_name = "Practices", stwidth = 60)
+
+## saving plot
+ggsave(
+  plot = practices_female,
+  filename = "plot/practices_female.jpeg",
+  width = 10,
+  height = 10,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/practices_female.jpeg")
+```
+
+### Practices among male farmers {.unnumbered}
+```{r}
+practices_male <- plot_factor(
+  factor_name = "Practices",
+  gender = "Male",
+  stwidth = 60
+)
+
+## saving plot
+ggsave(
+  plot = practices_male,
+  filename = "plot/practices_male.jpeg",
+  width = 10,
+  height = 10,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/practices_male.jpeg")
+```
+
+
+## Attitude
+### Attitude among female farmers {.unnumbered}
+```{r}
+attitude_female <- plot_factor(factor_name = "Attitude")
+
+## saving plot
+ggsave(
+  plot = attitude_female,
+  filename = "plot/attitude_female.jpeg",
+  width = 10,
+  height = 7,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/attitude_female.jpeg")
+```
+
+### Attitude among male farmers {.unnumbered}
+```{r}
+attitude_male <- plot_factor(factor_name = "Attitude", gender = "Male")
+
+## saving plot
+ggsave(
+  plot = attitude_male,
+  filename = "plot/attitude_male.jpeg",
+  width = 10,
+  height = 7,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/attitude_male.jpeg")
+```

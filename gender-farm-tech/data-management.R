@@ -128,6 +128,82 @@ barrier_df <-
     -no_need
   )
 
+#=======================================================
+## likert plot
+
+## likert items data
+### statements
+lkrt_statements <-
+  read_excel("data/ama-raw-data-with var.xlsx", 3) |>
+  clean_names() |>
+  mutate(item = str_to_lower(items)) |>
+  select(factor, statement, item)
+
+
+lkrt_dta <-
+  df |>
+  select(sex, percep1:attitude8) |>
+  select(-percep1, -know1) |>
+  pivot_longer(
+    cols = percep2:attitude8,
+    names_to = "item",
+    values_to = "response"
+  ) |>
+  na.omit() |>
+  count(sex, item, response) |>
+  group_by(sex, item) |>
+  mutate(percent = n / sum(n)) |>
+  left_join(lkrt_statements, by = "item") |>
+  relocate(c(factor, statement), .before = item) |>
+  ungroup() |>
+  mutate(
+    response = factor(
+      response,
+      levels = c(
+        "Strongly Disagree",
+        "Disagree",
+        "No opinion",
+        "Agree",
+        "Strongly Agree"
+      )
+    ),
+    pct_lab = str_c(round(percent * 100, 0))
+  ) |>
+  mutate(response = fct_rev(response))
+
+
+### plot factor
+plot_factor <-
+  function(factor_name, stwidth = 50, gender = "Female") {
+    lkrt_dta |>
+      filter(sex == gender) |>
+      mutate(statement = str_wrap(statement, width = stwidth)) |>
+      filter(str_detect(factor, factor_name)) |>
+      ggplot(aes(percent, statement, fill = response)) +
+      geom_col(width = 0.6) +
+      geom_text(
+        aes(label = pct_lab),
+        position = position_fill(vjust = 0.5),
+        color = "white",
+        fontface = "bold"
+      ) +
+      scale_x_continuous(labels = percent_format()) +
+      scale_fill_manual(
+        values = c("#2c6e49", "#4c956c", "#d6cfcb", "#ffc9b9", "#d68c45")
+      ) +
+      guides(
+        fill = guide_legend(nrow = 1, label.position = "top", reverse = TRUE)
+      ) +
+      facet_wrap(~factor) +
+      labs(
+        fill = NULL,
+        y = NULL,
+        x = str_c(gender, " reponse")
+      ) +
+      custom_theme
+  }
+
+
 # ======================================================
 ## data from previous analysis
 hh_mgmt_dta <- read_excel("data/gender-ktp-data.xlsx")
@@ -158,6 +234,11 @@ custom_theme <-
     plot.margin = margin(t = 20, r = 20, b = 20, l = 20),
     panel.grid.minor = element_blank(),
     axis.text = element_text(size = 12),
+    axis.title = element_text(
+      size = 14,
+      face = "bold",
+      margin = margin(t = 20)
+    ),
     axis.ticks = element_blank(),
     strip.text = element_text(size = 16, face = "bold"),
     legend.position = "bottom",
