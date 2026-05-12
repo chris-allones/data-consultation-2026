@@ -43,6 +43,10 @@ library(correlation)
 library(reshape2)
 library(tidyr)
 library(tidytext)
+library(ggwordcloud)
+library(widyr)
+library(ggraph)
+library(tidygraph)
 
 # data management source
 source("data-management.R")
