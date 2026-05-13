@@ -1,0 +1,775 @@
+---
+title: "Barriers to digital marketing adoption among DA-SAAD community-based enterprises in Eastern Visayas: A TOE Framework Approach"
+author: "ViSERDAC"
+date: last-modified
+format: 
+  html:
+    css: custom.scss
+    self-contained: true
+    mainfont: arial
+    fontsize: 1em
+    linestretch: 1.5
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    number-sections: true
+    code-fold: true
+    theme:
+      light: cosmo
+      dark: darkly
+execute:
+  message: false
+  warning: false
+  fig-align: center
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+# set working directory
+setwd(here::here("saad-digital-marketing"))
+
+# libraries
+library(tidyverse)
+library(readxl)
+library(janitor)
+library(scales)
+library(EFAtools)
+library(psych)
+library(seminr)
+library(gtsummary)
+library(kableExtra)
+library(correlation)
+library(reshape2)
+library(tidyr)
+
+# data management source
+source("data-management.R")
+```
+
+# Attachments
+
+::: callout-note
+Copies of the Figures presented in this report are available using the links below. All the files can be accessed in the Google drive folder.
+:::
+
+<ol>
+
+<li><a href="https://drive.google.com/drive/folders/1jgLLY6bpOs-AI5XP6KoYoz9a4_61FH1i?usp=sharing" target="_blank" style="text-decoration: none">Plots</a></li>
+
+<li><a href="https://drive.google.com/drive/folders/11PzdvQqy8D5A6Ld7rBuzuL8dmG0ykxzI?usp=sharing" target="_blank" style="text-decoration: none">Google Drive</a></li>
+
+</ol>
+
+# Objective 1: Describe the organizational, socio-economic, and digital characteristics of DASAAD Phase 2 community-based enterprises in Eastern Visayas.
+
+### Sociodemographic variables {.unnumbered}
+
+
+::: {.callout-tip}
+## Interpretations
+
+- **Roles in the Enterprise**
+  - Majority of respondents are Presidents (40%), followed by Secretaries (23%) and Treasurers (22%).  
+
+- **Age Distribution**
+  - Most respondents are 41–50 years old (50%), with 28% aged 51 and above.  
+  - Leadership is middle-aged to older, suggesting maturity and experience.
+
+- **Sex**
+  - Female majority (70%) compared to 30% male.  
+  - Women play a central role in enterprise leadership and management, which may influence organizational culture and openness to training.
+
+- **Education**
+  - Largest group: High school graduates (43%), followed by high school level (28%).  
+  - Only 19% are college graduates.  
+  - Educational attainment is modest, with limited higher education exposure, which may constrain digital literacy and adoption capacity.
+
+- **Years Managing & Years Established**
+  - Most enterprises are newly managed (1–2 years, 56%) and recently established (1–2 years, 57%).  
+  - These are young organizations, still in early development stages, which may explain limited adoption of digital marketing practices.
+
+- **Membership Size**
+  - Majority have 11–20 members (52%) or 21–30 members (43%).  
+  - Enterprises are small to medium-sized groups, manageable in scale but possibly lacking economies of scale for digital investments.
+
+- **Farm Size**
+  - 61% operate on less than 1 hectare, while 39% have 1–2 hectares.  
+  - Smallholder enterprises dominate, reinforcing resource constraints and reliance on collective strategies.
+
+- **Income Level**
+  - A striking 72% report income above ₱20,000, while smaller groups fall below ₱10,000.  
+  - Despite small farm sizes, enterprises show relatively strong income levels.
+
+- **Device Availability & Internet Access**
+  - 96% have devices, and most access internet via mobile data (34%) or both mobile & WiFi (42%).  
+  - Device access is nearly universal, but connectivity is mixed, with reliance on mobile data suggesting unstable or limited internet quality.
+
+- **Training Attendance**
+  - Only 11% attended training, while 89% did not.  
+  - Capacity-building is severely lacking, leaving enterprises without formal guidance on digital marketing adoption.
+
+- **Overall Insights**
+  - The profile shows female-led, middle-aged, modestly educated, smallholder enterprises with strong income but weak training exposure.  
+  - Enterprises are young and small in scale, with limited farm sizes but relatively good device access.  
+  - The biggest gap is in training and capacity-building, which explains why barriers like skills, complexity, and managerial support strongly affect adoption.
+  
+:::
+
+
+```{r}
+df |>
+  select(role:attended_training) |>
+  select(
+    -market,
+    -commodity,
+    -value_adding_processed_products_specify,
+    -organization_name
+  ) |>
+  tbl_summary(
+    statistic = list(all_categorical() ~ "{p}% (n = {n})"),
+    type = list(everything() ~ "categorical"),
+    missing = "no",
+    ,
+    label = list(
+      role = "Roles",
+      age_range ~ "Age",
+      sex ~ "Sex",
+      education ~ "Education",
+      years_managing = "Years managing",
+      years_established = "Years established",
+      membership_size = "Membership size",
+      farm_size = "Farm size",
+      income_level = "Income level",
+      has_device = "Device availability",
+      internet_type = "Internet size",
+      attended_training = "Attended training"
+    )
+  ) |>
+  bold_labels() %>%
+  as_kable_extra(linesep = "") %>%
+  kable_minimal() %>%
+  kable_styling(
+    full_width = F,
+    fixed_thead = T,
+    bootstrap_options = c("striped", "hover", "condensed", "responsive")
+  )
+```
+
+### Commodity {.unnumbered}
+
+
+::: {.callout-tip}
+
+## Interpretation
+
+- **Poultry and Fresh Vegetables**
+  - Both poultry (35%) and fresh vegetables (35%) are the most common products. These commodities dominate enterprise production, reflecting their accessibility, short production cycles, and strong local demand.
+
+- **Livestock**
+  - 12% of enterprises produce livestock. Livestock production is less common but represents a secondary source of income and diversification for some enterprises.
+
+- **Processed Products**
+  - 8% of enterprises engage in processing (e.g., value-added goods). While limited, this group shows potential for higher-value activities that can improve profitability and market reach.
+
+- **Corn**
+  - 7% of enterprises produce corn. Corn is a staple crop but relatively underrepresented.
+
+- **Fruits**
+  - 2% of enterprises produce fruits. Fruit production is minimal, suggesting either limited suitability of land or lower prioritization compared to faster-turnover commodities like poultry and vegetables.
+
+:::
+
+```{r}
+p_commodity <-
+  commodity_dta |>
+  count(commodity) |>
+  mutate(
+    pct = n / sum(n),
+    pct_lab = str_c(" ", round(pct * 100, 0), "% (n=", n, ")")
+  ) |>
+  mutate(commodity = fct_reorder(commodity, pct)) |>
+  ggplot(aes(pct, commodity)) +
+  geom_col(width = 0.7) +
+  geom_text(aes(label = pct_lab), hjust = 0) +
+  scale_x_continuous(
+    labels = percent_format(),
+    limits = c(0, 0.5),
+    expand = c(0, 0)
+  ) +
+  labs(
+    title = "Primary commodity/products produced by the enterprise",
+    x = NULL,
+    y = NULL
+  ) +
+  custom_theme
+
+## saving plot
+ggsave(
+  plot = p_commodity,
+  filename = "plot/commodity.jpeg",
+  width = 8,
+  height = 5,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/commodity.jpeg")
+```
+
+
+### Market {.unnumbered}
+
+::: {.callout-tip}
+
+## Interpretation
+
+- **Direct selling**
+  - 38% of enterprises rely on direct selling as their main channel. This reflects a preference for immediate, face-to-face transactions that provide direct access to customers and reduce dependence on intermediaries.
+
+- **Trader**
+  - 27% of enterprises sell through traders. This indicates continued reliance on traditional intermediaries, which provide market access but often reduce bargaining power and profit margins.
+
+- **Online**
+  - 15% of enterprises use online channels. Adoption of digital platforms is emerging but still limited, showing early-stage integration of digital marketing practices.
+
+- **Public market**
+  - 12% of enterprises sell in public markets. This remains a common traditional channel, offering visibility but limited reach beyond local communities.
+
+- **Institutional buyer**
+  - 8% of enterprises supply institutional buyers. While smaller in share, this channel provides stable demand and potential for long-term contracts.
+
+- **Kadiwa**
+  - 1% of enterprises use Kadiwa (government-supported market linkage).This very low usage suggests limited awareness or accessibility of government-supported marketing initiatives.
+    
+:::
+
+```{r}
+p_market <-
+  market_dta |>
+  mutate(
+    pct = n / sum(n),
+    pct_lab = str_c(" ", round(pct * 100, 0), "% (n=", n, ")")
+  ) |>
+  mutate(market = fct_reorder(market, pct)) |>
+  ggplot(aes(pct, market)) +
+  geom_col(width = 0.7) +
+  geom_text(aes(label = pct_lab), hjust = 0) +
+  scale_x_continuous(
+    labels = percent_format(),
+    limits = c(0, 0.5),
+    expand = c(0, 0)
+  ) +
+  labs(
+    title = "Primary marketing channels used by the enterprise",
+    x = NULL,
+    y = NULL
+  ) +
+  custom_theme
+
+## saving plot
+ggsave(
+  plot = p_market,
+  filename = "plot/market.jpeg",
+  width = 8,
+  height = 5,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/market.jpeg")
+```
+
+
+### Value-adding {.unnumbered}
+
+::: {.callout-tip}
+
+## Interpretation
+
+- Tablea and banana chips are the leading value-added products, showing enterprises’ focus on culturally relevant and snack-based commodities.
+- Other products (coconut oil, vinegar, spreads, cassava cake, etc.) are produced by smaller groups, reflecting diversification and experimentation.
+- Value-adding activities remain fragmented and small-scale, but they highlight enterprises’ interest in moving beyond raw commodities toward processed goods.
+- These products represent opportunities for training, branding, and market development, especially in niche and specialty markets.
+
+:::
+
+```{r}
+p_value_adding <-
+  value_adding_spec_dta |>
+  count(value_adding_spec) |>
+  mutate(
+    pct = n / sum(n),
+    pct_lab = str_c(" ", round(pct * 100, 0), "% (n=", n, ")")
+  ) |>
+  mutate(value_adding_spec = fct_reorder(value_adding_spec, pct)) |>
+  ggplot(aes(pct, value_adding_spec)) +
+  geom_col(width = 0.7) +
+  geom_text(aes(label = pct_lab), hjust = 0) +
+  scale_x_continuous(
+    labels = percent_format(),
+    limits = c(0, 0.5),
+    expand = c(0, 0)
+  ) +
+  labs(
+    title = "Value-adding products of the enterprise",
+    x = NULL,
+    y = NULL
+  ) +
+  custom_theme
+
+## saving plot
+ggsave(
+  plot = p_value_adding,
+  filename = "plot/value_adding.jpeg",
+  width = 8,
+  height = 5,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/value_adding.jpeg")
+```
+
+# Objective 2: Assess the level of digital marketing adoption among DA-SAAD Phase 2 community-based enterprises in Eastern Visayas.
+
+## Tecnological barriers
+
+### Limited digital infrastructure {.unnumbered}
+
+
+::: {.callout-tip}
+## Interpretation
+
+- 41% agree and 43% strongly agree that poor connectivity limits digital marketing activities. Only 17% are neutral, showing that connectivity is a major barrier consistently felt across enterprises.
+
+- 46% agree and 20% strongly agree that facilities are inadequate, while 33% are neutral. The result indicates that while many enterprises recognize infrastructure gaps, a significant proportion remain undecided, possibly reflecting uneven access across locations.
+
+- in terms of limited access to smartphones or digital devices, 48% agree and 19% strongly agree, with 33% neutral.
+:::
+
+
+```{r}
+p_limited_digital_infra <- plot_factor(factor_name = "Limited digital infra")
+
+## saving plot
+ggsave(
+  plot = p_limited_digital_infra,
+  filename = "plot/fct_limited_digital_infra.jpeg",
+  width = 10,
+  height = 4,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/fct_limited_digital_infra.jpeg")
+```
+
+
+### Technological complexity {.unnumbered}
+
+::: {.callout-tip}
+## Interpretation
+- Many enterprises acknowledge challenges in comprehension, but a large neutral group indicates uneven familiarity with tools. Around 41% agree and 2% strongly agree that tools are difficult to understand. Over half (56%) are neutral, suggesting uncertainty or limited exposure.
+
+- In terms of complexity of using the platform, 42% agree and 5% strongly agree that platforms are complicated to use. While 52% are neutral, and only 2% disagree.
+
+- 62% agree and 19% strongly agree that handling multiple platforms is complicated and 19% are neutral, with no disagreement.
+
+:::
+
+
+```{r}
+p_technological_complexity <- plot_factor(
+  factor_name = "Technological complexity"
+)
+
+## saving plot
+ggsave(
+  plot = p_technological_complexity,
+  filename = "plot/fct_technological_complexity.jpeg",
+  width = 10,
+  height = 4,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/fct_technological_complexity.jpeg")
+```
+
+
+## Organizational barriers
+
+### Limited digital skills {.unnumbered}
+
+
+
+::: {.callout-tip}
+## Interpretation
+
+- 60% agree and 25% strongly agree that members lack the skills needed for digital marketing while only 15% are neutral or disagree.
+
+- Wheresas, few members capable of managing tools,46% agree and 42% strongly agree, while just 12% are neutral or disagree.
+
+- In terms of limited knowledge in creating/managing online content, 56% agree and 28% strongly agree, with 16% neutral.
+
+- Result implies that content creation and management is another significant weakness, showing enterprises struggle not only with technical tool use but also with producing digital marketing materials.
+
+:::
+
+
+
+```{r}
+p_limited_digi_skill <- plot_factor(factor_name = "Limited digital skills")
+
+## saving plot
+ggsave(
+  plot = p_limited_digi_skill,
+  filename = "plot/fct_limited_digi_skill.jpeg",
+  width = 10,
+  height = 4,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/fct_limited_digi_skill.jpeg")
+```
+
+
+### Lack of managerial support {.unnumbered}
+
+::: {.callout-tip}
+## Interpretation
+
+- In terms of, leaders who do not strongly encourage digital marketing, 67% are neutral, 27% agree, and only 2% strongly agree. Most respondents are undecided, but about one-third perceive weak encouragement from leadership.
+
+- While in terms of limited guidance for implementing digital marketing, 30% agree and 13% strongly agree, while 56% are neutral. A significant portion feels guidance is lacking, but the majority remain neutral.
+
+- 31% agree and 3% strongly agree, with 64% neutral on digital marketing not prioritized by leadership.
+
+:::
+
+
+
+```{r}
+p_lack_managerial_support <- plot_factor(
+  factor_name = "Lack of managerial support"
+)
+
+## saving plot
+ggsave(
+  plot = p_lack_managerial_support,
+  filename = "plot/fct_lack_managerial_support.jpeg",
+  width = 10,
+  height = 4,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/fct_lack_managerial_support.jpeg")
+```
+
+## Environmental barriers
+
+### Limited government support {.unnumbered}
+
+::: {.callout-tip}
+## Interpretation
+
+- 48% agree and 19% strongly agree that enterprises receive limited training or assistance from government agencies. About 31% are neutral, and only 2% disagree.
+
+- Regarding, few government programs supporting adoption, 42% agree, but 55% are neutral, with only 2% strongly agree. Many respondents are unsure about program availability, suggesting low awareness or visibility of government initiatives. 
+
+- 59% agree and 6% strongly agree, while 33% are neutral that there is a limited technical guidance from agencies.
+
+:::
+
+
+
+```{r}
+p_limited_gov_suppoprt <- plot_factor(
+  factor_name = "Limited government support"
+)
+
+## saving plot
+ggsave(
+  plot = p_limited_gov_suppoprt,
+  filename = "plot/fct_limited_gov_suppoprt.jpeg",
+  width = 10,
+  height = 4,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/fct_limited_gov_suppoprt.jpeg")
+```
+
+
+## Digital marketing adoption
+
+::: {.callout-tip}
+## Interpretation
+
+- In terms of the use of social media platforms 125% strongly disagree, 36% disagree, and 37% are neutral; only 2% agree.
+
+- In terms of communication with customers via messaging apps, 25% agree, 48% neutral, and 25% disagree.
+
+- Customer engagement online is minimal. Enterprises rarely respond to comments or feedback, indicating weak interactive marketing practices. 53% disagree and 15% strongly disagree, while 31% are neutral; only 2% agree.
+
+
+- Whilte the use of digital platforms for ordering/sales, 46% disagree and 28% strongly disagree, with 24% neutral; only 2% agree.
+
+:::
+
+
+
+```{r}
+p_digital_marketing_adoptino <- plot_factor(
+  factor_name = "Digital marketing adoption"
+)
+
+## saving plot
+ggsave(
+  plot = p_digital_marketing_adoptino,
+  filename = "plot/fct_digital_marketing_adoptino.jpeg",
+  width = 10,
+  height = 5,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/fct_digital_marketing_adoptino.jpeg")
+```
+
+# Objective 3-5: Assess the technological, organizational, and environmental barriers affecting digital marketing adoption among DA-SAAD Phase 2 community-based enterprises in Eastern Visayas.
+
+## Exploratory Factor Analysis
+
+### Parallel analysis {.unnumbered}
+```{r}
+fct_lkrt_dta <-
+  df |>
+  select(tb1:dma19)
+
+fa.parallel(fct_lkrt_dta, fa = "fa")
+```
+
+
+
+### Factor extraction {.unnumbered}
+
+```{r}
+efa_extract <- fa(
+  r = fct_lkrt_dta,
+  nfactors = 6,
+  rotat = "varimax",
+  fm = "ml"
+)
+
+print(efa_extract$loadings, cutoff = 0.3, sort = TRUE)
+```
+
+
+## PLS-SEM
+
+### Boostrapped PLS-SEM {.unnumbered}
+
+
+::: {.callout-tip}
+## Technological complexity → Digital marketing adoption
+
+- β = -0.344, p = 0.005 (significant)
+- Higher perceived complexity of digital tools/platforms reduces adoption. Enterprises struggle most when managing multiple platforms or finding tools difficult to use. This is the strongest negative predictor of digital marketing adoption.
+
+:::
+
+
+
+::: {.callout-tip}
+## Lack of managerial support → Digital marketing adoption
+
+- β = -0.334, p < 0.001 (significant)
+- Weak encouragement, guidance, and prioritization from leaders strongly hinders adoption Leadership passivity or lack of vision is a critical organizational barrier.
+:::
+
+
+::: {.callout-tip}
+## Limited digital infrastructure → Digital marketing adoption
+
+- β = -0.171, p = 0.050 (significant)
+- Poor connectivity, facilities, and device access likely reduce adoption, and the effect is marginally significant. Infrastructure matters, but its impact is less direct compared to complexity and leadership.
+:::
+
+
+::: {.callout-tip}
+## Limited government support → Digital marketing adoption
+
+- β = -0.061, p = 0.419 (not significant)
+- Perceived lack of government programs, training, and guidance does not show a statistically significant effect in this model. This suggests enterprises may rely more on internal organizational factors than external institutional support.
+
+:::
+
+
+::: {.callout-tip}
+## Limited digital skills → Digital marketing adoption
+
+- β = 0.058, p = 0.916 (not significant)
+- Surprisingly, skill limitations did not significantly predict adoption. This may indicate that enterprises are not yet at a stage where skill differences translate into adoption outcomes, or that skills are overshadowed by leadership and complexity barriers or other factors.
+
+:::
+
+
+```{r}
+# defining measurment model
+measurement_model <- constructs(
+  composite("Limited digital infrastructure", multi_items("tb", 1:3)),
+
+  composite("Technological complexity", multi_items("tb", 4:6)),
+
+  composite("Limited digital skills", multi_items("ob", 7:9)),
+
+  composite("Lack managerial support", multi_items("ob", 10:12)),
+
+  composite("Limited government support", multi_items("eb", 13:15)),
+
+  composite("Digital marketing adoption", multi_items("dma", 16:19))
+)
+
+# defining structural model
+structural_model <- relationships(
+  paths(
+    from = c(
+      "Limited digital infrastructure",
+      "Technological complexity",
+      "Limited digital skills",
+      "Lack managerial support",
+      "Limited government support"
+    ),
+    to = "Digital marketing adoption"
+  )
+)
+
+# estimate model
+pls_model <- estimate_pls(
+  data = fct_lkrt_dta,
+  measurement_model = measurement_model,
+  structural_model = structural_model
+)
+
+# run bootstrapped model
+boot_pls <- bootstrap_model(
+  seminr_model = pls_model,
+  nboot = 5000, # number of bootstrap samples
+  cores = 4 # use multiple cores for speed
+)
+
+
+plot(boot_pls)
+```
+
+```{r}
+## summary table
+summ_boot_pls_model <- summary(boot_pls)
+
+DT::datatable(summ_boot_pls_model$bootstrapped_paths |> round(3))
+```
+
+
+### Reliability test {.unnumbered}
+
+
+::: {.callout-tip}
+## Reliability indicators
+
+- **Limited digital infrastructure**
+  - α = 0.843, rhoA = 0.845, rhoC = 0.905, AVE = 0.761
+  - All values exceed thresholds.
+  - High reliability and convergent validity. Items consistently measure the construct and capture sufficient variance.
+
+- **Technological complexity**
+  - α = 0.732, rhoA = 0.774, rhoC = 0.848, AVE = 0.654
+  - All values exceed thresholds.
+  - Strong reliability and validity. Indicators are consistent and explain a good portion of variance.
+
+- **Limited digital skills**
+  - α = 0.735, rhoA = 0.771, rhoC = 0.841, AVE = 0.640
+  - All values exceed thresholds.
+  - Reliable and valid construct. Skills-related items are consistent and capture variance well.
+
+- **Lack of managerial support**
+  - α = 0.660 (slightly below 0.7), rhoA = 0.777, rhoC = 0.812, AVE = 0.600
+  - Cronbach’s alpha is marginally below threshold, but rhoA, rhoC, and AVE meet criteria.
+  - Acceptable reliability. Internal consistency is weaker, suggesting items may reflect different aspects of managerial support, but overall validity is adequate.
+
+- **Limited government support**
+  - α = 0.716 (acceptable), rhoA = -0.660 (problematic), rhoC = 0.225 (far below threshold), AVE = 0.280 (below threshold).
+  - Reliability and validity are low. Indicators do not consistently measure the construct, and convergent validity is not achieved.
+
+- **Digital marketing adoption**
+  - α = 0.887, rhoA = 0.888, rhoC = 0.922, AVE = 0.748
+  - All values exceed thresholds.
+  - Excellent reliability and validity. Adoption items are highly consistent and capture strong variance.
+
+:::
+
+
+```{r}
+## summary of pls model
+summ_pls_model <- summary(pls_model)
+
+DT::datatable(round(summ_pls_model$reliability, 3))
+```
+
+
+### Validity test {.unnumbered}
+
+
+::: {.callout-tip}
+## Fornell-Larcker Criterion
+
+- **Diagonal values (√AVE)**
+  - Limited digital infrastructure = 0.872
+  - Technological complexity = 0.809
+  - Limited digital skills = 0.800
+  - Lack managerial support = 0.775
+  - Limited government support = 0.529
+  - Digital marketing adoption = 0.865
+  - Rule: Each diagonal value should be greater than its correlations with other constructs.
+
+- **Limited digital infrastructure (0.872)**
+  - Higher than correlations with technological complexity (0.464), skills (0.380), managerial support (0.180), government support (0.087), and adoption (-0.374).
+  - Strong discriminant validity.
+
+- **Technological complexity (0.809)**
+  - Higher than correlations with infrastructure (0.464), skills (0.646), managerial support (0.301), government support (0.215), and adoption (-0.499).
+  - Valid and distinct, though correlation with skills (0.646) is moderately high, suggesting overlap.
+
+- **Limited digital skills (0.800)**
+  - Higher than correlations with infrastructure (0.380), complexity (0.646), managerial support (0.388), government support (0.189), and adoption (-0.370).
+  - Valid construct, but again moderately correlated with complexity (0.646).
+
+- **Lack managerial support (0.775)**
+  - Higher than correlations with infrastructure (0.180), complexity (0.301), skills (0.388), government support (0.221), and adoption (-0.459).
+  - Valid and distinct.
+
+- **Digital marketing adoption (0.865)**
+  - Higher than correlations with infrastructure (-0.374), complexity (-0.499), skills (-0.370), managerial support (-0.459), and government support (-0.212).
+  - Strong discriminant validity.
+
+:::
+
+
+```{r}
+DT::datatable(round(summ_pls_model$validity$fl_criteria, 3))
+```
