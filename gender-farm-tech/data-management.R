@@ -687,14 +687,3 @@ make_network_plot <- function(data,
 }
 
 
-# Example call
-make_network_plot(
-  data = txt_res_df,
-  text_col = dec_acqfarminputs,
-  sex_filter = "Male",
-  filter_words = filter_word,
-  cor_threshold = 0.1,
-  node_color = "steelblue",
-  title = "Decision to acquire farm inputs"
-)
-

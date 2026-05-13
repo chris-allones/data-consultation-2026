@@ -993,16 +993,56 @@ txt_res_df |> glimpse()
 
 
 ```{r}
-
-# set seed
-set.seed()
-
+# reason to adop
 make_network_plot(
   data = txt_res_df,
-  text_col = perf_avail_loans,
+  text_col = reason_adopt,
+  sex_filter = "Male",
+  filter_words = filter_word,
+  cor_threshold = 0.1,
+  node_color = "steelblue",
+  title = "Reason to adopt"
+)
+```
+
+```{r}
+# reason to adop
+make_network_plot(
+  data = txt_res_df,
+  text_col = reason_adopt,
   sex_filter = "Female",
   filter_words = filter_word,
-  cor_threshold = 0.02,
-  node_color = "steelblue"
+  cor_threshold = 0.1,
+  node_color = "red",
+  title = "Reason to adopt"
+)
+```
+
+
+## Decision to acquire farm inputs
+
+```{r}
+# reason to adop
+make_network_plot(
+  data = txt_res_df,
+  text_col = dec_acqfarminputs,
+  sex_filter = "Male",
+  filter_words = filter_word,
+  cor_threshold = 0.1,
+  node_color = "steelblue",
+  title = "Decision to acquire farm inputs"
+)
+```
+
+```{r}
+# reason to adop
+make_network_plot(
+  data = txt_res_df,
+  text_col = dec_acqfarminputs,
+  sex_filter = "Female",
+  filter_words = filter_word,
+  cor_threshold = 0.1,
+  node_color = "red",
+  title = "Decision to acquire farm inputs"
 )
 ```
