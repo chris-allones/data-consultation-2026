@@ -632,3 +632,69 @@ txt_res_df |>
   ) +
   geom_node_text(aes(label = name), repel = TRUE, size = 5) +
   theme_void()
+
+
+
+#=======================================================
+
+make_network_plot <- function(data,
+                              text_col,
+                              sex_filter = "Female",
+                              filter_words = NULL,
+                              cor_threshold = 0.2,
+                              node_color = "steelblue",
+                              title_text = NULL) {
+  set.seed(20260513)
+  
+  data %>%
+    select(sex, {{ text_col }}) %>%
+    mutate(q_id = row_number()) %>%
+    unnest_tokens(word, {{ text_col }}) %>%
+    anti_join(stop_words, by = "word") %>%
+    filter(sex == sex_filter) %>%
+    filter(!word %in% filter_words) %>%
+    pairwise_cor(word, q_id, sort = TRUE) %>%
+    filter(correlation > cor_threshold) %>%
+    as_tbl_graph() %>%
+    ggraph(layout = "fr") +
+    geom_edge_link(aes(edge_alpha = correlation), show.legend = FALSE) +
+    geom_node_point(
+      color = node_color,
+      aes(size = centrality_pagerank()),
+      show.legend = FALSE
+    ) +
+    geom_node_text(aes(label = name), repel = TRUE, size = 5) +
+    theme_void() +
+    theme(
+      plot.title = element_text(
+        hjust = 0.5,
+        size = 16,
+        margin = margin(b = 10),
+        face = "bold"
+      ),
+      plot.subtitle = element_text(
+        color = "gray60",
+        margin = margin(b = 15),
+        size = 14,
+        hjust = 0.5
+      ),
+      plot.margin = margin(t = 20, r = 20, b = 20, l = 20)
+    ) +
+    labs(
+      title = title_text,
+      subtitle = str_c(sex_filter, " responses with correlation >", cor_threshold)
+    )
+}
+
+
+# Example call
+make_network_plot(
+  data = txt_res_df,
+  text_col = dec_acqfarminputs,
+  sex_filter = "Male",
+  filter_words = filter_word,
+  cor_threshold = 0.1,
+  node_color = "steelblue",
+  title = "Decision to acquire farm inputs"
+)
+
