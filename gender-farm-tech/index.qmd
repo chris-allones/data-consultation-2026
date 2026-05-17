@@ -986,6 +986,28 @@ knitr::include_graphics("plot/attitude_male.jpeg")
 
 ## Reason to adopt
 
+
+::: {.callout-note}
+
+## Key insights
+
+- Women frame adoption intention around practical benefits and community knowledge, focusing on yield, soil fertility, and ease of use. On the other hand, men frame adoption around testing, proving, and efficiency, emphasizing feasibility, seed performance, and health awareness.
+
+- The gendered language shows women rely on experiential and local terms, while men use technical and evaluative terms. These differences suggest extension programs should tailor communication:
+  - For women → emphasize practical benefits, soil health, and community relevance.- For men → emphasize technical feasibility, efficiency, and validation through trials.
+
+:::
+
+| Theme / Cluster         | Female Responses                          | Male Responses                             | Key Insight |
+|--------------------------|-------------------------------------------|--------------------------------------------|-------------|
+| Yield & effectiveness    | Strong cluster around yield, effective, faster, easier | Cluster around proving feasibility, effectivity | Women emphasize outcomes, men emphasize testing |
+| Soil & sustainability    | Fertile-soil cluster, sustainability focus | Soil-effectivity cluster linked to seeds    | Both value soil, women stress fertility, men stress performance |
+| Language & framing       | Local terms (maayo, aron, kong) show community framing | Technical terms (learn, technique, feasible) | Women use experiential language, men use technical framing |
+| Health considerations    | Implicit via soil & safety concerns        | Explicit cluster (conscious, health)        | Men more vocal about health awareness |
+| Efficiency gains         | Linked to effectiveness cluster            | Separate cluster (makes, faster, easier)    | Both value efficiency, men highlight it more distinctly |
+
+
+
 ```{r}
 # reason to adop
 reason_adopt_male <-
@@ -1042,6 +1064,30 @@ knitr::include_graphics("plot/txt_reason_adopt_female.jpeg")
 
 
 ## Decision to acquire farm inputs
+
+
+::: {.callout-note}
+
+## Key insights
+
+- Among women farmers, clusters include farm, inputs, production, household, husband, manages, person, single. This shows that women often describe decision‑making in relation to household roles and their husbands’ involvement. Words like magkasabot, sabutan, lalis, magsabot, magalis highlight that women frame decisions as negotiated agreements, often requiring discussion and consensus.
+
+- Whereas among men,  words like misunderstanding, avoid, conflict, lalis, sabotan show men explicitly frame decision‑making around preventing disputes. Terms like activities, charge, animals, farm, inputs, buy highlight men’s role in taking charge of farm operations and purchases.
+
+- Overall, men’s decision‑making is framed around responsibility, financial planning, and efficiency, with explicit attention to avoiding conflict. While women’s decision‑making is relational, consensus‑driven, and outcome‑focused, often tied to household dynamics and local language framing.
+
+:::
+
+
+| Theme / Cluster              | Female Responses                                | Male Responses                                | Key Insight |
+|-------------------------------|------------------------------------------------|-----------------------------------------------|-------------|
+| Household framing             | Household, husband, person, single              | Responsibility cluster (activities, charge)    | Women emphasize relational roles, men emphasize responsibility |
+| Negotiation & agreement       | Magkasabot, sabutan, lalis, magsabot            | Saboton, avoid conflict, misunderstanding      | Women frame decisions as consensus, men frame them as conflict avoidance |
+| Outcome orientation           | Resulta, maayo, nindot, planohon                | Efficiency cluster (dali, makadali, magbudget) | Women emphasize good results, men emphasize speed and efficiency |
+| Financial planning            | Less explicit                                   | Financing, scheme, budget                     | Men highlight financial schemes more strongly |
+| Language & framing            | Local Cebuano terms, experiential expressions   | Technical/practical terms, budgeting language | Women use relational/community framing, men use technical/financial framing |
+
+
 
 ```{r}
 # reason to adop
@@ -1101,6 +1147,30 @@ knitr::include_graphics("plot/txt_dec_farm_input_female.jpeg")
 
 ## Avail loans
 
+
+::: {.callout-note}
+
+## Key insights
+
+-  Among women farmers, words like planohon, sabutan, mabuhat, buot, resulta, maayo, nindot show that women frame loan decisions around planning, agreement, and expected positive outcomes. In addition, terms like household, husband, manila, single, person highlight that women often situate loan decisions within family roles and household dynamics, with husbands frequently mentioned.
+
+- For men, words like consulted, wife, asawa indicate men also acknowledge spousal consultation, but as part of a broader financial strategy rather than the central frame.
+
+- Men’s loan decision‑making is process‑oriented, strategic, and requirement‑focused, with consultation present but secondary to financial planning. While women’s loan decision‑making is relational, consensus‑driven, and outcome‑oriented, with strong emphasis on household roles and repayment responsibilities.
+
+:::
+
+
+| Theme / Cluster              | Female Responses                                | Male Responses                                | Key Insight |
+|-------------------------------|------------------------------------------------|-----------------------------------------------|-------------|
+| Planning & consensus          | Planohon, sabutan, resulta, maayo, nindot       | Diskarte, strategy, requirements              | Women emphasize planning & agreement, men emphasize strategy & requirements |
+| Household framing             | Household, husband, couple, person              | Consulted, wife, asawa                        | Women center household roles, men acknowledge consultation but focus on process |
+| Loan process                  | Loan, sign, mugamit, syay                       | Loan, provider, financing, scheme             | Women stress shared responsibility, men stress formal providers & schemes |
+| Borrowing & repayment         | Mangutang, bayad, utang, ganahan                | Utang, magloan, diskarte                      | Women emphasize repayment obligations, men emphasize borrowing strategy |
+| Knowledge & requirements      | Less explicit                                   | Nahibalo, requirements, makagamit             | Men highlight procedural knowledge more strongly |
+
+
+
 ```{r}
 # avail loans (male)
 dec_avail_loan_male <-
@@ -1157,6 +1227,31 @@ knitr::include_graphics("plot/txt_dec_avail_loan_female.jpeg")
 
 
 ## Income spending
+
+
+::: {.callout-note}
+
+## Key insights
+
+- Words like magbudget, budget, gagunit, kwarta, nangita show women frame income spending around budget control and money management, often emphasizing who holds or manages the cash. In addition, terms like husband, household, person, single highlight that women situate spending decisions within family roles and household dynamics.
+
+- While words like maglalis, magsabot, respect, agree, decide suggest women emphasize discussion, respect, and consensus in spending decisions. Similarly, for men, words like arguments, conflict show men also recognize disputes, but less tied to negotiation language compared to women.
+
+- Overall, women’s spending decisions are budget‑centered, relational, and consensus‑driven, with strong emphasis on avoiding conflict and ensuring positive outcomes.
+
+:::
+
+
+| Theme / Cluster              | Female Responses                                | Male Responses                                | Key Insight |
+|-------------------------------|------------------------------------------------|-----------------------------------------------|-------------|
+| Budgeting & money management  | Magbudget, gagunit, kwarta, nangita             | Income, budget, money, gasto                  | Both emphasize budgeting, women frame it relationally, men technically |
+| Household framing             | Husband, household, person, single              | Wife, household, mamili                       | Women stress household roles, men stress who buys/spends |
+| Negotiation & consensus       | Maglalis, magsabot, respect, agree, decide      | Less emphasis                                 | Women highlight consensus, men less so |
+| Conflict awareness            | Misunderstanding, arguments, avoid conflicts    | Arguments, conflict                           | Both aware of disputes, women stress prevention |
+| Outcome orientation           | Planohon, saboton, maayo, nindot, resulta       | Efficiency, control, avoid careless spending  | Women stress positive results, men stress discipline |
+| Spending behavior             | Less explicit                                  | Gusto, magpataka, gasto                       | Men highlight attitudes and careless spending |
+
+
 
 ```{r}
 # income spending (male)
@@ -1215,6 +1310,30 @@ knitr::include_graphics("plot/txt_income_spending_female.jpeg")
 
 ## Management of household finances
 
+
+::: {.callout-note}
+
+## Key insights
+
+- For women words like sabotan, planohon, resulta, maayo, nindot, lalis show women frame household financial management around planning, agreement, and positive outcomes. Words like money, manage, husband, wife, household, finances, trusted show women situate financial management within family roles and trust relationships.
+
+- Whereas men's words like asawa, household highlight men’s recognition of spousal involvement, but framed more in terms of roles than negotiation.
+
+- Both gender shows words like arguments, peaceful, nasabotan suggest men acknowledge disputes but also emphasize maintaining peace and agreement. While for women indicate preventing disputes in financial management.
+
+- Overall, women’s household finance management is consensus‑driven, relational, and trust‑based, with strong emphasis on planning, budgeting, and avoiding conflict.In addition, men’s household finance management is process‑oriented, discipline‑focused, and role‑based, with attention to maintaining peace but less emphasis on consensus building.
+:::
+
+| Theme / Cluster              | Female Responses                                | Male Responses                                | Key Insight |
+|-------------------------------|------------------------------------------------|-----------------------------------------------|-------------|
+| Planning & consensus          | Sabotan, planohon, resulta, maayo, nindot       | Nasabotan, peaceful                           | Women emphasize planning & agreement, men emphasize peace |
+| Budgeting & daily use         | Magbudget, gamit, adlaw, ako                   | Budget, finances, income, gasto               | Women stress daily budgeting, men stress formal budgeting |
+| Household framing             | Husband, wife, household, trusted              | Asawa, household                              | Women highlight trust & roles, men highlight roles only |
+| Conflict awareness            | Arguments, avoid                               | Arguments, peaceful                           | Both aware of disputes, women stress prevention, men stress resolution |
+| Shared responsibility         | Kami, duha, kita                               | Less explicit                                 | Women highlight joint management, men less so |
+
+
+
 ```{r}
 # avail loans (male)
 dec_hh_finance_mgmt_male <-
@@ -1270,6 +1389,28 @@ knitr::include_graphics("plot/txt_dec_hh_finance_mgmt_female.jpeg")
 
 
 ## Attendance to training
+
+
+::: {.callout-note}
+
+## Key insights
+
+- Both genders view participation to trainings as a way to gain technical skills and farming knowledge.
+
+- Words like arguments, avoid, misunderstanding show men also recognize disputes, but frame them as issues to be managed. For women, words like avoid, misunderstanding suggest women are conscious of preventing disputes or miscommunication when deciding to attend training.
+
+- Words like uma, bana, ako, busy, depends, updated, apil, ganahan show women’s participation is influenced by household roles, busyness, and willingness, often tied to balancing domestic and farm responsibilities. On the other hand, words like wife, asawa indicate men acknowledge spousal involvement, but as part of broader decision‑making rather than the central frame.
+
+:::
+
+| Theme / Cluster              | Female Responses                                | Male Responses                                | Key Insight |
+|-------------------------------|------------------------------------------------|-----------------------------------------------|-------------|
+| Planning & consensus          | Planohon, sabotan, maayo, resulta              | Approve, cooperative, meetings                | Women emphasize planning & agreement, men emphasize institutional approval |
+| Knowledge & learning          | Farming, knowledge, expand                     | Knowledge, learn, farming                     | Both value training for knowledge, men frame it more technically |
+| Household framing             | Uma, bana, ako, busy, apil, ganahan            | Wife, asawa                                   | Women stress household roles, men acknowledge spousal consultation |
+| Conflict awareness            | Avoid, misunderstanding                        | Arguments, avoid, misunderstanding            | Both aware of disputes, women stress prevention, men stress management |
+| Responsibility & initiative   | Less explicit                                  | Akoa, makatrabaho, lalaki                     | Men highlight personal responsibility more strongly |
+
 
 ```{r}
 # avail loans (male)
