@@ -336,9 +336,6 @@ plot_bar_by_sex <- function(df, category_var, ncol = 1, x_max = 1) {
 }
 
 
-df |> glimpse()
-
-
 ## local stopwords
 
 ### local stopwords
@@ -611,8 +608,6 @@ txt_res_df <- df |>
     dec_attendtraining
   )
 
-txt_res_df |> View()
-
 txt_res_df |>
   select(sex, dec_acqfarminputs) |>
   mutate(q_id = row_number()) |>
@@ -634,18 +629,19 @@ txt_res_df |>
   theme_void()
 
 
-
 #=======================================================
 
-make_network_plot <- function(data,
-                              text_col,
-                              sex_filter = "Female",
-                              filter_words = NULL,
-                              cor_threshold = 0.2,
-                              node_color = "steelblue",
-                              title_text = NULL) {
+make_network_plot <- function(
+  data,
+  text_col,
+  sex_filter = "Female",
+  filter_words = NULL,
+  cor_threshold = 0.2,
+  node_color = "steelblue",
+  title_text = NULL
+) {
   set.seed(20260513)
-  
+
   data %>%
     select(sex, {{ text_col }}) %>%
     mutate(q_id = row_number()) %>%
@@ -682,8 +678,10 @@ make_network_plot <- function(data,
     ) +
     labs(
       title = title_text,
-      subtitle = str_c(sex_filter, " responses with correlation >", cor_threshold)
+      subtitle = str_c(
+        sex_filter,
+        " responses with correlation >",
+        cor_threshold
+      )
     )
 }
-
-

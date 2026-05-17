@@ -986,36 +986,58 @@ knitr::include_graphics("plot/attitude_male.jpeg")
 
 ## Reason to adopt
 
-
 ```{r}
-txt_res_df |> glimpse()
-```
+# reason to adop
+reason_adopt_male <-
+  make_network_plot(
+    data = txt_res_df,
+    text_col = reason_adopt,
+    sex_filter = "Male",
+    filter_words = filter_word,
+    cor_threshold = 0.1,
+    node_color = "steelblue",
+    title = "Reason to adopt"
+  )
 
+## saving plot
+ggsave(
+  plot = reason_adopt_male,
+  filename = "plot/txt_reason_adopt_male.jpeg",
+  width = 8,
+  heigh = 6,
+  unit = "in",
+  dpi = 400,
+)
+
+## display plot
+knitr::include_graphics("plot/txt_reason_adopt_male.jpeg")
+```
 
 ```{r}
 # reason to adop
-make_network_plot(
-  data = txt_res_df,
-  text_col = reason_adopt,
-  sex_filter = "Male",
-  filter_words = filter_word,
-  cor_threshold = 0.1,
-  node_color = "steelblue",
-  title = "Reason to adopt"
-)
-```
+reason_adopt_female <-
+  make_network_plot(
+    data = txt_res_df,
+    text_col = reason_adopt,
+    sex_filter = "Female",
+    filter_words = filter_word,
+    cor_threshold = 0.1,
+    node_color = "red",
+    title = "Reason to adopt"
+  )
 
-```{r}
-# reason to adop
-make_network_plot(
-  data = txt_res_df,
-  text_col = reason_adopt,
-  sex_filter = "Female",
-  filter_words = filter_word,
-  cor_threshold = 0.1,
-  node_color = "red",
-  title = "Reason to adopt"
+## saving plot
+ggsave(
+  plot = reason_adopt_female,
+  filename = "plot/txt_reason_adopt_female.jpeg",
+  width = 8,
+  heigh = 6,
+  unit = "in",
+  dpi = 400,
 )
+
+## display plot
+knitr::include_graphics("plot/txt_reason_adopt_female.jpeg")
 ```
 
 
@@ -1023,26 +1045,288 @@ make_network_plot(
 
 ```{r}
 # reason to adop
-make_network_plot(
-  data = txt_res_df,
-  text_col = dec_acqfarminputs,
-  sex_filter = "Male",
-  filter_words = filter_word,
-  cor_threshold = 0.1,
-  node_color = "steelblue",
-  title = "Decision to acquire farm inputs"
+dec_farm_input_male <-
+  make_network_plot(
+    data = txt_res_df,
+    text_col = dec_acqfarminputs,
+    sex_filter = "Male",
+    filter_words = filter_word,
+    cor_threshold = 0.1,
+    node_color = "steelblue",
+    title = "Decision-making towards farm inputs purchases"
+  )
+
+## saving plot
+ggsave(
+  plot = dec_farm_input_male,
+  filename = "plot/txt_dec_farm_input_male.jpeg",
+  width = 8,
+  heigh = 6,
+  unit = "in",
+  dpi = 400,
 )
+
+## display plot
+knitr::include_graphics("plot/txt_dec_farm_input_male.jpeg")
 ```
 
 ```{r}
 # reason to adop
-make_network_plot(
+dec_farm_input_female <-
+  make_network_plot(
+    data = txt_res_df,
+    text_col = dec_acqfarminputs,
+    sex_filter = "Female",
+    filter_words = filter_word,
+    cor_threshold = 0.1,
+    node_color = "red",
+    title = "Decision-making towards farm inputs purchases"
+  )
+
+
+## saving plot
+ggsave(
+  plot = dec_farm_input_female,
+  filename = "plot/txt_dec_farm_input_female.jpeg",
+  width = 8,
+  heigh = 6,
+  unit = "in",
+  dpi = 400,
+)
+
+## display plot
+knitr::include_graphics("plot/txt_dec_farm_input_female.jpeg")
+```
+
+
+## Avail loans
+
+```{r}
+# avail loans (male)
+dec_avail_loan_male <-
+  make_network_plot(
+    data = txt_res_df,
+    text_col = perf_avail_loans,
+    sex_filter = "Male",
+    filter_words = filter_word,
+    cor_threshold = 0.1,
+    node_color = "steelblue",
+    title = "Decision-making towards loan availment"
+  )
+
+## saving plot
+ggsave(
+  plot = dec_avail_loan_male,
+  filename = "plot/txt_dec_avail_loan_male.jpeg",
+  width = 8,
+  heigh = 6,
+  unit = "in",
+  dpi = 400,
+)
+
+## display plot
+knitr::include_graphics("plot/txt_dec_avail_loan_male.jpeg")
+```
+
+```{r}
+# avail loans (female)
+dec_avail_loan_female <-
+  make_network_plot(
+    data = txt_res_df,
+    text_col = perf_avail_loans,
+    sex_filter = "Female",
+    filter_words = filter_word,
+    cor_threshold = 0.1,
+    node_color = "red",
+    title = "Decision-making towards loan availment"
+  )
+
+## saving plot
+ggsave(
+  plot = dec_avail_loan_female,
+  filename = "plot/txt_dec_avail_loan_female.jpeg",
+  width = 8,
+  heigh = 6,
+  unit = "in",
+  dpi = 400,
+)
+
+## display plot
+knitr::include_graphics("plot/txt_dec_avail_loan_female.jpeg")
+```
+
+
+## Income spending
+
+```{r}
+# income spending (male)
+dec_income_spending_male <-
+  make_network_plot(
+    data = txt_res_df,
+    text_col = dec_spendincome,
+    sex_filter = "Male",
+    filter_words = filter_word,
+    cor_threshold = 0.1,
+    node_color = "steelblue",
+    title = "Decision-making toward income spending"
+  )
+
+## saving plot
+ggsave(
+  plot = dec_income_spending_male,
+  filename = "plot/txt_income_spending_male.jpeg",
+  width = 8,
+  heigh = 6,
+  unit = "in",
+  dpi = 400,
+)
+
+## display plot
+knitr::include_graphics("plot/txt_income_spending_male.jpeg")
+```
+
+```{r}
+# income spending (female)
+dec_income_spending_female <-
+  make_network_plot(
+    data = txt_res_df,
+    text_col = dec_spendincome,
+    sex_filter = "Female",
+    filter_words = filter_word,
+    cor_threshold = 0.1,
+    node_color = "red",
+    title = "Decision-making toward income spending"
+  )
+
+## saving plot
+ggsave(
+  plot = dec_income_spending_female,
+  filename = "plot/txt_income_spending_female.jpeg",
+  width = 8,
+  heigh = 6,
+  unit = "in",
+  dpi = 400,
+)
+
+## display plot
+knitr::include_graphics("plot/txt_income_spending_female.jpeg")
+```
+
+
+## Management of household finances
+
+```{r}
+# avail loans (male)
+dec_hh_finance_mgmt_male <-
+  make_network_plot(
+    data = txt_res_df,
+    text_col = dec_mgmt_hhfinance,
+    sex_filter = "Male",
+    filter_words = filter_word,
+    cor_threshold = 0.1,
+    node_color = "steelblue",
+    title = "Decision-making towards management of household finances"
+  )
+
+## saving plot
+ggsave(
+  plot = dec_hh_finance_mgmt_male,
+  filename = "plot/txt_dec_hh_finance_mgmt_male.jpeg",
+  width = 8,
+  heigh = 6,
+  unit = "in",
+  dpi = 400,
+)
+
+## display plot
+knitr::include_graphics("plot/txt_dec_hh_finance_mgmt_male.jpeg")
+```
+
+```{r}
+# avail loans (female)
+dec_hh_finance_mgmt_female <- make_network_plot(
   data = txt_res_df,
-  text_col = dec_acqfarminputs,
+  text_col = dec_mgmt_hhfinance,
   sex_filter = "Female",
   filter_words = filter_word,
   cor_threshold = 0.1,
   node_color = "red",
-  title = "Decision to acquire farm inputs"
+  title = "Decision-making towards management of household finances"
 )
+
+## saving plot
+ggsave(
+  plot = dec_hh_finance_mgmt_female,
+  filename = "plot/txt_dec_hh_finance_mgmt_female.jpeg",
+  width = 8,
+  heigh = 6,
+  unit = "in",
+  dpi = 400,
+)
+
+## display plot
+knitr::include_graphics("plot/txt_dec_hh_finance_mgmt_female.jpeg")
 ```
+
+
+## Attendance to training
+
+```{r}
+# avail loans (male)
+training_attend_male <-
+  make_network_plot(
+    data = txt_res_df,
+    text_col = dec_attendtraining,
+    sex_filter = "Male",
+    filter_words = filter_word,
+    cor_threshold = 0.1,
+    node_color = "steelblue",
+    title = "Participation towards attendance to training"
+  )
+
+
+## saving plot
+ggsave(
+  plot = training_attend_male,
+  filename = "plot/txt_training_attend_male.jpeg",
+  width = 8,
+  heigh = 6,
+  unit = "in",
+  dpi = 400,
+)
+
+## display plot
+knitr::include_graphics("plot/txt_training_attend_male.jpeg")
+```
+
+```{r}
+# avail loans (female)
+training_attend_female <-
+  make_network_plot(
+    data = txt_res_df,
+    text_col = dec_attendtraining,
+    sex_filter = "Female",
+    filter_words = filter_word,
+    cor_threshold = 0.1,
+    node_color = "red",
+    title = "Participation towards attendance to training"
+  )
+
+## saving plot
+ggsave(
+  plot = training_attend_female,
+  filename = "plot/txt_training_attend_female.jpeg",
+  width = 8,
+  heigh = 6,
+  unit = "in",
+  dpi = 400,
+)
+
+## display plot
+knitr::include_graphics("plot/txt_training_attend_female.jpeg")
+```
+
+
+
+
+
