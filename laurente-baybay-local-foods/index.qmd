@@ -990,10 +990,36 @@ DT::datatable(summ_boot_pls_model$bootstrapped_paths |> round(3))
 
 ## Reliability and validity
 
+
+::: {.callout-note}
+
+## reliability Indicators
+
+- **Cronbach’s Alpha (α)**: All constructs exceed the 0.7 threshold, indicating acceptable internal consistency.
+
+- **rhoA and Composite Reliability (rhoC)**: All values are above 0.7, confirming strong construct reliability and stability across indicators.
+
+- **Average Variance Extracted (AVE)**: All constructs exceed 0.5, showing good convergent validity (each construct explains more than half of the variance of its indicators).
+:::
+
 ```{r}
 ## Reliability measurment
 DT::datatable(summ_pls_model$reliability |> round(3))
 ```
+
+
+::: {.callout-note}
+
+## Validity test
+
+-  Each construct shares more variance with its own indicators than with other constructs. Each diagonal value should be greater than its correlations with other constructs.
+
+- Constructs are distinct, meaning Attitude, Subjective Norm, Perceived Behavioral Control, Behavioral Intention, and Actual Behavior measure different aspects of residents’ perceptions and behaviors.
+
+- The measurement model is both valid and reliable, providing a solid foundation for interpreting the structural relationships in your PLS-SEM analysis.
+
+:::
+
 
 ```{r}
 DT::datatable(summ_pls_model$validity$fl_criteria |> round(3))
