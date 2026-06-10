@@ -1,0 +1,105 @@
+---
+title: "SCRP Baseline data in Hilongos, Leyte and Bohol"
+author: "ViSERDAC"
+date: last-modified
+format: 
+  html:
+    css: custom.scss
+    self-contained: true
+    mainfont: arial
+    fontsize: 1em
+    linestretch: 1.5
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    number-sections: true
+    code-fold: true
+    theme:
+      light: cosmo
+      dark: darkly
+execute:
+  message: false
+  warning: false
+  fig-align: center
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+# set working directory
+setwd(here::here("scrp-baseline"))
+
+# libraries
+library(tidyverse)
+library(readxl)
+library(janitor)
+library(scales)
+library(EFAtools)
+library(gtsummary)
+library(kableExtra)
+library(tidyr)
+library(tidytext)
+
+# data management source
+source("data-management.R")
+```
+
+# Attachments
+
+::: callout-note
+Copies of the Figures presented in this report are available using the links below. All the files can be accessed in the Google drive folder.
+:::
+
+<ol>
+
+<li><a href="https://drive.google.com/drive/folders/1I2PFRfb5vYPw0jx2PcIQYMpe1DO943EU?usp=sharing" target="_blank" style="text-decoration: none">Plots</a></li>
+
+<li><a href="https://drive.google.com/drive/folders/1cyLa0hL07qb-IDCc-xvLGZaxpfWk_dtS?usp=sharing" target="_blank" style="text-decoration: none">Google Drive</a></li>
+
+</ol>
+
+
+## Desriptive
+
+```{r}
+df |>
+  select(location, age:tenurial_stat) |>
+  tbl_summary(
+    by = location,
+    type = list(hh_size ~ "continuous"),
+    missing = "no",
+    label = list(
+      age ~ "Age",
+      gender ~ "Gender",
+      civil_status ~ "Civil status",
+      education_attainment ~ "Educational attainment",
+      hh_size = "Household size",
+      hh_head ~ "Household head",
+      farm_size_ha = "Farm size (ha)",
+      years_in_rice_farming = "Farming years",
+      tenurial_stat = "Tenurial status"
+    )
+  ) |>
+  bold_labels() %>%
+  as_kable_extra(linesep = "") %>%
+  kable_minimal() %>%
+  kable_styling(
+    full_width = F,
+    fixed_thead = T,
+    bootstrap_options = c("striped", "hover", "condensed", "responsive")
+  )
+```
+
+
+## Production
+
+
+```{r}
+df |> 
+    mutate(yield_cropping_ha = average_yield_per_cropping_sack / farm_size_ha,
+           revenue_cropping_ha = yield_cropping_ha * how_many_kgs_per_sack * how_much_if_sold_per_kilo
+    ) |> View()
+    select(yield_cropping)
+```
