@@ -1,3 +1,13 @@
+## set-up
+theme_1 <-
+  theme(
+    plot.margin = margin(10, 10, 10, 10),
+    plot.title = element_text(size = 14, face = "bold"),
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 12)
+  )
+
+
 ## reading data
 scrp_data_colnames <-
   read_excel("data/scrp-baseline-training-bohol-hilongos.xlsx", sheet = 3) |>
@@ -77,4 +87,50 @@ df <- read_excel(
   ) |>
   select(-contact_number, -name, -address)
 
-df |> glimpse()
+
+## data for yield and production
+
+df_harvest <-
+  df |>
+  rownames_to_column(var = "id") |>
+  filter(!is.na(location)) |>
+  mutate(avg_yield_ha = average_yield_per_cropping_sack / farm_size_ha) |>
+  select(id, location, avg_yield_ha, cra_knowledge) |>
+  mutate(id = factor(id, levels = 1:45))
+
+## Compute group means with chosen x positions
+df_mean_group_harvest <-
+  df_harvest |>
+  group_by(location) |>
+  summarise(mean_group_havest = mean(avg_yield_ha), .groups = "drop") |>
+  mutate(
+    x_pos = case_when(
+      location == "Bohol" ~ 11,
+      location == "Leyte" ~ 37
+    )
+  )
+
+# Separate mean data for each location
+df_mean_bohol <- df_mean_group_harvest |> filter(location == "Bohol")
+df_mean_leyte <- df_mean_group_harvest |> filter(location == "Leyte")
+n_leyte <- nrow(df_harvest |> filter(location == "Leyte"))
+n_bohol <- nrow(df_harvest |> filter(location == "Bohol"))
+
+
+## data for yield by CRA knowledge
+df_cra_knowledge_harvest <-
+  df_harvest |>
+  group_by(location, cra_knowledge) |>
+  summarise(
+    avg_yield_ha = mean(avg_yield_ha, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  mutate(
+    x_pos = case_when(
+      location == "Bohol" ~ 11,
+      location == "Leyte" ~ 37
+    )
+  )
+
+df_mean_bohol <- df_cra_knowledge_harvest |> filter(location == "Bohol")
+df_mean_leyte <- df_cra_knowledge_harvest |> filter(location == "Leyte")

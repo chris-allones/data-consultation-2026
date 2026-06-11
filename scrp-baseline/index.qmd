@@ -41,6 +41,7 @@ library(gtsummary)
 library(kableExtra)
 library(tidyr)
 library(tidytext)
+library(patchwork)
 
 # data management source
 source("data-management.R")
@@ -94,8 +95,11 @@ df |>
 ## Production
 
 ```{r}
+df |> glimpse()
+```
+
+```{r}
 df |>
-<<<<<<< HEAD
   mutate(
     yield_cropping_ha = average_yield_per_cropping_sack / farm_size_ha,
     revenue_cropping_ha = yield_cropping_ha *
@@ -103,13 +107,158 @@ df |>
       how_much_if_sold_per_kilo
   ) |>
   View()
+
 select(yield_cropping)
-=======
-  mutate(revenue_ha = (annual_revenue / 2) / farm_size_ha) |>
+mutate(revenue_ha = (annual_revenue / 2) / farm_size_ha) |>
   mutate(avg_revenue_ha = mean(revenue_ha, na.rm = TRUE)) |>
   filter(!is.na(location)) |>
   ggplot(aes(y = avg_revenue_ha, x = location)) +
   geom_col() +
   scale_y_continuous(labels = label_dollar())
->>>>>>> 4f93453be826ecbdaa88ae6af23594c16f70e1ca
+```
+
+```{r}
+# Plot for Bohol
+p_bohol <- df_harvest |>
+  filter(location == "Bohol") |>
+  ggplot(aes(x = id, y = avg_yield_ha, fill = location)) +
+  geom_col(show.legend = FALSE) +
+  geom_hline(
+    data = df_mean_bohol,
+    aes(yintercept = mean_group_havest),
+    linetype = "dashed",
+    color = "gray20"
+  ) +
+  geom_text(
+    data = df_mean_bohol,
+    aes(
+      x = 10,
+      y = mean_group_havest,
+      label = str_c("Average: ", round(mean_group_havest, 2))
+    ),
+    inherit.aes = FALSE,
+    vjust = -0.5,
+    color = "black",
+    fontface = "bold",
+    size = 4
+  ) +
+  labs(
+    y = "Average yield per ha (sack)",
+    title = str_c("Bohol (n=", n_bohol, ")")
+  ) +
+  theme_1
+
+# Plot for Leyte
+p_leyte <- df_harvest |>
+  filter(location == "Leyte") |>
+  ggplot(aes(x = id, y = avg_yield_ha, fill = location)) +
+  geom_col(show.legend = FALSE, fill = "steelblue") +
+  geom_hline(
+    data = df_mean_leyte,
+    aes(yintercept = mean_group_havest),
+    linetype = "dashed",
+    color = "gray20"
+  ) +
+  geom_text(
+    data = df_mean_leyte,
+    aes(
+      x = 11,
+      y = mean_group_havest,
+      label = str_c("Average: ", round(mean_group_havest, 2))
+    ),
+    inherit.aes = FALSE,
+    vjust = -0.5,
+    color = "black",
+    fontface = "bold",
+    size = 4
+  ) +
+  labs(
+    y = "Average yield per ha (sack)",
+    title = str_c("Leyte (n=", n_leyte, ")")
+  ) +
+  theme_1
+
+# Combine with patchwork
+p_yield <- p_bohol / p_leyte
+
+# saving plot
+ggsave(
+  plot = p_yield,
+  filename = "plot/average_yield.jpeg",
+  width = 12,
+  height = 8,
+  dpi = 400,
+  unit = "in"
+)
+
+
+## display plot
+knitr::include_graphics("plot/average_yield.jpeg")
+```
+
+```{r}
+
+#########
+df_harvest |>
+  filter(location == "Leyte") |>
+  filter(cra_knowledge == 1) |> 
+  ggplot(aes(x = id, y = avg_yield_ha)) +
+  geom_col(show.legend = FALSE, fill = "steelblue") +
+  geom_hline(
+    data = df_mean_leyte |> filter(cra_knowledge == 1) ,
+    aes(yintercept = avg_yield_ha),
+    linetype = "dashed",
+    color = "gray20"
+  ) +
+  geom_text(
+    data = df_mean_leyte |> filter(cra_knowledge == 1) ,
+    aes(
+      x = 6,
+      y = avg_yield_ha,
+      label = str_c("Average: ", round(avg_yield_ha, 2))
+    ),
+    inherit.aes = FALSE,
+    vjust = -0.5,
+    color = "black",
+    fontface = "bold",
+    size = 4
+  ) +
+  facet_wrap(~ cra_knowledge) +
+  labs(
+    y = "Average yield per ha (sack)",
+    title = str_c("Leyte (n=", n_leyte, ")")
+  ) +
+  theme_1
+
+df_harvest |>
+  filter(location == "Leyte") |>
+  filter(cra_knowledge == 0) |> 
+  ggplot(aes(x = id, y = avg_yield_ha)) +
+  geom_col(show.legend = FALSE, fill = "steelblue") +
+  geom_hline(
+    data = df_mean_leyte |> filter(cra_knowledge == 0) ,
+    aes(yintercept = avg_yield_ha),
+    linetype = "dashed",
+    color = "gray20"
+  ) +
+  geom_text(
+    data = df_mean_leyte |> filter(cra_knowledge == 0) ,
+    aes(
+      x = 6,
+      y = avg_yield_ha,
+      label = str_c("Average: ", round(avg_yield_ha, 2))
+    ),
+    inherit.aes = FALSE,
+    vjust = -0.5,
+    color = "black",
+    fontface = "bold",
+    size = 4
+  ) +
+  facet_wrap(~ cra_knowledge) +
+  labs(
+    y = "Average yield per ha (sack)",
+    title = str_c("Leyte (n=", n_leyte, ")")
+  ) +
+  theme_1
+
 ```
