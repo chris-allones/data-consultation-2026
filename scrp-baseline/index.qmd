@@ -60,7 +60,6 @@ Copies of the Figures presented in this report are available using the links bel
 
 </ol>
 
-
 ## Desriptive
 
 ```{r}
@@ -92,14 +91,14 @@ df |>
   )
 ```
 
-
 ## Production
 
-
 ```{r}
-df |> 
-    mutate(yield_cropping_ha = average_yield_per_cropping_sack / farm_size_ha,
-           revenue_cropping_ha = yield_cropping_ha * how_many_kgs_per_sack * how_much_if_sold_per_kilo
-    ) |> View()
-    select(yield_cropping)
+df |>
+  mutate(revenue_ha = (annual_revenue / 2) / farm_size_ha) |>
+  mutate(avg_revenue_ha = mean(revenue_ha, na.rm = TRUE)) |>
+  filter(!is.na(location)) |>
+  ggplot(aes(y = avg_revenue_ha, x = location)) +
+  geom_col() +
+  scale_y_continuous(labels = label_dollar())
 ```
