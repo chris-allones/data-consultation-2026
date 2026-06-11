@@ -97,9 +97,13 @@ df |>
 
 
 ```{r}
-df |> 
-    mutate(yield_cropping_ha = average_yield_per_cropping_sack / farm_size_ha,
-           revenue_cropping_ha = yield_cropping_ha * how_many_kgs_per_sack * how_much_if_sold_per_kilo
-    ) |> View()
-    select(yield_cropping)
+df |>
+  mutate(
+    yield_cropping_ha = average_yield_per_cropping_sack / farm_size_ha,
+    revenue_cropping_ha = yield_cropping_ha *
+      how_many_kgs_per_sack *
+      how_much_if_sold_per_kilo
+  ) |>
+  View()
+select(yield_cropping)
 ```
