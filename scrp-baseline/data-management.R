@@ -94,6 +94,7 @@ df_harvest <-
   df |>
   rownames_to_column(var = "id") |>
   filter(!is.na(location)) |>
+  filter(id != 12) |> # remove outlier
   mutate(avg_yield_ha = average_yield_per_cropping_sack / farm_size_ha) |>
   select(id, location, avg_yield_ha, cra_knowledge) |>
   mutate(id = factor(id, levels = 1:45))
@@ -132,5 +133,26 @@ df_cra_knowledge_harvest <-
     )
   )
 
-df_mean_bohol <- df_cra_knowledge_harvest |> filter(location == "Bohol")
-df_mean_leyte <- df_cra_knowledge_harvest |> filter(location == "Leyte")
+df_mean_bohol_2 <- df_cra_knowledge_harvest |>
+  filter(location == "Bohol") |>
+  na.omit()
+df_mean_leyte_2 <- df_cra_knowledge_harvest |> filter(location == "Leyte")
+n_no_cra_leyte <- df_harvest |>
+  filter(location == "Leyte") |>
+  filter(cra_knowledge == 0) |>
+  nrow()
+
+n_with_cra_leyte <- df_harvest |>
+  filter(location == "Leyte") |>
+  filter(cra_knowledge == 1) |>
+  nrow()
+
+n_no_cra_bohol <- df_harvest |>
+  filter(location == "Bohol") |>
+  filter(cra_knowledge == 0) |>
+  nrow()
+
+n_with_cra_bohol <- df_harvest |>
+  filter(location == "Bohol") |>
+  filter(cra_knowledge == 1) |>
+  nrow()

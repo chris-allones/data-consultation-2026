@@ -197,21 +197,21 @@ knitr::include_graphics("plot/average_yield.jpeg")
 ```
 
 ```{r}
-
-#########
-df_harvest |>
+## Plot for Leyte with CRA knowledge
+p_leyte_yes_cra <-
+  df_harvest |>
   filter(location == "Leyte") |>
-  filter(cra_knowledge == 1) |> 
+  filter(cra_knowledge == 1) |>
   ggplot(aes(x = id, y = avg_yield_ha)) +
   geom_col(show.legend = FALSE, fill = "steelblue") +
   geom_hline(
-    data = df_mean_leyte |> filter(cra_knowledge == 1) ,
+    data = df_mean_leyte_2 |> filter(cra_knowledge == 1),
     aes(yintercept = avg_yield_ha),
     linetype = "dashed",
     color = "gray20"
   ) +
   geom_text(
-    data = df_mean_leyte |> filter(cra_knowledge == 1) ,
+    data = df_mean_leyte_2 |> filter(cra_knowledge == 1),
     aes(
       x = 6,
       y = avg_yield_ha,
@@ -223,26 +223,28 @@ df_harvest |>
     fontface = "bold",
     size = 4
   ) +
-  facet_wrap(~ cra_knowledge) +
+  facet_wrap(~cra_knowledge) +
   labs(
     y = "Average yield per ha (sack)",
-    title = str_c("Leyte (n=", n_leyte, ")")
+    title = str_c("Leyte (n=", n_with_cra_leyte, "): with CRA knowledge")
   ) +
   theme_1
 
-df_harvest |>
+
+p_leyte_no_cra <-
+  df_harvest |>
   filter(location == "Leyte") |>
-  filter(cra_knowledge == 0) |> 
+  filter(cra_knowledge == 0) |>
   ggplot(aes(x = id, y = avg_yield_ha)) +
-  geom_col(show.legend = FALSE, fill = "steelblue") +
+  geom_col(width = 0.5, show.legend = FALSE, fill = "steelblue") +
   geom_hline(
-    data = df_mean_leyte |> filter(cra_knowledge == 0) ,
+    data = df_mean_leyte_2 |> filter(cra_knowledge == 0),
     aes(yintercept = avg_yield_ha),
     linetype = "dashed",
     color = "gray20"
   ) +
   geom_text(
-    data = df_mean_leyte |> filter(cra_knowledge == 0) ,
+    data = df_mean_leyte_2 |> filter(cra_knowledge == 0),
     aes(
       x = 6,
       y = avg_yield_ha,
@@ -254,11 +256,93 @@ df_harvest |>
     fontface = "bold",
     size = 4
   ) +
-  facet_wrap(~ cra_knowledge) +
+  facet_wrap(~cra_knowledge) +
   labs(
     y = "Average yield per ha (sack)",
-    title = str_c("Leyte (n=", n_leyte, ")")
+    title = str_c(
+      "Leyte (n=",
+      n_no_cra_leyte,
+      "): without CRA knowledge"
+    )
   ) +
   theme_1
 
+## Leyte with and without CRA knkoweledge
+p_leyte_cra <- p_leyte_yes_cra / p_leyte_no_cra
+```
+
+
+```{r}
+# plot for Bohol with CRA knowledge
+p_bohol_yes_cra <-
+  df_harvest |>
+  filter(location == "Bohol") |>
+  filter(cra_knowledge == 1) |>
+  ggplot(aes(x = id, y = avg_yield_ha)) +
+  geom_col(width = 0.5, show.legend = FALSE, fill = "steelblue") +
+  scale_y_continuous(limits = c(0, 200)) +
+  geom_hline(
+    data = df_mean_bohol_2 |> filter(cra_knowledge == 1),
+    aes(yintercept = avg_yield_ha),
+    linetype = "dashed",
+    color = "gray20"
+  ) +
+  geom_text(
+    data = df_mean_bohol_2 |> filter(cra_knowledge == 1),
+    aes(
+      x = 4,
+      y = avg_yield_ha,
+      label = str_c("Average: ", round(avg_yield_ha, 2))
+    ),
+    inherit.aes = FALSE,
+    vjust = -0.5,
+    color = "black",
+    fontface = "bold",
+    size = 4
+  ) +
+  labs(
+    y = "Average yield per ha (sack)",
+    title = str_c("Bohol (n=", n_with_cra_bohol, "): with CRA knowledge")
+  ) +
+  theme_1
+
+
+p_bohol_no_cra <-
+  df_harvest |>
+  filter(location == "Bohol") |>
+  filter(cra_knowledge == 0) |>
+  ggplot(aes(x = id, y = avg_yield_ha)) +
+  geom_col(width = 0.8, show.legend = FALSE, fill = "steelblue") +
+  scale_y_continuous(limits = c(0, 200)) +
+  geom_hline(
+    data = df_mean_bohol_2 |> filter(cra_knowledge == 0),
+    aes(yintercept = avg_yield_ha),
+    linetype = "dashed",
+    color = "gray20"
+  ) +
+  geom_text(
+    data = df_mean_bohol_2 |> filter(cra_knowledge == 0),
+    aes(
+      x = 4,
+      y = avg_yield_ha,
+      label = str_c("Average: ", round(avg_yield_ha, 2))
+    ),
+    inherit.aes = FALSE,
+    vjust = -0.5,
+    color = "black",
+    fontface = "bold",
+    size = 4
+  ) +
+  labs(
+    y = "Average yield per ha (sack)",
+    title = str_c(
+      "Bohol (n=",
+      n_no_cra_bohol,
+      "): without CRA knowledge"
+    )
+  ) +
+  theme_1
+
+## Bohol with and without CRA knkoweledge
+p_bohol_cra <- p_bohol_yes_cra / p_bohol_no_cra
 ```
