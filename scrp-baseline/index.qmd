@@ -98,24 +98,7 @@ df |>
 df |> glimpse()
 ```
 
-```{r}
-df |>
-  mutate(
-    yield_cropping_ha = average_yield_per_cropping_sack / farm_size_ha,
-    revenue_cropping_ha = yield_cropping_ha *
-      how_many_kgs_per_sack *
-      how_much_if_sold_per_kilo
-  ) |>
-  View()
 
-select(yield_cropping)
-mutate(revenue_ha = (annual_revenue / 2) / farm_size_ha) |>
-  mutate(avg_revenue_ha = mean(revenue_ha, na.rm = TRUE)) |>
-  filter(!is.na(location)) |>
-  ggplot(aes(y = avg_revenue_ha, x = location)) +
-  geom_col() +
-  scale_y_continuous(labels = label_dollar())
-```
 
 ```{r}
 # Plot for Bohol
@@ -196,6 +179,8 @@ ggsave(
 knitr::include_graphics("plot/average_yield.jpeg")
 ```
 
+
+## Climate-resilient
 ```{r}
 ## Plot for Leyte with CRA knowledge
 p_leyte_yes_cra <-
@@ -269,6 +254,16 @@ p_leyte_no_cra <-
 
 ## Leyte with and without CRA knkoweledge
 p_leyte_cra <- p_leyte_yes_cra / p_leyte_no_cra
+
+## saving plot
+ggsave(
+  plot = p_leyte_cra,
+  filename = "plot/leyte_cra.jpeg",
+  width = 12,
+  height = 8,
+  dpi = 400,
+  unit = "in"
+)
 ```
 
 
@@ -279,7 +274,7 @@ p_bohol_yes_cra <-
   filter(location == "Bohol") |>
   filter(cra_knowledge == 1) |>
   ggplot(aes(x = id, y = avg_yield_ha)) +
-  geom_col(width = 0.5, show.legend = FALSE, fill = "steelblue") +
+  geom_col(width = 0.5, show.legend = FALSE, fill = "#F8766D") +
   scale_y_continuous(limits = c(0, 200)) +
   geom_hline(
     data = df_mean_bohol_2 |> filter(cra_knowledge == 1),
@@ -312,7 +307,7 @@ p_bohol_no_cra <-
   filter(location == "Bohol") |>
   filter(cra_knowledge == 0) |>
   ggplot(aes(x = id, y = avg_yield_ha)) +
-  geom_col(width = 0.8, show.legend = FALSE, fill = "steelblue") +
+  geom_col(width = 0.8, show.legend = FALSE, fill = "#F8766D") +
   scale_y_continuous(limits = c(0, 200)) +
   geom_hline(
     data = df_mean_bohol_2 |> filter(cra_knowledge == 0),
@@ -345,4 +340,58 @@ p_bohol_no_cra <-
 
 ## Bohol with and without CRA knkoweledge
 p_bohol_cra <- p_bohol_yes_cra / p_bohol_no_cra
+
+## saving plot
+ggsave(
+  plot = p_bohol_cra,
+  filename = "plot/bohol_cra.jpeg",
+  width = 12,
+  height = 8,
+  dpi = 400,
+  unit = "in"
+)
+```
+
+## Prices
+
+
+```{r}
+p_price <-
+  df |>
+  select(res_no, price_per_kilo2) |>
+  filter(!is.na(price_per_kilo2)) |>
+  ggplot(aes(x = res_no, y = price_per_kilo2)) +
+  geom_point() +
+  geom_line() +
+  geom_hline(yintercept = 21.5, linetype = "dashed", color = "gray20") +
+  geom_text(aes(label = price_per_kilo2), vjust = -0.5, size = 4) +
+  scale_x_continuous(breaks = seq(1, 25, by = 2), limits = c(1, 25)) +
+  scale_y_continuous(limits = c(0, 50), breaks = seq(0, 50, by = 5)) +
+  annotate(
+    "text",
+    x = 15,
+    y = 18,
+    label = "Jan-March average price: PHP 21.50",
+    color = "black",
+    size = 4
+  ) +
+  labs(
+    x = "id",
+    y = "Price per kilo (PHP)",
+    title = "Farmer's self-elicitation of price of rice (PHP/kg)"
+  ) +
+  theme_1
+
+## saving plot
+ggsave(
+  plot = p_price,
+  filename = "plot/price_per_kilo.jpeg",
+  width = 8,
+  height = 5,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/price_per_kilo.jpeg")
 ```

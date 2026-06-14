@@ -3,6 +3,7 @@ theme_1 <-
   theme(
     plot.margin = margin(10, 10, 10, 10),
     plot.title = element_text(size = 14, face = "bold"),
+    panel.grid.minor = element_blank(),
     axis.text = element_text(size = 12),
     axis.title = element_text(size = 12)
   )
