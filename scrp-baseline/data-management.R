@@ -97,7 +97,8 @@ df_harvest <-
   filter(!is.na(location)) |>
   filter(id != 12) |> # remove outlier
   mutate(avg_yield_ha = average_yield_per_cropping_sack / farm_size_ha) |>
-  select(id, location, avg_yield_ha, cra_knowledge) |>
+  mutate(annual_revenue = annual_revenue/farm_size_ha) |> 
+  select(id, location, avg_yield_ha, annual_revenue, cra_knowledge) |>
   mutate(id = factor(id, levels = 1:45))
 
 ## Compute group means with chosen x positions
@@ -168,3 +169,22 @@ df_harvest |>
 df_harvest |>
   filter(location == "Bohol") |>
   print(n = 30)
+
+## Compute group means for revenue
+df_mean_group_revenue <-
+  df_harvest |>
+  group_by(location) |>
+  summarise(mean_group_revenue = mean(annual_revenue), .groups = "drop") |>
+  mutate(
+    x_pos = case_when(
+      location == "Bohol" ~ 11,
+      location == "Leyte" ~ 37
+    )
+  )
+
+# Separate mean data for each location
+df_mean_revenue_bohol <- df_mean_group_revenue |> filter(location == "Bohol")
+df_mean_revenue_leyte <- df_mean_group_revenue |> filter(location == "Leyte")
+n_leyte <- nrow(df_harvest |> filter(location == "Leyte"))
+n_bohol <- nrow(df_harvest |> filter(location == "Bohol"))
+

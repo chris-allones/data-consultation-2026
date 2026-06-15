@@ -98,8 +98,6 @@ df |>
 df |> glimpse()
 ```
 
-
-
 ```{r}
 # Plot for Bohol
 p_bohol <- df_harvest |>
@@ -179,8 +177,8 @@ ggsave(
 knitr::include_graphics("plot/average_yield.jpeg")
 ```
 
-
 ## Climate-resilient
+
 ```{r}
 ## Plot for Leyte with CRA knowledge
 p_leyte_yes_cra <-
@@ -265,7 +263,6 @@ ggsave(
   unit = "in"
 )
 ```
-
 
 ```{r}
 # plot for Bohol with CRA knowledge
@@ -354,7 +351,6 @@ ggsave(
 
 ## Prices
 
-
 ```{r}
 p_price <-
   df |>
@@ -395,4 +391,95 @@ ggsave(
 
 ## display plot
 knitr::include_graphics("plot/price_per_kilo.jpeg")
+```
+
+```{r}
+# Plot for Bohol
+p_revenue_bohol <- df_harvest |>
+  filter(location == "Bohol") |>
+  filter(annual_revenue > 0) |>
+  ggplot(aes(x = id, y = annual_revenue, fill = location)) +
+  geom_col(show.legend = FALSE) +
+  geom_hline(
+    data = df_mean_revenue_bohol,
+    aes(yintercept = mean_group_revenue),
+    linetype = "dashed",
+    color = "gray20"
+  ) +
+  geom_text(
+    data = df_mean_revenue_bohol,
+    aes(
+      x = 7,
+      y = mean_group_revenue + 15e3,
+      label = str_c("Average: ", round(mean_group_revenue, 2))
+    ),
+    inherit.aes = FALSE,
+    vjust = -0.5,
+    color = "black",
+    fontface = "bold",
+    size = 4
+  ) +
+  scale_y_continuous(
+    labels = scales::number_format(),
+    limits = c(0, 3e5),
+    breaks = seq(0, 3e5, 5e4)
+  ) +
+  labs(
+    y = "Annual revenue per hectare (Php/ha)",
+    title = str_c("Bohol (n=", n_bohol, ")")
+  ) +
+  theme_1
+
+# Plot for Leyte
+p_revenue_leyte <- df_harvest |>
+  filter(location == "Leyte") |>
+  filter(annual_revenue > 0) |>
+  ggplot(aes(x = id, y = annual_revenue, fill = location)) +
+  geom_col(show.legend = FALSE, fill = "steelblue") +
+  geom_hline(
+    data = df_mean_revenue_leyte,
+    aes(yintercept = mean_group_revenue),
+    linetype = "dashed",
+    color = "gray20"
+  ) +
+  geom_text(
+    data = df_mean_revenue_leyte,
+    aes(
+      x = 11,
+      y = mean_group_revenue,
+      label = str_c("Average: ", round(mean_group_revenue, 2))
+    ),
+    inherit.aes = FALSE,
+    vjust = -0.5,
+    color = "black",
+    fontface = "bold",
+    size = 4
+  ) +
+  scale_y_continuous(
+    labels = scales::number_format(),
+    limits = c(0, 13e5),
+    breaks = seq(0, 13e5, 2e5)
+  ) +
+  labs(
+    y = "Annual revenue per hectare (Php/ha)",
+    title = str_c("Leyte (n=", n_leyte, ")")
+  ) +
+  theme_1
+
+# Combine with patchwork
+p_revenue <- p_revenue_bohol / p_revenue_leyte
+
+# saving plot
+ggsave(
+  plot = p_revenue,
+  filename = "plot/average_revenue.jpeg",
+  width = 12,
+  height = 8,
+  dpi = 400,
+  unit = "in"
+)
+
+
+## display plot
+knitr::include_graphics("plot/average_revenue.jpeg")
 ```
