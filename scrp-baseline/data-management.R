@@ -157,3 +157,14 @@ n_with_cra_bohol <- df_harvest |>
   filter(location == "Bohol") |>
   filter(cra_knowledge == 1) |>
   nrow()
+
+
+df_harvest |>
+  count(location, cra_knowledge) |>
+  na.omit() |>
+  group_by(location) |>
+  mutate(percent = n / sum(n) * 100)
+
+df_harvest |>
+  filter(location == "Bohol") |>
+  print(n = 30)

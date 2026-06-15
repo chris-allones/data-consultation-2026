@@ -371,14 +371,15 @@ p_price <-
     "text",
     x = 15,
     y = 18,
-    label = "Jan-March average price: PHP 21.50",
+    label = "Jan-March average price (PSA, 2026): PHP 21.50",
     color = "black",
-    size = 4
+    size = 4.5,
+    fontface = "bold"
   ) +
   labs(
     x = "id",
     y = "Price per kilo (PHP)",
-    title = "Farmer's self-elicitation of price of rice (PHP/kg)"
+    title = "Farmer's self-reported price of rice (PHP/kg)"
   ) +
   theme_1
 
