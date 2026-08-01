@@ -32,7 +32,6 @@ ai_ms_dta <-
     "ai_tools_used" = which_ai_tools_do_you_use_please_check_all_the_ai_tools_you_use
   )
 
-
 ## recode degree into program and major columns
 ai_ms_dta <- ai_ms_dta |>
   mutate(
@@ -113,10 +112,82 @@ ai_ms_dta <- ai_ms_dta |>
       .default = NA_character_
     )
   ) |>
-  select(-degree_lower)
+  select(-degree_lower) |>
+  relocate(program:major, .after = degree)
 
 
-ai_ms_dta |>
-  select(program, major, everything()) |>
-  View()
-glimpse()
+## extracting graduate years
+ai_ms_dta <- ai_ms_dta |>
+  mutate(
+    grad_years = case_when(
+      is.na(grad_years) | grad_years == "n/a" ~ NA_real_,
+      grad_years %in%
+        c(
+          "5 months",
+          "4 months",
+          "6 months/half a year",
+          "half a year",
+          "More than half",
+          "0.5 years (half a year)",
+          "1st semester",
+          "1 semester"
+        ) ~ 0.5,
+      grad_years == "<1" ~ 0.5,
+      grad_years == ">1" ~ 1.0,
+      grad_years %in% c("Less than 1 year", "Less than one year") ~ 0.5,
+      grad_years == "1 and half" ~ 1.5,
+      grad_years == "three" ~ 3,
+      TRUE ~ parse_number(grad_years)
+    )
+  ) |>
+  # remove numbers in year level variable
+  mutate(year_level = str_remove(year_level, "^\\d+\\s*")) |>
+  # extract year of working experience
+  mutate(
+    working_experience_numeric = case_when(
+      is.na(working_experience) |
+        str_to_lower(working_experience) %in%
+          c("n/a", "n.a.", "none", "na") ~ NA_real_,
+
+      # month-only entries -> convert to fraction of year
+      str_detect(str_to_lower(working_experience), "^1 month$") ~ 1 / 12,
+      str_detect(str_to_lower(working_experience), "^4 months?$") ~ 4 / 12,
+      str_detect(
+        str_to_lower(working_experience),
+        "^6 months?$|^6months$|^half year|^half a year"
+      ) ~ 0.5,
+      str_detect(str_to_lower(working_experience), "^8 months?$") ~ 8 / 12,
+      str_detect(str_to_lower(working_experience), "^9 months?$") ~ 9 / 12,
+      str_detect(str_to_lower(working_experience), "6 months as") ~ 0.5,
+
+      # "Less than a year" / "More than 1 year"
+      str_to_lower(working_experience) == "less than a year" ~ 0.5,
+      str_to_lower(working_experience) == "more than 1 year" ~ 1.0,
+
+      # fractional written forms
+      working_experience == "1/3" ~ 1 / 3,
+      working_experience %in%
+        c("1 1/2 years", "1&1/2", "1 and half years") ~ 1.5,
+      str_detect(str_to_lower(working_experience), "^1 year and 5 months") ~ 1 +
+        5 / 12,
+      str_detect(
+        str_to_lower(working_experience),
+        "^1 year and 6 months"
+      ) ~ 1.5,
+      str_detect(
+        str_to_lower(working_experience),
+        "^2 years and 4 months"
+      ) ~ 2 + 4 / 12,
+      str_detect(
+        str_to_lower(working_experience),
+        "^2 years and 7 months"
+      ) ~ 2 + 7 / 12,
+      str_detect(
+        str_to_lower(working_experience),
+        "^5 years and 6 months"
+      ) ~ 5.5,
+
+      # everything else: extract first number
+      TRUE ~ parse_number(working_experience)
+    )
+  )
