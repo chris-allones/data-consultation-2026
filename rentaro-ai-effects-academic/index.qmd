@@ -1,0 +1,126 @@
+---
+title: "Level of awareness and perceived impact of Artificial Intelligence (AI) in academic activities among graduate students of Visayas State University"
+subtitle: "Client: Sato Rintaro"
+date: last-modified
+format: 
+  html:
+    css: custom.scss
+    self-contained: true
+    mainfont: arial
+    fontsize: 1em
+    linestretch: 1.5
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    number-sections: true
+    code-fold: true
+    theme:
+      light: cosmo
+      dark: darkly
+execute:
+  message: false
+  warning: false
+  fig-align: center
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+# set working directory
+setwd(here::here("rentaro-ai-effects-academic"))
+
+# libraries
+library(tidyverse)
+library(readxl)
+library(janitor)
+library(scales)
+library(EFAtools)
+library(psych)
+library(seminr)
+library(gtsummary)
+library(kableExtra)
+library(correlation)
+library(reshape2)
+
+
+# data management source
+source("data-management.R")
+```
+
+# Attachments
+
+::: callout-note
+Copies of the Figures presented in this report are available using the links below. All the files can be accessed in the Google drive folder.
+:::
+
+<ol>
+
+<li><a href="" target="_blank" style="text-decoration: none">Plots</a></li>
+
+<li><a href="" target="_blank" style="text-decoration: none">Google Drive</a></li>
+
+</ol>
+
+# Objective 1: Determine the level of graduate students' awareness of AI tools used in academic activities.
+
+# Objective 2: Describe the levels of performance expectancy, effort expectancy, and ethical risk perception as component  of overall AI perception.
+
+# Objective 4: Assess the extent of graduate students' AI usage behavior in their academic activities.
+
+# Objective 5: Examine the influence of awareness of AI tools on overall AI perception.
+
+# Objective 6: Determin the effects of overall AI perception on AI usage behvior.
+
+# Objective 7: Examine whether socio-demographic characteristics are associated with awareness of AI perception, and AI usage behvior.
+
+# Objective 8: Describe characteristics of respondents towards AI.
+
+
+```{r}
+## descriptive
+ai_ms_dta |>
+  select(age:ai_tools_used) |>
+  select(
+    -c(
+      weekly_allowance,
+      working_experience,
+      residence,
+      major,
+      degree,
+      gadget_own,
+      gadget_own_type,
+      internet_source,
+      internet_provider,
+      internet_monthly_budget,
+      ai_info_source,
+      ai_training,
+      ai_tools_used
+    )
+  ) |>
+  tbl_summary(
+    statistic = list(all_categorical() ~ "{n} ({p}%)"),
+    missing = "no",
+    label = list(
+      age ~ "Age",
+      sex ~ "Gender",
+      program ~ "Program",
+      year_level ~ "Year Level",
+      grad_years ~ "Years in Graduate School",
+      employment_status ~ "Employment Status",
+      internet_availability ~ "Internet
+      Availability",
+      ai_familiarity ~ "Familiarity with AI",
+      ai_use_freq ~ "Frequency of AI Use"
+    )
+  ) |>
+  bold_labels() %>%
+  as_kable_extra(linesep = "") %>%
+  kable_minimal() %>%
+  kable_styling(
+    full_width = F,
+    fixed_thead = T,
+    bootstrap_options = c("striped", "hover", "condensed", "responsive")
+  )
+```

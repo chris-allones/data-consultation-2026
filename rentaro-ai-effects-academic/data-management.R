@@ -190,4 +190,26 @@ ai_ms_dta <- ai_ms_dta |>
       # everything else: extract first number
       TRUE ~ parse_number(working_experience)
     )
+  ) |>
+  # arrange factor level
+  mutate(
+    year_level = factor(
+      year_level,
+      levels = c(
+        "First Year",
+        "Second Year",
+        "Third Year",
+        "Fourth Year",
+        "Fifth Year"
+      )
+    ),
+    employment_status = factor(
+      employment_status,
+      levels = c(
+        "Full-time graduate student",
+        "Working full-time graduate student",
+        "Working part-time graduate student",
+        "Others"
+      )
+    )
   )
