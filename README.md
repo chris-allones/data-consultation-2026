@@ -1,6 +1,6 @@
 ## Welcome to My Data Consultation 2026 Directory
 
-This repository serves as a living archive of applied analyses and research projects I’ve developed for institutional reporting, farmer workshops, and academic studies. Each folder represents a distinct analysis, complete with its own datasets, scripts, and published outputs.
+This repository serves as an archive of the applied analyses I’ve done. Each folder represents a distinct analysis, complete with its own datasets, scripts, and published outputs.
 
 To make navigation easier, I’ve compiled a table below that links directly to:
 
