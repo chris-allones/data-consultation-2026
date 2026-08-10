@@ -65,7 +65,7 @@ Copies of the Figures presented in this report are available using the links bel
 
 # Objective 1: Determine the level of graduate students' awareness of AI tools used in academic activities.
 
-# Objective 2: Describe the levels of performance expectancy, effort expectancy, and ethical risk perception as component  of overall AI perception.
+# Objective 2: Describe the levels of performance expectancy, effort expectancy, and ethical risk perception as component of overall AI perception.
 
 # Objective 4: Assess the extent of graduate students' AI usage behavior in their academic activities.
 
@@ -76,7 +76,6 @@ Copies of the Figures presented in this report are available using the links bel
 # Objective 7: Examine whether socio-demographic characteristics are associated with awareness of AI perception, and AI usage behvior.
 
 # Objective 8: Describe characteristics of respondents towards AI.
-
 
 ```{r}
 ## descriptive
