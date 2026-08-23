@@ -65,7 +65,190 @@ Copies of the Figures presented in this report are available using the links bel
 
 # Objective 1: Determine the level of graduate students' awareness of AI tools used in academic activities.
 
+```{r}
+p_ai_awareness <- plot_factor("Awareness", stwidth = 50)
+
+## ggsave
+ggsave(
+  plot = p_ai_awareness,
+  filename = "plot/ai_awareness.jpeg",
+  width = 8,
+  height = 6,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/ai_awareness.jpeg")
+```
+
+
 # Objective 2: Describe the levels of performance expectancy, effort expectancy, and ethical risk perception as component of overall AI perception.
+
+### Peformance expectancy: Perceived usefulness {.unnumbered}
+
+```{r}
+p_performance_expectancy <-
+  plot_factor("Performance Expectancy")
+
+## save plot
+ggsave(
+  plot = p_performance_expectancy,
+  filename = "plot/performance_expectancy.jpeg",
+  width = 8,
+  height = 6,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/performance_expectancy.jpeg")
+```
+
+
+### Effort expectancy: Perceived ease of use {.unnumbered}
+
+```{r}
+p_effort_expectancy <-
+  plot_factor("Effort Expectancy\n(Perceived Ease of Use)")
+
+## save plot
+ggsave(
+  plot = p_effort_expectancy,
+  filename = "plot/effort_expectancy_peou.jpeg",
+  width = 8,
+  height = 6,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/effort_expectancy_peou.jpeg")
+```
+
+
+### Effort expectancy: Self-efficacy {.unnumbered}
+
+```{r}
+p_effort_expectancy_se <-
+  plot_factor("Effort Expectancy\n(Self-Efficacy)")
+
+## save plot
+ggsave(
+  plot = p_effort_expectancy_se,
+  filename = "plot/effort_expectancy_se.jpeg",
+  width = 8,
+  height = 5,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/effort_expectancy_se.jpeg")
+```
+
+
+### Ethical perceptions: Bias and discrimination {.unnumbered}
+
+```{r}
+p_ethical_risk_bias <-
+  plot_factor("Ethical Perceptions\n(Bias and Discrimination)")
+
+## save plot
+ggsave(
+  plot = p_ethical_risk_bias,
+  filename = "plot/ethical_risk_bias.jpeg",
+  width = 8,
+  height = 6,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/ethical_risk_bias.jpeg")
+```
+
+### Ethical perceptions: Privacy and security {.unnumbered}
+
+```{r}
+p_ethical_risk_privacy <-
+  plot_factor("Ethical Perceptions\n(Privacy and Security)")
+
+## save plot
+ggsave(
+  plot = p_ethical_risk_privacy,
+  filename = "plot/ethical_risk_privacy.jpeg",
+  width = 8,
+  height = 6,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/ethical_risk_privacy.jpeg")
+```
+
+### Ethical perceptions: Transparency  {.unnumbered}
+
+```{r}
+p_ethical_risk_transparency <-
+  plot_factor("Ethical Perceptions\n(Transparency)")
+
+## save plot
+ggsave(
+  plot = p_ethical_risk_transparency,
+  filename = "plot/ethical_risk_transparency.jpeg",
+  width = 8,
+  height = 6,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/ethical_risk_transparency.jpeg")
+```
+
+### Ethical perceptions: Over-reliance on AI  {.unnumbered}
+
+```{r}
+p_ethical_risk_overreliance <-
+  plot_factor("Ethical Perceptions\n(Over-reliance on AI)")
+
+## save plot
+ggsave(
+  plot = p_ethical_risk_overreliance,
+  filename = "plot/ethical_risk_overreliance.jpeg",
+  width = 8,
+  height = 6,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/ethical_risk_overreliance.jpeg")
+```
+
+### Ethical perceptions: Equity and access {.unnumbered}
+
+```{r}
+p_ethical_risk_equity <-
+  plot_factor("Ethical Perceptions\n(Equity and Access)")
+
+## save plot
+ggsave(
+  plot = p_ethical_risk_equity,
+  filename = "plot/ethical_risk_equity.jpeg",
+  width = 8,
+  height = 6,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/ethical_risk_equity.jpeg")
+```
+
+
 
 # Objective 4: Assess the extent of graduate students' AI usage behavior in their academic activities.
 
