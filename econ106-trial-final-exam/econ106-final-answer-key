@@ -1,0 +1,71 @@
+# ================================
+# Term Exam Answer Key
+# Dataset: Sleep Health and Lifestyle
+# ================================
+setwd(here::here("econ106-trial-final-exam"))
+
+library(tidyverse)
+
+sleep <- read_csv("data/Sleep_health_and_lifestyle_dataset.csv")
+
+# Question 1: What is the average sleep duration across all individuals?
+sleep %>% summarise(avg_sleep = mean(`Sleep Duration`, na.rm = TRUE))
+
+# Question 2: What is the median sleep duration?
+sleep %>% summarise(median_sleep = median(`Sleep Duration`, na.rm = TRUE))
+
+# Question 3: What is the average quality of sleep score?
+sleep %>% summarise(avg_quality = mean(`Quality of Sleep`, na.rm = TRUE))
+
+# Question 4: What is the maximum sleep duration recorded?
+sleep %>% summarise(max_sleep = max(`Sleep Duration`, na.rm = TRUE))
+
+# Question 5: What is the minimum sleep duration recorded?
+sleep %>% summarise(min_sleep = min(`Sleep Duration`, na.rm = TRUE))
+
+# Question 6: What is the average daily steps across all individuals?
+sleep %>% summarise(avg_steps = mean(`Daily Steps`, na.rm = TRUE))
+
+# Question 7: What is the average heart rate across all individuals?
+sleep %>% summarise(avg_hr = mean(`Heart Rate`, na.rm = TRUE))
+
+# Question 8: How many individuals are in each sleep disorder category?
+sleep %>% group_by(`Sleep Disorder`) %>% summarise(count = n())
+
+# Question 9: How many individuals are in each BMI category?
+sleep %>% group_by(`BMI Category`) %>% summarise(count = n())
+
+# Question 10: What is the average sleep duration across occupations?
+sleep %>%
+  group_by(Occupation) %>%
+  summarise(avg_sleep = mean(`Sleep Duration`, na.rm = TRUE))
+
+# Question 11: What is the average sleep duration by gender?
+sleep %>%
+  group_by(Gender) %>%
+  summarise(avg_sleep = mean(`Sleep Duration`, na.rm = TRUE))
+
+# Question 12: What is the average quality of sleep by gender?
+sleep %>%
+  group_by(Gender) %>%
+  summarise(avg_quality = mean(`Quality of Sleep`, na.rm = TRUE))
+
+# Question 13: What is the average stress level by occupation?
+sleep %>%
+  group_by(Occupation) %>%
+  summarise(avg_stress = mean(`Stress Level`, na.rm = TRUE))
+
+# Question 14: How many individuals have a stress level greater than 7?
+sleep %>% filter(`Stress Level` > 7) %>% summarise(count = n())
+
+# Question 15: What is the average sleep duration by stress level category (Low ≤4, Medium 5–7, High ≥8)?
+sleep %>%
+  mutate(
+    StressCat = case_when(
+      `Stress Level` <= 4 ~ "Low",
+      `Stress Level` <= 7 ~ "Medium",
+      TRUE ~ "High"
+    )
+  ) %>%
+  group_by(StressCat) %>%
+  summarise(avg_sleep = mean(`Sleep Duration`, na.rm = TRUE))

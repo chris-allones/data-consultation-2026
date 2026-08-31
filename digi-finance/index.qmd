@@ -677,7 +677,7 @@ sem_digi_finance_dta <-
 ```{r}
 efa_extract <- fa(
   sem_digi_finance_dta,
-  nfactors = 3,
+  nfactors = 6,
   rotate = "varimax",
   fm = "ml"
 )
@@ -824,6 +824,115 @@ DT::datatable(round(summ_pls_model$reliability, 3))
 
   - **Financial well-being (0.779)** is higher than its correlations with digital financial literacy (0.188) and financial self-efficacy (0.323). FWB is distinct, though its correlation with FSE is moderately strong, which makes sense given the mediation role.
 :::
+
+```{r}
+DT::datatable(round(summ_pls_model$validity$fl_criteria, 3))
+```
+
+
+
+## PLS-SEM with Higher-order 
+
+```{r}
+## data
+hoc_digi_finance_dta <-
+  df |>
+  select(bks1:fa4)
+
+# Define measurement model with higher-order constructs
+measurement_model <- constructs(
+  # Digital Financial Literacy (HOC) with sub-dimensions
+  composite("Basic knowledge and skills", multi_items("bks", 1:11)),
+  composite("Awareness", multi_items("adfs", 1:3)),
+  composite("Practical know-how", multi_items("pkh", 1:3)),
+  composite("Decision-making", multi_items("dm", 1:3)),
+  composite("Self-protection", multi_items("sp", 1:3)),
+
+  higher_composite(
+    "Digital financial literacy",
+    dimensions = c(
+      "Basic knowledge and skills",
+      "Awareness",
+      "Practical know-how",
+      "Decision-making",
+      "Self-protection"
+    )
+  ),
+
+  # Financial Self-Efficacy
+  composite("Financial self-efficacy", multi_items("fse", 1:4)),
+
+  # Financial Well-Being (HOC) with sub-dimensions
+  composite("Financial satisfaction", multi_items("fs", 1:3)),
+  composite("Financial capability", multi_items("fc", 1:4)),
+  composite("Financial anxiety", multi_items("fa", 1:4)),
+
+  higher_composite(
+    "Financial well-being",
+    dimensions = c(
+      "Financial satisfaction",
+      "Financial capability",
+      "Financial anxiety"
+    )
+  )
+)
+
+# Define structural model
+structural_model <- relationships(
+  paths(
+    from = "Digital financial literacy",
+    to = c("Financial self-efficacy", "Financial well-being")
+  ),
+  paths(from = "Financial self-efficacy", to = "Financial well-being")
+)
+
+# Estimate the PLS model
+pls_model <- estimate_pls(
+  data = hoc_digi_finance_dta,
+  measurement_model = measurement_model,
+  structural_model = structural_model
+)
+
+# Summarize results
+summ_pls_model <- summary(pls_model)
+
+# Bootstrapping (5000 resamples, 4 cores)
+boot_pls <- bootstrap_model(
+  seminr_model = pls_model,
+  nboot = 5000,
+  seed = 202604,
+  cores = 4
+)
+
+# Plot bootstrapped model
+plot(boot_pls)
+```
+
+#### Direct effects
+
+```{r}
+## summary table
+summ_boot_pls_model <- summary(boot_pls)
+
+DT::datatable(summ_boot_pls_model$bootstrapped_paths |> round(3))
+```
+
+#### Indirect effects
+
+```{r}
+DT::datatable(round(summ_boot_pls_model$bootstrapped_total_indirect_paths, 3))
+```
+
+
+### Reliability test
+
+
+```{r}
+DT::datatable(round(summ_pls_model$reliability, 3))
+```
+
+### Validity test
+
 
 ```{r}
 DT::datatable(round(summ_pls_model$validity$fl_criteria, 3))
