@@ -82,7 +82,6 @@ ggsave(
 knitr::include_graphics("plot/ai_awareness.jpeg")
 ```
 
-
 # Objective 2: Describe the levels of performance expectancy, effort expectancy, and ethical risk perception as component of overall AI perception.
 
 ### Peformance expectancy: Perceived usefulness {.unnumbered}
@@ -105,7 +104,6 @@ ggsave(
 knitr::include_graphics("plot/performance_expectancy.jpeg")
 ```
 
-
 ### Effort expectancy: Perceived ease of use {.unnumbered}
 
 ```{r}
@@ -126,7 +124,6 @@ ggsave(
 knitr::include_graphics("plot/effort_expectancy_peou.jpeg")
 ```
 
-
 ### Effort expectancy: Self-efficacy {.unnumbered}
 
 ```{r}
@@ -146,7 +143,6 @@ ggsave(
 ## display plot
 knitr::include_graphics("plot/effort_expectancy_se.jpeg")
 ```
-
 
 ### Ethical perceptions: Bias and discrimination {.unnumbered}
 
@@ -188,7 +184,7 @@ ggsave(
 knitr::include_graphics("plot/ethical_risk_privacy.jpeg")
 ```
 
-### Ethical perceptions: Transparency  {.unnumbered}
+### Ethical perceptions: Transparency {.unnumbered}
 
 ```{r}
 p_ethical_risk_transparency <-
@@ -208,7 +204,7 @@ ggsave(
 knitr::include_graphics("plot/ethical_risk_transparency.jpeg")
 ```
 
-### Ethical perceptions: Over-reliance on AI  {.unnumbered}
+### Ethical perceptions: Over-reliance on AI {.unnumbered}
 
 ```{r}
 p_ethical_risk_overreliance <-
@@ -247,8 +243,6 @@ ggsave(
 ## display plot
 knitr::include_graphics("plot/ethical_risk_equity.jpeg")
 ```
-
-
 
 # Objective 4: Assess the extent of graduate students' AI usage behavior in their academic activities.
 
