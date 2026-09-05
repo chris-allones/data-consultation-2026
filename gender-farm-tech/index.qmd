@@ -52,6 +52,8 @@ library(tidygraph)
 source("data-management.R")
 ```
 
+
+
 # Attachments
 
 ::: callout-note
@@ -521,7 +523,11 @@ modelsummary(
 :::
 
 | Household Domain | Men’s Role | Women’s Role | Shared Role |
+<<<<<<< HEAD
+|------------------|------------------|--------------------|------------------|
+=======
 |------------------|------------------|-------------------|------------------|
+>>>>>>> a89520de29d9b40b4b410cbfc0d62880ca60b9bc
 | **Financial management** | Moderate (e.g., 13% men mostly in overseeing finances; 19% men only in securing loans) | Strong (43% women only in overseeing finances; 28% women only in allocating income) | High (62% both equally in income allocation; 67% both equally in securing loans) |
 | **Food decisions** | Limited (7–8% men only in shopping/choosing food) | Strong (47% women only in shopping; 39% women only in choosing food) | Moderate (37–49% both equally in shopping/choosing food) |
 | **Meal preparation & chores** | Minimal (5–7% men only in preparing meals, cleaning dishes, laundry) | Dominant (60–70% women only in cooking, cleaning, laundry, tidying) | Low (20–30% shared in some chores) |
@@ -701,7 +707,11 @@ knitr::include_graphics("plot/farming-tasks.jpeg")
 ## Perception
 
 | Theme | Female Perception | Male Perception | Key Insight |
+<<<<<<< HEAD
+|-----------------|--------------------|-------------------|-----------------|
+=======
 |------------------|-------------------|------------------|------------------|
+>>>>>>> a89520de29d9b40b4b410cbfc0d62880ca60b9bc
 | **Empowerment & leadership** | Very high agreement (≈90–95%) | High agreement, fewer strong agreements | Women more emphatic about empowerment |
 | **Policy awareness** | Strong belief in equal participation policy | Agreement but more “no opinion” responses | Men less certain about policy implementation |
 | **Fairness in resource access** | Mixed: \~49% agree, \~46% disagree | More disagreement than agreement | Women perceive discrimination more strongly |
@@ -839,7 +849,11 @@ knitr::include_graphics("plot/knowledge_male.jpeg")
 ## Practices
 
 | Theme / Practice Statement | Female Responses | Male Responses | Key Insight |
+<<<<<<< HEAD
+|------------------|------------------|------------------|-----------------|
+=======
 |------------------|------------------|------------------|------------------|
+>>>>>>> a89520de29d9b40b4b410cbfc0d62880ca60b9bc
 | Pesticide spraying harms health | Very high agreement (\~90%) | High agreement (\~85%), less emphatic | Women more cautious |
 | Chemicals for disease management not harmful | Majority disagree (\~80%) | More mixed, some agreement | Men less cautious |
 | Recycling bottles safe | Majority disagree (\~82%) | More variation, some agreement | Women reject, men more tolerant |
@@ -988,6 +1002,8 @@ knitr::include_graphics("plot/attitude_male.jpeg")
 ::: callout-note
 ## Key insights
 
+<<<<<<< HEAD
+=======
 - Women frame adoption intention around practical benefits and community knowledge, focusing on yield, soil fertility, and ease of use. On the other hand, men frame adoption around testing, proving, and efficiency, emphasizing feasibility, seed performance, and health awareness.
 
 - The gendered language shows women rely on experiential and local terms, while men use technical and evaluative terms. These differences suggest extension programs should tailor communication:
@@ -1003,6 +1019,7 @@ knitr::include_graphics("plot/attitude_male.jpeg")
 | Health considerations | Implicit via soil & safety concerns | Explicit cluster (conscious, health) | Men more vocal about health awareness |
 | Efficiency gains | Linked to effectiveness cluster | Separate cluster (makes, faster, easier) | Both value efficiency, men highlight it more distinctly |
 
+>>>>>>> a89520de29d9b40b4b410cbfc0d62880ca60b9bc
 ```{r}
 # reason to adop
 reason_adopt_male <-
@@ -1043,6 +1060,8 @@ reason_adopt_female <-
     title = "Reason to adopt"
   )
 
+<<<<<<< HEAD
+=======
 ## saving plot
 ggsave(
   plot = reason_adopt_female,
@@ -1057,6 +1076,7 @@ ggsave(
 knitr::include_graphics("plot/txt_reason_adopt_female.jpeg")
 ```
 
+>>>>>>> a89520de29d9b40b4b410cbfc0d62880ca60b9bc
 ## Decision to acquire farm inputs
 
 ::: callout-note
@@ -1341,6 +1361,8 @@ dec_hh_finance_mgmt_female <- make_network_plot(
   node_color = "red",
   title = "Decision-making towards management of household finances"
 )
+<<<<<<< HEAD
+=======
 
 ## saving plot
 ggsave(
@@ -1429,4 +1451,5 @@ ggsave(
 
 ## display plot
 knitr::include_graphics("plot/txt_training_attend_female.jpeg")
+>>>>>>> a89520de29d9b40b4b410cbfc0d62880ca60b9bc
 ```

@@ -139,6 +139,30 @@ ggsave(
 knitr::include_graphics("plot/ai_awareness.jpeg")
 ```
 
+<<<<<<< HEAD
+=======
+# Objective 2: Describe the levels of performance expectancy, effort expectancy, and ethical risk perception as component of overall AI perception.
+
+### Peformance expectancy: Perceived usefulness {.unnumbered}
+
+```{r}
+p_performance_expectancy <-
+  plot_factor("Performance Expectancy")
+
+## save plot
+ggsave(
+  plot = p_performance_expectancy,
+  filename = "plot/performance_expectancy.jpeg",
+  width = 8,
+  height = 6,
+  dpi = 400,
+  unit = "in"
+)
+
+## display plot
+knitr::include_graphics("plot/performance_expectancy.jpeg")
+```
+>>>>>>> da16d87e1d3ea14898c230010b1327a79447c28b
 
 ### Effort expectancy: Perceived ease of use {.unnumbered}
 
@@ -160,7 +184,6 @@ ggsave(
 knitr::include_graphics("plot/effort_expectancy_peou.jpeg")
 ```
 
-
 ### Effort expectancy: Self-efficacy {.unnumbered}
 
 ```{r}
@@ -180,7 +203,6 @@ ggsave(
 ## display plot
 knitr::include_graphics("plot/effort_expectancy_se.jpeg")
 ```
-
 
 ### Ethical perceptions: Bias and discrimination {.unnumbered}
 
@@ -222,7 +244,7 @@ ggsave(
 knitr::include_graphics("plot/ethical_risk_privacy.jpeg")
 ```
 
-### Ethical perceptions: Transparency  {.unnumbered}
+### Ethical perceptions: Transparency {.unnumbered}
 
 ```{r}
 p_ethical_risk_transparency <-
@@ -242,7 +264,7 @@ ggsave(
 knitr::include_graphics("plot/ethical_risk_transparency.jpeg")
 ```
 
-### Ethical perceptions: Over-reliance on AI  {.unnumbered}
+### Ethical perceptions: Over-reliance on AI {.unnumbered}
 
 ```{r}
 p_ethical_risk_overreliance <-
@@ -282,7 +304,19 @@ ggsave(
 knitr::include_graphics("plot/ethical_risk_equity.jpeg")
 ```
 
+<<<<<<< HEAD
 ### Peformance expectancy: Perceived usefulness {.unnumbered}
+=======
+# Objective 4: Assess the extent of graduate students' AI usage behavior in their academic activities.
+
+# Objective 5: Examine the influence of awareness of AI tools on overall AI perception.
+
+# Objective 6: Determin the effects of overall AI perception on AI usage behvior.
+
+# Objective 7: Examine whether socio-demographic characteristics are associated with awareness of AI perception, and AI usage behvior.
+
+# Objective 8: Describe characteristics of respondents towards AI.
+>>>>>>> da16d87e1d3ea14898c230010b1327a79447c28b
 
 ```{r}
 p_performance_expectancy <-
