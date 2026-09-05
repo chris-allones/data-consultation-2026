@@ -413,11 +413,105 @@ print(fa_block3$loadings, cutoff = 0.3, sort = TRUE)
 
 ### Measurement model
 
+```{r}
+library(seminr)
+
+measurement_model <- constructs(
+  composite("Awareness", multi_items("a", c(1, 2, 4, 5))),
+  composite("PerformanceExpectancy", multi_items("pe", 1:5)),
+  composite("UseOfAI", multi_items("ai_use", 2:4)),
+
+  # First-order sub-dimensions of Effort Expectancy
+  composite("PerceivedEaseOfUse", multi_items("ee_peu", 1:5)),
+  composite("SelfEfficacy", multi_items("ee_se", 1:3)),
+
+  # First-order sub-dimensions of Ethical Risk Perceptions
+  composite("BiasDiscrimination", multi_items("ee_bd", 1:5)),
+  composite(
+    "PrivacyTransparency",
+    c(paste0("ee_ps", 1:5), paste0("ee_t", 1:5))
+  ),
+  composite("Overreliance", multi_items("ee_oe", 1:5)),
+  composite("EquityAccess", multi_items("ee_ea", 1:5)),
+
+  # Higher-order constructs (repeated-indicators approach)
+  composite(
+    "EffortExpectancy",
+    c(
+      multi_items("ee_peu", 1:5),
+      multi_items("ee_se", 1:3)
+    )
+  ),
+  composite(
+    "EthicalRiskPerceptions",
+    c(
+      multi_items("ee_bd", 1:5),
+      paste0("ee_ps", 1:5),
+      paste0("ee_t", 1:5),
+      multi_items("ee_oe", 1:5),
+      multi_items("ee_ea", 1:5)
+    )
+  )
+)
+
+measurement_model
+
+plot(measurement_model, title = "Measurement Model Loadings")
+```
+
 ### Structural model
+
+```{r}
+structural_model <- relationships(
+  paths(
+    from = "Awareness",
+    to = c(
+      "EffortExpectancy",
+      "EthicalRiskPerceptions",
+      "PerformanceExpectancy"
+    )
+  ),
+  paths(from = "EffortExpectancy", to = "UseOfAI"),
+  paths(from = "EthicalRiskPerceptions", to = "UseOfAI"),
+  paths(from = "PerformanceExpectancy", to = "UseOfAI")
+)
+
+pls_model <- estimate_pls(
+  data = sem_ai_ms_dta,
+  measurement_model = measurement_model,
+  structural_model = structural_model,
+  missing = mean_replacement,
+  missing_value = NA
+)
+
+
+plot(pls_model, title = "Structural Model Path Coefficients")
+
+
+summary_pls <- summary(pls_model)
+summary_pls$paths
+```
 
 
 ### Bootstrapped estimates
 
+```{r}
+set.seed(7391)
+boot_pls <- bootstrap_model(
+  seminr_model = pls_model,
+  nboot = 1000,
+  cores = parallel::detectCores() - 1
+)
+
+
+summary_boot <- summary(boot_pls)
+summary_boot$bootstrapped_paths
+```
+
+
+```{r}
+plot(boot_pls, title = "Bootstrapped Path Coefficients")
+```
 
 
 # Provide inputs for policy-makers and administration on the use of AI in graduate studies.
