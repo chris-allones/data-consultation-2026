@@ -247,8 +247,6 @@ lkrt_statement <-
     "statement" = description
   )
 
-lkrt_statement |> glimpse()
-
 
 ## likert data
 lkrt_dta <-
@@ -314,3 +312,18 @@ plot_factor <-
       ) +
       custom_theme
   }
+
+## data for sem analysis
+sem_ai_ms_dta <- ai_ms_dta |>
+  mutate(across(
+    a1:ai_use4,
+    ~ case_match(
+      .x,
+      "Strongly Disagree" ~ 1,
+      "Disagree" ~ 2,
+      "Neutral" ~ 3,
+      "Agree" ~ 4,
+      "Strongly Agree" ~ 5
+    )
+  )) |>
+  select(a1:ai_use4)

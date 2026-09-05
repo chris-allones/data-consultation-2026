@@ -1,0 +1,80 @@
+Master of Agricultural Development (MAgDev)
+
+Master of Education (MEd) in:
+Biology
+Chemistry
+Physical Education
+English
+
+Master of Management (MM)
+Agricultural Economics
+Agricultural Education
+Agricultural Extension
+Agronomy
+Animal Science
+Chemistry
+Development Communication
+Entomology
+Food Science and Technology
+Forestry
+Horticulture
+Land Administration and Management
+Plant Breeding
+Plant Pathology
+Plant Protection
+Soil Science
+Tropical Ecology
+
+
+===========================================================
+
+describe the socio-demographic characteristics of the respondents.
+
+Determine the level of awareness, perception and AI utilization among graduate students.
+
+Analyze the relationship of socio-demographic variables with AI awareness, perception and utilization.
+
+Provide inputs for policy-makers and administration on the use of AI in graduate studies.
+
+===========================================================
+
+awareness = awareness (a1:a5)
+performance expectancy = perceived usefulness (pe1:pe6)
+effort expectancy = {perceived ease of use (ee_peu1:ee_peu5) ; self efficacy (ee_se1:ee_se4)}
+ethical risk perception : {bias and discrimination (ee_bd1:ee_bd5); privacy and security(ee_ps1:ee_ps5); transparency (ee_t1:ee_t5); over-reliance on AI (ee_oe1:ee_oe5); equity and access (ee_ea1:ee_ea5)}
+use of ai tools : usage of ai tools (ai_use1:ai_use4)
+
+
+============================================================
+
+parallel analysis
+
+ran a parallel analysis by block (3 lower order constructs and 2 higher order constructs
+block 1: awareness, performance expectancy, use of ai tools
+block 2: effort expectancy
+block 3: ethical risk perception
+
+factor extraction
+items appear to load to their expected factor
+for block 3: factors such as privacy & security and transparency appear to load to a same factor. 
+comments: the two factors are conceptually related
+
+
+final items for each factor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
