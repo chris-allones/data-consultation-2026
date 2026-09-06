@@ -66,8 +66,6 @@ Copies of the Figures presented in this report are available using the links bel
 
 # Objective 1: Describe the socio-demographic characteristics of the respondents.
 
-
-
 ```{r}
 ## descriptive
 ai_ms_dta |>
@@ -139,8 +137,6 @@ ggsave(
 knitr::include_graphics("plot/ai_awareness.jpeg")
 ```
 
-<<<<<<< HEAD
-=======
 # Objective 2: Describe the levels of performance expectancy, effort expectancy, and ethical risk perception as component of overall AI perception.
 
 ### Peformance expectancy: Perceived usefulness {.unnumbered}
@@ -162,7 +158,6 @@ ggsave(
 ## display plot
 knitr::include_graphics("plot/performance_expectancy.jpeg")
 ```
->>>>>>> da16d87e1d3ea14898c230010b1327a79447c28b
 
 ### Effort expectancy: Perceived ease of use {.unnumbered}
 
@@ -304,19 +299,7 @@ ggsave(
 knitr::include_graphics("plot/ethical_risk_equity.jpeg")
 ```
 
-<<<<<<< HEAD
 ### Peformance expectancy: Perceived usefulness {.unnumbered}
-=======
-# Objective 4: Assess the extent of graduate students' AI usage behavior in their academic activities.
-
-# Objective 5: Examine the influence of awareness of AI tools on overall AI perception.
-
-# Objective 6: Determin the effects of overall AI perception on AI usage behvior.
-
-# Objective 7: Examine whether socio-demographic characteristics are associated with awareness of AI perception, and AI usage behvior.
-
-# Objective 8: Describe characteristics of respondents towards AI.
->>>>>>> da16d87e1d3ea14898c230010b1327a79447c28b
 
 ```{r}
 p_performance_expectancy <-
@@ -337,16 +320,15 @@ knitr::include_graphics("plot/performance_expectancy.jpeg")
 ```
 
 
-# Analyze the relationship of socio-demographic variables with AI awareness, perception and utilization.
-
-- parallel analysis
-- efa extraction
-- measurement model
-- structural model
-- bootstrapped estimates
-- 
+# Objective 3: Analyze the relationship of socio-demographic variables with AI awareness, perception and utilization.
 
 ## Factor Analysis
+
+Before running Partial Least Squares Structural Equation Modeling (PLS-SEM), it is important to know which survey items (i.e., questions items) belong to which latent constructs (i.e., factors). PLS-SEM assumes that the measurement model or the way items form factors is already well-defined. If we assign items incorrectly, the SEM results may be misleading.
+
+Exploratory Factor Analysis (EFA) examines how items naturally group together based on correlations, revealing the underlying factors. In other words, EFA helps us discover the “building blocks” of the model by showing which items should serve as indicators for each construct.
+
+A scree plot with parallel analysis (Figure below) is a tool used in Exploratory Factor Analysis (EFA) to check if how many possible factors we can extract.
 
 ### Parallel analysis
 
@@ -454,8 +436,6 @@ measurement_model <- constructs(
   )
 )
 
-measurement_model
-
 plot(measurement_model, title = "Measurement Model Loadings")
 ```
 
@@ -489,7 +469,7 @@ plot(pls_model, title = "Structural Model Path Coefficients")
 
 
 summary_pls <- summary(pls_model)
-summary_pls$paths
+DT::datatable(summary_pls$paths |> round(3))
 ```
 
 
@@ -505,7 +485,7 @@ boot_pls <- bootstrap_model(
 
 
 summary_boot <- summary(boot_pls)
-summary_boot$bootstrapped_paths
+DT::datatable(summary_boot$bootstrapped_paths |> round(3))
 ```
 
 
@@ -513,7 +493,5 @@ summary_boot$bootstrapped_paths
 plot(boot_pls, title = "Bootstrapped Path Coefficients")
 ```
 
-
-# Provide inputs for policy-makers and administration on the use of AI in graduate studies.
 
 
