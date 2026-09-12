@@ -66,6 +66,31 @@ Copies of the Figures presented in this report are available using the links bel
 
 # Objective 1: Describe the socio-demographic characteristics of the respondents.
 
+
+::: {.callout-caution}
+## Interpretation
+
+- **Age (Median = 27 years, IQR 25–30)**: Respondents are relatively young, clustered in their mid-to-late 20s. Given their age, they are likely digital natives, which may make them more comfortable with technology and thus more open to AI adoption. 
+
+- **Gender (62% Female, 38% Male)**: The sample is female-dominated. Several studies suggest that women may express stronger concerns about academic integrity and ethical risks, while men may report higher frequency of AI use.
+
+- **Program (MS = 64%, others smaller shares)**: The majority are Master of Science students, reflecting VSU’s strength in agriculture and allied sciences. STEM-heavy representation implies higher exposure to data analysis and research tasks where AI tools are directly applicable. Smaller shares in MEd, MM, MAgDev, and PhD provide diversity but may show different adoption patterns.
+
+- **Year Level (54% Second Year, 31% First Year)**: Most respondents are in early-to-mid stages of their graduate journey. First-years may be exploring AI tools for coursework, while second-years are likely integrating them into research. Very few are in advanced years, so findings mainly reflect early adoption rather than long-term reliance.
+
+- **Years in Graduate School (Median = 2 years)**: This aligns with the year-level distribution. Students are still in formative stages of their graduate studies, which means their AI practices are developing rather than fully established.
+
+- **Employment Status (53% full-time students, 47% working students)**: A significant portion balances work with graduate study. Working students may use AI for efficiency and time management, while full-time students may experiment more broadly. This duality could influence usage behavior — practical reliance vs. exploratory adoption.
+
+- **Internet Availability (99%)**: Near-universal access ensures that technological barriers are minimal. This strengthens the validity of findings since lack of connectivity is not a confounding factor.
+
+- **Familiarity with AI (100%)**: All respondents report familiarity, which is remarkable. It indicates AI has already penetrated graduate academic culture at VSU. This sets a strong baseline for analyzing perceptions and usage.
+
+- **Frequency of AI Use (50% often, 31% sometimes, 11% very often, 8% rarely)**: Half of the students use AI often, and another third sometimes — showing widespread integration. Only a small minority rarely use it. This suggests AI is becoming normalized in graduate academic routines, though intensity of use varies.
+
+:::
+
+
 ```{r}
 ## descriptive
 ai_ms_dta |>
@@ -120,6 +145,24 @@ ai_ms_dta |>
 
 ### Level of awareness {.unnumbered}
 
+
+::: {.callout-caution}
+
+## Interpretation
+
+- **Mathematical/Scientific Problem-Solving (56% Agree, 27% Strongly Agree)**: Over 80% of respondents are aware that AI can support problem-solving in technical fields. This shows strong recognition of AI’s utility. Very few disagreed (≈3%).
+
+- **Writing and Language Tasks (52% Agree, 43% Strongly Agree)**: Awareness is extremely high here — nearly 95% acknowledge AI’s role in writing, summarizing, and translation. This is the most universally recognized application, reflecting AI’s visibility in tools like ChatGPT and Grammarly. Only 1% disagreed.
+
+- **Learning Support (48% Agree, 41% Strongly Agree)**: Almost 90% are aware of AI’s potential to help review lessons and anticipate exam questions. This suggests students see AI as a study companion, not just a productivity tool. Neutral responses (8%) indicate some uncertainty about its reliability in this role.
+
+- **Visual Materials/Presentations (55% Agree, 31% Strongly Agree)**: Awareness is also high (≈86%), showing students recognize AI’s potential in creating slides, illustrations, and communication aids. This reflects growing use of generative AI for visuals in academic presentations.
+
+- **Note-Taking and Organizing Study Materials (49% Agree, 29% Strongly Agree)**: Awareness is slightly lower but still strong (≈78%). This suggests students are less exposed to AI tools specifically designed for note-taking/organization compared to writing or problem-solving. Neutral responses (17%) highlight room for growth in this area.
+
+:::
+
+
 ```{r}
 p_ai_awareness <- plot_factor("Awareness", stwidth = 50)
 
@@ -141,6 +184,26 @@ knitr::include_graphics("plot/ai_awareness.jpeg")
 
 ### Peformance expectancy: Perceived usefulness {.unnumbered}
 
+
+::: {.callout-caution}
+
+## Interpretation
+
+- **AI supports understanding of course concepts (62% Agree/Strongly Agree)**: A strong majority believe AI helps clarify academic materials. This suggests AI is already functioning as a learning aid, though about 11% remain neutral and 1% disagree, showing some hesitation about its reliability.
+
+- **AI helps explore topics more deeply (57% Agree, 32% Strongly Agree)**: Nearly 9 in 10 respondents see AI as expanding their learning horizons. This is one of the most positively rated items, indicating students value AI for broadening perspectives and deepening engagement with content.
+
+- **AI enhances creativity and innovative thinking (52% Agree, 23% Strongly Agree)**: Creativity is where AI scores highest. Three-fourths of respondents feel AI stimulates innovation, suggesting students perceive AI not just as a support tool but as a catalyst for new ideas. Only 7% disagreed, showing minimal resistance.
+
+- **AI improves productivity and efficiency (52% Agree, 31% Strongly Agree)**: Over 80% affirm AI boosts efficiency in completing tasks. This is a core benefit, aligning with global findings that AI saves time and streamlines academic work. Very few respondents disagreed (2%).
+
+- **AI assists in locating research materials (54% Agree, 31% Strongly Agree)**: Research support is highly valued, with 85% positive responses. This highlights AI’s role in literature search and data-related tasks, which are central to graduate-level work.
+
+- **AI enhances overall graduate learning experience (52% Agree, 25% Strongly Agree)**: About three-fourths of respondents believe AI improves their graduate journey. However, 20% remain neutral and 3% disagree, showing that while many see benefits, some are cautious about its overall impact.
+
+:::
+
+
 ```{r}
 p_performance_expectancy <-
   plot_factor("Performance Expectancy")
@@ -159,7 +222,25 @@ ggsave(
 knitr::include_graphics("plot/performance_expectancy.jpeg")
 ```
 
+
 ### Effort expectancy: Perceived ease of use {.unnumbered}
+
+
+::: {.callout-caution}
+## Interpretation
+
+- **Ease of Learning and Use (61% Agree/Strongly Agree)**: Most respondents find AI systems easy to learn and use, with only 1% disagreeing. This indicates strong usability recognition, though about 21% remain neutral — suggesting some students may not yet have enough hands-on experience to fully judge ease of use.
+
+- **Interacting Requires Little Effort (54% Agree/Strongly Agree)**: Over half believe AI requires minimal effort, but 26% are neutral and 7% disagree. This shows that while many find AI convenient, a notable minority perceive some learning curve or complexity.
+
+- **Convenience Across Time and Location (60% Agree/Strongly Agree)**: Students largely acknowledge AI’s role in making study more flexible and accessible. This reflects AI’s value in asynchronous learning and remote support. Neutral responses (19%) suggest some students may not yet rely on AI for convenience.
+
+- **Comfort and Confidence in Use (38% Agree, 8% Strongly Agree, 41% Neutral)**: Confidence is more mixed. While nearly half feel comfortable, a large neutral cluster (41%) and 12% disagreement show hesitation. This suggests confidence is not yet universal — possibly linked to varying digital literacy or trust in AI outputs.
+
+- **Simplifies Learning Process (60% Agree/Strongly Agree)**: A majority believe AI simplifies learning, reinforcing its role as a supportive tool. Neutral responses (21%) highlight that some students may not yet see AI as transformative for learning.
+
+:::
+
 
 ```{r}
 p_effort_expectancy <-
@@ -179,7 +260,25 @@ ggsave(
 knitr::include_graphics("plot/effort_expectancy_peou.jpeg")
 ```
 
+
 ### Effort expectancy: Self-efficacy {.unnumbered}
+
+::: {.callout-caution}
+## Interpretation
+
+Handling Difficult Situations (46% Agree/Strongly Agree, 36% Neutral, 7% Disagree)  
+Nearly half of respondents feel they can rely on their skills when facing AI-related challenges. However, over a third remain neutral, suggesting uncertainty or limited experience. A small but notable group (7%) disagrees, indicating gaps in confidence.
+
+Dealing with AI Problems Independently (42% Agree, 42% Neutral, 9% Disagree)  
+Responses are evenly split between agreement and neutrality. This shows that while many believe they can troubleshoot AI issues, just as many are unsure. The 9% who disagree highlight a reliance on external support (peers, faculty, or online resources).
+
+Managing Complex AI Tasks (44% Agree, 44% Neutral, 7% Disagree)  
+Confidence in handling complex AI tasks is moderate. The equal split between agreement and neutrality suggests students recognize AI’s complexity but are not fully confident in mastering it. Only a small minority strongly disagrees.
+
+Confidence in Graduate-Level AI Use (40% Agree, 5% Strongly Agree, 44% Neutral, 9% Disagree)  
+While almost half feel confident using AI academically, the large neutral cluster (44%) signals hesitation. This indicates that confidence is not yet widespread, and many students may still be in the exploratory stage of AI adoption.
+
+:::
 
 ```{r}
 p_effort_expectancy_se <-
@@ -199,7 +298,16 @@ ggsave(
 knitr::include_graphics("plot/effort_expectancy_se.jpeg")
 ```
 
+
 ### Ethical perceptions: Bias and discrimination {.unnumbered}
+
+::: {.callout-caution}
+## Interpretation
+
+
+
+:::
+
 
 ```{r}
 p_ethical_risk_bias <-
@@ -221,6 +329,13 @@ knitr::include_graphics("plot/ethical_risk_bias.jpeg")
 
 ### Ethical perceptions: Privacy and security {.unnumbered}
 
+::: {.callout-caution}
+## Interpretation
+
+
+:::
+
+
 ```{r}
 p_ethical_risk_privacy <-
   plot_factor("Ethical Perceptions\n(Privacy and Security)")
@@ -239,7 +354,14 @@ ggsave(
 knitr::include_graphics("plot/ethical_risk_privacy.jpeg")
 ```
 
+
 ### Ethical perceptions: Transparency {.unnumbered}
+
+::: {.callout-caution}
+## Interpretation
+
+
+:::
 
 ```{r}
 p_ethical_risk_transparency <-
@@ -261,6 +383,13 @@ knitr::include_graphics("plot/ethical_risk_transparency.jpeg")
 
 ### Ethical perceptions: Over-reliance on AI {.unnumbered}
 
+::: {.callout-caution}
+## Interpretation
+
+
+:::
+
+
 ```{r}
 p_ethical_risk_overreliance <-
   plot_factor("Ethical Perceptions\n(Over-reliance on AI)")
@@ -281,6 +410,12 @@ knitr::include_graphics("plot/ethical_risk_overreliance.jpeg")
 
 ### Ethical perceptions: Equity and access {.unnumbered}
 
+::: {.callout-caution}
+## Interpretation
+
+
+:::
+
 ```{r}
 p_ethical_risk_equity <-
   plot_factor("Ethical Perceptions\n(Equity and Access)")
@@ -299,7 +434,14 @@ ggsave(
 knitr::include_graphics("plot/ethical_risk_equity.jpeg")
 ```
 
+
 ### Peformance expectancy: Perceived usefulness {.unnumbered}
+
+::: {.callout-caution}
+## Interpretation
+
+
+:::
 
 ```{r}
 p_performance_expectancy <-
@@ -464,7 +606,7 @@ pls_model <- estimate_pls(
 
 plot(pls_model, title = "Structural Model Path Coefficients")
 
-# summary_pls <- summary(pls_model)
+summary_pls <- summary(pls_model)
 # DT::datatable(summary_pls$paths |> round(3))
 ```
 
@@ -526,4 +668,34 @@ DT::datatable(summary_pls$reliability |> round(3))
 
 ```{r}
 DT::datatable(summary_pls$validity$fl_criteria |> round(3))
+```
+
+
+## Structural model fit indices
+
+::: {.callout-caution}
+## Interpretation
+
+- **Collinearity is not a concern (VIF < 2)**: All predictors of Use of AI — Effort Expectancy (1.792), Ethical Risk Perceptions (1.045), and Performance Expectancy (1.761) — fall well below the 3.3 threshold, indicating the path coefficients are not distorted by multicollinearity among predictors.
+
+- **Awareness has a large effect on Effort and Performance Expectancy, but a small effect on Ethical Risk Perceptions (f²)**: Awareness explains a substantial share of variance in Effort Expectancy (f² = 0.586) and Performance Expectancy (f² = 0.858), both large effects. Its effect on Ethical Risk Perceptions is comparatively small (f² = 0.079), consistent with the low R² (7.3%) observed for that construct — awareness alone does little to shape how strongly students perceive ethical risks of AI.
+
+- **Effort Expectancy contributes most to explaining AI use, though all effects are modest (f²)**: Among the three predictors of Use of AI, Effort Expectancy has the largest incremental contribution (f² = 0.143, small-to-medium), followed by Ethical Risk Perceptions (f² = 0.069) and Performance Expectancy (f² = 0.046), both small effects.
+
+- **Model comparison via information criteria**: AIC and BIC are reported per endogenous construct rather than for the model overall, since PLS-SEM is variance-based and does not yield a single covariance-based fit statistic (e.g., CFI, RMSEA). These values are most useful for comparing alternative specifications of the same construct's predictors rather than judging absolute fit.
+
+:::
+
+```{r}
+DT::datatable(
+  summary_pls$vif_antecedents$UseOfAI |> as.data.frame() |> round(3)
+)
+```
+
+```{r}
+DT::datatable(summary_pls$fSquare |> round(3))
+```
+
+```{r}
+DT::datatable(summary_pls$it_criteria |> round(3))
 ```
