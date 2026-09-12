@@ -393,11 +393,7 @@ print(fa_block3$loadings, cutoff = 0.3, sort = TRUE)
 
 ## PLS-SEM
 
-### Measurement model
-
 ```{r}
-library(seminr)
-
 measurement_model <- constructs(
   composite("Awareness", multi_items("a", c(1, 2, 4, 5))),
   composite("PerformanceExpectancy", multi_items("pe", 1:5)),
@@ -436,8 +432,9 @@ measurement_model <- constructs(
   )
 )
 
-plot(measurement_model, title = "Measurement Model Loadings")
+# plot(measurement_model, title = "Measurement Model Loadings")
 ```
+
 
 ### Structural model
 
@@ -467,13 +464,12 @@ pls_model <- estimate_pls(
 
 plot(pls_model, title = "Structural Model Path Coefficients")
 
-
-summary_pls <- summary(pls_model)
-DT::datatable(summary_pls$paths |> round(3))
+# summary_pls <- summary(pls_model)
+# DT::datatable(summary_pls$paths |> round(3))
 ```
 
 
-### Bootstrapped estimates
+### Bootstrapped estimates and direct effects
 
 ```{r}
 set.seed(7391)
@@ -494,4 +490,40 @@ plot(boot_pls, title = "Bootstrapped Path Coefficients")
 ```
 
 
+```{r}
+#| eval: false
+#| echo: false
 
+direct_effects <- summary_pls$paths
+DT::datatable(direct_effects |> round(3))
+```
+
+
+### Indirect effects
+
+```{r}
+indirect_effects <- summary_pls$total_indirect_effects
+DT::datatable(indirect_effects |> round(3))
+```
+
+
+### Total effects
+
+```{r}
+total_effects <- summary_pls$total_effects
+DT::datatable(total_effects |> round(3))
+```
+
+
+## Reliability test
+
+```{r}
+DT::datatable(summary_pls$reliability |> round(3))
+```
+
+## Validity test: Fornell-Larcker criterion
+
+
+```{r}
+DT::datatable(summary_pls$validity$fl_criteria |> round(3))
+```
