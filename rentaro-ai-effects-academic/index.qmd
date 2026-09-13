@@ -524,6 +524,10 @@ A scree plot with parallel analysis (Figure below) is a tool used in Exploratory
 
 ### Parallel analysis
 
+In running the parallel analysis, we first separate the survey items into three blocks: (1) lower-order constructs (Awareness, Performance Expectancy, and Use of AI), (2) higher-order construct Effort Expectancy (with sub-dimensions Perceived Ease of Use and Self-Efficacy), and (3) higher-order construct Ethical Risk Perceptions (with sub-dimensions Bias and Discrimination, Privacy and Security, Transparency, Over-reliance on AI, and Equity and Access). Each block is analyzed separately to determine the number of factors to extract.
+
+For lower-order constructs, the parallel analysis suggests extracting 3 factors. For the higher-order construct Effort Expectancy, 2 factors are suggested. For the higher-order construct Ethical Risk Perceptions, 5 factors are suggested.
+
 ```{r}
 ## parallel analysis for lower order constructs
 ## expected factor: 3
@@ -563,12 +567,17 @@ fa.parallel(block3, fm = "ml", fa = "fa")
 
 ### Factor extraction
 
+Below is the facto extraction for the three blocks of survey items. The factor loadings indicate how strongly each item is associated with the extracted factors. Items with loadings above 0.3 are considered meaningful indicators of their respective factors.
+
+The first factor extraction is for the lower-order constructs (Awareness, Performance Expectancy, and Use of AI), which suggests 3 factors. For Awareness, items a1, a2, a4, and a5 load strongly on Factor 1. While a3 has a relatively low loading on Factor 1, it loads moderately on Factor 2. For Performance Expectancy, items pe1 through pe6 load strongly on Factor 2. For Use of AI, items ai_use1 through ai_use4 load strongly on Factor 3.
+
 ```{r}
 fa_block1 <- fa(block1, nfactors = 3, fm = "ml", rotate = "oblimin")
 
 print(fa_block1$loadings, cutoff = 0.3, sort = TRUE)
 ```
 
+For the higher-order construct Effort Expectancy, which suggests 2 factors, items ee_peu1 through ee_peu5 load strongly on Factor 1 (Perceived Ease of Use), while items ee_se1 through ee_se4 load strongly on Factor 2 (Self-Efficacy).
 
 ```{r}
 fa_block2 <- fa(block2, nfactors = 2, fm = "ml", rotate = "oblimin")
@@ -576,6 +585,7 @@ fa_block2 <- fa(block2, nfactors = 2, fm = "ml", rotate = "oblimin")
 print(fa_block2$loadings, cutoff = 0.3, sort = TRUE)
 ```
 
+Finally, for the higher-order construct Ethical Risk Perceptions, which suggests 5 factors, items ee_bd1 through ee_bd5 load strongly on Factor 1 (Bias and Discrimination), items ee_ps1 through ee_ps5 load strongly on Factor 2 (Privacy and Security), items ee_t1 through ee_t5 load strongly on Factor 3 (Transparency), items ee_oe1 through ee_oe5 load strongly on Factor 4 (Over-reliance on AI), and items ee_ea1 through ee_ea5 load strongly on Factor 5 (Equity and Access).
 
 ```{r}
 fa_block3 <- fa(block3, nfactors = 4, fm = "ml", rotate = "oblimin")
@@ -630,6 +640,10 @@ measurement_model <- constructs(
 
 ### Structural model
 
+In estimating the PLS-SEM model, we first define the measurement model, which specifies how observed survey items (indicators) relate to their underlying latent constructs (factors). The constructs are defined as composites, with each composite representing a latent variable measured by multiple indicators.
+
+In the structural model, we specify the hypothesized relationships between the latent constructs. For example, we hypothesize that Awareness influences Effort Expectancy, Ethical Risk Perceptions, and Performance Expectancy, which in turn affect the Use of AI.
+
 ```{r}
 structural_model <- relationships(
   paths(
@@ -663,6 +677,25 @@ summary_pls <- summary(pls_model)
 
 ### Bootstrapped estimates and direct effects
 
+The table below presents the bootstrapped estimates of the path coefficients, which provide a measure of the stability and reliability of the estimated relationships in the structural model. Bootstrapping involves repeatedly resampling the data and estimating the model to generate a distribution of path coefficients, allowing us to assess their significance and confidence intervals.
+
+::: {.callout-caution}
+## Interpretation
+
+- **Awareness → Performance Expectancy (β = 0.679, p < .001)**: This is the strongest direct effect in the model. Students who report greater awareness of AI tend to perceive substantially higher usefulness of AI for academic tasks. The 95% CI [0.569, 0.781] excludes zero by a wide margin, indicating a robust relationship.
+
+- **Awareness → Effort Expectancy (β = 0.608, p < .001)**: Awareness also strongly predicts perceived ease of use and self-efficacy with AI tools. As students become more aware of AI, they are more likely to view it as easy and manageable to use, with a 95% CI of [0.497, 0.717].
+
+- **Awareness → Ethical Risk Perceptions (β = 0.270, p < .001)**: This effect is statistically significant but noticeably weaker than the two paths above (95% CI [0.196, 0.405]). Awareness has some bearing on how strongly students perceive ethical risks, but the relationship is modest — consistent with the low R² (7.3%) for this construct, most of the variation in ethical risk perceptions is driven by factors other than awareness.
+
+- **Effort Expectancy → Use of AI (β = 0.396, p < .001)**: Among the three direct predictors of AI use, effort expectancy has the largest influence. Students who find AI easier to use and feel more capable using it (self-efficacy) report greater actual use of AI tools, 95% CI [0.256, 0.525].
+
+- **Ethical Risk Perceptions → Use of AI (β = 0.211, p < .001)**: Perceived ethical risk is positively associated with AI use — students who perceive greater ethical risks (bias, privacy, transparency, over-reliance, equity concerns) still report *higher*, not lower, use of AI tools, 95% CI [0.125, 0.338]. This direction is worth flagging: it does not indicate that ethical concern discourages use, and may instead reflect that more frequent AI users are more exposed to — and therefore more aware of — its ethical risks.
+
+- **Performance Expectancy → Use of AI (β = 0.220, p = .006)**: This is the weakest of the three direct predictors of AI use, and its 95% CI [0.062, 0.354] sits closer to zero than the other paths, though it remains significant. Perceived usefulness contributes to AI use, but less so than effort expectancy in this sample.
+
+:::
+
 ```{r}
 set.seed(7391)
 boot_pls <- bootstrap_model(
@@ -693,13 +726,64 @@ DT::datatable(direct_effects |> round(3))
 
 ### Indirect effects
 
+Below are the results for the indirect effects, which capture the mediating influence of Effort Expectancy, Ethical Risk Perceptions, and Performance Expectancy on the relationship between Awareness and Use of AI. The indirect effects quantify how much of the effect of Awareness on Use of AI is transmitted through these mediators.
+
+::: {.callout-caution}
+## Interpretation
+
+- **Awareness → Effort Expectancy → Use of AI (β = 0.241, p < .001)**: This is the strongest of the three specific indirect paths (95% CI [0.148, 0.341]). Awareness increases students' perceived ease of use and self-efficacy with AI, which in turn drives greater use of AI tools — this is the primary mechanism through which awareness translates into actual AI use.
+
+- **Awareness → Performance Expectancy → Use of AI (β = 0.149, p = .006)**: Awareness also promotes AI use by shaping students' perception of AI's usefulness for academic tasks (95% CI [0.044, 0.250]), though this path's confidence interval is comparatively closer to zero and the effect is roughly two-thirds the size of the effort-expectancy route.
+
+- **Awareness → Ethical Risk Perceptions → Use of AI (β = 0.057, p < .001)**: This is the weakest specific indirect path (95% CI [0.036, 0.113]), though still statistically significant. Ethical risk perception is a comparatively minor conduit between awareness and AI use — consistent with the earlier finding that awareness explains little variance in ethical risk perceptions (R² = 7.3%).
+
+- **Total indirect effect of Awareness on Use of AI (β = 0.447, p < .001)**: Summing across all three mediators, awareness has a substantial overall indirect effect on AI use (95% CI [0.373, 0.539]). Effort expectancy accounts for over half of this total indirect effect, underscoring that making AI feel easy and manageable to use is the dominant pathway linking awareness to actual adoption in this sample.
+
+:::
+
 ```{r}
-indirect_effects <- summary_pls$total_indirect_effects
-DT::datatable(indirect_effects |> round(3))
+## add the specific indirect effects to the summary table
+specific_indirect_effects <- rbind(
+  specific_effect_significance(
+    boot_seminr_model = boot_pls,
+    from = "Awareness",
+    through = "EffortExpectancy",
+    to = "UseOfAI"
+  ),
+  specific_effect_significance(
+    boot_seminr_model = boot_pls,
+    from = "Awareness",
+    through = "EthicalRiskPerceptions",
+    to = "UseOfAI"
+  ),
+  specific_effect_significance(
+    boot_seminr_model = boot_pls,
+    from = "Awareness",
+    through = "PerformanceExpectancy",
+    to = "UseOfAI"
+  )
+)
+
+DT::datatable(specific_indirect_effects |> round(3))
 ```
 
 
 ### Total effects
+
+Whereas the direct effects capture only the immediate path between two constructs and the indirect effects capture mediated paths, total effects sum these together to represent the overall influence of one construct on another, combining both direct and any mediated routes.
+
+::: {.callout-caution}
+## Interpretation
+
+- **Awareness → Use of AI (β = 0.447, p < .001)**: Awareness has no direct path to Use of AI in this model, so this total effect is entirely indirect — it is fully accounted for by the three mediators (Effort Expectancy, Ethical Risk Perceptions, and Performance Expectancy). The 95% CI [0.373, 0.539] indicates a robust overall influence: greater awareness of AI meaningfully translates into greater use, but only through how it shapes students' perceptions of ease of use, usefulness, and ethical risk.
+
+- **Awareness → Effort Expectancy, Ethical Risk Perceptions, and Performance Expectancy**: Since these three constructs have no other predictors in the model, their total effects (0.608, 0.270, and 0.679, respectively) are identical to their direct effects reported earlier — there is no additional mediated component to add.
+
+- **Effort Expectancy, Ethical Risk Perceptions, and Performance Expectancy → Use of AI**: Likewise, these three mediators have only a direct path to Use of AI (0.396, 0.211, and 0.220, respectively), so their total effects equal their direct effects.
+
+- **Overall pattern**: Awareness is the only construct in the model whose influence on the final outcome (Use of AI) is entirely indirect, working through the three mediating constructs rather than by a direct route. This supports interpreting the model as a fully mediated pathway from awareness to AI use.
+
+:::
 
 ```{r}
 total_effects <- summary_pls$total_effects
@@ -709,12 +793,40 @@ DT::datatable(total_effects |> round(3))
 
 ## Reliability test
 
+::: {.callout-caution}
+## Interpretation
+
+- **Internal consistency reliability is adequate for all constructs**: Cronbach's alpha, rhoA, and rhoC all exceed the 0.70 threshold across all five constructs, ranging from 0.701 (Use of AI, alpha) to 0.927 (Ethical Risk Perceptions, rhoA). This indicates the items within each construct consistently measure the same underlying concept.
+
+- **Ethical Risk Perceptions shows notably high reliability coefficients (α = 0.917, rhoC = 0.917)**: This is expected given it is a higher-order construct built from 23 repeated indicators spanning four facets (bias/discrimination, privacy/transparency, over-reliance, equity/access) — the large number of items inflates these coefficients somewhat, so they should not be read as evidence the construct is tightly unidimensional.
+
+- **Convergent validity (AVE) is not met for two constructs**: Effort Expectancy (AVE = 0.451) and Ethical Risk Perceptions (AVE = 0.312) fall below the 0.50 threshold, meaning more than half of the indicator variance for these constructs is attributable to error rather than the underlying construct. This is a meaningful validity concern — high reliability does not compensate for low AVE, since the two properties assess different things (consistency vs. how much variance items actually share with the construct).
+
+- **Awareness, Performance Expectancy, and Use of AI meet both reliability and AVE criteria**: AVE values of 0.603, 0.675, and 0.626 respectively indicate adequate convergent validity for these three constructs.
+
+- **Implication**: The low AVE for Effort Expectancy and Ethical Risk Perceptions is plausibly linked to their construction as higher-order composites via repeated indicators — combining conceptually distinct sub-facets (e.g., ease of use and self-efficacy; four separate ethical risk facets) into a single indicator set can dilute the shared variance captured by one factor. This should be discussed before treating structural path estimates involving these two constructs as fully conclusive.
+
+:::
+
 ```{r}
 DT::datatable(summary_pls$reliability |> round(3))
 ```
 
+
 ## Validity test: Fornell-Larcker criterion
 
+::: {.callout-caution}
+## Interpretation
+
+- **Discriminant validity is met for all constructs**: For every construct, the square root of AVE (diagonal values, ranging from 0.558 for Ethical Risk Perceptions to 0.822 for Performance Expectancy) exceeds its correlations with all other constructs. This satisfies the Fornell-Larcker criterion, indicating each construct shares more variance with its own indicators than with any other construct in the model.
+
+- **Effort Expectancy and Performance Expectancy show the smallest margin (0.672 vs. correlations of 0.608 and 0.657)**: While the criterion is still met, the gap between Effort Expectancy's diagonal value and its correlation with Awareness (0.608) and Performance Expectancy (0.657) is comparatively narrow. Combined with its low AVE noted in the reliability test, this suggests Effort Expectancy's discriminant validity is less comfortably established than the other constructs and is worth monitoring, e.g., with an HTMT check, which is generally considered a stricter and more reliable test than Fornell-Larcker.
+
+- **Ethical Risk Perceptions is clearly distinct from the other constructs**: Its correlations with Awareness (0.270), Effort Expectancy (0.206), Performance Expectancy (0.160), and Use of AI (0.328) are all modest, and its diagonal value (0.558) comfortably exceeds each. This supports treating ethical risk perception as conceptually and empirically separate from the technology-acceptance constructs (awareness, effort/performance expectancy) in this model.
+
+- **Caveat**: The Fornell-Larcker criterion is a commonly used but comparatively lenient test of discriminant validity, and it can fail to detect discriminant validity problems that HTMT would catch, especially for constructs already flagged with low AVE (Effort Expectancy, Ethical Risk Perceptions). These results should be corroborated with an HTMT ratio check before treating discriminant validity as fully established.
+
+:::
 
 ```{r}
 DT::datatable(summary_pls$validity$fl_criteria |> round(3))

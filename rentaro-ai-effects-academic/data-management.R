@@ -327,13 +327,3 @@ sem_ai_ms_dta <- ai_ms_dta |>
     )
   )) |>
   select(a1:ai_use4)
-
-
-lkrt_dta |>
-  mutate(statement = str_wrap(statement, width = 40)) |>
-  filter(str_detect(
-    factor,
-    fixed("Performance Expectancy")
-  )) |>
-  select(-factor) |>
-  print(n = 50)
