@@ -266,17 +266,13 @@ knitr::include_graphics("plot/effort_expectancy_peou.jpeg")
 ::: {.callout-caution}
 ## Interpretation
 
-Handling Difficult Situations (46% Agree/Strongly Agree, 36% Neutral, 7% Disagree)  
-Nearly half of respondents feel they can rely on their skills when facing AI-related challenges. However, over a third remain neutral, suggesting uncertainty or limited experience. A small but notable group (7%) disagrees, indicating gaps in confidence.
+- **Handling Difficult Situations (46% Agree/Strongly Agree, 36% Neutral, 7% Disagree)**: Nearly half of respondents feel they can rely on their skills when facing AI-related challenges. However, over a third remain neutral, suggesting uncertainty or limited experience. A small but notable group (7%) disagrees, indicating gaps in confidence.
 
-Dealing with AI Problems Independently (42% Agree, 42% Neutral, 9% Disagree)  
-Responses are evenly split between agreement and neutrality. This shows that while many believe they can troubleshoot AI issues, just as many are unsure. The 9% who disagree highlight a reliance on external support (peers, faculty, or online resources).
+- **Dealing with AI Problems Independently (42% Agree, 42% Neutral, 9% Disagree)**: Responses are evenly split between agreement and neutrality. This shows that while many believe they can troubleshoot AI issues, just as many are unsure. The 9% who disagree highlight a reliance on external support (peers, faculty, or online resources).
 
-Managing Complex AI Tasks (44% Agree, 44% Neutral, 7% Disagree)  
-Confidence in handling complex AI tasks is moderate. The equal split between agreement and neutrality suggests students recognize AI’s complexity but are not fully confident in mastering it. Only a small minority strongly disagrees.
+- **Managing Complex AI Tasks (44% Agree, 44% Neutral, 7% Disagree)**: Confidence in handling complex AI tasks is moderate. The equal split between agreement and neutrality suggests students recognize AI’s complexity but are not fully confident in mastering it. Only a small minority strongly disagrees.
 
-Confidence in Graduate-Level AI Use (40% Agree, 5% Strongly Agree, 44% Neutral, 9% Disagree)  
-While almost half feel confident using AI academically, the large neutral cluster (44%) signals hesitation. This indicates that confidence is not yet widespread, and many students may still be in the exploratory stage of AI adoption.
+- **Confidence in Graduate-Level AI Use (40% Agree, 5% Strongly Agree, 44% Neutral, 9% Disagree)**: While almost half feel confident using AI academically, the large neutral cluster (44%) signals hesitation. This indicates that confidence is not yet widespread, and many students may still be in the exploratory stage of AI adoption.
 
 :::
 
@@ -304,7 +300,15 @@ knitr::include_graphics("plot/effort_expectancy_se.jpeg")
 ::: {.callout-caution}
 ## Interpretation
 
+**Bias in Training Data (46% Agree, 25% Strongly Agree, 27% Neutral)**: A strong majority (≈71%) recognize that biased training data leads to biased outputs. This shows good awareness of how AI systems inherit limitations from their datasets. The neutral group (27%) suggests some uncertainty about technical mechanisms of bias.
 
+- **Biased Outcomes Disadvantaging Groups (31% Agree, 10% Strongly Agree, 45% Neutral, 14% Disagree)**: Perceptions here are more mixed. While 41% acknowledge biased outcomes, nearly half remain neutral, and 14% disagree. This indicates that while students conceptually understand bias, fewer directly perceive it as disadvantaging specific groups — possibly due to limited exposure to real-world cases.
+
+**Reinforcing Social Inequalities (35% Agree, 9% Strongly Agree, 45% Neutral, 11% Disagree)**: Similar to the previous item, many respondents are undecided (45%). About 44% agree AI can reinforce inequalities, but skepticism (11% disagree) suggests some students may not yet connect AI outputs to broader social impacts.
+
+**Concern About Fairness for Underrepresented Groups (44% Agree, 18% Strongly Agree, 30% Neutral, 8% Disagree)**: A majority (62%) express concern about fairness, showing strong ethical sensitivity. Neutral responses (30%) suggest some students are aware of the issue but not fully convinced of its severity.
+
+- **Regular Evaluation for Fairness (44% Agree, 43% Strongly Agree, 13% Neutral)**: This item received the strongest consensus: 87% support regular evaluation of AI systems for fairness. This indicates students strongly endorse accountability measures and institutional safeguards against bias.
 
 :::
 
@@ -332,6 +336,15 @@ knitr::include_graphics("plot/ethical_risk_bias.jpeg")
 ::: {.callout-caution}
 ## Interpretation
 
+**Overall Safety and Reliability (50% Agree, 22% Strongly Agree, 26% Neutral)**: Nearly three-fourths of respondents express concern about AI’s safety and reliability in graduate education. This shows strong awareness of potential risks, though a quarter remain neutral, indicating uncertainty or limited direct experience with failures.
+
+**Security Compared to Other Educational Technologies (39% Agree, 11% Strongly Agree, 44% Neutral, 7% Disagree)**: Perceptions are mixed. Half believe AI tools may be less secure, but almost as many are neutral. This suggests students are unsure how AI compares to traditional educational technologies in terms of security.
+
+**Collection of Excessive Personal Information (43% Agree, 31% Strongly Agree, 22% Neutral)**: A majority (≈74%) worry about excessive data collection. This highlights strong privacy concerns, reflecting broader debates about surveillance and data ethics in AI.
+
+**Unauthorized Use or Sharing of Personal Information (43% Agree, 29% Strongly Agree, 25% Neutral)**: Similarly, about 72% are concerned about unauthorized data use. This indicates students are highly sensitive to privacy risks, even if they haven’t directly experienced them.
+
+**Failures or Malfunctions Affecting Learning (47% Agree, 30% Strongly Agree, 20% Neutral)**: Over three-fourths worry that technical malfunctions could disrupt learning. This shows students recognize AI’s fragility and potential to negatively impact academic activities if systems fail.
 
 :::
 
@@ -360,7 +373,15 @@ knitr::include_graphics("plot/ethical_risk_privacy.jpeg")
 ::: {.callout-caution}
 ## Interpretation
 
+**Difficulty Trusting Without Explanations (50% Agree, 21% Strongly Agree, 22% Neutral)**: About 71% of respondents say they cannot fully trust AI tools unless outputs are explained. This highlights transparency as a prerequisite for trust. The neutral group (22%) suggests some students are undecided but cautious.
 
+- **Need for Greater Transparency (52% Agree, 30% Strongly Agree, 17% Neutral)**: Over 80% emphasize transparency as necessary for confidence in AI outcomes. This is one of the strongest consensus points, showing students want clarity in how AI supports learning and research.
+
+**AI Tools Often Lack Transparency (39% Agree, 22% Strongly Agree, 32% Neutral, 7% Disagree)**: A majority (61%) perceive AI as lacking transparency. The large neutral cluster (32%) indicates that while many recognize the issue, others may not have enough experience to judge.
+
+- **Outputs Not Clearly Explained (44% Agree, 14% Strongly Agree, 31% Neutral, 10% Disagree)**: More than half agree AI outputs are not well explained, which makes it difficult to understand their influence on academic work. Neutral responses (31%) again show uncertainty or limited exposure.
+
+**Insufficient Explanations Overall (40% Agree, 16% Strongly Agree, 35% Neutral, 9% Disagree)**: A majority (56%) believe AI tools fail to provide sufficient explanations. The 35% neutral group suggests students are aware of the issue but not strongly convinced.
 :::
 
 ```{r}
@@ -386,6 +407,15 @@ knitr::include_graphics("plot/ethical_risk_transparency.jpeg")
 ::: {.callout-caution}
 ## Interpretation
 
+- **Becoming Overly Dependent (35% Agree, 25% Strongly Agree, 26% Neutral, 12% Disagree)**: About 60% of respondents worry about dependence on AI in learning. The neutral group (26%) suggests some uncertainty, while 12% disagree, showing a minority who feel confident they can balance AI use.
+
+- **Relying Too Much in Research/Writing (36% Agree, 21% Strongly Agree, 28% Neutral, 12% Disagree)**: A majority (57%) express concern about over-reliance in academic writing and research. This reflects awareness of risks to originality and integrity. Neutral responses (28%) indicate some students are undecided about the extent of this risk.
+
+- **Weakening Critical/Independent Thinking (41% Agree, 29% Strongly Agree, 19% Neutral, 10% Disagree)**: About 70% believe excessive AI use could erode critical thinking skills. This is one of the strongest concerns, showing students value independent intellectual development.
+
+- **Limiting Original Ideas and Analytical Abilities (41% Agree, 32% Strongly Agree, 17% Neutral, 10% Disagree)**: Nearly three-fourths worry that heavy reliance on AI could stifle creativity and analytical growth. This is the most strongly endorsed concern, highlighting students’ desire to preserve originality in graduate-level work.
+
+- **Reducing Autonomy in Learning/Decision-Making (39% Agree, 31% Strongly Agree, 18% Neutral, 12% Disagree)**: About 70% fear AI may reduce autonomy. This shows students are aware of the subtle risk of outsourcing judgment to AI, even if they benefit from its convenience.
 
 :::
 
@@ -413,6 +443,15 @@ knitr::include_graphics("plot/ethical_risk_overreliance.jpeg")
 ::: {.callout-caution}
 ## Interpretation
 
+- **Skills Requirement (36% Agree, 14% Strongly Agree, 33% Neutral, 13% Disagree)**: Half of respondents recognize that AI use requires skills not all graduate students possess. This highlights digital literacy gaps as a barrier to equitable adoption. The large neutral group (33%) suggests some uncertainty about how significant these skill gaps are.
+
+- **Inequities in Research Productivity (45% Agree, 9% Strongly Agree, 33% Neutral, 12% Disagree)**: More than half believe unequal access to AI tools creates disparities in research productivity. This shows awareness that AI can amplify existing inequalities in academic output.
+
+- **Inequities in Academic Performance (36% Agree, 11% Strongly Agree, 36% Neutral, 14% Disagree)**: Perceptions are mixed. While nearly half see AI as contributing to performance inequities, an equally large neutral cluster (36%) suggests uncertainty. This may reflect differences in exposure to AI across disciplines.
+
+- **Inequities in Academic Achievement (38% Agree, 10% Strongly Agree, 36% Neutral, 12% Disagree)**: Similar to performance, about half acknowledge achievement gaps linked to AI access. Neutral responses again indicate that many students are undecided or cautious in attributing inequities directly to AI.
+
+- **Lack of Access to AI Tools (39% Agree, 13% Strongly Agree, 32% Neutral, 13% Disagree)**: A majority (52%) believe inequities arise because some students lack access to AI tools. This underscores infrastructure and resource disparities as a key ethical concern.
 
 :::
 
@@ -440,6 +479,17 @@ knitr::include_graphics("plot/ethical_risk_equity.jpeg")
 ::: {.callout-caution}
 ## Interpretation
 
+- **Understanding Course Concepts (62% Agree, 26% Strongly Agree, 11% Neutral)**: Nearly nine in ten respondents affirm that AI supports their comprehension of academic materials. This shows AI is widely seen as a learning aid, with very minimal disagreement (≈1%).
+
+- **Exploring Topics More Deeply (57% Agree, 32% Strongly Agree, 9% Neutral)**: This item received one of the strongest endorsements: almost 90% believe AI broadens their learning horizons. It highlights AI’s role in expanding perspectives and deepening engagement.
+
+- **Enhancing Creativity and Innovation (52% Agree, 23% Strongly Agree, 17% Neutral)**: About three-fourths feel AI stimulates creativity and supports innovative thinking. This suggests students perceive AI not just as a tool for efficiency but as a catalyst for new ideas.
+
+- **Improving Productivity and Efficiency (52% Agree, 31% Strongly Agree, 15% Neutral)**: Over 80% agree AI boosts efficiency in completing academic tasks. This is a core benefit, aligning with global findings that AI saves time and streamlines work.
+
+- **Assisting in Research Materials (54% Agree, 31% Strongly Agree, 12% Neutral)**: Research support is highly valued, with 85% positive responses. This underscores AI’s role in literature search and data-related tasks, which are central to graduate-level work.
+
+- **Enhancing Overall Graduate Learning Experience (52% Agree, 25% Strongly Agree, 20% Neutral)**: About three-fourths believe AI improves their graduate journey. However, one-fifth remain neutral, showing some caution about its overall impact.
 
 :::
 

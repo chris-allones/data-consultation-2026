@@ -333,7 +333,7 @@ lkrt_dta |>
   mutate(statement = str_wrap(statement, width = 40)) |>
   filter(str_detect(
     factor,
-    fixed("Effort Expectancy\n(Self-Efficacy)")
+    fixed("Performance Expectancy")
   )) |>
   select(-factor) |>
   print(n = 50)
