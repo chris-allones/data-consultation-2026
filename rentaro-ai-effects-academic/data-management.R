@@ -45,7 +45,7 @@ ai_ms_dta <-
     "working_experience" = years_of_working_experience,
     "weekly_allowance" = estimated_weekly_allowance_as_a_graduate_student,
     "gadget_own" = do_you_possess_any_gadgets,
-    "gadget_own_type" = please_select_what_type_of_gadgets_you_own_that_you_use_as_a_graduate_student,
+    "gadget_own_type" =  please_select_what_type_of_gadgets_you_own_that_you_use_as_a_graduate_student,
     "internet_availability" = do_you_have_the_internet_connection,
     "internet_source" = source_of_the_internet,
     "internet_provider" = where_do_you_get_the_internet_connection,
