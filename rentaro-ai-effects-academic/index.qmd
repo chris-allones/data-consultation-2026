@@ -63,33 +63,29 @@ Copies of the Figures presented in this report are available using the links bel
 
 </ol>
 
-
 # Objective 1: Describe the socio-demographic characteristics of the respondents.
 
-
-::: {.callout-caution}
+::: callout-caution
 ## Interpretation
 
-- **Age (Median = 27 years, IQR 25–30)**: Respondents are relatively young, clustered in their mid-to-late 20s. Given their age, they are likely digital natives, which may make them more comfortable with technology and thus more open to AI adoption. 
+-   **Age (Median = 27 years, IQR 25–30)**: Respondents are relatively young, clustered in their mid-to-late 20s. Given their age, they are likely digital natives, which may make them more comfortable with technology and thus more open to AI adoption.
 
-- **Gender (62% Female, 38% Male)**: The sample is female-dominated. Several studies suggest that women may express stronger concerns about academic integrity and ethical risks, while men may report higher frequency of AI use.
+-   **Gender (62% Female, 38% Male)**: The sample is female-dominated. Several studies suggest that women may express stronger concerns about academic integrity and ethical risks, while men may report higher frequency of AI use.
 
-- **Program (MS = 64%, others smaller shares)**: The majority are Master of Science students, reflecting VSU’s strength in agriculture and allied sciences. STEM-heavy representation implies higher exposure to data analysis and research tasks where AI tools are directly applicable. Smaller shares in MEd, MM, MAgDev, and PhD provide diversity but may show different adoption patterns.
+-   **Program (MS = 64%, others smaller shares)**: The majority are Master of Science students, reflecting VSU’s strength in agriculture and allied sciences. STEM-heavy representation implies higher exposure to data analysis and research tasks where AI tools are directly applicable. Smaller shares in MEd, MM, MAgDev, and PhD provide diversity but may show different adoption patterns.
 
-- **Year Level (54% Second Year, 31% First Year)**: Most respondents are in early-to-mid stages of their graduate journey. First-years may be exploring AI tools for coursework, while second-years are likely integrating them into research. Very few are in advanced years, so findings mainly reflect early adoption rather than long-term reliance.
+-   **Year Level (54% Second Year, 31% First Year)**: Most respondents are in early-to-mid stages of their graduate journey. First-years may be exploring AI tools for coursework, while second-years are likely integrating them into research. Very few are in advanced years, so findings mainly reflect early adoption rather than long-term reliance.
 
-- **Years in Graduate School (Median = 2 years)**: This aligns with the year-level distribution. Students are still in formative stages of their graduate studies, which means their AI practices are developing rather than fully established.
+-   **Years in Graduate School (Median = 2 years)**: This aligns with the year-level distribution. Students are still in formative stages of their graduate studies, which means their AI practices are developing rather than fully established.
 
-- **Employment Status (53% full-time students, 47% working students)**: A significant portion balances work with graduate study. Working students may use AI for efficiency and time management, while full-time students may experiment more broadly. This duality could influence usage behavior — practical reliance vs. exploratory adoption.
+-   **Employment Status (53% full-time students, 47% working students)**: A significant portion balances work with graduate study. Working students may use AI for efficiency and time management, while full-time students may experiment more broadly. This duality could influence usage behavior — practical reliance vs. exploratory adoption.
 
-- **Internet Availability (99%)**: Near-universal access ensures that technological barriers are minimal. This strengthens the validity of findings since lack of connectivity is not a confounding factor.
+-   **Internet Availability (99%)**: Near-universal access ensures that technological barriers are minimal. This strengthens the validity of findings since lack of connectivity is not a confounding factor.
 
-- **Familiarity with AI (100%)**: All respondents report familiarity, which is remarkable. It indicates AI has already penetrated graduate academic culture at VSU. This sets a strong baseline for analyzing perceptions and usage.
+-   **Familiarity with AI (100%)**: All respondents report familiarity, which is remarkable. It indicates AI has already penetrated graduate academic culture at VSU. This sets a strong baseline for analyzing perceptions and usage.
 
-- **Frequency of AI Use (50% often, 31% sometimes, 11% very often, 8% rarely)**: Half of the students use AI often, and another third sometimes — showing widespread integration. Only a small minority rarely use it. This suggests AI is becoming normalized in graduate academic routines, though intensity of use varies.
-
+-   **Frequency of AI Use (50% often, 31% sometimes, 11% very often, 8% rarely)**: Half of the students use AI often, and another third sometimes — showing widespread integration. Only a small minority rarely use it. This suggests AI is becoming normalized in graduate academic routines, though intensity of use varies.
 :::
-
 
 ```{r}
 ## descriptive
@@ -138,30 +134,23 @@ ai_ms_dta |>
   )
 ```
 
-
-
-
 # Objective 2: Determine the level of awareness, perception and AI utilization among graduate students.
 
 ### Level of awareness {.unnumbered}
 
-
-::: {.callout-caution}
-
+::: callout-caution
 ## Interpretation
 
-- **Mathematical/Scientific Problem-Solving (56% Agree, 27% Strongly Agree)**: Over 80% of respondents are aware that AI can support problem-solving in technical fields. This shows strong recognition of AI’s utility. Very few disagreed (≈3%).
+-   **Mathematical/Scientific Problem-Solving (56% Agree, 27% Strongly Agree)**: Over 80% of respondents are aware that AI can support problem-solving in technical fields. This shows strong recognition of AI’s utility. Very few disagreed (≈3%).
 
-- **Writing and Language Tasks (52% Agree, 43% Strongly Agree)**: Awareness is extremely high here — nearly 95% acknowledge AI’s role in writing, summarizing, and translation. This is the most universally recognized application, reflecting AI’s visibility in tools like ChatGPT and Grammarly. Only 1% disagreed.
+-   **Writing and Language Tasks (52% Agree, 43% Strongly Agree)**: Awareness is extremely high here — nearly 95% acknowledge AI’s role in writing, summarizing, and translation. This is the most universally recognized application, reflecting AI’s visibility in tools like ChatGPT and Grammarly. Only 1% disagreed.
 
-- **Learning Support (48% Agree, 41% Strongly Agree)**: Almost 90% are aware of AI’s potential to help review lessons and anticipate exam questions. This suggests students see AI as a study companion, not just a productivity tool. Neutral responses (8%) indicate some uncertainty about its reliability in this role.
+-   **Learning Support (48% Agree, 41% Strongly Agree)**: Almost 90% are aware of AI’s potential to help review lessons and anticipate exam questions. This suggests students see AI as a study companion, not just a productivity tool. Neutral responses (8%) indicate some uncertainty about its reliability in this role.
 
-- **Visual Materials/Presentations (55% Agree, 31% Strongly Agree)**: Awareness is also high (≈86%), showing students recognize AI’s potential in creating slides, illustrations, and communication aids. This reflects growing use of generative AI for visuals in academic presentations.
+-   **Visual Materials/Presentations (55% Agree, 31% Strongly Agree)**: Awareness is also high (≈86%), showing students recognize AI’s potential in creating slides, illustrations, and communication aids. This reflects growing use of generative AI for visuals in academic presentations.
 
-- **Note-Taking and Organizing Study Materials (49% Agree, 29% Strongly Agree)**: Awareness is slightly lower but still strong (≈78%). This suggests students are less exposed to AI tools specifically designed for note-taking/organization compared to writing or problem-solving. Neutral responses (17%) highlight room for growth in this area.
-
+-   **Note-Taking and Organizing Study Materials (49% Agree, 29% Strongly Agree)**: Awareness is slightly lower but still strong (≈78%). This suggests students are less exposed to AI tools specifically designed for note-taking/organization compared to writing or problem-solving. Neutral responses (17%) highlight room for growth in this area.
 :::
-
 
 ```{r}
 p_ai_awareness <- plot_factor("Awareness", stwidth = 50)
@@ -184,25 +173,21 @@ knitr::include_graphics("plot/ai_awareness.jpeg")
 
 ### Peformance expectancy: Perceived usefulness {.unnumbered}
 
-
-::: {.callout-caution}
-
+::: callout-caution
 ## Interpretation
 
-- **AI supports understanding of course concepts (62% Agree/Strongly Agree)**: A strong majority believe AI helps clarify academic materials. This suggests AI is already functioning as a learning aid, though about 11% remain neutral and 1% disagree, showing some hesitation about its reliability.
+-   **AI supports understanding of course concepts (62% Agree/Strongly Agree)**: A strong majority believe AI helps clarify academic materials. This suggests AI is already functioning as a learning aid, though about 11% remain neutral and 1% disagree, showing some hesitation about its reliability.
 
-- **AI helps explore topics more deeply (57% Agree, 32% Strongly Agree)**: Nearly 9 in 10 respondents see AI as expanding their learning horizons. This is one of the most positively rated items, indicating students value AI for broadening perspectives and deepening engagement with content.
+-   **AI helps explore topics more deeply (57% Agree, 32% Strongly Agree)**: Nearly 9 in 10 respondents see AI as expanding their learning horizons. This is one of the most positively rated items, indicating students value AI for broadening perspectives and deepening engagement with content.
 
-- **AI enhances creativity and innovative thinking (52% Agree, 23% Strongly Agree)**: Creativity is where AI scores highest. Three-fourths of respondents feel AI stimulates innovation, suggesting students perceive AI not just as a support tool but as a catalyst for new ideas. Only 7% disagreed, showing minimal resistance.
+-   **AI enhances creativity and innovative thinking (52% Agree, 23% Strongly Agree)**: Creativity is where AI scores highest. Three-fourths of respondents feel AI stimulates innovation, suggesting students perceive AI not just as a support tool but as a catalyst for new ideas. Only 7% disagreed, showing minimal resistance.
 
-- **AI improves productivity and efficiency (52% Agree, 31% Strongly Agree)**: Over 80% affirm AI boosts efficiency in completing tasks. This is a core benefit, aligning with global findings that AI saves time and streamlines academic work. Very few respondents disagreed (2%).
+-   **AI improves productivity and efficiency (52% Agree, 31% Strongly Agree)**: Over 80% affirm AI boosts efficiency in completing tasks. This is a core benefit, aligning with global findings that AI saves time and streamlines academic work. Very few respondents disagreed (2%).
 
-- **AI assists in locating research materials (54% Agree, 31% Strongly Agree)**: Research support is highly valued, with 85% positive responses. This highlights AI’s role in literature search and data-related tasks, which are central to graduate-level work.
+-   **AI assists in locating research materials (54% Agree, 31% Strongly Agree)**: Research support is highly valued, with 85% positive responses. This highlights AI’s role in literature search and data-related tasks, which are central to graduate-level work.
 
-- **AI enhances overall graduate learning experience (52% Agree, 25% Strongly Agree)**: About three-fourths of respondents believe AI improves their graduate journey. However, 20% remain neutral and 3% disagree, showing that while many see benefits, some are cautious about its overall impact.
-
+-   **AI enhances overall graduate learning experience (52% Agree, 25% Strongly Agree)**: About three-fourths of respondents believe AI improves their graduate journey. However, 20% remain neutral and 3% disagree, showing that while many see benefits, some are cautious about its overall impact.
 :::
-
 
 ```{r}
 p_performance_expectancy <-
@@ -222,25 +207,21 @@ ggsave(
 knitr::include_graphics("plot/performance_expectancy.jpeg")
 ```
 
-
 ### Effort expectancy: Perceived ease of use {.unnumbered}
 
-
-::: {.callout-caution}
+::: callout-caution
 ## Interpretation
 
-- **Ease of Learning and Use (61% Agree/Strongly Agree)**: Most respondents find AI systems easy to learn and use, with only 1% disagreeing. This indicates strong usability recognition, though about 21% remain neutral — suggesting some students may not yet have enough hands-on experience to fully judge ease of use.
+-   **Ease of Learning and Use (61% Agree/Strongly Agree)**: Most respondents find AI systems easy to learn and use, with only 1% disagreeing. This indicates strong usability recognition, though about 21% remain neutral — suggesting some students may not yet have enough hands-on experience to fully judge ease of use.
 
-- **Interacting Requires Little Effort (54% Agree/Strongly Agree)**: Over half believe AI requires minimal effort, but 26% are neutral and 7% disagree. This shows that while many find AI convenient, a notable minority perceive some learning curve or complexity.
+-   **Interacting Requires Little Effort (54% Agree/Strongly Agree)**: Over half believe AI requires minimal effort, but 26% are neutral and 7% disagree. This shows that while many find AI convenient, a notable minority perceive some learning curve or complexity.
 
-- **Convenience Across Time and Location (60% Agree/Strongly Agree)**: Students largely acknowledge AI’s role in making study more flexible and accessible. This reflects AI’s value in asynchronous learning and remote support. Neutral responses (19%) suggest some students may not yet rely on AI for convenience.
+-   **Convenience Across Time and Location (60% Agree/Strongly Agree)**: Students largely acknowledge AI’s role in making study more flexible and accessible. This reflects AI’s value in asynchronous learning and remote support. Neutral responses (19%) suggest some students may not yet rely on AI for convenience.
 
-- **Comfort and Confidence in Use (38% Agree, 8% Strongly Agree, 41% Neutral)**: Confidence is more mixed. While nearly half feel comfortable, a large neutral cluster (41%) and 12% disagreement show hesitation. This suggests confidence is not yet universal — possibly linked to varying digital literacy or trust in AI outputs.
+-   **Comfort and Confidence in Use (38% Agree, 8% Strongly Agree, 41% Neutral)**: Confidence is more mixed. While nearly half feel comfortable, a large neutral cluster (41%) and 12% disagreement show hesitation. This suggests confidence is not yet universal — possibly linked to varying digital literacy or trust in AI outputs.
 
-- **Simplifies Learning Process (60% Agree/Strongly Agree)**: A majority believe AI simplifies learning, reinforcing its role as a supportive tool. Neutral responses (21%) highlight that some students may not yet see AI as transformative for learning.
-
+-   **Simplifies Learning Process (60% Agree/Strongly Agree)**: A majority believe AI simplifies learning, reinforcing its role as a supportive tool. Neutral responses (21%) highlight that some students may not yet see AI as transformative for learning.
 :::
-
 
 ```{r}
 p_effort_expectancy <-
@@ -260,20 +241,18 @@ ggsave(
 knitr::include_graphics("plot/effort_expectancy_peou.jpeg")
 ```
 
-
 ### Effort expectancy: Self-efficacy {.unnumbered}
 
-::: {.callout-caution}
+::: callout-caution
 ## Interpretation
 
-- **Handling Difficult Situations (46% Agree/Strongly Agree, 36% Neutral, 7% Disagree)**: Nearly half of respondents feel they can rely on their skills when facing AI-related challenges. However, over a third remain neutral, suggesting uncertainty or limited experience. A small but notable group (7%) disagrees, indicating gaps in confidence.
+-   **Handling Difficult Situations (46% Agree/Strongly Agree, 36% Neutral, 7% Disagree)**: Nearly half of respondents feel they can rely on their skills when facing AI-related challenges. However, over a third remain neutral, suggesting uncertainty or limited experience. A small but notable group (7%) disagrees, indicating gaps in confidence.
 
-- **Dealing with AI Problems Independently (42% Agree, 42% Neutral, 9% Disagree)**: Responses are evenly split between agreement and neutrality. This shows that while many believe they can troubleshoot AI issues, just as many are unsure. The 9% who disagree highlight a reliance on external support (peers, faculty, or online resources).
+-   **Dealing with AI Problems Independently (42% Agree, 42% Neutral, 9% Disagree)**: Responses are evenly split between agreement and neutrality. This shows that while many believe they can troubleshoot AI issues, just as many are unsure. The 9% who disagree highlight a reliance on external support (peers, faculty, or online resources).
 
-- **Managing Complex AI Tasks (44% Agree, 44% Neutral, 7% Disagree)**: Confidence in handling complex AI tasks is moderate. The equal split between agreement and neutrality suggests students recognize AI’s complexity but are not fully confident in mastering it. Only a small minority strongly disagrees.
+-   **Managing Complex AI Tasks (44% Agree, 44% Neutral, 7% Disagree)**: Confidence in handling complex AI tasks is moderate. The equal split between agreement and neutrality suggests students recognize AI’s complexity but are not fully confident in mastering it. Only a small minority strongly disagrees.
 
-- **Confidence in Graduate-Level AI Use (40% Agree, 5% Strongly Agree, 44% Neutral, 9% Disagree)**: While almost half feel confident using AI academically, the large neutral cluster (44%) signals hesitation. This indicates that confidence is not yet widespread, and many students may still be in the exploratory stage of AI adoption.
-
+-   **Confidence in Graduate-Level AI Use (40% Agree, 5% Strongly Agree, 44% Neutral, 9% Disagree)**: While almost half feel confident using AI academically, the large neutral cluster (44%) signals hesitation. This indicates that confidence is not yet widespread, and many students may still be in the exploratory stage of AI adoption.
 :::
 
 ```{r}
@@ -294,24 +273,21 @@ ggsave(
 knitr::include_graphics("plot/effort_expectancy_se.jpeg")
 ```
 
-
 ### Ethical perceptions: Bias and discrimination {.unnumbered}
 
-::: {.callout-caution}
+::: callout-caution
 ## Interpretation
 
 **Bias in Training Data (46% Agree, 25% Strongly Agree, 27% Neutral)**: A strong majority (≈71%) recognize that biased training data leads to biased outputs. This shows good awareness of how AI systems inherit limitations from their datasets. The neutral group (27%) suggests some uncertainty about technical mechanisms of bias.
 
-- **Biased Outcomes Disadvantaging Groups (31% Agree, 10% Strongly Agree, 45% Neutral, 14% Disagree)**: Perceptions here are more mixed. While 41% acknowledge biased outcomes, nearly half remain neutral, and 14% disagree. This indicates that while students conceptually understand bias, fewer directly perceive it as disadvantaging specific groups — possibly due to limited exposure to real-world cases.
+-   **Biased Outcomes Disadvantaging Groups (31% Agree, 10% Strongly Agree, 45% Neutral, 14% Disagree)**: Perceptions here are more mixed. While 41% acknowledge biased outcomes, nearly half remain neutral, and 14% disagree. This indicates that while students conceptually understand bias, fewer directly perceive it as disadvantaging specific groups — possibly due to limited exposure to real-world cases.
 
 **Reinforcing Social Inequalities (35% Agree, 9% Strongly Agree, 45% Neutral, 11% Disagree)**: Similar to the previous item, many respondents are undecided (45%). About 44% agree AI can reinforce inequalities, but skepticism (11% disagree) suggests some students may not yet connect AI outputs to broader social impacts.
 
 **Concern About Fairness for Underrepresented Groups (44% Agree, 18% Strongly Agree, 30% Neutral, 8% Disagree)**: A majority (62%) express concern about fairness, showing strong ethical sensitivity. Neutral responses (30%) suggest some students are aware of the issue but not fully convinced of its severity.
 
-- **Regular Evaluation for Fairness (44% Agree, 43% Strongly Agree, 13% Neutral)**: This item received the strongest consensus: 87% support regular evaluation of AI systems for fairness. This indicates students strongly endorse accountability measures and institutional safeguards against bias.
-
+-   **Regular Evaluation for Fairness (44% Agree, 43% Strongly Agree, 13% Neutral)**: This item received the strongest consensus: 87% support regular evaluation of AI systems for fairness. This indicates students strongly endorse accountability measures and institutional safeguards against bias.
 :::
-
 
 ```{r}
 p_ethical_risk_bias <-
@@ -333,7 +309,7 @@ knitr::include_graphics("plot/ethical_risk_bias.jpeg")
 
 ### Ethical perceptions: Privacy and security {.unnumbered}
 
-::: {.callout-caution}
+::: callout-caution
 ## Interpretation
 
 **Overall Safety and Reliability (50% Agree, 22% Strongly Agree, 26% Neutral)**: Nearly three-fourths of respondents express concern about AI’s safety and reliability in graduate education. This shows strong awareness of potential risks, though a quarter remain neutral, indicating uncertainty or limited direct experience with failures.
@@ -345,9 +321,7 @@ knitr::include_graphics("plot/ethical_risk_bias.jpeg")
 **Unauthorized Use or Sharing of Personal Information (43% Agree, 29% Strongly Agree, 25% Neutral)**: Similarly, about 72% are concerned about unauthorized data use. This indicates students are highly sensitive to privacy risks, even if they haven’t directly experienced them.
 
 **Failures or Malfunctions Affecting Learning (47% Agree, 30% Strongly Agree, 20% Neutral)**: Over three-fourths worry that technical malfunctions could disrupt learning. This shows students recognize AI’s fragility and potential to negatively impact academic activities if systems fail.
-
 :::
-
 
 ```{r}
 p_ethical_risk_privacy <-
@@ -367,19 +341,18 @@ ggsave(
 knitr::include_graphics("plot/ethical_risk_privacy.jpeg")
 ```
 
-
 ### Ethical perceptions: Transparency {.unnumbered}
 
-::: {.callout-caution}
+::: callout-caution
 ## Interpretation
 
 **Difficulty Trusting Without Explanations (50% Agree, 21% Strongly Agree, 22% Neutral)**: About 71% of respondents say they cannot fully trust AI tools unless outputs are explained. This highlights transparency as a prerequisite for trust. The neutral group (22%) suggests some students are undecided but cautious.
 
-- **Need for Greater Transparency (52% Agree, 30% Strongly Agree, 17% Neutral)**: Over 80% emphasize transparency as necessary for confidence in AI outcomes. This is one of the strongest consensus points, showing students want clarity in how AI supports learning and research.
+-   **Need for Greater Transparency (52% Agree, 30% Strongly Agree, 17% Neutral)**: Over 80% emphasize transparency as necessary for confidence in AI outcomes. This is one of the strongest consensus points, showing students want clarity in how AI supports learning and research.
 
 **AI Tools Often Lack Transparency (39% Agree, 22% Strongly Agree, 32% Neutral, 7% Disagree)**: A majority (61%) perceive AI as lacking transparency. The large neutral cluster (32%) indicates that while many recognize the issue, others may not have enough experience to judge.
 
-- **Outputs Not Clearly Explained (44% Agree, 14% Strongly Agree, 31% Neutral, 10% Disagree)**: More than half agree AI outputs are not well explained, which makes it difficult to understand their influence on academic work. Neutral responses (31%) again show uncertainty or limited exposure.
+-   **Outputs Not Clearly Explained (44% Agree, 14% Strongly Agree, 31% Neutral, 10% Disagree)**: More than half agree AI outputs are not well explained, which makes it difficult to understand their influence on academic work. Neutral responses (31%) again show uncertainty or limited exposure.
 
 **Insufficient Explanations Overall (40% Agree, 16% Strongly Agree, 35% Neutral, 9% Disagree)**: A majority (56%) believe AI tools fail to provide sufficient explanations. The 35% neutral group suggests students are aware of the issue but not strongly convinced.
 :::
@@ -404,21 +377,19 @@ knitr::include_graphics("plot/ethical_risk_transparency.jpeg")
 
 ### Ethical perceptions: Over-reliance on AI {.unnumbered}
 
-::: {.callout-caution}
+::: callout-caution
 ## Interpretation
 
-- **Becoming Overly Dependent (35% Agree, 25% Strongly Agree, 26% Neutral, 12% Disagree)**: About 60% of respondents worry about dependence on AI in learning. The neutral group (26%) suggests some uncertainty, while 12% disagree, showing a minority who feel confident they can balance AI use.
+-   **Becoming Overly Dependent (35% Agree, 25% Strongly Agree, 26% Neutral, 12% Disagree)**: About 60% of respondents worry about dependence on AI in learning. The neutral group (26%) suggests some uncertainty, while 12% disagree, showing a minority who feel confident they can balance AI use.
 
-- **Relying Too Much in Research/Writing (36% Agree, 21% Strongly Agree, 28% Neutral, 12% Disagree)**: A majority (57%) express concern about over-reliance in academic writing and research. This reflects awareness of risks to originality and integrity. Neutral responses (28%) indicate some students are undecided about the extent of this risk.
+-   **Relying Too Much in Research/Writing (36% Agree, 21% Strongly Agree, 28% Neutral, 12% Disagree)**: A majority (57%) express concern about over-reliance in academic writing and research. This reflects awareness of risks to originality and integrity. Neutral responses (28%) indicate some students are undecided about the extent of this risk.
 
-- **Weakening Critical/Independent Thinking (41% Agree, 29% Strongly Agree, 19% Neutral, 10% Disagree)**: About 70% believe excessive AI use could erode critical thinking skills. This is one of the strongest concerns, showing students value independent intellectual development.
+-   **Weakening Critical/Independent Thinking (41% Agree, 29% Strongly Agree, 19% Neutral, 10% Disagree)**: About 70% believe excessive AI use could erode critical thinking skills. This is one of the strongest concerns, showing students value independent intellectual development.
 
-- **Limiting Original Ideas and Analytical Abilities (41% Agree, 32% Strongly Agree, 17% Neutral, 10% Disagree)**: Nearly three-fourths worry that heavy reliance on AI could stifle creativity and analytical growth. This is the most strongly endorsed concern, highlighting students’ desire to preserve originality in graduate-level work.
+-   **Limiting Original Ideas and Analytical Abilities (41% Agree, 32% Strongly Agree, 17% Neutral, 10% Disagree)**: Nearly three-fourths worry that heavy reliance on AI could stifle creativity and analytical growth. This is the most strongly endorsed concern, highlighting students’ desire to preserve originality in graduate-level work.
 
-- **Reducing Autonomy in Learning/Decision-Making (39% Agree, 31% Strongly Agree, 18% Neutral, 12% Disagree)**: About 70% fear AI may reduce autonomy. This shows students are aware of the subtle risk of outsourcing judgment to AI, even if they benefit from its convenience.
-
+-   **Reducing Autonomy in Learning/Decision-Making (39% Agree, 31% Strongly Agree, 18% Neutral, 12% Disagree)**: About 70% fear AI may reduce autonomy. This shows students are aware of the subtle risk of outsourcing judgment to AI, even if they benefit from its convenience.
 :::
-
 
 ```{r}
 p_ethical_risk_overreliance <-
@@ -440,19 +411,18 @@ knitr::include_graphics("plot/ethical_risk_overreliance.jpeg")
 
 ### Ethical perceptions: Equity and access {.unnumbered}
 
-::: {.callout-caution}
+::: callout-caution
 ## Interpretation
 
-- **Skills Requirement (36% Agree, 14% Strongly Agree, 33% Neutral, 13% Disagree)**: Half of respondents recognize that AI use requires skills not all graduate students possess. This highlights digital literacy gaps as a barrier to equitable adoption. The large neutral group (33%) suggests some uncertainty about how significant these skill gaps are.
+-   **Skills Requirement (36% Agree, 14% Strongly Agree, 33% Neutral, 13% Disagree)**: Half of respondents recognize that AI use requires skills not all graduate students possess. This highlights digital literacy gaps as a barrier to equitable adoption. The large neutral group (33%) suggests some uncertainty about how significant these skill gaps are.
 
-- **Inequities in Research Productivity (45% Agree, 9% Strongly Agree, 33% Neutral, 12% Disagree)**: More than half believe unequal access to AI tools creates disparities in research productivity. This shows awareness that AI can amplify existing inequalities in academic output.
+-   **Inequities in Research Productivity (45% Agree, 9% Strongly Agree, 33% Neutral, 12% Disagree)**: More than half believe unequal access to AI tools creates disparities in research productivity. This shows awareness that AI can amplify existing inequalities in academic output.
 
-- **Inequities in Academic Performance (36% Agree, 11% Strongly Agree, 36% Neutral, 14% Disagree)**: Perceptions are mixed. While nearly half see AI as contributing to performance inequities, an equally large neutral cluster (36%) suggests uncertainty. This may reflect differences in exposure to AI across disciplines.
+-   **Inequities in Academic Performance (36% Agree, 11% Strongly Agree, 36% Neutral, 14% Disagree)**: Perceptions are mixed. While nearly half see AI as contributing to performance inequities, an equally large neutral cluster (36%) suggests uncertainty. This may reflect differences in exposure to AI across disciplines.
 
-- **Inequities in Academic Achievement (38% Agree, 10% Strongly Agree, 36% Neutral, 12% Disagree)**: Similar to performance, about half acknowledge achievement gaps linked to AI access. Neutral responses again indicate that many students are undecided or cautious in attributing inequities directly to AI.
+-   **Inequities in Academic Achievement (38% Agree, 10% Strongly Agree, 36% Neutral, 12% Disagree)**: Similar to performance, about half acknowledge achievement gaps linked to AI access. Neutral responses again indicate that many students are undecided or cautious in attributing inequities directly to AI.
 
-- **Lack of Access to AI Tools (39% Agree, 13% Strongly Agree, 32% Neutral, 13% Disagree)**: A majority (52%) believe inequities arise because some students lack access to AI tools. This underscores infrastructure and resource disparities as a key ethical concern.
-
+-   **Lack of Access to AI Tools (39% Agree, 13% Strongly Agree, 32% Neutral, 13% Disagree)**: A majority (52%) believe inequities arise because some students lack access to AI tools. This underscores infrastructure and resource disparities as a key ethical concern.
 :::
 
 ```{r}
@@ -473,24 +443,22 @@ ggsave(
 knitr::include_graphics("plot/ethical_risk_equity.jpeg")
 ```
 
-
 ### Peformance expectancy: Perceived usefulness {.unnumbered}
 
-::: {.callout-caution}
+::: callout-caution
 ## Interpretation
 
-- **Understanding Course Concepts (62% Agree, 26% Strongly Agree, 11% Neutral)**: Nearly nine in ten respondents affirm that AI supports their comprehension of academic materials. This shows AI is widely seen as a learning aid, with very minimal disagreement (≈1%).
+-   **Understanding Course Concepts (62% Agree, 26% Strongly Agree, 11% Neutral)**: Nearly nine in ten respondents affirm that AI supports their comprehension of academic materials. This shows AI is widely seen as a learning aid, with very minimal disagreement (≈1%).
 
-- **Exploring Topics More Deeply (57% Agree, 32% Strongly Agree, 9% Neutral)**: This item received one of the strongest endorsements: almost 90% believe AI broadens their learning horizons. It highlights AI’s role in expanding perspectives and deepening engagement.
+-   **Exploring Topics More Deeply (57% Agree, 32% Strongly Agree, 9% Neutral)**: This item received one of the strongest endorsements: almost 90% believe AI broadens their learning horizons. It highlights AI’s role in expanding perspectives and deepening engagement.
 
-- **Enhancing Creativity and Innovation (52% Agree, 23% Strongly Agree, 17% Neutral)**: About three-fourths feel AI stimulates creativity and supports innovative thinking. This suggests students perceive AI not just as a tool for efficiency but as a catalyst for new ideas.
+-   **Enhancing Creativity and Innovation (52% Agree, 23% Strongly Agree, 17% Neutral)**: About three-fourths feel AI stimulates creativity and supports innovative thinking. This suggests students perceive AI not just as a tool for efficiency but as a catalyst for new ideas.
 
-- **Improving Productivity and Efficiency (52% Agree, 31% Strongly Agree, 15% Neutral)**: Over 80% agree AI boosts efficiency in completing academic tasks. This is a core benefit, aligning with global findings that AI saves time and streamlines work.
+-   **Improving Productivity and Efficiency (52% Agree, 31% Strongly Agree, 15% Neutral)**: Over 80% agree AI boosts efficiency in completing academic tasks. This is a core benefit, aligning with global findings that AI saves time and streamlines work.
 
-- **Assisting in Research Materials (54% Agree, 31% Strongly Agree, 12% Neutral)**: Research support is highly valued, with 85% positive responses. This underscores AI’s role in literature search and data-related tasks, which are central to graduate-level work.
+-   **Assisting in Research Materials (54% Agree, 31% Strongly Agree, 12% Neutral)**: Research support is highly valued, with 85% positive responses. This underscores AI’s role in literature search and data-related tasks, which are central to graduate-level work.
 
-- **Enhancing Overall Graduate Learning Experience (52% Agree, 25% Strongly Agree, 20% Neutral)**: About three-fourths believe AI improves their graduate journey. However, one-fifth remain neutral, showing some caution about its overall impact.
-
+-   **Enhancing Overall Graduate Learning Experience (52% Agree, 25% Strongly Agree, 20% Neutral)**: About three-fourths believe AI improves their graduate journey. However, one-fifth remain neutral, showing some caution about its overall impact.
 :::
 
 ```{r}
@@ -510,7 +478,6 @@ ggsave(
 ## display plot
 knitr::include_graphics("plot/performance_expectancy.jpeg")
 ```
-
 
 # Objective 3: Analyze the relationship of socio-demographic variables with AI awareness, perception and utilization.
 
@@ -537,7 +504,6 @@ block1 <- sem_ai_ms_dta |> select(a1:a5, pe1:pe6, ai_use1:ai_use4)
 fa.parallel(block1, fm = "ml", fa = "fa")
 ```
 
-
 ```{r}
 ## parallel analysis for higher order construct effort expectancy
 
@@ -546,7 +512,6 @@ block2 <- sem_ai_ms_dta |> select(ee_peu1:ee_peu5, ee_se1:ee_se4)
 
 fa.parallel(block2, fm = "ml", fa = "fa")
 ```
-
 
 ```{r}
 ## parallel analysis for higher order construct ethical perceptions
@@ -563,7 +528,6 @@ block3 <- sem_ai_ms_dta |>
 
 fa.parallel(block3, fm = "ml", fa = "fa")
 ```
-
 
 ### Factor extraction
 
@@ -591,7 +555,6 @@ Finally, for the higher-order construct Ethical Risk Perceptions, which suggests
 fa_block3 <- fa(block3, nfactors = 4, fm = "ml", rotate = "oblimin")
 print(fa_block3$loadings, cutoff = 0.3, sort = TRUE)
 ```
-
 
 ## PLS-SEM
 
@@ -637,7 +600,6 @@ measurement_model <- constructs(
 # plot(measurement_model, title = "Measurement Model Loadings")
 ```
 
-
 ### Structural model
 
 In estimating the PLS-SEM model, we first define the measurement model, which specifies how observed survey items (indicators) relate to their underlying latent constructs (factors). The constructs are defined as composites, with each composite representing a latent variable measured by multiple indicators.
@@ -674,26 +636,24 @@ summary_pls <- summary(pls_model)
 # DT::datatable(summary_pls$paths |> round(3))
 ```
 
-
 ### Bootstrapped estimates and direct effects
 
 The table below presents the bootstrapped estimates of the path coefficients, which provide a measure of the stability and reliability of the estimated relationships in the structural model. Bootstrapping involves repeatedly resampling the data and estimating the model to generate a distribution of path coefficients, allowing us to assess their significance and confidence intervals.
 
-::: {.callout-caution}
+::: callout-caution
 ## Interpretation
 
-- **Awareness → Performance Expectancy (β = 0.679, p < .001)**: This is the strongest direct effect in the model. Students who report greater awareness of AI tend to perceive substantially higher usefulness of AI for academic tasks. The 95% CI [0.569, 0.781] excludes zero by a wide margin, indicating a robust relationship.
+-   **Awareness → Performance Expectancy (β = 0.679, p \< .001)**: This is the strongest direct effect in the model. Students who report greater awareness of AI tend to perceive substantially higher usefulness of AI for academic tasks. The 95% CI \[0.569, 0.781\] excludes zero by a wide margin, indicating a robust relationship.
 
-- **Awareness → Effort Expectancy (β = 0.608, p < .001)**: Awareness also strongly predicts perceived ease of use and self-efficacy with AI tools. As students become more aware of AI, they are more likely to view it as easy and manageable to use, with a 95% CI of [0.497, 0.717].
+-   **Awareness → Effort Expectancy (β = 0.608, p \< .001)**: Awareness also strongly predicts perceived ease of use and self-efficacy with AI tools. As students become more aware of AI, they are more likely to view it as easy and manageable to use, with a 95% CI of \[0.497, 0.717\].
 
-- **Awareness → Ethical Risk Perceptions (β = 0.270, p < .001)**: This effect is statistically significant but noticeably weaker than the two paths above (95% CI [0.196, 0.405]). Awareness has some bearing on how strongly students perceive ethical risks, but the relationship is modest — consistent with the low R² (7.3%) for this construct, most of the variation in ethical risk perceptions is driven by factors other than awareness.
+-   **Awareness → Ethical Risk Perceptions (β = 0.270, p \< .001)**: This effect is statistically significant but noticeably weaker than the two paths above (95% CI \[0.196, 0.405\]). Awareness has some bearing on how strongly students perceive ethical risks, but the relationship is modest — consistent with the low R² (7.3%) for this construct, most of the variation in ethical risk perceptions is driven by factors other than awareness.
 
-- **Effort Expectancy → Use of AI (β = 0.396, p < .001)**: Among the three direct predictors of AI use, effort expectancy has the largest influence. Students who find AI easier to use and feel more capable using it (self-efficacy) report greater actual use of AI tools, 95% CI [0.256, 0.525].
+-   **Effort Expectancy → Use of AI (β = 0.396, p \< .001)**: Among the three direct predictors of AI use, effort expectancy has the largest influence. Students who find AI easier to use and feel more capable using it (self-efficacy) report greater actual use of AI tools, 95% CI \[0.256, 0.525\].
 
-- **Ethical Risk Perceptions → Use of AI (β = 0.211, p < .001)**: Perceived ethical risk is positively associated with AI use — students who perceive greater ethical risks (bias, privacy, transparency, over-reliance, equity concerns) still report *higher*, not lower, use of AI tools, 95% CI [0.125, 0.338]. This direction is worth flagging: it does not indicate that ethical concern discourages use, and may instead reflect that more frequent AI users are more exposed to — and therefore more aware of — its ethical risks.
+-   **Ethical Risk Perceptions → Use of AI (β = 0.211, p \< .001)**: Perceived ethical risk is positively associated with AI use — students who perceive greater ethical risks (bias, privacy, transparency, over-reliance, equity concerns) still report *higher*, not lower, use of AI tools, 95% CI \[0.125, 0.338\]. This direction is worth flagging: it does not indicate that ethical concern discourages use, and may instead reflect that more frequent AI users are more exposed to — and therefore more aware of — its ethical risks.
 
-- **Performance Expectancy → Use of AI (β = 0.220, p = .006)**: This is the weakest of the three direct predictors of AI use, and its 95% CI [0.062, 0.354] sits closer to zero than the other paths, though it remains significant. Perceived usefulness contributes to AI use, but less so than effort expectancy in this sample.
-
+-   **Performance Expectancy → Use of AI (β = 0.220, p = .006)**: This is the weakest of the three direct predictors of AI use, and its 95% CI \[0.062, 0.354\] sits closer to zero than the other paths, though it remains significant. Perceived usefulness contributes to AI use, but less so than effort expectancy in this sample.
 :::
 
 ```{r}
@@ -709,11 +669,9 @@ summary_boot <- summary(boot_pls)
 DT::datatable(summary_boot$bootstrapped_paths |> round(3))
 ```
 
-
 ```{r}
 plot(boot_pls, title = "Bootstrapped Path Coefficients")
 ```
-
 
 ```{r}
 #| eval: false
@@ -723,22 +681,20 @@ direct_effects <- summary_pls$paths
 DT::datatable(direct_effects |> round(3))
 ```
 
-
 ### Indirect effects
 
 Below are the results for the indirect effects, which capture the mediating influence of Effort Expectancy, Ethical Risk Perceptions, and Performance Expectancy on the relationship between Awareness and Use of AI. The indirect effects quantify how much of the effect of Awareness on Use of AI is transmitted through these mediators.
 
-::: {.callout-caution}
+::: callout-caution
 ## Interpretation
 
-- **Awareness → Effort Expectancy → Use of AI (β = 0.241, p < .001)**: This is the strongest of the three specific indirect paths (95% CI [0.148, 0.341]). Awareness increases students' perceived ease of use and self-efficacy with AI, which in turn drives greater use of AI tools — this is the primary mechanism through which awareness translates into actual AI use.
+-   **Awareness → Effort Expectancy → Use of AI (β = 0.241, p \< .001)**: This is the strongest of the three specific indirect paths (95% CI \[0.148, 0.341\]). Awareness increases students' perceived ease of use and self-efficacy with AI, which in turn drives greater use of AI tools — this is the primary mechanism through which awareness translates into actual AI use.
 
-- **Awareness → Performance Expectancy → Use of AI (β = 0.149, p = .006)**: Awareness also promotes AI use by shaping students' perception of AI's usefulness for academic tasks (95% CI [0.044, 0.250]), though this path's confidence interval is comparatively closer to zero and the effect is roughly two-thirds the size of the effort-expectancy route.
+-   **Awareness → Performance Expectancy → Use of AI (β = 0.149, p = .006)**: Awareness also promotes AI use by shaping students' perception of AI's usefulness for academic tasks (95% CI \[0.044, 0.250\]), though this path's confidence interval is comparatively closer to zero and the effect is roughly two-thirds the size of the effort-expectancy route.
 
-- **Awareness → Ethical Risk Perceptions → Use of AI (β = 0.057, p < .001)**: This is the weakest specific indirect path (95% CI [0.036, 0.113]), though still statistically significant. Ethical risk perception is a comparatively minor conduit between awareness and AI use — consistent with the earlier finding that awareness explains little variance in ethical risk perceptions (R² = 7.3%).
+-   **Awareness → Ethical Risk Perceptions → Use of AI (β = 0.057, p \< .001)**: This is the weakest specific indirect path (95% CI \[0.036, 0.113\]), though still statistically significant. Ethical risk perception is a comparatively minor conduit between awareness and AI use — consistent with the earlier finding that awareness explains little variance in ethical risk perceptions (R² = 7.3%).
 
-- **Total indirect effect of Awareness on Use of AI (β = 0.447, p < .001)**: Summing across all three mediators, awareness has a substantial overall indirect effect on AI use (95% CI [0.373, 0.539]). Effort expectancy accounts for over half of this total indirect effect, underscoring that making AI feel easy and manageable to use is the dominant pathway linking awareness to actual adoption in this sample.
-
+-   **Total indirect effect of Awareness on Use of AI (β = 0.447, p \< .001)**: Summing across all three mediators, awareness has a substantial overall indirect effect on AI use (95% CI \[0.373, 0.539\]). Effort expectancy accounts for over half of this total indirect effect, underscoring that making AI feel easy and manageable to use is the dominant pathway linking awareness to actual adoption in this sample.
 :::
 
 ```{r}
@@ -767,22 +723,20 @@ specific_indirect_effects <- rbind(
 DT::datatable(specific_indirect_effects |> round(3))
 ```
 
-
 ### Total effects
 
 Whereas the direct effects capture only the immediate path between two constructs and the indirect effects capture mediated paths, total effects sum these together to represent the overall influence of one construct on another, combining both direct and any mediated routes.
 
-::: {.callout-caution}
+::: callout-caution
 ## Interpretation
 
-- **Awareness → Use of AI (β = 0.447, p < .001)**: Awareness has no direct path to Use of AI in this model, so this total effect is entirely indirect — it is fully accounted for by the three mediators (Effort Expectancy, Ethical Risk Perceptions, and Performance Expectancy). The 95% CI [0.373, 0.539] indicates a robust overall influence: greater awareness of AI meaningfully translates into greater use, but only through how it shapes students' perceptions of ease of use, usefulness, and ethical risk.
+-   **Awareness → Use of AI (β = 0.447, p \< .001)**: Awareness has no direct path to Use of AI in this model, so this total effect is entirely indirect — it is fully accounted for by the three mediators (Effort Expectancy, Ethical Risk Perceptions, and Performance Expectancy). The 95% CI \[0.373, 0.539\] indicates a robust overall influence: greater awareness of AI meaningfully translates into greater use, but only through how it shapes students' perceptions of ease of use, usefulness, and ethical risk.
 
-- **Awareness → Effort Expectancy, Ethical Risk Perceptions, and Performance Expectancy**: Since these three constructs have no other predictors in the model, their total effects (0.608, 0.270, and 0.679, respectively) are identical to their direct effects reported earlier — there is no additional mediated component to add.
+-   **Awareness → Effort Expectancy, Ethical Risk Perceptions, and Performance Expectancy**: Since these three constructs have no other predictors in the model, their total effects (0.608, 0.270, and 0.679, respectively) are identical to their direct effects reported earlier — there is no additional mediated component to add.
 
-- **Effort Expectancy, Ethical Risk Perceptions, and Performance Expectancy → Use of AI**: Likewise, these three mediators have only a direct path to Use of AI (0.396, 0.211, and 0.220, respectively), so their total effects equal their direct effects.
+-   **Effort Expectancy, Ethical Risk Perceptions, and Performance Expectancy → Use of AI**: Likewise, these three mediators have only a direct path to Use of AI (0.396, 0.211, and 0.220, respectively), so their total effects equal their direct effects.
 
-- **Overall pattern**: Awareness is the only construct in the model whose influence on the final outcome (Use of AI) is entirely indirect, working through the three mediating constructs rather than by a direct route. This supports interpreting the model as a fully mediated pathway from awareness to AI use.
-
+-   **Overall pattern**: Awareness is the only construct in the model whose influence on the final outcome (Use of AI) is entirely indirect, working through the three mediating constructs rather than by a direct route. This supports interpreting the model as a fully mediated pathway from awareness to AI use.
 :::
 
 ```{r}
@@ -790,62 +744,56 @@ total_effects <- summary_pls$total_effects
 DT::datatable(total_effects |> round(3))
 ```
 
-
 ## Reliability test
 
-::: {.callout-caution}
+::: callout-caution
 ## Interpretation
 
-- **Internal consistency reliability is adequate for all constructs**: Cronbach's alpha, rhoA, and rhoC all exceed the 0.70 threshold across all five constructs, ranging from 0.701 (Use of AI, alpha) to 0.927 (Ethical Risk Perceptions, rhoA). This indicates the items within each construct consistently measure the same underlying concept.
+-   **Internal consistency reliability is adequate for all constructs**: Cronbach's alpha, rhoA, and rhoC all exceed the 0.70 threshold across all five constructs, ranging from 0.701 (Use of AI, alpha) to 0.927 (Ethical Risk Perceptions, rhoA). This indicates the items within each construct consistently measure the same underlying concept.
 
-- **Ethical Risk Perceptions shows notably high reliability coefficients (α = 0.917, rhoC = 0.917)**: This is expected given it is a higher-order construct built from 23 repeated indicators spanning four facets (bias/discrimination, privacy/transparency, over-reliance, equity/access) — the large number of items inflates these coefficients somewhat, so they should not be read as evidence the construct is tightly unidimensional.
+-   **Ethical Risk Perceptions shows notably high reliability coefficients (α = 0.917, rhoC = 0.917)**: This is expected given it is a higher-order construct built from 23 repeated indicators spanning four facets (bias/discrimination, privacy/transparency, over-reliance, equity/access) — the large number of items inflates these coefficients somewhat, so they should not be read as evidence the construct is tightly unidimensional.
 
-- **Convergent validity (AVE) is not met for two constructs**: Effort Expectancy (AVE = 0.451) and Ethical Risk Perceptions (AVE = 0.312) fall below the 0.50 threshold, meaning more than half of the indicator variance for these constructs is attributable to error rather than the underlying construct. This is a meaningful validity concern — high reliability does not compensate for low AVE, since the two properties assess different things (consistency vs. how much variance items actually share with the construct).
+-   **Convergent validity (AVE) is not met for two constructs**: Effort Expectancy (AVE = 0.451) and Ethical Risk Perceptions (AVE = 0.312) fall below the 0.50 threshold, meaning more than half of the indicator variance for these constructs is attributable to error rather than the underlying construct. This is a meaningful validity concern — high reliability does not compensate for low AVE, since the two properties assess different things (consistency vs. how much variance items actually share with the construct).
 
-- **Awareness, Performance Expectancy, and Use of AI meet both reliability and AVE criteria**: AVE values of 0.603, 0.675, and 0.626 respectively indicate adequate convergent validity for these three constructs.
+-   **Awareness, Performance Expectancy, and Use of AI meet both reliability and AVE criteria**: AVE values of 0.603, 0.675, and 0.626 respectively indicate adequate convergent validity for these three constructs.
 
-- **Implication**: The low AVE for Effort Expectancy and Ethical Risk Perceptions is plausibly linked to their construction as higher-order composites via repeated indicators — combining conceptually distinct sub-facets (e.g., ease of use and self-efficacy; four separate ethical risk facets) into a single indicator set can dilute the shared variance captured by one factor. This should be discussed before treating structural path estimates involving these two constructs as fully conclusive.
-
+-   **Implication**: The low AVE for Effort Expectancy and Ethical Risk Perceptions is plausibly linked to their construction as higher-order composites via repeated indicators — combining conceptually distinct sub-facets (e.g., ease of use and self-efficacy; four separate ethical risk facets) into a single indicator set can dilute the shared variance captured by one factor. This should be discussed before treating structural path estimates involving these two constructs as fully conclusive.
 :::
 
 ```{r}
 DT::datatable(summary_pls$reliability |> round(3))
 ```
 
-
 ## Validity test: Fornell-Larcker criterion
 
-::: {.callout-caution}
+::: callout-caution
 ## Interpretation
 
-- **Discriminant validity is met for all constructs**: For every construct, the square root of AVE (diagonal values, ranging from 0.558 for Ethical Risk Perceptions to 0.822 for Performance Expectancy) exceeds its correlations with all other constructs. This satisfies the Fornell-Larcker criterion, indicating each construct shares more variance with its own indicators than with any other construct in the model.
+-   **Discriminant validity is met for all constructs**: For every construct, the square root of AVE (diagonal values, ranging from 0.558 for Ethical Risk Perceptions to 0.822 for Performance Expectancy) exceeds its correlations with all other constructs. This satisfies the Fornell-Larcker criterion, indicating each construct shares more variance with its own indicators than with any other construct in the model.
 
-- **Effort Expectancy and Performance Expectancy show the smallest margin (0.672 vs. correlations of 0.608 and 0.657)**: While the criterion is still met, the gap between Effort Expectancy's diagonal value and its correlation with Awareness (0.608) and Performance Expectancy (0.657) is comparatively narrow. Combined with its low AVE noted in the reliability test, this suggests Effort Expectancy's discriminant validity is less comfortably established than the other constructs and is worth monitoring, e.g., with an HTMT check, which is generally considered a stricter and more reliable test than Fornell-Larcker.
+-   **Effort Expectancy and Performance Expectancy show the smallest margin (0.672 vs. correlations of 0.608 and 0.657)**: While the criterion is still met, the gap between Effort Expectancy's diagonal value and its correlation with Awareness (0.608) and Performance Expectancy (0.657) is comparatively narrow. Combined with its low AVE noted in the reliability test, this suggests Effort Expectancy's discriminant validity is less comfortably established than the other constructs and is worth monitoring, e.g., with an HTMT check, which is generally considered a stricter and more reliable test than Fornell-Larcker.
 
-- **Ethical Risk Perceptions is clearly distinct from the other constructs**: Its correlations with Awareness (0.270), Effort Expectancy (0.206), Performance Expectancy (0.160), and Use of AI (0.328) are all modest, and its diagonal value (0.558) comfortably exceeds each. This supports treating ethical risk perception as conceptually and empirically separate from the technology-acceptance constructs (awareness, effort/performance expectancy) in this model.
+-   **Ethical Risk Perceptions is clearly distinct from the other constructs**: Its correlations with Awareness (0.270), Effort Expectancy (0.206), Performance Expectancy (0.160), and Use of AI (0.328) are all modest, and its diagonal value (0.558) comfortably exceeds each. This supports treating ethical risk perception as conceptually and empirically separate from the technology-acceptance constructs (awareness, effort/performance expectancy) in this model.
 
-- **Caveat**: The Fornell-Larcker criterion is a commonly used but comparatively lenient test of discriminant validity, and it can fail to detect discriminant validity problems that HTMT would catch, especially for constructs already flagged with low AVE (Effort Expectancy, Ethical Risk Perceptions). These results should be corroborated with an HTMT ratio check before treating discriminant validity as fully established.
-
+-   **Caveat**: The Fornell-Larcker criterion is a commonly used but comparatively lenient test of discriminant validity, and it can fail to detect discriminant validity problems that HTMT would catch, especially for constructs already flagged with low AVE (Effort Expectancy, Ethical Risk Perceptions). These results should be corroborated with an HTMT ratio check before treating discriminant validity as fully established.
 :::
 
 ```{r}
 DT::datatable(summary_pls$validity$fl_criteria |> round(3))
 ```
 
-
 ## Structural model fit indices
 
-::: {.callout-caution}
+::: callout-caution
 ## Interpretation
 
-- **Collinearity is not a concern (VIF < 2)**: All predictors of Use of AI — Effort Expectancy (1.792), Ethical Risk Perceptions (1.045), and Performance Expectancy (1.761) — fall well below the 3.3 threshold, indicating the path coefficients are not distorted by multicollinearity among predictors.
+-   **Collinearity is not a concern (VIF \< 2)**: All predictors of Use of AI — Effort Expectancy (1.792), Ethical Risk Perceptions (1.045), and Performance Expectancy (1.761) — fall well below the 3.3 threshold, indicating the path coefficients are not distorted by multicollinearity among predictors.
 
-- **Awareness has a large effect on Effort and Performance Expectancy, but a small effect on Ethical Risk Perceptions (f²)**: Awareness explains a substantial share of variance in Effort Expectancy (f² = 0.586) and Performance Expectancy (f² = 0.858), both large effects. Its effect on Ethical Risk Perceptions is comparatively small (f² = 0.079), consistent with the low R² (7.3%) observed for that construct — awareness alone does little to shape how strongly students perceive ethical risks of AI.
+-   **Awareness has a large effect on Effort and Performance Expectancy, but a small effect on Ethical Risk Perceptions (f²)**: Awareness explains a substantial share of variance in Effort Expectancy (f² = 0.586) and Performance Expectancy (f² = 0.858), both large effects. Its effect on Ethical Risk Perceptions is comparatively small (f² = 0.079), consistent with the low R² (7.3%) observed for that construct — awareness alone does little to shape how strongly students perceive ethical risks of AI.
 
-- **Effort Expectancy contributes most to explaining AI use, though all effects are modest (f²)**: Among the three predictors of Use of AI, Effort Expectancy has the largest incremental contribution (f² = 0.143, small-to-medium), followed by Ethical Risk Perceptions (f² = 0.069) and Performance Expectancy (f² = 0.046), both small effects.
+-   **Effort Expectancy contributes most to explaining AI use, though all effects are modest (f²)**: Among the three predictors of Use of AI, Effort Expectancy has the largest incremental contribution (f² = 0.143, small-to-medium), followed by Ethical Risk Perceptions (f² = 0.069) and Performance Expectancy (f² = 0.046), both small effects.
 
-- **Model comparison via information criteria**: AIC and BIC are reported per endogenous construct rather than for the model overall, since PLS-SEM is variance-based and does not yield a single covariance-based fit statistic (e.g., CFI, RMSEA). These values are most useful for comparing alternative specifications of the same construct's predictors rather than judging absolute fit.
-
+-   **Model comparison via information criteria**: AIC and BIC are reported per endogenous construct rather than for the model overall, since PLS-SEM is variance-based and does not yield a single covariance-based fit statistic (e.g., CFI, RMSEA). These values are most useful for comparing alternative specifications of the same construct's predictors rather than judging absolute fit.
 :::
 
 ```{r}

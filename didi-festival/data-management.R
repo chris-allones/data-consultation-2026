@@ -20,7 +20,7 @@ fct_description <-
 ### factor data
 lkrt_dta <- 
   fct_dta |> 
-  select(fa_1:ewb_10) |> 
+  select(ci_1:ewb_10) |> 
   pivot_longer(
     cols = everything(),
     names_to = "item",
@@ -28,14 +28,18 @@ lkrt_dta <-
   ) |>  
   count(item, value) |>
   group_by(item) |>
-  mutate(percent = n / sum(n)) |>
+  mutate(
+    percent = n / sum(n),
+    # evaluated per item group, so levels span each item's own scale
+    # (1:5 or 1:7) rather than a single shared range
+    value_fct = factor(value, levels = seq_len(max(value)))
+  ) |>
   ungroup() |>
   left_join(fct_description, by = c("item" = "item")) |> 
   relocate(c(factor, description), .before = item) |> 
   mutate(
     pct_lab = str_c(round(percent * 100, 0))
-  ) |>
-  mutate(description = fct_rev(description))
+  )
 
 
 ## custom function
@@ -77,7 +81,7 @@ likert_labels <- list(
     "Not at all",
     "Slightly",
     "Somewhat",
-    "Moderately",
+    "Moderately",    
     "Quite a lot",
     "Very much",
     "Extremely"
@@ -101,12 +105,13 @@ plot_factor <-
     }
 
     # build a palette of the right length from the same warm-to-dark hues
-    base_pal <- c("#dc2f02", "#fe7f2d", "#dda15e", "#e43f6e", "#990033")
+    base_pal <- c("#990033", "#e43f6e", "#dda15e", "#fe7f2d",  "#dc2f02")
     pal <- colorRampPalette(base_pal)(n_points)
 
     dta_sub |>
       mutate(
-        value = factor(value, levels = seq_len(n_points), labels = scale_labs)
+        value = factor(value, levels = seq_len(n_points), labels = scale_labs),
+        value = fct_rev(value)
       ) |>
       ggplot(aes(percent, description, fill = value)) +
       geom_col(width = 0.6) +
@@ -131,5 +136,3 @@ plot_factor <-
       custom_theme
   }
 
-
-plot_factor("Festival")
