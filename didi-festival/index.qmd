@@ -189,6 +189,49 @@ knitr::include_graphics("plot/eudaimonic_well_being.png")
 ```
 
 
+# Exploratory Factor Analysis (EFA)
+
+```{r}
+library(psych)
+
+## item-level data for EFA
+efa_dta <- fct_dta |> dplyr::select(ci_1:ewb_10)
+```
+
+## Parallel analysis
+
+```{r}
+set.seed(8341)
+parallel_result <- fa(
+  efa_dta, 
+  nfactors = 6,
+  fm = "ml",
+  fa = "fa", 
+  rotate = "varimax",
+  n.iter = 100,
+  show.legend = TRUE
+)
+
+print(parallel_result$loadings, cut = 0.3, sort = TRUE)
+```
+
+## Factor extraction
+
+```{r}
+## extracting factors suggested by the parallel analysis, with
+## oblique rotation since the underlying constructs are expected to
+## be correlated
+efa_4factor <- fa(
+  efa_dta,
+  nfactors = 4,
+  fm = "ml",
+  rotate = "oblimin"
+)
+
+print(efa_4factor, cut = 0.3, sort = TRUE)
+```
+
+
 # PLS-SEM
 
 ```{r}
