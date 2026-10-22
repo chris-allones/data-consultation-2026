@@ -201,14 +201,23 @@ efa_dta <- fct_dta |> dplyr::select(ci_1:ewb_10)
 ## Parallel analysis
 
 ```{r}
+## run a parallel analysis
+parallel_analysis <- fa.parallel(efa_dta, n.iter = 100)
+```
+
+- pmfe items are highly correlated with fa items.
+- 
+
+```{r}
+efa_items_selected_dta <- efa_dta
+
 set.seed(8341)
 parallel_result <- fa(
-  efa_dta, 
+  efa_items_selected_dta, 
   nfactors = 6,
   fm = "ml",
   fa = "fa", 
-  rotate = "varimax",
-  n.iter = 100,
+  rotate = "oblimin",
   show.legend = TRUE
 )
 
@@ -219,16 +228,15 @@ print(parallel_result$loadings, cut = 0.3, sort = TRUE)
 
 ```{r}
 ## extracting factors suggested by the parallel analysis, with
-## oblique rotation since the underlying constructs are expected to
-## be correlated
-efa_4factor <- fa(
+## oblique rotation since the underlying constructs are expected to be correlated
+efa_6factor <- fa(
   efa_dta,
-  nfactors = 4,
+  nfactors = 6,
   fm = "ml",
-  rotate = "oblimin"
+  rotate = "varimax"
 )
 
-print(efa_4factor, cut = 0.3, sort = TRUE)
+print(efa_6factor$loadings, cut = 0.3, sort = TRUE)
 ```
 
 
@@ -290,25 +298,90 @@ summary_pls$vif_antecedents
 
 ## Structural model
 
+Two competing structural specifications are estimated for comparison: one where CI, FA, FS, and HII have **direct paths only** to EWB, and one where **PMFE mediates** the relationship between those factors and EWB (in addition to retaining the direct paths).
+
+```{r}
+## structural model: direct paths only (PMFE not mediating CI/FA/FS/HII,
+## but still included as a direct predictor of EWB)
+structural_model_direct <- relationships(
+  paths(from = c("CI", "FA", "FS", "HII", "PMFE"), to = "EWB")
+)
+
+pls_model_direct <- estimate_pls(
+  data = fct_dta,
+  measurement_model = measurement_model,
+  structural_model = structural_model_direct,
+  missing = mean_replacement,
+  missing_value = NA
+)
+
+summary_pls_direct <- summary(pls_model_direct)
+```
+
+```{r}
+## structural model: PMFE as mediator (plus direct paths, as originally specified)
+structural_model_mediated <- relationships(
+  paths(from = c("CI", "FA", "FS", "HII"), to = "PMFE"),
+  paths(from = "PMFE", to = "EWB"),
+  paths(from = c("CI", "FA", "FS", "HII"), to = "EWB")
+)
+
+pls_model_mediated <- estimate_pls(
+  data = fct_dta,
+  measurement_model = measurement_model,
+  structural_model = structural_model_mediated,
+  missing = mean_replacement,
+  missing_value = NA
+)
+
+summary_pls_mediated <- summary(pls_model_mediated)
+```
+
+### Direct-effects model
+
 ```{r}
 ## bootstrap for significance testing
 set.seed(4827)
-boot_pls <- bootstrap_model(
-  seminr_model = pls_model,
+boot_pls_direct <- bootstrap_model(
+  seminr_model = pls_model_direct,
   nboot = 5000,
   cores = parallel::detectCores() - 1
 )
 
-summary_boot <- summary(boot_pls, alpha = 0.05)
-plot(boot_pls)
+summary_boot_direct <- summary(boot_pls_direct, alpha = 0.05)
+plot(boot_pls_direct)
 ```
 
 ```{r}
-DT::datatable(summary_boot$bootstrapped_paths |> round(3))
+DT::datatable(summary_boot_direct$bootstrapped_paths |> round(3))
 ```
 
 ```{r}
 ## R-squared
-DT::datatable(summary_pls$paths |> round(3))
+DT::datatable(summary_pls_direct$paths |> round(3))
+```
+
+### Mediated model (PMFE as mediator)
+
+```{r}
+## bootstrap for significance testing
+set.seed(4827)
+boot_pls_mediated <- bootstrap_model(
+  seminr_model = pls_model_mediated,
+  nboot = 5000,
+  cores = parallel::detectCores() - 1
+)
+
+summary_boot_mediated <- summary(boot_pls_mediated, alpha = 0.05)
+plot(boot_pls_mediated)
+```
+
+```{r}
+DT::datatable(summary_boot_mediated$bootstrapped_paths |> round(3))
+```
+
+```{r}
+## R-squared
+DT::datatable(summary_pls_mediated$paths |> round(3))
 ```
 
