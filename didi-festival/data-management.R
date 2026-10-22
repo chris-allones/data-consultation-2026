@@ -11,7 +11,31 @@ library(scales)
 ## importing data
 fct_dta <- 
   read_excel("data/fest-data.xlsx") |> 
-  clean_names()
+  clean_names() |> 
+  mutate(
+    festival = if_else(festival == 1, "Mid-Autumn Festival", "National day festival"),
+    gender = if_else(gender == 1, "Female", "Male"),
+    area_of_residence = case_when(
+      area_of_residence == 1 ~ "Urban",
+      area_of_residence == 2 ~ "Suburban",
+      area_of_residence == 3 ~ "Rural"
+    ),
+    occupation = case_when(
+      occupation == 1 ~ "Student",
+      occupation == 2 ~ "Employed",
+      occupation == 3 ~ "Unemployed",
+      occupation == 4 ~ "Retired",
+      occupation == 5 ~ "Housewife/Househusband",
+      occupation == 6 ~ "Other"
+    ),
+    education_level = case_when(
+      education_level == 1 ~ "Below high school",
+      education_level == 2 ~ "High school",
+      education_level == 3 ~ "Bachelor's degree",
+      education_level == 4 ~ "Master's degree or above",
+      education_level == 5 ~ "Other"
+    )
+  )
 
 fct_description <- 
   read_excel("data/fest-data.xlsx", sheet = 2) |> 

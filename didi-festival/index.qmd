@@ -65,6 +65,30 @@ Copies of the Figures presented in this report are available using the links bel
 
 # Sociodemographic variables
 
+```{r}
+## descriptive
+fct_dta |> 
+  select(festival:gender, area_of_residence:education_level) |>
+  tbl_summary(
+    by = festival,
+    label = list(
+      gender ~ "Gender",
+      age ~ "Age",
+      area_of_residence ~ "Area of residence",
+      education_level ~ "Education level",
+      occupation ~ "Occupation"
+    ),
+  ) |> 
+  bold_labels() %>%
+  as_kable_extra(linesep = "") %>%
+  kable_minimal() %>%
+  kable_styling(
+    full_width = F,
+    fixed_thead = T,
+    bootstrap_options = c("striped", "hover", "condensed", "responsive")
+  )
+```
+
 # Factors
 
 ## Cultural identity
