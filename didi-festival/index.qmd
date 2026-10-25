@@ -65,6 +65,15 @@ Copies of the Figures presented in this report are available using the links bel
 
 # Sociodemographic variables
 
+The table below presents the demographic characteristics of respondents surveyed during the Mid-Autumn Festival (n = 158) and National Day Festival (n = 280). Statistical analyses revealed significant differences between the two festival groups in terms of age, area of residence, occupation, and educational attainment, whereas no significant difference was observed for gender. Data were collected from respondents participating during the Mid-Autumn Festival and National Day holiday.
+
+Respondents surveyed during the Mid-Autumn Festival were significantly older, with a median age of 26 years (Q1 = 23, Q3 = 32), compared with a median age of 20 years (Q1 = 19, Q3 = 22) among National Day respondents. Regarding residential location, urban residents constituted the majority in both groups; however, the Mid-Autumn Festival sample contained a substantially higher proportion of urban residents (83%) than the National Day Festival sample (64%), while the National Day group included a larger proportion of rural residents (32% versus 12%).
+
+Occupational status differed significantly between the two groups. The Mid-Autumn Festival sample was primarily composed of employed individuals (53%), whereas students represented the dominant group in the National Day Festival sample (79%). Similarly, educational attainment varied significantly across survey periods. Respondents surveyed during the Mid-Autumn Festival were more likely to possess postgraduate qualifications (31%), while bachelor's degree holders accounted for the largest proportion of respondents in the National Day Festival sample (63%).
+
+In contrast, although females constituted the majority of respondents in both the Mid-Autumn Festival (63%) and National Day Festival (69%) samples, the gender distribution did not differ significantly between the two groups. This suggests that both festival samples had comparable gender compositions.
+
+
 ```{r}
 ## descriptive
 fct_dta |>
@@ -79,8 +88,23 @@ fct_dta |>
       occupation ~ "Occupation"
     ),
   ) |>
-  bold_labels() %>%
-  as_kable_extra(linesep = "") %>%
+  # age is strongly right-skewed and non-normal in both groups (Shapiro-Wilk
+  # p < .001), so a Wilcoxon rank-sum test is used instead of a t-test;
+  # occupation and education_level have categories with very small counts
+  # (as few as 2-4), so Fisher's exact test is used instead of chi-square
+  # to avoid an unreliable chi-square approximation
+  add_p(
+    test = list(
+      age ~ "wilcox.test",
+      gender ~ "chisq.test",
+      area_of_residence ~ "chisq.test",
+      occupation ~ "fisher.test",
+      education_level ~ "fisher.test"
+    )
+  ) |>
+  bold_labels() |>
+  bold_p() |>
+  as_kable_extra(linesep = "", escape = TRUE) %>%
   kable_minimal() %>%
   kable_styling(
     full_width = F,
